@@ -38,11 +38,4 @@ Soon to come:
   o Shadowing (not realtime?)
 
 For more information, contact:
-  Tim Meekins
-  8372 Morris Rd.
-  Hilliard, OH 43026
-  (614) 878-6557
-
-  meekins@cis.ohio-state.edu
-  timm@pro-tcc.cts.com
-  meekins@bluemoon.uucp
+ tim@tmeekins.com
