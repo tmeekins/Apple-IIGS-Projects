@@ -1,0 +1,43 @@
+"ProTerm Emulation
+!
+! This file emulates the the ProTerm special codes which are in
+! turn based on DataMedia 1500 and Ascii Express terminal codes
+!
+&7F
++00
+!
+! Define the output parameters
+!
+#OUT
+$00 NULL
+$01 CR
+$02 EOL
+$03 NULL
+$04 DELCHAR
+$05 PROTERM
+$06 INSCHAR
+$07 BELL
+$08 BS
+$09 TAB
+$0A LF
+$0B UP
+$0C HOMECLR
+$0D CR
+$0E NORMAL
+$0F INVERSE
+$10 MOUSETEXT
+$11 NULL
+$12 REPEAT
+$13 PAUSE
+$14 TONE
+$15 RIGHT
+$16 INSLINE
+$17 CLREOS
+$18 HOME
+$19 CLREOL
+$1A DELLINE
+$1B NULL
+$1C NULL
+$1D NULL
+$1E POSXY32
+$1F NULL

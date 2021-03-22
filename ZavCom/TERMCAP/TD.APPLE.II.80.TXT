@@ -1,0 +1,42 @@
+"Apple II 80-column firmware emulation
+!
+! Emulate the Apple II 80 column firmware
+!
+&7F
++00
+!
+! Define the output parameters
+!
+#OUT
+$00 NULL
+$01 NULL
+$02 NULL
+$03 NULL
+$04 NULL
+$05 CURSOROFF
+$06 CURSORON
+$07 BELL
+$08 BS
+$09 NULL
+$0A LF
+$0B CLREOS
+$0C HOMECLR
+$0D CR
+$0E NORMAL
+$0F INVERSE
+$10 NULL
+$11 NULL
+$12 NULL
+$13 PAUSE
+$14 NULL
+$15 NULL
+$16 SCROLLDOWN
+$17 SCROLLUP
+$18 INVERSE
+$19 HOME
+$1A CLRLINE
+$1B MOUSETEXT
+$1C RIGHT
+$1D CLREOL
+$1E POSXY32
+$1F UP

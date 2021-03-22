@@ -1,0 +1,19 @@
+"ANSI Emulation
+!
+! This file emulates the ANSI screen standard and IBM styled text graphics
+!
+&FF
++00
+!
+! Define the output parameters
+!
+#OUT
+$00 NULL
+$07 BELL
+$08 BS
+$09 TAB
+$0A LF
+$0C HOMECLR
+$0D CR
+$B1 $96
+$C4 $93

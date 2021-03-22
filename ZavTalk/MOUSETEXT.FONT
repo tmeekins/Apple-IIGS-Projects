@@ -1,0 +1,365 @@
+0000-   00          BRK
+0001-   C0 03       CPY   #$03
+0003-   00          BRK
+0004-   3C F0 FF    BIT   $FFF0,X
+0007-   FC          ???
+0008-   FF          ???
+0009-   F0 FF       BEQ   $000A
+000B-   F0 3F       BEQ   $004C
+000D-   FC          ???
+000E-   3C F0 00    BIT   $00F0,X
+0011-   C0 03       CPY   #$03
+0013-   00          BRK
+0014-   3C F0 C0    BIT   $C0F0,X
+0017-   0C C0 30    TSB   $30C0
+001A-   C0 30       CPY   #$30
+001C-   33          ???
+001D-   0C 3C F0    TSB   $F03C
+0020-   00          BRK
+0021-   00          BRK
+0022-   00          BRK
+0023-   00          BRK
+0024-   30 00       BMI   $0026
+0026-   3C 00 3F    BIT   $3F00,X
+0029-   00          BRK
+002A-   3F          ???
+002B-   C0 3C       CPY   #$3C
+002D-   F0 30       BEQ   $005F
+002F-   0C FF FC    TSB   $FCFF
+0032-   30 30       BMI   $0064
+0034-   0C C0 03    TSB   $03C0
+0037-   00          BRK
+0038-   03          ???
+0039-   00          BRK
+003A-   0C C0 33    TSB   $33C0
+003D-   30 FF       BMI   $003E
+003F-   FC          ???
+0040-   00          BRK
+0041-   00          BRK
+0042-   00          BRK
+0043-   0C 00 30    TSB   $3000
+0046-   C0 C0       CPY   #$C0
+0048-   33          ???
+0049-   00          BRK
+004A-   0C 00 0C    TSB   $0C00
+004D-   00          BRK
+004E-   00          BRK
+004F-   00          BRK
+0050-   00          BRK
+0051-   00          BRK
+0052-   00          BRK
+0053-   0C 00 30    TSB   $3000
+0056-   C0 C0       CPY   #$C0
+0058-   33          ???
+0059-   00          BRK
+005A-   0C 00 0C    TSB   $0C00
+005D-   00          BRK
+005E-   00          BRK
+005F-   00          BRK
+0060-   00          BRK
+0061-   00          BRK
+0062-   00          BRK
+0063-   0C 00 0C    TSB   $0C00
+0066-   0C 0C 3C    TSB   $3C0C
+0069-   0C FF FC    TSB   $FCFF
+006C-   3C 00 0C    BIT   $0C00,X
+006F-   00          BRK
+0070-   FF          ???
+0071-   FF          ???
+0072-   00          BRK
+0073-   00          BRK
+0074-   FF          ???
+0075-   FF          ???
+0076-   00          BRK
+0077-   00          BRK
+0078-   FF          ???
+0079-   FF          ???
+007A-   00          BRK
+007B-   00          BRK
+007C-   00          BRK
+007D-   00          BRK
+007E-   FF          ???
+007F-   FF          ???
+0080-   03          ???
+0081-   00          BRK
+0082-   0C 00 30    TSB   $3000
+0085-   00          BRK
+0086-   FF          ???
+0087-   FF          ???
+0088-   30 00       BMI   $008A
+008A-   0C 00 03    TSB   $0300
+008D-   00          BRK
+008E-   00          BRK
+008F-   00          BRK
+0090-   00          BRK
+0091-   00          BRK
+0092-   00          BRK
+0093-   00          BRK
+0094-   00          BRK
+0095-   00          BRK
+0096-   00          BRK
+0097-   00          BRK
+0098-   00          BRK
+0099-   00          BRK
+009A-   00          BRK
+009B-   00          BRK
+009C-   00          BRK
+009D-   00          BRK
+009E-   33          ???
+009F-   30 03       BMI   $00A4
+00A1-   00          BRK
+00A2-   03          ???
+00A3-   00          BRK
+00A4-   03          ???
+00A5-   00          BRK
+00A6-   03          ???
+00A7-   00          BRK
+00A8-   C3          ???
+00A9-   0C 33 30    TSB   $3033
+00AC-   0F          ???
+00AD-   C0 03       CPY   #$03
+00AF-   00          BRK
+00B0-   03          ???
+00B1-   00          BRK
+00B2-   0F          ???
+00B3-   C0 33       CPY   #$33
+00B5-   30 C3       BMI   $007A
+00B7-   0C 03 00    TSB   $0003
+00BA-   03          ???
+00BB-   00          BRK
+00BC-   03          ???
+00BD-   00          BRK
+00BE-   03          ???
+00BF-   00          BRK
+00C0-   FF          ???
+00C1-   FF          ???
+00C2-   00          BRK
+00C3-   00          BRK
+00C4-   00          BRK
+00C5-   00          BRK
+00C6-   00          BRK
+00C7-   00          BRK
+00C8-   00          BRK
+00C9-   00          BRK
+00CA-   00          BRK
+00CB-   00          BRK
+00CC-   00          BRK
+00CD-   00          BRK
+00CE-   00          BRK
+00CF-   00          BRK
+00D0-   00          BRK
+00D1-   00          BRK
+00D2-   00          BRK
+00D3-   0C 00 0C    TSB   $0C00
+00D6-   0C 0C 3C    TSB   $3C0C
+00D9-   0C FF FC    TSB   $FCFF
+00DC-   3C 00 0C    BIT   $0C00,X
+00DF-   00          BRK
+00E0-   FF          ???
+00E1-   FC          ???
+00E2-   FF          ???
+00E3-   FC          ???
+00E4-   FF          ???
+00E5-   FC          ???
+00E6-   FF          ???
+00E7-   FC          ???
+00E8-   FF          ???
+00E9-   FC          ???
+00EA-   FF          ???
+00EB-   FC          ???
+00EC-   FF          ???
+00ED-   FC          ???
+00EE-   FF          ???
+00EF-   FC          ???
+00F0-   F0 C3       BEQ   $00B5
+00F2-   03          ???
+00F3-   C0 0F       CPY   #$0F
+00F5-   C0 3F       CPY   #$3F
+00F7-   FC          ???
+00F8-   0F          ???
+00F9-   C0 03       CPY   #$03
+00FB-   C0 00       CPY   #$00
+00FD-   C0 FF       CPY   #$FF
+00FF-   3F          ???
+0100-   C3          ???
+0101-   0F          ???
+0102-   03          ???
+0103-   C0 03       CPY   #$03
+0105-   F0 FF       BEQ   $0106
+0107-   FC          ???
+0108-   03          ???
+0109-   F0 03       BEQ   $010E
+010B-   C0 03       CPY   #$03
+010D-   00          BRK
+010E-   FC          ???
+010F-   FF          ???
+0110-   C0 03       CPY   #$03
+0112-   C0 C3       CPY   #$C3
+0114-   00          BRK
+0115-   C0 3F       CPY   #$3F
+0117-   FF          ???
+0118-   0F          ???
+0119-   FC          ???
+011A-   03          ???
+011B-   F0 C0       BEQ   $00DD
+011D-   C3          ???
+011E-   C0 03       CPY   #$03
+0120-   C0 03       CPY   #$03
+0122-   C0 C3       CPY   #$C3
+0124-   03          ???
+0125-   F0 0F       BEQ   $0136
+0127-   FC          ???
+0128-   3F          ???
+0129-   FF          ???
+012A-   00          BRK
+012B-   C0 C0       CPY   #$C0
+012D-   C3          ???
+012E-   C0 03       CPY   #$03
+0130-   00          BRK
+0131-   00          BRK
+0132-   00          BRK
+0133-   00          BRK
+0134-   00          BRK
+0135-   00          BRK
+0136-   FF          ???
+0137-   FF          ???
+0138-   00          BRK
+0139-   00          BRK
+013A-   00          BRK
+013B-   00          BRK
+013C-   00          BRK
+013D-   00          BRK
+013E-   00          BRK
+013F-   00          BRK
+0140-   C0 00       CPY   #$00
+0142-   C0 00       CPY   #$00
+0144-   C0 00       CPY   #$00
+0146-   C0 00       CPY   #$00
+0148-   C0 00       CPY   #$00
+014A-   C0 00       CPY   #$00
+014C-   C0 00       CPY   #$00
+014E-   FF          ???
+014F-   FF          ???
+0150-   03          ???
+0151-   00          BRK
+0152-   00          BRK
+0153-   C0 00       CPY   #$00
+0155-   30 FF       BMI   $0156
+0157-   FC          ???
+0158-   00          BRK
+0159-   30 00       BMI   $015B
+015B-   C0 03       CPY   #$03
+015D-   00          BRK
+015E-   00          BRK
+015F-   00          BRK
+0160-   33          ???
+0161-   33          ???
+0162-   CC CC 33    CPY   $33CC
+0165-   33          ???
+0166-   CC CC 33    CPY   $33CC
+0169-   33          ???
+016A-   CC CC 33    CPY   $33CC
+016D-   33          ???
+016E-   CC CC 33    CPY   $33CC
+0171-   33          ???
+0172-   CC CC 33    CPY   $33CC
+0175-   33          ???
+0176-   CC CC 33    CPY   $33CC
+0179-   33          ???
+017A-   CC CC 33    CPY   $33CC
+017D-   33          ???
+017E-   CC CC 00    CPY   $00CC
+0181-   00          BRK
+0182-   03          ???
+0183-   FF          ???
+0184-   0C 03 0C    TSB   $0C03
+0187-   00          BRK
+0188-   0C 00 0C    TSB   $0C00
+018B-   00          BRK
+018C-   0F          ???
+018D-   FF          ???
+018E-   00          BRK
+018F-   00          BRK
+0190-   00          BRK
+0191-   00          BRK
+0192-   00          BRK
+0193-   00          BRK
+0194-   FF          ???
+0195-   C0 00       CPY   #$00
+0197-   30 00       BMI   $0199
+0199-   30 00       BMI   $019B
+019B-   30 FF       BMI   $019C
+019D-   F0 00       BEQ   $019F
+019F-   00          BRK
+01A0-   00          BRK
+01A1-   03          ???
+01A2-   00          BRK
+01A3-   03          ???
+01A4-   00          BRK
+01A5-   03          ???
+01A6-   00          BRK
+01A7-   03          ???
+01A8-   00          BRK
+01A9-   03          ???
+01AA-   00          BRK
+01AB-   03          ???
+01AC-   00          BRK
+01AD-   03          ???
+01AE-   00          BRK
+01AF-   03          ???
+01B0-   03          ???
+01B1-   00          BRK
+01B2-   0F          ???
+01B3-   C0 3F       CPY   #$3F
+01B5-   F0 FF       BEQ   $01B6
+01B7-   FC          ???
+01B8-   3F          ???
+01B9-   F0 0F       BEQ   $01CA
+01BB-   C0 03       CPY   #$03
+01BD-   00          BRK
+01BE-   00          BRK
+01BF-   00          BRK
+01C0-   FF          ???
+01C1-   FF          ???
+01C2-   00          BRK
+01C3-   00          BRK
+01C4-   00          BRK
+01C5-   00          BRK
+01C6-   00          BRK
+01C7-   00          BRK
+01C8-   00          BRK
+01C9-   00          BRK
+01CA-   00          BRK
+01CB-   00          BRK
+01CC-   00          BRK
+01CD-   00          BRK
+01CE-   FF          ???
+01CF-   FF          ???
+01D0-   0C C0 0C    TSB   $0CC0
+01D3-   C0 FC       CPY   #$FC
+01D5-   FC          ???
+01D6-   00          BRK
+01D7-   00          BRK
+01D8-   FC          ???
+01D9-   FC          ???
+01DA-   0C C0 0C    TSB   $0CC0
+01DD-   C0 00       CPY   #$00
+01DF-   00          BRK
+01E0-   FF          ???
+01E1-   FC          ???
+01E2-   00          BRK
+01E3-   0C 00 0C    TSB   $0C00
+01E6-   0F          ???
+01E7-   0C 0F 0C    TSB   $0C0F
+01EA-   00          BRK
+01EB-   0C 00 0C    TSB   $0C00
+01EE-   FF          ???
+01EF-   FC          ???
+01F0-   C0 00       CPY   #$00
+01F2-   C0 00       CPY   #$00
+01F4-   C0 00       CPY   #$00
+01F6-   C0 00       CPY   #$00
+01F8-   C0 00       CPY   #$00
+01FA-   C0 00       CPY   #$00
+01FC-   C0 00       CPY   #$00
+01FE-   C0 00       CPY   #$00

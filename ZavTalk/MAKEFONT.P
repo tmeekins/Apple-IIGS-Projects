@@ -1,0 +1,88 @@
+program makefont(input,output,f);
+
+  var
+    ch: char;
+    f: file of integer;
+    table: array[0..255,1..8] of integer;
+    name: string;
+    value: array[1..8] of integer;
+    max,min: integer;
+
+procedure readchar;
+  var
+    font,i,j,val: integer;
+    ch: char;
+  begin
+    font := 0;
+    read(ch); val := (ord(ch) & $ff) - ord('0');
+    while val in [0..9] do
+      begin
+        font := font*10 + val;
+        read(ch); val := (ord(ch) & $ff) - ord('0')
+      end;
+    readln;
+    if font>max then max := font;
+    if font<min then min := font;
+    for i := 1 to 8 do
+      begin
+        val := 0;
+        for j := 1 to 8 do
+          begin
+            read(ch);
+            if ord(ch) & $ff = ord('#') then
+              val := val+value[j]
+          end;
+        readln;
+        table[font,i] := val
+      end
+  end; { readchar }
+
+procedure init;
+  var
+    i,j: integer;
+  begin
+    for i := 0 to 255 do
+      for j := 1 to 8 do
+        table[i,j] := 0;
+    name := 'DEFAULT.FONT';
+    value[5] := -16384;
+    value[6] := 12288;
+    value[7] := 3072;
+    value[8] := 768;
+    value[1] := 192;
+    value[2] := 48;
+    value[3] := 12;
+    value[4] := 3;
+    max := 0;
+    min := 255
+  end; { init }
+
+procedure done;
+  var
+    i,j: integer;
+  begin
+    open(f,name);
+    rewrite(f);
+    for i := min to max do
+      for j := 1 to 8 do
+        write(f,table[i,j]);
+    close(f)
+  end; { done }
+
+begin
+
+  init;
+
+  read(ch);
+
+  while ch<>'\' do
+    begin
+      if ch='!' then readln else
+      if ch='=' then begin readln(name); writeln('File: ',name) end else
+      if ch='@' then readchar;
+      read(ch)
+    end;
+
+  done;
+
+end.
