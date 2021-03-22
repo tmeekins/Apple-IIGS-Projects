@@ -1,0 +1,33 @@
+;
+; GrLib uses many direct page locations for passing parameters. They are
+; listed below.
+;
+GLFix1         gequ  $D2                ;Fixed-point number
+GLFix2         gequ  $D6                ;
+MatrixPtr      gequ  $DA                ;Transformation matrix
+GLParm         gequ  $DE                ;Parameter to GL routines
+PointPtr       gequ  $E2                ;Pointer to point table
+PolyPtr        gequ  $E6                ;Pointer to polygon
+Pattern        gequ  $FA                ;Current drawing pattern
+XCoord2        gequ  $EC                ;Used by routines which require two
+YCoord2        gequ  $F0                ; coordinate pairs
+XCoord1        gequ  $F4                ;Current coordinate for plotting
+YCoord1        gequ  $F8
+ScanLinePtr    gequ  $FC                ;Address of current scanline
+;
+; Matrix element offset table
+;
+; [ v11 v12 v13 ]
+; [ v21 v22 v23 ]
+; [ v31 v32 v33 ]
+;
+v11            gequ  0
+v12            gequ  4
+v13            gequ  8
+v21            gequ  12
+v22            gequ  16
+v23            gequ  20
+v31            gequ  24
+v32            gequ  28
+v33            gequ  32
+vsize          gequ  36

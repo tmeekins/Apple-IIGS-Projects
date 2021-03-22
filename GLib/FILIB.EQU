@@ -1,0 +1,6 @@
+*
+* Direct page locations used by FiLib (Fixed-Point Library)
+*
+fArg1          gequ  $B4
+fArg2          gequ  $B8
+fResult        gequ  $BC

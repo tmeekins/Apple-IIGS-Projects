@@ -1,0 +1,6 @@
+*
+* Direct page locations used by InLib (Integer Libraray)
+*
+Arg1           gequ  $CA
+Arg2           gequ  $CC
+Result         gequ  $CE

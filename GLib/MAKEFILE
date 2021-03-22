@@ -1,0 +1,39 @@
+>filib.asm:filib.equ
+>filib.asm:inlib.equ
+>inlib.asm:inlib.equ
+>grlib.asm:grlib.equ
+>grlib.asm:inlib.equ
+>grlib.asm:filib.equ
+>grlib.asm:gpoly.inc
+>grlib.asm:gwind.inc
+>grlib.asm:gtran.inc
+>grlib.asm:gmisc.inc
+>grlib.asm:gpara.inc
+>test.asm:grlib.equ
+-filib.equ
+-grlib.equ
+-inlib.equ
+-gpoly.inc
+-gwind.inc
+-gtran.inc
+-gmisc.inc
+-gpara.inc
+!filib.asm
+!grlib.asm
+!inlib.asm
+!test.asm
+?grlib.root,2
+#delete l/grlib
+#makelib l/grlib +grlib.root +grlib.a
+?inlib.root,2
+#delete l/inlib
+#makelib l/inlib +inlib.root +inlib.a
+?filib.root,2
+#delete l/filib
+#makelib l/filib +filib.root +filib.a
+#link test l/grlib l/inlib l/filib keep=test
+-grlib.root
+-inlib.root
+-filib.root
+-test.root
+#delete =.a
