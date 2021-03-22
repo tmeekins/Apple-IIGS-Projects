@@ -1,0 +1,7 @@
+ macro
+&lab inx4
+&lab inx
+ inx
+ inx
+ inx
+ mend
