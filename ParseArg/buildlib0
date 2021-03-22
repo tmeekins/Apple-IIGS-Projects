@@ -1,0 +1,3 @@
+makelib 13/libgno +o/gnocmd.root
+makelib 13/libgno +o/parsearg.root
+makelib 13/libgno +o/parsearg.a
