@@ -1,0 +1,52 @@
+# Tim's super gshrc
+#
+# set up prefixes
+#
+prefix 2  /usr/lib
+prefix 3  /usr/shell
+prefix 4  /usr/shell
+prefix 5  /bin/lang
+prefix 6  /bin/orca
+prefix 13 2/
+prefix 14 3/
+prefix 15 4/
+prefix 16 5/
+prefix 17 6/
+prefix 31 /usr
+#
+# Initializes our environment
+#
+setenv path     "/bin/orca /bin/gno /bin"
+setenv prompt   "[%h] %U%t%u %c> "
+setenv history  20
+setenv savehist 20
+setenv term     gnocon
+setenv tmacdir  "/usr/lib/tmac"
+setenv termcap  "/etc/termcap"
+setenv usrman   "/usr/man"
+setenv home	/usr2/gsh
+setenv fignore	".bak .a .root .sym"
+#
+# Aliases
+#
+alias dir   ls -l
+alias ls    ls -F
+alias h     history
+alias cp    cp -vi
+alias mv    cp -vip mv
+alias rm    cp -vip rm
+alias rmdir cp -vip rm -r
+alias lo    exit
+alias help  'echo "The following commands are availble:\\n" ; commands'
+#
+# Start some daemons
+#
+# 6/lpd &
+#
+# Move to the home directory
+#
+cd
+echo " "
+echo "Welcome to GNO, multitasking on the GS!!"
+echo " "
+echo -n "Today's time:" ; /bin/qtime

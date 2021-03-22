@@ -1,0 +1,3 @@
+echo -n "hi there"
+set bar=$<
+echo you suck $bar

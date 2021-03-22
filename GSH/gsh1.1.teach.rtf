@@ -1,0 +1,130 @@
+{\rtf1\ansi\ansicpg1252\deff0\deflang1033\deflangfe1033{\fonttbl{\f0\fmodern\fprq1\fcharset0 Courier New;}{\f1\froman\fprq2\fcharset0 Times New Roman;}{\f2\fswiss\fprq2\fcharset0 Arial;}{\f3\froman\fprq2\fcharset2 Symbol;}}
+\viewkind4\uc1\pard\f0\fs20 \f1 \fs14 \fs28 \b GNO/Shell\u8482? v1.1\f1 \b0  \f1 \b addendum\f1 \b0 \par
+\f1 \fs22 \i by Tim Meekins, February 1993\f1 \i0 \par
+Copyright \u169? 1993 by Tim Meekins and Procyon Enterprises\par
+\par
+This document covers all changes made to the GNO/Shell since the 1.0 release of GNO/Shell in January, 1992.\par
+\par
+\f1 \ul BUG FIXES\f1 \ulnone \par
+\par
+\tab \u8226? Fixed a bug which caused the command-line to abort execution after certain built-in functions were executed.\par
+\tab \u8226? When called in a script, \u8220?exit\u8221? will abort the script instead of quitting the GNO/Shell. \par
+\tab \u8226? Command-line editor word-completion has been fixed to allow completion of the */ boot directory.\par
+\tab \u8226? Fixed a problem when no commands are hashed.\par
+\tab \u8226? fixed a major bug in the \f0 \fs36 system()\f1 \fs22  call vector in GNO/Shell. This will let programs such as '\f0 \fs36 make\f1 \fs22 ' work quite a bit better.\par
+\tab \u8226? fixed a minor bug which occassionally caused an \u8220?alias not found\u8221? error message when the alias did in fact exist.\par
+\par
+\f1 \ul CHANGES\f1 \ulnone \par
+\par
+\tab \u8226? .ttya and .ttyb are displayed as \u8220?ta\u8221? and \u8220?tb\u8221? respectively in \u8220?\f0 \fs36 ps\f1 \fs22 .\u8221? The null driver is displayed as \u8220?nu\u8221?.\par
+\tab \u8226? The \u8220?USER\u8221? field in \u8220?\f0 \fs36 ps\f1 \fs22 \u8221? has been renamed to \u8220?MMID.\u8221?\par
+\tab \u8226? Removed the extra newlines around the \u8220?There are sropped jobs\u8221? message.\par
+\tab \u8226? The message-of-the-day is no longer diaplayed by the shell and is left to the login suite.\par
+\tab \u8226? \u8220?\f1 wh\f0 \fs36 ich\f1 \fs22 \u8221? displays the filename after the path for commands in the current directory.\par
+\par
+\f1 \ul NEW FEATURES\f1 \ulnone \par
+\par
+\tab \u8226? When receiving a \u8220?There are stopped jobs\u8221? upon trying to quite, a second consecutive attempt to quite the shell will result in all current jobs being terminated (even if they\u8217?re running) and the shell will then exit. No commands may appear between the two attempts to quit. This behaviour is still slightly incorrect as it allows the user to exit if there are running jobs. This will be cleaned up and fixed for version 2.0.\par
+\tab \u8226? A new option, \u8220?-l\u8221? has been added to \u8220?\f0 \fs36 kill\f1 \fs22 \u8221? which will list each of the signal names that can be sent.\par
+\par
+\f1 \ul NEW COMMANDS\f1 \ulnone \par
+\par
+\f0 \fs36 hash\par
+\tab \f1 \fs22 \u8216?\f0 \fs36 hash\f1 \fs22 \u8217? displays to the screen in columnular format all executable utilities that were hashed from the \f0 \fs36 $path\f1 \fs22  variable specifed by the user. All of these files are directly executable by the user regardless of where the current working directory is located.\par
+\par
+\f0 \fs36 edit <filename>\par
+\f1 \fs22 \tab This is a new version of edit. It previously was an external command but is now built-in to the shell and written in full assembly code. \u8220?\f0 \fs36 edit\f1 \fs22 \u8221? will launch the standard editor \f0 \fs36 4:editor\f1 \fs22  or the editor contained in the \f0 \fs36 $editor\f1 \fs22 .\par
+\par
+\f2 \fs36 \fs24  4/23/92 d11 - full directory stack support!! pushd, popd, and dirs!!\par
+  6/22/92 d14 - Began writing custom stdio for the shell using GS/OS output.\par
+             - finished stdout and stderr for gsh.\par
+         d15 - history file is no longer deleted on gsh start-up\par
+             - fixed '~' printer used in 'dirs'. /usr2/ was displayed as\par
+               ~2 if $home was /usr. Looked real dumb :) and was incorrect.\par
+             - optimizations to job control\par
+ 6/26/92 d17 - began work on stdin for gsh. Uses GS/OS, ioctl(), etc...\par
+             - began rewriting editor. Now uses key translation tables and\par
+               command jump tables.\par
+             - editor now accepts multiple character commands.\par
+ 6/27/92     - further work on editor\par
+             - started work on termcap support in gsh. most command-line\par
+               editing uses termcap now.\par
+ 6/28/92     - continued work on editor and termcap\par
+             - 'clear' and 'echo' builtins now use termcap.\par
+             - prompt now uses termcap.\par
+             - hacked up a quick 'tset' builtin.\par
+             - wrote keybinding function, termcap arrow keys now bound!\par
+             - beta test release sent out\par
+ 6/29/92 d18 - if alias 'precmd' is defined, it is executed before drawing\par
+               each prompt.\par
+             - if $pushdsilent is set, then directory stack not displayed\par
+               after 'pushd' and 'popd'.\par
+             - termcap optimizations for history mechanism in editor.\par
+             - termcap optimizations for kill-line and kill-end-of-line.\par
+             - fixed bug in overwrite mode of editor...required too many\par
+               returns to end line -> rts's weren't being pulled off the\par
+               stack :)\par
+ 6/30/92     - fixed a bug in the 'which' command when displaying files in cwd.\par
+             - the cursor is now left on when running applications.\par
+             - added '-c' option to gsh command-line\par
+             - wrote 'source' built-in\par
+ 7/04/92     - fixed two bugs in prompt display code.\par
+ 7/17/92     - fixed puts to not choke on NULL strings.\par
+ 7/21/92     - Temporarily added Push/PopVariables to the code\par
+             - ospeed is now set so that padding can be done by termcap.\par
+               This fixed the dropped characters on my Xerox terminal when\par
+               doing screen clears.\par
+             - fixed a bug in 'tset'. Was doing a jsr instead of jsl. oops.\par
+             - set term can be in gshrc w/o manually doing a tset now.\par
+             - 'ps' now scans job list to find names of 'forked' processes.\par
+             - 'ps' nows displays tty numbers, since the ttyname is set\par
+               in 31/etc/ttys and not necessarily second-guessed by gsh.\par
+ 7/25/92     - fixed cursor off problems.\par
+ 8/26/92 d19 - larger number of builtins can be redirected or piped.\par
+             - Open-Apple is now mapped to meta (ESC).\par
+             - The editor tells gnocon to translate arrows into VT100 codes.\par
+             - fixed editor bug clearing entire line.\par
+             - wrote 'bindkey' built-in.\par
+ 8/27/92 d20 - faster built-in searching.\par
+             - wrote 'setenv' builtin.\par
+ 8/28/92     - termcap optimizations to word completion\par
+             - word completion now matches variables if word starts with '$'.\par
+ 8/29/92     - only executuables are expanded if the word is a command. All\par
+               files are expanded for arguments.\par
+ 8/30/92     - words to complete no longer need to be separated with spaces,\par
+               ';','|', and '&' are now also recognized.\par
+ 9/01/92     - 'cd' no longer reports bad pathname syntax if $home not set.\par
+             - 'pid' parsing now does syntax checking :)\par
+             - kill won't allow killing process 0\par
+             - changed 'jobs' invocation from method 0 to method 1.\par
+             - word completion will not occur if the word contains an '=',\par
+               single quote or double quote.\par
+ 9/03/92     - fixed memory trashing problem in 'source'\par
+ 9/04/92     - 'ps' only displays processes with the users uid. Be sure to\par
+               use login, or you'll be the kernel's uid and get to see all\par
+\tab off the kernel's processes as your own.\par
+ 9/20/92     - fixed open-apple mapping\par
+             - changed keyboard mapping\par
+             - tab expands directories as the command\par
+             - set problem with '-f' fixed\par
+ 9/21/92     - fixed 'cd' with no arguments.\par
+             - fixed 'set foo' and 'setenv foo'.\par
+             - fixed bug again in 'cd'.\par
+             - 'set' and 'setenv' list exported variable names in upper case\par
+             - fixed a probelm in puts when passed a null pointer.\par
+             - fixed pointer bug in '~' compactor\par
+             - wrote 256 byte buffer pool\par
+ 9/22/92     - fixed parsing bug when parsing two or more command-lines\par
+               simultaneously.\par
+             - wrote 1024 byte buffer pool.\par
+             - word completion now matches built-ins\par
+             - wordmatching ignores matches if the suffix is contained in\par
+               the $fignore variable.\par
+10/31/92 d21 - fixed bug in piping mechanism.\par
+11/04/92     - fixed hashing problems.\par
+11/17/92     - new builtin 'commands' lists all built-in commands. Try aliasing\par
+               help to this for beginning users.\par
+01/17/92 b01 - fixed prefix not printing correctly if null.\par
+             - word completion will expand to proper case.\par
+}
+ 

@@ -1,0 +1,744 @@
+FINAL RELEASE OF VERSION 1.0!!!
+-------------------------------
+
+UPDATES SINCE 1/6/92
+--------------------
+
+ONLY a SIGTSTP will print ^Z...
+
+OA-LeftArrow and OA-RightArrow are now implemented.
+
+ClrLine in shell replaced with CLEOL.
+
+Fixed a bug in aliasing which caused No Match to fail.
+
+over-rode the stack size of 4K with a 2K stack segment.
+
+numerous minor mods....
+
+gshrc is now executed by the shell invocation routines. gshrc should
+behave much more nicely now.
+
+'nobeep' variable, when set, will make the shell a little less obnoxious.
+
+fixed character garbage after ^C or ^Z on command-line.
+
+more fixes for ttys to work correctly
+
+system() vector works a little better
+
+ps now displays a little more information on forked processes.
+
+lots of invoke code rewritten, pipelines work better
+
+fixed process group bug in 'fg'
+
+If a command in a pipeline cannot be found, then the previous processes in the
+pipeline are killed properly.
+
+shell manual frozen. All new changes must be placed in an addendum.
+
+new output format for 'ps'
+
+reworked many builtins.
+
+'df' now report all devices.
+
+pipelines die gracefully now.
+
+redirection error handling upgraded.
+
+hacked a fix when running files in the current directory in a pipeline
+
+finished ^D command matcher.
+
+TAB expander 1.0 is finished....smart tabber will be written for release 1.1.
+
+Fixed ^C and ^Z on the command-line.
+
+Fixed repeated prompt being displayed bug I think...
+
+command-line cleaned-up automatically when a background job finishes.
+
+process id is displayed in addition to the job number when a job is started
+in the background.
+
+fixed problem incorrectly displaying '&' in job list. Bug incurred when pipes
+added.
+
+slightly smarter TAB expander.
+
+fixed a problem with TABBing and ^Ding with a complete pathname
+
+globbing not allowed in command-line expansion.
+
+'/' and ':'s added to TABBed directories
+
+minor bug fixes.
+
+pipelines now run in background.
+
+UPDATES SINCE 12/22/91
+----------------------
+
+typo correction
+
+increased speed of auto-globber
+
+partial newline quoting added, don't expect it to work, though.
+A total re-write of script code is needed.
+
+lines > 80 characters in scripts are now allowed.
+
+pipes are up and running
+
+pipelines now work with process groups so that signals can be sent to entire
+pipelines.
+
+fixed memory trash bug when CR pressed on empty command-line (not verified, but
+whatever I fixed was certainly a bug, and it only happened on empty command-
+lines).
+
+Jobs placed in background with '&' now display the job number.
+
+All aliases on a command-line are now expanded, not just the first one.
+
+globbing now reflects changes made to InitWildcard in kernel.
+
+'fg', 'bg', and 'stop' send signals to process groups instead of pid's now.
+
+sped-up alias expander
+
+fixed a problem with tctpgrp() accidentally being called before tcnewgrp() and
+settpgrp(). Location of tctpgrp() call moved from palloc() to invoke().
+
+lots of changes to job control for pipelines. GSH PANIC has been removed.
+
+fixed problem when handling SIGTTIO and SIGTTOU.
+
+lots of optimizations to job control.
+
+job control is displayed different. Even more like Unix!
+
+UPDATES SINCE 12/10/91
+----------------------
+
+Fixed bug to fix some hangs.
+
+Fixed sig 18 handler bug.
+
+Made minor cosmetic changes.
+
+work done on ^C and ^Z from command-line, need to wait for future features
+of tty's before we can have smart ^C and ^Z...
+
+minor problem in globbing fixed.
+
+extra newline removed from history.
+
+changed error message in prefix.
+
+revamped kernel missing error message.
+
+added '-f' option to gsh for 'script' utility.
+
+gsh panic now has a retry counter.
+
+no match on globbing aborts the command. (basically, it nulls the
+command-line).
+
+UPDATES SINCE 10/7/91
+---------------------
+
+fixed bug if 0 files hashed causing major system screw-up. This always
+happens when running GNO with the default gshrc on a new system.
+
+added '^R' redraw command to editor.
+
+fixed bug in system() vector, it was documented incorrectly thus got implemented
+incorrectly.
+
+globbing automatically quotes shell characters appearing filenames. Real nice
+to have with HFS.
+
+modifed 'alias' so that new alias value doesn't need to be quoted. Each
+argument is concatenated and separated by spaces.
+
+CTRL-Z can now be sent, use kill -19 to resume. Real job control is not
+implemented yet.
+
+Fixed up newly incurred bug when typing ^C or ^Z on the command line.
+
+support for 'status' variable added, but not working due to problems in kernel.
+
+Since generic error reporting was removed from shell, added new error reports
+for command parsing.
+
+rewrote 'kill' from scratch in assembly. Now accepts signal numbers and
+signal names.
+
+fixed problems with illegal characters in filenames when being passed to
+an Orca/C program. We can glob files with spaces on HFS disks properly.
+
+Changed invoke so that built-ins are run first. Speed is noticably faster.
+
+Updated 'which' to reflect changes in policy.
+
+Jawaid changed system call conventions.
+
+All quoting problems fixed. Quotes automagically added if an argument contains
+illegal shell characters. Tada! HFS files with spaces!
+
+removed linefeed in set.
+
+removed all illegal shell calls. The shell is now Orca 2.0 compliant. Now we
+can add Orca 2.0 call extensions to the kernel.
+
+removed all unique process id dependencies.. kernel can now use unique pids.
+
+added system for handling variables faster. Now supports 'nonewline' and 'echo'
+at high-speed.
+
+fixed bug where argv was being disposed before shell scripts got it.
+
+fixed bug when expanding undefined shell variables.
+
+fixed bug when expanding $<.
+
+removed easter egg commands.
+
+added optimizations to hashing.
+
+added new error checking and messages to hashing.
+
+_ExpandPath is now performed in hashing.
+
+new memory disposal method, harder to crash.
+
+$path may no longer have ':' to separate. Must be separated with spaces.
+Backslash (\) is also now supported in $path.
+
+Added shell variable 'nodirexec' so that pathnames aren't considered commands.
+
+Fixed am/pm bug in prompt code.
+
+wrote 'jobs'
+
+process not added to job list.
+
+built-in's are always forked.
+
+Wrote job waiting
+
+SIGCHLD handler finished
+
+signal 18 handler finished
+
+modified 'kill' to work with jobs
+
+'fg' built-in added 
+
+fixed bug when re-defining aliases.
+
+fixed bug where sigchld printed that a process was running when it was finished.
+
+shell scripts now opened with read-only access so they may run concurrently.
+
+GNO has always supported a method of returning keymodreg in the upper byte
+returned from _ReadChar if the and mask of the inGlobals is set to $FFFF. Of
+course, most applications expect the inGlobals to be $FF, so, a SetInGlobals
+is performed before executing applications.
+
+fixed bug system() not working with job control.
+
+implemented 'bg' built-in
+
+implemented 'stop' built-in.
+
+process group support is now added. sigint will only be sent to foreground
+process group now.
+
+Error printed if fork() fails during invocation.
+
+If a job displays greater than 80 columns it ends with an ellipsis so that
+job printout's look nice.
+
+fixed bug in 'which' that was created when fixing system() bug.
+
+wrote 'setdebug' built-in.
+
+cannot log out if there are jobs running. or stopped. or whatever. You only
+get one error message though...such is life.
+
+fixed bug in SIGSTOP (actually, just fixed an oversight)
+
+fixed bug in 'stop' created by SIGSTOP bug.
+
+job waiting now uses sigpause() to reduce CPU usage.
+
+wrote SIGTTIN and SIGTTOU handlers for shell.
+
+changes to lexical analysis...displays error message if missing quotes.
+
+SIGINT is now ^C instead of SIGTERM. Get with it Jawaid! :) j/k
+
+rewrote 'ps' in assembly language, whew!
+
+rewrote main in assembly language, no more C!!!
+
+fixed a bug that makes built-ins hang
+
+UPDATES SINCE 10/5/91
+---------------------
+
+command-line editor now strips trailing spaces.
+
+changes to 'kill'
+
+fixed 'nonewline' bug on empty command-lines.
+
+wrote 'unalias' built-in.
+
+UPDATES SINCE 9/16/91
+---------------------
+
+Fixed major bug in prompt code.
+
+Totally rewrote command invocation routines. Redirection can be done by
+everyone now, except that it doesn't work :(
+
+Added usage to 'df'
+
+'df' now displays capacity.
+
+Wrote man page for 'df'.
+
+Major updates to all man pages. Fixed many typos and made some phrases clearer.
+
+totally rewrote command invocation again for the third time.
+
+'+' is no longer recognized by the globber, although regexp will still expand
+it.
+
+Special-cased 100% capacity code in 'df'.
+
+Turned optimizations back on in variable expansion, found the bug, it was in
+the glob code.
+
+Rewrote 'which' to reflect changes in the invocation policy.
+
+Added 'nonewline' variable.
+
+shell has now been renamed to 'gsh'.
+
+'cd' will no longer allow you to 'cd' to a non directory file. whoops!
+
+updated copyright info. Removed '='s from startup. Changed name of
+message file to 'motd' to maintain a Unix feel.
+
+fixed bug in noglob and bad disposal
+
+added system() call support! We can *almost* do makes now. Bug in kernel code.
+
+added '%~' to prompt.
+
+added ${...} expansion.
+
+Wrote 'alias' builtin, doesn't display values yet.
+
+Alias expansion now supported.
+
+motd is displayed in a less brain-dead manner. It's even *faster!*
+
+fixed a funky newline
+
+updated 'which' to handle aliases.
+
+'alias' will display value of single alias.
+
+added $< variable expansion from standard input
+
+added support for standard error redirection
+
+alias with no arguments will now list all aliases.
+
+optimized history redrawing.
+
+fixed bug in alias and directory stacks.
+
+aliases can now be redefined
+
+'set =foo' now displays appropriate error message
+
+fixed bug in shell scripts hanging when finished.
+
+updated spellings in 'file system' list.
+
+removed error printing code after command execution.
+
+wrote 'exit' builtin
+
+aliases weren't being expanded if immediately followed by semicolons.
+
+globbing improperly expanded if immediately followed by semicolons.
+
+added some humor.
+
+UPDATES SINCE 9/9/91
+--------------------
+
+Added redirection code to normal execve() files, ie.  EXE files.
+
+rewrote shellutil.asm to use jsr's.
+
+optimized WriteChar's
+
+optimized 'qtime'. Sure, I know, it has nothing to do with the shell.
+
+changed built-in usage's to send output to standard error. Also made
+sure several usage strings were upper-cased.
+
+optimized hashing routines. Removed c-string shell calls for Orca 2.0
+compatibility.
+
+changed screen formatting slightly.
+
+'prefix' followed by a single number displays that prefix. 'prefix' followed
+by no arguments lists all prefixes. Updated man page.
+
+added 'chdir' command like 'csh' has. Actually it's just an alias of 'cd'
+
+removed unsupported shell call from prompt code.
+
+wrote 'df'
+
+cleaned up hash code, increased buffer sizes for safety
+
+UPDATES SINCE 8/13/91
+---------------------
+
+Added '%n' option to prompt. Displays user name.
+
+Added '%W' option to prompt. Displays date as mm/dd/yy
+
+Added '%D' option to prompt. Displays date as yy-mm-dd
+
+Additional work on user manual. Wrote man pages for 'set' and 'unset'. Fixed
+a typo in 'export'.
+
+Added 'No match' logic to globbing.
+
+Fixed bug in 'noglob'
+
+util.asm optimizations.
+
+set now has extra linefeed when displaying variables. Added usage if more than
+one parameter given and the first parameter begins with a '-'.
+
+Noticed when disassembly Orca/C-generated code that all address manipulations
+were done in 16 bits instead of 32 bits. Further research shows that all memory
+allocated by ~NEW is guaranteed to not cross banks. I can now reduce my code
+greatly by chanbge add4's to add2's where appropriate. Also note that static
+code in program segments also do not cross banks, but data segments *will*
+cross banks. Discovered that in ZLaunch when things went "boom."
+
+optimized builtin.
+
+optimized 'cd'. Added usage if too many parameters or if parameter 1 starts
+with a '-'. Added memory full error messages.
+
+optimized 'clear' and usage added if any parameters given.
+
+optimized 'echo' and added usage.
+
+minor optimizations to regexp.
+
+optimized 'rehash'. Added better formating. Added usage if any parameters
+are passed to it.
+
+removed null command-line problem.
+
+minor hash optimizations.
+
+optimized 'set'.
+
+added formating and optimizations to 'pwd' and 'which'.
+
+optimized gettoken and fixed bug in gettoken.
+
+optimized command parser.
+
+optimized script execution. Fixed bug in 'echo' variable. echo no longer
+needs to be exported to work properly.
+
+Shell now uses tStatus() instead of ShellID() when starting up the shell.
+
+Modified 'ps'. No longer checks for ShellId(). Added '\n' at beginning to
+look nicer. Added #pragma optimize -1 to reduce code. Runs faster.
+
+Added #pragma optimize -1 to kill. Changed usage format. Don't try kill 1.
+Ie. Don't kill the kernel, blew up real cool-like.
+
+Cursor now defaults to insert mode since Jawaid has fixed the cursor bug.
+
+Fixed problem in hashing. I think I may have solved our problems!
+
+Modified globbig to skip words beginning with a '-'. This allows for the
+'-?' option to passed along to utilities.
+
+Optimized execute. May have fixed bug in wait which may have caused trouble
+in concurrent processes and shell scripts.
+
+Fixed a bad bug in control-c handling in the shell. Surprised noone has ever
+noticed this problem. Sheesh. Try pressing control-c from the prompt
+then up-arrowing the history. Bammo! Bug now squashed.
+
+Would you believe I fixed at least 6 bugs in the parsing code? wow. Parser
+now fully supports redirection and piping. All that's needed now is a
+little glue code.
+
+Err.asm was missing all GNO error messages. Jawaid must have had an old
+version and sometime when unpacking kernel updates I overwrote my
+'newer' err.asm. Strange, it's been 2 to 3 months since I added those.
+
+Reworked how the gshrc file works. This badly broke (or unearthed) the parsing
+mechanism. Again, requiring a lot of work. This parse sucks!! I need a new one
+real bad, but that will come with the next major release, as right now I'm
+studying the csh source code to be as compatible as possible.
+
+Fixed a big in the lexical analyzer. This also needs rewritten. Maybe I can
+get a new one for release 1.0 that is like csh.
+
+Added a 'unhash' built-in. Re-used the 'rehash' code in a *very* smart way.
+
+Wrote man pages for 'rehash' and 'unhash'.
+
+Added usage to 'pwd', 'unset', and 'export'.
+
+major optimiztions to 'kill'. Reduced shell size from 50 blocks to 45 blocks.
+
+UPDATES SINCE 7/29/91
+---------------------
+
+Major manual rewrites on-going
+
+rewrote util.asm, more work needed. need to redo some macros. 
+
+integrated new signal/execve that jb sent me into shell. Need to study
+job control.
+
+'echo' now has character escaping. Oh boy, now I can do neat things.
+
+Cursor turned off after ever keypress in command-line. Speeds up control
+character magic such as inserting/deleting/history.
+
+Globbing seems to work. Occasionally problems, but not reproducible. Since
+regexp uses Open, I'm assuming it's our infamous refnum problem.
+
+Added '~' expansion to variable expansion code.
+
+Officially screwed up the user manual. Hope I don't have to retype it from
+scratch!!
+
+'noglob' variable didn't work properly. Now fixed.
+
+CTRL-X now works again in command-line editor. Clears the entire command-line.
+
+Have someone add an option to 'conv' to convert 8-bit ascii to 7-bit ascii
+files. ie. strip the high bit.
+
+Turns off cursor when displaying prompt.
+
+reactivated code to free hash tables before quitting. Seems to work now,
+I'll try and write a 'rehash' function now.
+
+Wrote a 'rehash' function. Has some problems. Use at your own risk.
+
+Rewrote _InitWildcard and _NextWildcard from scratch. Now runs concurrently.
+Also, InitWildcard does all pattern matching and builds a list which _NextWC
+steps through. This method is almost 10 times faster than the previous and
+also works better. Had to change shellcall.asm and globals.include in kern.
+
+Added OA-> and OA-< to the command editor. Jumps to BOL and EOL respectively.
+
+Wrote man pages for 'export', 'kill', and 'prefix'. Updated man pages for
+'cd', 'clear', and 'history'.
+
+FOUND BUG IN HASH!! rehash now works!!!
+
+Fixed bug in prompt when displaying the tail end of the CWD. It seems that
+at times prefix 0 is not terminated by a separator. Need to check ZLaunch.
+This may be the ZLaunch bug I've searched so hard for...
+
+When the shell starts up, it no longer displays # files hashed, but then
+toggles the print flag so that subsequent 'rehash' commands will display
+the hash count. Need to write a command to view the hash table.
+
+Added insert/overwrite mode. There's a bug in inout.asm, so I'm temporarily
+defaulting to overwrite mode.
+
+Sometimes I crash at startup. According to GSBug I crashed in the
+Monitor ROM (it's always $00/FE1B). In full native mode, so bank 0 doesn't
+map to $FF properly, thus all of the "ROM" is 0's. Obviously this crashes.
+Who is making this call?
+
+I'm including some changed to GSOS.ASM. My changes and/or comments about
+things are always prefaced by a '$$$', so search for them..
+
+UPDATES SINCE 7/22/91
+---------------------
+
+directly entering a directory name will change to that directory. Works
+with special directory conventions including '..'!
+
+Done some looking at mm.asm. Mike has done some wicked stuff. ANY mistakes
+when disposing memory will cause HUGE errors and crashes. This could very well
+be the elusive bug, I will do an extensive survey of how I work with memory
+thoughout the shell and check for anything that mm.asm would choke on that I
+had assumed otherwise.
+
+The following problems were discovered and vanquished:
+  1. One too many argv's were disposed.
+  2. argvs were always disposed before the process was finished -> oh shit!
+  3. command line passed to exec() was always disposed before process finished.
+     [JB now says this really isn't a problem with the way that exec() works]
+  4. forgot to dispose crec in shellexec().
+
+From now on I'll be calling shell executables "shell scripts" to ease the
+confusion I've generated since EXEs and SRCs are shell executables, even though
+I was only referring to SRCs. Thanks for the suggestion Derek. Don't know what
+I was thinking... [gee, how dumb, everyone has always been calling them 
+scripts...I was off in left field again :) ]
+
+Began writing man pages for utility commands/built-in commands.
+
+Started re-working the shell user's manual. New format.
+
+Rewrote 'which' so that files that don't exist are reported as such.
+
+UPDATES SINCE 7/21/91
+---------------------
+
+Added ps and kill as builtins
+
+UPDATES SINCE 7/19/91
+---------------------
+
+Wrote built-in prefix. KFest here we come!
+
+UPDATES SINCE 7/13/91
+---------------------
+
+added 'clear' built in.
+
+added 'pwd' built in.
+
+wrote 'which' built in. handles multiple arguments. If the command can't
+be found it displays the cwd. Need to fix this RSN.
+
+':' now recognized as a whitespace in paths.
+
+variable expansion and improved character and string quoting in command line
+completed.
+
+variables are associated by process. If a process does not have a variable
+table (environment) associated with it (created by push_var) then it
+will use his parents environment. It will follow this parent path all the
+way to the root if necessary. Shell executables will do a push/pull to
+set up environments. No other processes will. So, only shells have their
+own processes. Exe's must manually do a push_var if it wants its own environ-
+ment, else it uses its parent (either the shell, or a shell executable if
+launched from a file).
+
+Verfied and pointed out to Jawaid a problem with file reference numbers.
+
+Fixed some minor problems in command line processing regarding redirection.
+Problems still exist in pipes.
+
+Shell executables now set up local variables $0, $1, etc...
+
+Fixed bug such that shell executables can now be placed in the $path.
+
+TIM'S UPDATES FOR WEEK STARTING 7/8/91
+--------------------------------------
+
+changed 'h' to 'history'
+
+Noted Orca/C's terrible usage of bank 0 memory.
+[Jawaid says he's found problem.]
+
+Wrote 'cd'. Need to make ExpandPath do an ExpandDevice so that 'cd' will
+recognize '..' and such. Do we need a 'prefix' call like Orca so we can
+set the numbered prefixes? Or should cd be modified to do this? Better yet,
+stick with environmental paths...
+
+Added better error handling and error messages in builtins.
+
+Variable names are still automatically converted to lower case. BUT, variable
+values remain untouched. Thus, case is ignored in variable names, but upper
+and lower case can be used when assigning values to variables.
+
+Changes to prompt:
+   ! now displays history number in addition to %d and %!.
+   %C now displays trailing CWD along with %c and %..
+   %S starts standout, %s ends standout, instead of old %s toggling standout.
+
+Fixed typo in err.asm
+
+Now checks for the existence and file type of commands before issuing an
+exec().
+
+When backgrounding a process, the process id is now displayed as one digit.
+
+Turns off interrupts when displaying prompt.
+
+Now "runs" shell executables. It crashes right now, most likely becuase this
+is generating recursive type of call in execute() and command() which cannot
+handle recursion at the moment. This is a top-priority thing to fix.
+
+JB mentions in NOTES that NiftyList crashes big time. I HAVE NOT had this
+problem. Used NL extensively tracing bank 0 memory allocations. No crashes
+encountered.
+
+Removed #pragma rtl in main.c
+
+execute() is now fully recursable except for command-lines with file
+redirections. Shell executables still don't work.
+
+Fixed possible mutual exclusion problem when forking processes from the shell.
+
+If $echo set to a non-null value then echoes shell executable command lines.
+
+Shell executables (and $echo) now work. 'ls' is having a problem whem called
+from a shell which has been backgrounded. It is getting an illegal pathname
+for some reason. Memory seems to flip out also.
+
+There are times when I'm forced to used static variables instead of dynamically
+allocating memory. This obviously causes a problem when processes are running
+concurrently and expect the same static data to have "his" values. To alleviate
+this problem I've been using semaphores such as shown below:
+
+         wait  lda   mutex
+               bne   wait
+               inc   mutex
+
+In this code, if mutex is not 1, we wait. BUT, mutex will never change until
+another process is active, thus our loop is guaranteed to loop for the entire
+time slice, wasting that much time! I've now switched to the following
+code when needed to mutex a shared resource:
+
+         wait0 lda   mutex
+               beq   wait1
+               cop   $7F
+               bra   wait0
+         wait1 inc   mutex
+
+[Todd Whitesel has since pointed out a problem with this and offered a better
+solution - Thanks!]
+
+wrote 'export' and 'unset' builtins. export untested.
+
+hash now works completely. [I sound so unexcited, but actually, all of the
+neighbors are looking at me funny. I guess they've never seen someone dancing
+around in a room screaming his lungs out :)] Yeeehhaaaa! I'll have to show
+this 'new' hash code to Greg.
