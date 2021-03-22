@@ -1,0 +1,565 @@
+ macro
+&lab ShowWindow &a1
+&lab ph4 &a1
+ Tool $130e
+ mend
+ macro
+&lab NewWindow2 &a1,&a2
+&lab pha
+ pha
+ ph4 &a1(1)
+ ph4 &a1(2)
+ ph4 &a1(3)
+ ph4 &a1(4)
+ ph2 &a1(5)
+ ph4 &a1(6)
+ ph2 &a1(7)
+ Tool $610e
+ pl4 &a2
+ mend
+ macro
+&lab TLStartUp
+&lab Tool $0201
+ mend
+ macro
+&lab TLShutDown
+&lab Tool $0301
+ mend
+ macro
+&lab StartUpTools &a1,&a2
+&lab pha
+ pha
+ ph2 &a1(1)
+ ph2 &a1(2)
+ ph4 &a1(3)
+ Tool $1801
+ pl4 &a2
+ mend
+ macro
+&lab ShutDownTools &a1
+&lab ph2 &a1(1)
+ ph4 &a1(2)
+ Tool $1901
+ mend
+ macro
+&lab Quit &a1
+&lab gsos $2029,&a1
+ mend
+ macro
+&lab tool &a1
+&lab ldx #&a1
+ jsl $e10000
+ mend
+ macro
+&lab gsos &a1,&a2
+&lab jsl $E100A8
+ dc i2'&a1'
+ dc i4'&a2'
+ mend
+ macro
+&lab ph2 &parm
+ lclc &char
+&lab anop
+ aif c:&parm=0,.done
+&char amid &parm,1,1
+ aif "&char"="#",.immediate
+ aif "&char"="@",.at
+ aif s:longa=1,.chk
+ rep #%00100000
+.chk
+ aif "&char"<>"{",.absolute
+&char amid &parm,l:&parm,1
+ aif "&char"<>"}",.error
+&parm amid &parm,2,l:&parm-2
+ lda (&parm)
+ pha
+ ago .shorten
+.absolute
+ lda &parm
+ pha
+ ago .shorten
+.immediate
+&parm amid &parm,2,l:&parm-1
+ pea &parm
+ ago .done
+.at
+&char amid &parm,2,1
+ ph&char
+.shorten
+ aif s:longa=1,.done
+ sep #%00100000
+.done
+ mexit
+.error
+ mnote "Missing closing '}'",16
+ mend
+ macro
+&lab ph4 &parm
+ lclc &char
+ lclc &char1
+ lclc &char2
+&lab anop
+&char amid &parm,1,1
+ aif "&char"="#",.immediate
+ aif "&char"="@",.at
+ aif s:longa=1,.chk1
+ rep #%00100000
+.chk1
+ aif "&char"<>"{",.chk2
+&char amid &parm,l:&parm,1
+ aif "&char"<>"}",.error
+&parm amid &parm,2,l:&parm-2
+ ldy #2
+ lda (&parm),y
+ pha
+ lda (&parm)
+ pha
+ ago .shorten
+.chk2
+ aif "&char"<>"[",.absolute
+ ldy #2
+ lda &parm,y
+ pha
+ lda &parm
+ pha
+ ago .shorten
+.absolute
+ lda &parm+2
+ pha
+ lda &parm
+ pha
+ ago .shorten
+.at
+&char1 amid &parm,2,1
+&char2 setc &char1
+ ph&char1
+ aif l:&parm<3,.chk2a
+&char2 amid &parm,3,1
+.chk2a
+ ph&char2
+ ago .shorten
+.immediate
+&parm amid &parm,2,l:&parm-1
+ pea +(&parm)|-16
+ pea &parm
+ ago .done
+.shorten
+ aif s:longa=1,.done
+ sep #%00100000
+.done
+ mexit
+.error
+ mnote "Missing closing '}'",16
+ mend
+ macro
+&lab pl4 &parm
+ lclc &char
+ lclc &char1
+ lclc &char2
+&lab anop
+ aif s:longa=1,.start
+ rep #%00100000
+.start
+&char amid &parm,1,1
+ aif "&char"<>"{",.chk
+&char amid &parm,l:&parm,1
+ aif "&char"<>"}",.error
+&parm amid &parm,2,l:&parm-2
+ pla
+ sta (&parm)
+ ldy #2
+ pla
+ sta (&parm),y
+ ago .shorten
+.chk
+ aif "&char"<>"[",.chk2
+ pla
+ sta &parm
+ ldy #2
+ pla
+ sta &parm,y
+ ago .shorten
+.chk2
+ aif "&char"<>"@",.absolute
+&char1 amid &parm,2,1
+&char2 setc &char1
+ pl&char1
+ aif l:&parm<3,.chk2a
+&char2 amid &parm,3,1
+.chk2a
+ pl&char2
+ ago .shorten
+.absolute
+ pla
+ sta &parm
+ pla
+ sta &parm+2
+.shorten
+ aif s:longa=1,.done
+ sep #%00100000
+.done
+ mexit
+.error
+ mnote "Missing closing '}'",16
+ mend
+ macro
+&lab MMStartUp &a1
+&lab pha
+ tool $0202
+ pl2 &a1
+ mend
+ macro
+&lab MMShutDown &a1
+&lab ph2 &a1
+ tool $0302
+ mend
+ macro
+&lab pl2 &parm
+ lclc &char
+&lab anop
+ aif s:longa=1,.start
+ rep #%00100000
+.start
+&char amid &parm,1,1
+ aif "&char"="@",.at
+ aif "&char"<>"{",.absolute
+&char amid &parm,l:&parm,1
+ aif "&char"<>"}",.error
+&parm amid &parm,2,l:&parm-2
+ pla
+ sta (&parm)
+ ago .shorten
+.absolute
+ pla
+ sta &parm
+ ago .shorten
+.at
+&char amid &parm,2,1
+ pl&char
+.shorten
+ aif s:longa=1,.done
+ sep #%00100000
+.done
+ mexit
+.error
+ mnote "Missing Closing '}'",16
+ mend
+ macro
+&lab DrawControls &a1
+&lab ph4 &a1
+ Tool $1010
+ mend
+ macro
+&lab TaskMaster &a1,&a2
+&lab pha
+ ph2 &a1(1)
+ ph4 &a1(2)
+ Tool $1d0e
+ pl2 &a2
+ mend
+ macro
+&lab InitCursor
+&lab Tool $ca04
+ mend
+ macro
+&lab Str &string
+&lab dc i1'L:&string'
+ dc c"&string"
+ mend
+ macro
+&lab SysFailMgr &a1
+&lab ph2 &a1(1)
+ ph4 &a1(2)
+ tool $1503
+ mend
+ macro
+&lab MTStartUp
+&lab tool $0203
+ mend
+ macro
+&lab MTShutDown
+&lab tool $0303
+ mend
+ macro
+&lab HiliteControl &a1
+&lab ph2 &a1(1)
+ ph4 &a1(2)
+ Tool $1110
+ mend
+ macro
+&lab GetCtlValue &a1,&a2
+&lab pha
+ ph4 &a1
+ Tool $1a10
+ pl2 &a2
+ mend
+ macro
+&lab EnableMItem &a1
+&lab ph2 &a1
+ Tool $300f
+ mend
+ macro
+&lab DisableMItem &a1
+&lab ph2 &a1
+ Tool $310f
+ mend
+ macro
+&lab GetCtlHandleFromID &a1,&a2
+&lab pha
+ pha
+ ph4 &a1(1)
+ ph4 &a1(2)
+ Tool $3010
+ pl4 &a2
+ mend
+ macro
+&lab SFGetFile2 &a1
+&lab ph2 &a1(1)
+ ph2 &a1(2)
+ ph2 &a1(3)
+ ph4 &a1(4)
+ ph4 &a1(5)
+ ph4 &a1(6)
+ ph4 &a1(7)
+ Tool $0e17
+ mend
+ macro
+&lab MV4 &src,&adr
+&lab lcla &count
+ lda &src
+&count seta 1
+.loop1
+ sta &adr(&count)
+&count seta &count+1
+ aif &count>c:&adr,.part2
+ ago ^loop1
+.part2
+ lda &src+2
+&count seta 1
+.loop2
+ sta &adr(&count)+2
+&count seta &count+1
+ aif &count>c:&adr,.done
+ ago ^loop2
+.done
+ mend
+ macro
+&lab Open &a1
+&lab gsos $2010,&a1
+ mend
+ macro
+&lab Close &a1
+&lab gsos $2014,&a1
+ mend
+ macro
+&lab ErrorWindow &a1,&a2
+&lab pha
+ ph2 &a1(1)
+ ph4 &a1(2)
+ ph2 &a1(3)
+ Tool $620e
+ pl2 &a2
+ mend
+ macro
+&lab WaitCursor
+&lab Tool $0a12
+ mend
+ macro
+&lab MV2 &src,&adr
+&lab lcla &count
+ lda &src
+&count seta 1
+.loop
+ sta &adr(&count)
+&count seta &count+1
+ aif &count>c:&adr,.done
+ ago ^loop
+.done
+ mend
+ macro
+&lab SetMenuBar &a1
+&lab ph4 &a1
+ Tool $390f
+ mend
+ macro
+&lab Read &a1
+&lab gsos $2012,&a1
+ mend
+ macro
+&lab NewHandle &a1,&a2
+&lab pha
+ pha
+ ph4 &a1(1)
+ ph2 &a1(2)
+ ph2 &a1(3)
+ ph4 &a1(4)
+ tool $0902
+ pl4 &a2
+ mend
+ macro
+&lab DisposeHandle &a1
+&lab ph4 &a1
+ tool $1002
+ mend
+ macro
+&lab AlertWindow &a1,&a2
+&lab pha
+ ph2 &a1(1)
+ ph4 &a1(2)
+ ph4 &a1(3)
+ Tool $590e
+ pl2 &a2
+ mend
+ macro
+&lab InitColorTable &a1
+&lab ph4 &a1
+ Tool $0d04
+ mend
+ macro
+&lab SetColorTable &a1
+&lab ph2 &a1(1)
+ ph4 &a1(2)
+ Tool $0e04
+ mend
+ macro
+&lab SetAllSCBs &a1
+&lab ph2 &a1
+ Tool $1404
+ mend
+ macro
+&lab GetMasterSCB &a1
+&lab pha
+ Tool $1704
+ pl2 &a1
+ mend
+ macro
+&lab HideCursor
+&lab Tool $9004
+ mend
+ macro
+&lab RefreshDesktop &a1
+&lab ph4 &a1
+ Tool $390e
+ mend
+ macro
+&lab MenuNewRes &a1
+&lab Tool $290f
+ mend
+ macro
+&lab CloseWindow &a1
+&lab ph4 &a1
+ Tool $0b0e
+ mend
+ macro
+&lab long &stat
+&lab anop
+ lcla &t
+ lcla &len
+ lclc &ch
+&t seta 0
+&len seta l:&stat
+.a
+ aif &len=0,.b
+&ch amid &stat,&len,1
+ aif ("&ch"="x").or.("&ch"="y").or.("&ch"="i"),.i
+ aif ("&ch"="a").or.("&ch"="m"),.m
+.c
+&len seta &len-1
+ ago ^a
+.i
+ longi on
+&t seta &t+16
+ ago ^c
+.m
+ longa on
+&t seta &t+32
+ ago ^c
+.b
+ aif &t=0,.d
+ rep #&t
+.d
+ mend
+ macro
+&lab short &stat
+&lab anop
+ lcla &t
+ lcla &len
+ lclc &ch
+&t seta 0
+&len seta l:&stat
+.a
+ aif &len=0,.b
+&ch amid &stat,&len,1
+ aif ("&ch"="x").or.("&ch"="y").or.("&ch"="i"),.i
+ aif ("&ch"="a").or.("&ch"="m"),.m
+.c
+&len seta &len-1
+ ago ^a
+.i
+ longi off
+&t seta &t+16
+ ago ^c
+.m
+ longa off
+&t seta &t+32
+ ago ^c
+.b
+ aif &t=0,.d
+ sep #&t
+.d
+ mend
+ macro
+&lab IntSource &a1
+&lab ph2 &a1
+ tool $2303
+ mend
+ macro
+&lab GetIRQEnable &a1
+&lab pha
+ tool $2903
+ pl2 &a1
+ mend
+ macro
+&lab Multiply &a1,&a2
+&lab pha
+ pha
+ ph2 &a1(1)
+ ph2 &a1(2)
+ Tool $090b
+ pl4 &a2
+ mend
+ macro
+&lab ReadMouse &a1
+&lab pha
+ pha
+ pha
+ tool $1703
+ pl2 &a1(1)
+ pl2 &a1(2)
+ pl2 &a1(3)
+ mend
+ macro
+&lab ClampMouse &a1
+&lab ph2 &a1(1)
+ ph2 &a1(2)
+ ph2 &a1(3)
+ ph2 &a1(4)
+ tool $1c03
+ mend
+ macro
+&lab GetMouseClamp &a1
+&lab pha
+ pha
+ pha
+ pha
+ tool $1d03
+ pl2 &a1(1)
+ pl2 &a1(2)
+ pl2 &a1(3)
+ pl2 &a1(4)
+ mend
+ macro
+&lab jne &loc
+&lab beq *+5
+ jmp &loc
+ mend
