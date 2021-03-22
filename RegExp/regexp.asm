@@ -53,11 +53,6 @@
 *       characters and '\' itself. Otherwise known as character quoting.
 *
 **************************************************************************
-*
-* meekins@cis.ohio-state.edu
-* timm@pro-tc.cts.com
-*
-**************************************************************************
 
                mcopy regexp.mac
                keep  regexp
