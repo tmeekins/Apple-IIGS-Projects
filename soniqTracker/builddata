@@ -1,0 +1,5 @@
+lzss e data/splash.pic soniqdata/DATA01
+lzss e data/play.pic soniqdata/DATA02
+lzss e data/about.pic soniqdata/DATA03
+lzss e data/moonie2.pic soniqdata/DATA04
+                                       

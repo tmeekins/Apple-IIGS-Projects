@@ -1,0 +1,11 @@
+textptr	gequ	0	
+textwidth	gequ	4
+textx	gequ	6
+backcolor	gequ	8
+forecolor	gequ	10
+chidx	gequ	12
+xnib	gequ	14
+xoff	gequ	16
+conptr	gequ	18
+byte	gequ	22
+zonebuf	gequ	24

@@ -1,0 +1,117 @@
+{\rtf1\ansi\ansicpg1252\deff0\deflang1033\deflangfe1033{\fonttbl{\f0\fmodern\fprq1\fcharset0 Courier New;}{\f1\froman\fprq2\fcharset0 Times New Roman;}{\f2\fswiss\fprq2\fcharset0 Arial;}{\f3\froman\fprq2\fcharset2 Symbol;}}
+\viewkind4\uc1\pard\f0\fs20 \f2 \fs24 \fs48                 \f2 \outl soniqTracker\f2 \outl0  v0.6.2\u8482?\f1 \fs28 \par
+\f1 \fs22                                                                      \f1 \i Written by Tim Meekins\f1 \i0 \par
+                                                        Copyright \u169? 1992,1993 by Tim Meekins\par
+\par
+Welcome to soniqTracker. soniqTracker is my attempt to fill a void in Apple IIgs music applications. When finished, soniqTracker will be a complete music and instrument editing system using custom music formats. The music editor is currently under construction and is not included with this version. This version of soniqTracker will import Amiga-style\par
+\u8220?mod\u8221? songs into soniqTracker's internal format. Also included is a jukebox player and an alarm clock. Future versions will include a music and instrument editor and the ability to import numerous other music formats. The soniqTracker sequencing engine may also become available for use in other programs.\f1 \par
+\par
+This version of soniqTracker is freeware! All donations are accepted, but not required. No, you don\u8217?t need to destroy this program after using it. Give it to all your friends and astound them!\par
+\par
+User beware! soniqTracker is a fully copyrighted work! If any code from soniqTracker is used without my written permission or any portion of soniqTracker is sold for profit without my written consent, I \f1 \i will\f1 \i0  prosecute. Don\u8217?t abuse free software! Let\u8217?s push the GS to the 21st century! Stealing free software is stupid.\par
+\par
+Now, a word from Max:\par
+\par
+To run soniqTracker, just launch it from your favorite program launcher such as the Finder\u8482? or Switch-It!\u8482?. You\u8217?ll see a splash screen with the soniqTracker logo after it starts. Press any key or click the mouse button to continue. If you have a weak audio card or a SonicBlaster that can\u8217?t handle the Ensoniq 5503 being pushed to its limits, then lower the volume setting in the \u8220?Preferences...\u8221? menu (discussed below). There\u8217?s also potentiometer on the SonicBlaster, when turned to a low setting,. will also remove distortiion. For the ultimate in stereo output, get the SoundMeister card forthcoming from Econ Technologies. soniqTracker will definitely support this hardware in the future.\par
+\par
+soniqTracker was written by Tim Meekins, but I couldn\u8217?t have done it without the great support of the II community. Kudos to everyone! Also, big applause to Dave Seah for providing some wonderful artwork and the numerous suggestions and attention to detail. Apologies to those not listed, more credits are provided in soniqTracker\u8217?s about screen.\par
+\par
+First, a description of the menu options:\par
+\par
+\f2 \fs36 \fs48 \ul Apple\f2 \ulnone \par
+\par
+\f1 \fs28 \fs22 \b About soniqTracker...\f1 \b0 \par
+\par
+Displays a nice picture and cycles through the soniqTracker credits. Let all these people know that you appreciate their help.\par
+\par
+\f2 \fs36 \fs48 \ul File\f1 \fs28 \fs22 \ulnone \par
+\par
+\f1 \b Open...\f1 \b0 \par
+\par
+Open is used for importing music modules. After selecting this menu, a standard file dialog will be presented. Simply select the song to load, or press the \u8220?cancel\u8221? button. \f1 \i Very\f1 \i0  rarely, soniqTracker will come across a mod file it cannot load and it may get confused. In fact, if you do encounter such a file, please let me know! Songs that are not music modules are also hard to recognize, since the basic NoiseTracker-style module contains no special identification bytes in the file. soniqTracker will do bounds checking and will abort if the file does not appear to be a music module. If you get error $BADD when loading a mod, it isn't mod of the types supported by soniqTrackerl, or, it isn't even a mod.\par
+\par
+\f1 \b Quit\f1 \b0 \par
+\par
+This is probably the most rarely used option, but it was provided as a convenience for some users. This option will quit soniqTracker and return to the launching application.\par
+\par
+\f2 \fs36 \fs48 \ul Edit\f1 \fs28 \fs22 \ulnone \par
+\par
+These menu items are not used by soniqTracker and are provided as a convenience for New Desk Accessories.\par
+\par
+\f2 \fs36 \fs48 \ul Sound\f1 \fs28 \fs22 \ulnone \par
+\par
+\f1 \b Play Music\f1 \b0 \par
+\par
+To begin playing the module, select the \u8220?Play Music\u8221? menu option or simply press OA-P.  You\u8217?ll be shown the special player screen and music will begin playing.  In the center of the player screen are the VU meters, representing the approximate volumes of each track during a note trigger. below the VU meter is the song name box. To the right is a numeric display showing the song position number, pattern number, and line number. If a song should have a problem, write down this number approximately where the problem occurred and send it to me -- that way, find and reproducing the problem is much simpler. To the left of the VU meters is a special message box. When you change the player parameters, you\u8217?ll see messages here. Also, if the player encounters an effect in a song it does not handle, it will also display a message here. I support every effect that I have a module to test with, so if you get an unknown effect message, please send me the song so I can support the effect. Above the control panel are the \u8220?dancing lights\u8221? and they can be turned off in the preferences dialog box. Turning them off will result in the hidden oscilloscope mode!\par
+\par
+When a song is being played, the following key commands are available:\par
+\par
+\tab option, escape, \u8216?q\u8217?\tab \tab stop the song and quit the player\par
+\tab \u8216?1\u8217?-\u8216?4\u8217?\tab \tab \tab toggle tracks \u8216?1\u8217? through \u8216?4\u8217? on or off\par
+\tab space\tab \tab \tab pause the song, press any key to resume, but it will be intrepreted\par
+                   \tab \tab \tab \tab so pressing \u8216?q\u8217? will stop. I recommend pressing \u8216?return\u8217?\par
+\tab \u8216?<\u8217?,\u8216?>\u8217?\tab \tab \tab decrease or increase the volume\par
+\tab \u8216?s\u8217?\tab \tab \tab tab through each of the stereo modes (see preferences section)\par
+\tab \u8216?h\u8217?\tab \tab \tab toggle between 50Hz and 60Hz\par
+\tab \u8216?n\u8217?\tab \tab \tab skip to next song (see Jukebox Player below)\par
+\par
+\f1 \b JukeBox Player...\f1 \b0 \par
+\par
+This feature combines the \u8220?Open...\u8221? and \u8220?Play Music\u8221? menu options into a special Jukebox player. After selecting this option, the user is presented with a dialog box. The user can select a single file \f1 \i or\f1 \i0  multiple files. Selecting more than one file is very simple. Clicking an item selects it. Open-Apple Clicking an item selects adds it to the list of selected items. Open-Apple dragging will select a range of files, and shift-clicking can also select a range. soniqTracker currently limits you to 400 songs (and will take about a day to play through).\par
+\par
+Also included in the standard file selection dialog box is a checkbox marked \u8220?Shuffle Songs.\u8221? Checking this box will randomly shuffle your songs before playing them, this is nice when you have a large collection of songs and don\u8217?t like having the jukebox player always playing them in the same order.\par
+\par
+Once a list of songs is selected, the JukeBox player will play them one at a time. When the last song is played, it wraps around and begins playing the first song again. \par
+\par
+During the JukeBox player, each of the command keys from the player are available, \f1 \i plus\f1 \i0 , the \u8216?n\u8217? key will skip to the next song on the song list.\par
+\par
+\f1 \b Preferences...\f1 \b0 \par
+\par
+This option presents a dialog containing various user preferences that control how soniqTracker works. Below is a description of each option and how or why it should be used or changed.\par
+\par
+\f1 \i Default Speed\f1 \i0 \par
+\par
+This option lets you select between a default 50 Hz or 60 Hz clock rate. Every mod that I know of uses 50 Hz, but due to the nature of the Amiga\u8482?, it is possible that some modules may have been written at 60 Hz. If the song seems too slow at 50 Hz, try setting the default to 60 Hz. Use the \u8216?h\u8217? command in the player to adjust the speed while playing.\par
+\par
+\f1 \i Dancing Lights\f1 \i0 \par
+\par
+When playing a song, dots are drawn on the player screen representing the pitch being played on each track. If you do not like this effect, simply uncheck this box. Turning it off will result in the hidden oscilloscope mode.\par
+\par
+\f1 \i Stereo Mode\f1 \i0 \par
+\par
+Music modules are written using stereo effects,  except instruments are played on either the left or right, but not partially on one or the other. This produces a bothersome \u8220?split\u8221? in the music. Professionally produced music uses stereo mixing so that even for an instrument that is on the left, it can still be heard faintly on the right. The \f1 \i Stereo Mode\f1 \i0  option provides soniqTracker with similar stereo mixing. \f1 \i Full Stereo\f1 \i0  means instruments are played 100% on the left or right. \f1 \i 75% Stereo\f1 \i0  is 75% volume on the primary \f1 \i channrel\f1 \i0  (left or right) and 25% on the opposite channel. Similarly for 50% and 25%. These percentages are slightly misleading, though. 25% does \f1 \i not\f1 \i0  mean 25% on primary, and 75% on the opposite. It should be treated as 100% being full stereo and 0% being mono, therefore, 25% means that the songs is basically played as mono, but the primary channel is 25% louder. Although the terminology is odd, it does make sense and sounds quite well, especially with headphones. Although you may shy away from trying the stereo option, I \f1 \i highly\f1 \i0  suggest everyone trying the \f1 \i 50% Stereo\f1 \i0  setting, especially with headphones. It produces a very similar atmosphere like when listening to the radio with headphones. Stereo mixing can also be changes while listening to a song by pressing the \u8216?s\u8217? key. Special thanks to James Brookes for suggesting that this option be added to soniqTracker.\par
+\par
+\f1 \i Volume\f1 \i0 \par
+\par
+Select a volume level from 1 to 10, where 1 is very quiet and 10 is good and loud (maybe too loud for some stereo cards). This can also be changed in the player using the \u8216?>\u8217? and \u8216?>\u8217? keys.\par
+\par
+\f2 \fs36 \fs48 \ul Windows\par
+\f1 \fs28 \b \i \ulnone \par
+\f1 \fs22 \i0 Instruments\par
+\f1 \b0 This window contains a list of instruments used in the song. You can edit instrument names, but can\u8217?t save them yet.\par
+\par
+\f1 \b soniqAlarm\par
+\f1 \b0 This window is used for setting up the soniqAlarm\u8482? option in soniqTracker. This will eventually be accessible from menus besides \u8220?Windows.\u8221? Three scroll-bars are used to set the alarm time. Press the button to select a song to be used to  when the alarm is triggered. Once a song is selected, you may activate or deactivate the alarm. soniqAlarm is only activated from the main desktop of soniqTracker, not from the player or about screen. If you activate the alarm and walk away, the screen blanker will kick in and display the current time and alarm time. All alarm parameters are stored in the configuration file. So, if every morning you wake-up at 6:30 AM (eck, gastly hour, but makes a nice example), simply set the alarm to 6:30 AM and activate it. When you quit SoniqTracker, this seting is automatically saved. The next time soniqTracker is run, the alarm is automatically activated if the checkbox was checked. So, continuing with our example, to wake-up every morning at 6:30, simply turn on your Apple IIgs and launch soniqTracker before going to bed. The alarm doesn\u8217?t need to be set, as it\u8217?s ready to go from last time. Since this alarm mode is used mainly at night, Dave Seah has provided a nice night-time pictiure for the screen blanker.\par
+\par
+Alarm tips: 1. the song is only played once. If you\u8217?re a hard waker, try to find a long song, a loud song, or a song with built-in looping. If anyone really wants a snooze button, let me know, but give me suggestions how you want it implemented. Possibly the spacebar tha pauses could time out after 10 minutes and resume playing... Tip #2: make sure the disk containing the music you selected has been mounted before activating the alarm. A future version of soniqTracker may request that it be mounted.\par
+\par
+                                                               \f1 \fs28 \b \ul A note about music modules\f1 \fs22 \b0 \ulnone \par
+\par
+The music module format originated on the Amiga in the program SoundTracker\u8482?. Additional music players followed such as NoiseTracker\u8482?, ProTracker\u8482?, StarTrekker\u8482?, and \f1 \i numerous\f1 \i0  others. Along with these additional players came differences in the file format, yet despite the differences, they use identical signature bytes (except StarTrekker) and provide no method for differentiating between them. Luckily, the ProTracker format has gained momentum and the number of modules using features of other players is diminishing. soniqTracker primarily supports ProTracker modules, but does have advanced code for recognizing other formats.\par
+\par
+\f1 \par
+\f1 \b Those all important addresses:\f1 \b0 \par
+\par
+internet: meekins@cis.ohio-state.edu\par
+America Online: GNO Tim2              (gnotim2@aol.com)\par
+\par
+Or surface mail:\par
+  351 Olema Rd. Apt  #12\par
+  Fairfax, CA 94930\par
+\par
+\f1 If you want to see new and original software produced for the Apple IIgs, contact Procyon, Inc. for more information call:   (303) 933 - 4649.  Be sure to ask Procyon about its software library availble for sale and upcoming releases, including GNO/ME 1.1, Pick-n-Pile, Switch-It!, and Splat!\par
+\par
+Also, be sure to support Alliance International, Inc. and the European GS project.\par
+\par
+Do Svidanya!\f2 \fs36 \fs24  }
+ 

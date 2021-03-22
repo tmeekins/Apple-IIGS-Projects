@@ -1,0 +1,165 @@
+ macro
+&lab LD4 &val,&adr
+&lab lcla &count
+ lda #<&val
+&count seta 1
+.loop1
+ sta &adr(&count)
+&count seta &count+1
+ aif &count>c:&adr,.part2
+ ago ^loop1
+.part2
+ lda #+(&val)|-16
+&count seta 1
+.loop2
+ sta &adr(&count)+2
+&count seta &count+1
+ aif &count>c:&adr,.done
+ ago ^loop2
+.done
+ mend
+ macro
+&lab MV4 &src,&adr
+&lab lcla &count
+ lda &src
+&count seta 1
+.loop1
+ sta &adr(&count)
+&count seta &count+1
+ aif &count>c:&adr,.part2
+ ago ^loop1
+.part2
+ lda &src+2
+&count seta 1
+.loop2
+ sta &adr(&count)+2
+&count seta &count+1
+ aif &count>c:&adr,.done
+ ago ^loop2
+.done
+ mend
+ macro
+&lab long &stat
+&lab anop
+ lcla &t
+ lcla &len
+ lclc &ch
+&t seta 0
+&len seta l:&stat
+.a
+ aif &len=0,.b
+&ch amid &stat,&len,1
+ aif ("&ch"="x").or.("&ch"="y").or.("&ch"="i"),.i
+ aif ("&ch"="a").or.("&ch"="m"),.m
+.c
+&len seta &len-1
+ ago ^a
+.i
+ longi on
+&t seta &t+16
+ ago ^c
+.m
+ longa on
+&t seta &t+32
+ ago ^c
+.b
+ aif &t=0,.d
+ rep #&t
+.d
+ mend
+ macro
+&lab short &stat
+&lab anop
+ lcla &t
+ lcla &len
+ lclc &ch
+&t seta 0
+&len seta l:&stat
+.a
+ aif &len=0,.b
+&ch amid &stat,&len,1
+ aif ("&ch"="x").or.("&ch"="y").or.("&ch"="i"),.i
+ aif ("&ch"="a").or.("&ch"="m"),.m
+ aif ("&ch"="t"),.t
+.c
+&len seta &len-1
+ ago ^a
+.i
+ longi off
+&t seta &t+16
+ ago ^c
+.m
+ longa off
+&t seta &t+32
+ ago ^c
+.t
+&t seta &t+4
+ ago ^c
+.b
+ aif &t=0,.d
+ sep #&t
+.d
+ mend
+ macro
+&lab add4 &arg1,&arg2,&dest
+&lab anop
+ lclc &ch
+&ch amid &arg2,1,1
+ clc
+ lda &arg1
+ adc &arg2
+ sta &dest
+ lda &arg1+2
+ aif "&ch"="#",.a
+ adc &arg2+2
+ ago .b
+.a
+ adc &arg2|-16
+.b
+ sta &dest+2
+ mend
+ macro
+&lab jne &loc
+&lab beq *+5
+ jmp &loc
+ mend
+ macro
+&lab add2 &arg1,&arg2,&dest
+ lclc &char
+&lab clc
+&char amid &arg1,1,1
+ aif "&char"="@",.at1
+ lda &arg1
+ ago .add
+.at1
+&char amid &arg1,2,1
+ aif "&char"="x",.x1
+ aif "&char"="X",.x1
+ aif "&char"="y",.y1
+ aif "&char"="Y",.y1
+ ago .add
+.x1
+ txa
+ ago .add
+.y1
+ tya
+.add
+ adc &arg2
+&char amid &dest,1,1
+ aif "&char"="@",.at2
+ sta &dest
+ ago .b
+.at2
+&char amid &dest,2,1
+ aif "&char"="x",.x2
+ aif "&char"="X",.x2
+ aif "&char"="y",.y2
+ aif "&char"="Y",.y2
+ ago .b
+.x2
+ tax
+ ago .b
+.y2
+ tay
+.b
+ mend

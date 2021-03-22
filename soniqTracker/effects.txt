@@ -1,0 +1,33 @@
+soniqTracker effects chart
+--------------------------
+
+$00 xx - No effect
+$01 xx - Unknown effect
+$02 xy - Arpeggio, x=first halfnote, y=second halfnote
+$03 xx - Set Volume, xx=$00-$3F
+$04 xx - Volume Slide Up, xx=rate
+$05 xx - Volume Slide Down, xx=rate
+$06 xx - Fine Volume Slide Up, xx=rate
+$07 xx - Fine Volume Slide Down, xx=rate
+$08 xx - Pitchbend Up
+$09 xx - Pitchbend Down
+$0A xx - Fine Pitchbend Up
+$0B xx - Fine Pitchbend Down
+$0C xx - Note Portamento
+$0D xx - Set Tempo
+$0E xx - Set Clock Rate
+$0F xy - Vibrato, x=speed, y=depth
+$10 xx - Note Portamento + Volume Slide Up
+$11 xx - Note Portamento + Volume Slide Down
+$12 xx - Vibrato + Volume Slide Up
+$13 xx - Vibrato + Volume Slide Down
+$14 xx - Set Sample Offset
+$15 xx - Position Jump
+$16 xx - Pattern Break
+$17 xx - Pattern Loop
+$18 xx - Pattern Delay
+$19 xx - Set FineTune
+$1A xx - Retrig Note
+$1B xx - Note Cut
+$1C xx - Note Delay
+$1D xx - Volume Tremelo
