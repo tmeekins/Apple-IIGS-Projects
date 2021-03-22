@@ -1,0 +1,7 @@
+compile dosplash2.asm keep=dosplash2
+link dosplash2 splash3 splash4 keep=splash2
+makebin splash2 org=$1000
+copy splash2 ../makedisk
+delete dosplash2.root
+delete dosplash2.a
+delete splash2

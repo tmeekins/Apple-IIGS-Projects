@@ -1,0 +1,11 @@
+cmpl mksplash1.asm keep=mksplash1
+mksplash1 >splash1.asm
+filetype splash1.asm src
+change splash1.asm asm65816
+compile splash1.asm keep=splash1
+delete mksplash1.a
+delete mksplash1.root
+delete mksplash1
+delete splash1.asm
+
+

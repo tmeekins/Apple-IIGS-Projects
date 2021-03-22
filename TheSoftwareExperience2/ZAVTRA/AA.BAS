@@ -1,0 +1,2 @@
+ 10  HGR : POKE 49234,0:H = 11:B = .03:E = 1:I = .1:XX = 140:YY = 80:PI = 4 *  ATN (1):B1 = 7:E1 = 1:I1 =  - 1:B2 = 0:E2 = PI:I2 = 1
+ 20  FOR Z = B TO E STEP I: FOR J = B1 TO E1 STEP I1: HCOLOR= J: FOR A = B2 TO E2 STEP Z * I2:X = J * H *  COS (A):Y = J * H *  SIN (A): HPLOT X + XX,Y + YY TO  - X + XX, - Y + YY: NEXT A,J,Z:T = B1:B1 = E1:E1 = T:I1 =  - I1:T = B2:B2 = E2:E2 = T:I2 =  - I2: GOTO 20

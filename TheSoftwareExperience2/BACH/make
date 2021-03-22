@@ -1,0 +1,4 @@
+link playbach fugue organ keep=playbach
+makebin playbach org=$1A000
+copy playbach ../makedisk
+delete playbach

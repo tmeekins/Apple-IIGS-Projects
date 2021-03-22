@@ -1,0 +1,2 @@
+ 10  HOME : FOR V = 1 TO 15: GR :T =  RND (9):S% =  RND (9) * 18 + 1: FOR Y = 0 TO 19: FOR X = Y TO 19: GOSUB 20: PLOT X,39 - Y: PLOT 39 - X,39 - Y: PLOT 39 - X,Y: PLOT X,Y: PLOT Y,X: PLOT 39 - Y,X: PLOT 39 - Y,39 - X: PLOT Y,39 - X: NEXT X,Y: FOR D = 1 TO 2E4: NEXT : NEXT : RUN 
+ 20  COLOR= ( ABS ((1.5 * X / (S% + 18)) - (1.5 * Y / (S% + 18)) * (X - (S% + V))) + S%) * (T < .4) + ( ABS ((S% * X / 25) - (S% * Y / 25) * ((X - V) / S%)) + S%) * (T > .3 AND T < .7) + (( ABS ((V * X / 25) - (V * Y / 25) * ((Y - S%) / V)) + S%) * (T > .6)): RETURN 

@@ -1,0 +1,405 @@
+ MACRO
+&lab LD2 &val,&adr
+&lab lcla &count
+ lda #&val
+&count seta 1
+.loop
+ sta &adr(&count)
+&count seta &count+1
+ aif &count>c:&adr,.done
+ ago ^loop
+.done
+ mend
+ MACRO
+&lab long &stat
+&lab anop
+ lcla &t
+ lcla &len
+ lclc &ch
+&t seta 0
+&len seta l:&stat
+.a
+ aif &len=0,.b
+&ch amid &stat,&len,1
+ aif ("&ch"="x").or.("&ch"="y").or.("&ch"="i"),.i
+ aif ("&ch"="a").or.("&ch"="m"),.m
+.c
+&len seta &len-1
+ ago ^a
+.i
+ longi on
+&t seta &t+16
+ ago ^c
+.m
+ longa on
+&t seta &t+32
+ ago ^c
+.b
+ aif &t=0,.d
+ rep #&t
+.d
+ mend
+ MACRO
+&lab short &stat
+&lab anop
+ lcla &t
+ lcla &len
+ lclc &ch
+&t seta 0
+&len seta l:&stat
+.a
+ aif &len=0,.b
+&ch amid &stat,&len,1
+ aif ("&ch"="x").or.("&ch"="y").or.("&ch"="i"),.i
+ aif ("&ch"="a").or.("&ch"="m"),.m
+.c
+&len seta &len-1
+ ago ^a
+.i
+ longi off
+&t seta &t+16
+ ago ^c
+.m
+ longa off
+&t seta &t+32
+ ago ^c
+.b
+ aif &t=0,.d
+ sep #&t
+.d
+ mend
+ MACRO
+&lab iny2
+&lab iny
+ iny
+ mend
+ MACRO
+&lab UnPackBytes &a1,&a2
+&lab pha
+ ph4 &a1(1)
+ ph2 &a1(2)
+ ph4 &a1(3)
+ ph4 &a1(4)
+ tool $2703
+ pl2 &a2
+ mend
+ MACRO
+&lab tool &a1
+&lab ldx #&a1
+ jsl $e10000
+ mend
+ MACRO
+&lab ph2 &parm
+ lclc &char
+&lab anop
+ aif c:&parm=0,.done
+&char amid &parm,1,1
+ aif "&char"="#",.immediate
+ aif "&char"="@",.at
+ aif s:longa=1,.chk
+ rep #%00100000
+.chk
+ aif "&char"<>"{",.absolute
+&char amid &parm,l:&parm,1
+ aif "&char"<>"}",.error
+&parm amid &parm,2,l:&parm-2
+ lda (&parm)
+ pha
+ ago .shorten
+.absolute
+ lda &parm
+ pha
+ ago .shorten
+.immediate
+&parm amid &parm,2,l:&parm-1
+ pea &parm
+ ago .done
+.at
+&char amid &parm,2,1
+ ph&char
+.shorten
+ aif s:longa=1,.done
+ sep #%00100000
+.done
+ mexit
+.error
+ mnote "Missing closing '}'",16
+ mend
+ MACRO
+&lab ph4 &parm
+ lclc &char
+&lab anop
+&char amid &parm,1,1
+ aif "&char"="#",.immediate
+ aif s:longa=1,.chk1
+ rep #%00100000
+.chk1
+ aif "&char"<>"{",.chk2
+&char amid &parm,l:&parm,1
+ aif "&char"<>"}",.error
+&parm amid &parm,2,l:&parm-2
+ ldy #2
+ lda (&parm),y
+ pha
+ lda (&parm)
+ pha
+ ago .shorten
+.chk2
+ aif "&char"<>"[",.absolute
+ ldy #2
+ lda &parm,y
+ pha
+ lda &parm
+ pha
+ ago .shorten
+.absolute
+ lda &parm+2
+ pha
+ lda &parm
+ pha
+ ago .shorten
+.immediate
+&parm amid &parm,2,l:&parm-1
+ pea +(&parm)|-16
+ pea &parm
+ ago .done
+.shorten
+ aif s:longa=1,.done
+ sep #%00100000
+.done
+ mexit
+.error
+ mnote "Missing closing '}'",16
+ mend
+ MACRO
+&lab pl2 &parm
+ lclc &char
+&lab anop
+ aif s:longa=1,.start
+ rep #%00100000
+.start
+&char amid &parm,1,1
+ aif "&char"="@",.at
+ aif "&char"<>"{",.absolute
+&char amid &parm,l:&parm,1
+ aif "&char"<>"}",.error
+&parm amid &parm,2,l:&parm-2
+ pla
+ sta (&parm)
+ ago .shorten
+.absolute
+ pla
+ sta &parm
+ ago .shorten
+.at
+&char amid &parm,2,1
+ pl&char
+.shorten
+ aif s:longa=1,.done
+ sep #%00100000
+.done
+ mexit
+.error
+ mnote "Missing Closing '}'",16
+ mend
+ MACRO
+&lab native
+&lab clc
+ xce
+ mend
+ MACRO
+&lab inx2
+&lab inx
+ inx
+ mend
+ MACRO
+&lab dex2
+&lab dex
+ dex
+ mend
+ MACRO
+&lab add2 &arg1,&arg2,&dest
+ lclc &char
+&lab clc
+&char amid &arg1,1,1
+ aif "&char"="@",.at1
+ lda &arg1
+ ago .add
+.at1
+&char amid &arg1,2,1
+ aif "&char"="x",.x1
+ aif "&char"="X",.x1
+ aif "&char"="y",.y1
+ aif "&char"="Y",.y1
+ ago .add
+.x1
+ txa
+ ago .add
+.y1
+ tya
+.add
+ adc &arg2
+&char amid &dest,1,1
+ aif "&char"="@",.at2
+ sta &dest
+ ago .b
+.at2
+&char amid &dest,2,1
+ aif "&char"="x",.x2
+ aif "&char"="X",.x2
+ aif "&char"="y",.y2
+ aif "&char"="Y",.y2
+ ago .b
+.x2
+ tax
+ ago .b
+.y2
+ tay
+.b
+ mend
+ MACRO
+&lab lsr4 &a
+&lab lsr &a
+ lsr &a
+ lsr &a
+ lsr &a
+ mend
+ MACRO
+&lab asl4 &a
+&lab asl &a
+ asl &a
+ asl &a
+ asl &a
+ mend
+ MACRO
+&lab inc2 &a
+&lab inc &a
+ inc &a
+ mend
+ MACRO
+&lab sub2 &arg1,&arg2,&dest
+ lclc &char
+&lab sec
+&char amid &arg1,1,1
+ aif "&char"="@",.at1
+ lda &arg1
+ ago .sub
+.at1
+&char amid &arg1,2,1
+ aif "&char"="x",.x1
+ aif "&char"="X",.x1
+ aif "&char"="y",.y1
+ aif "&char"="Y",.y1
+ ago .sub
+.x1
+ txa
+ ago .sub
+.y1
+ tya
+.sub
+ sbc &arg2
+&char amid &dest,1,1
+ aif "&char"="@",.at2
+ sta &dest
+ ago .b
+.at2
+&char amid &dest,2,1
+ aif "&char"="x",.x2
+ aif "&char"="X",.x2
+ aif "&char"="y",.y2
+ aif "&char"="Y",.y2
+ ago .b
+.x2
+ tax
+ ago .b
+.y2
+ tay
+.b
+ mend
+ MACRO
+&lab vblwait
+&lab lda $E1C019-1
+ bmi *-4
+ lda $E1C019-1
+ bpl *-4
+ mend
+ MACRO
+&lab and2 &arg1,&arg2,&dest
+&lab anop
+ lclc &char
+&char amid &arg1,1,1
+ aif "&char"="@",.at1
+ lda &arg1
+ ago .add
+.at1
+&char amid &arg1,2,1
+ aif "&char"="x",.x1
+ aif "&char"="X",.x1
+ aif "&char"="y",.y1
+ aif "&char"="Y",.y1
+ ago .add
+.x1
+ txa
+ ago .add
+.y1
+ tya
+.add
+ and &arg2
+&char amid &dest,1,1
+ aif "&char"="@",.at2
+ sta &dest
+ ago .b
+.at2
+&char amid &dest,2,1
+ aif "&char"="x",.x2
+ aif "&char"="X",.x2
+ aif "&char"="y",.y2
+ aif "&char"="Y",.y2
+ ago .b
+.x2
+ tax
+ ago .b
+.y2
+ tay
+.b
+ mend
+ MACRO
+&lab ora2 &arg1,&arg2,&dest
+&lab anop
+ lclc &char
+&char amid &arg1,1,1
+ aif "&char"="@",.at1
+ lda &arg1
+ ago .add
+.at1
+&char amid &arg1,2,1
+ aif "&char"="x",.x1
+ aif "&char"="X",.x1
+ aif "&char"="y",.y1
+ aif "&char"="Y",.y1
+ ago .add
+.x1
+ txa
+ ago .add
+.y1
+ tya
+.add
+ ora &arg2
+&char amid &dest,1,1
+ aif "&char"="@",.at2
+ sta &dest
+ ago .b
+.at2
+&char amid &dest,2,1
+ aif "&char"="x",.x2
+ aif "&char"="X",.x2
+ aif "&char"="y",.y2
+ aif "&char"="Y",.y2
+ ago .b
+.x2
+ tax
+ ago .b
+.y2
+ tay
+.b
+ mend

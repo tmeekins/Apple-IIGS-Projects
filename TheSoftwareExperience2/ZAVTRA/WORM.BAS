@@ -1,0 +1,3 @@
+ 10  HOME : FOR I = 1 TO 21: READ X: POKE 767 + I,X: NEXT : DATA 1,0,4,0,39,63,36,39,44,36,45,44,53,45,54,53,62,54,63,62,0
+ 15  DIM X(25),Y(25):X(1) = 99:Y(1) = 99:T = 1: POKE 232,0: POKE 233,3: HGR : SCALE= 1: FOR I = 1 TO 99999:W = T:T =  NOT (T / 19 > 1) * T + 1: HCOLOR= 0: DRAW 1 AT X(T),Y(T): HCOLOR= 3
+ 20 C =  RND (1):D = D +  SGN (C - .5) * .18:X = X(W):Y = Y(W):H =  INT (X + 4 *  COS (D)):V =  INT (Y + 4 *  SIN (D)):H =  NOT (H > 0) * 279 + H:V =  NOT (V > 0) * 159 + V:H =  NOT (279 > H) *  - 279 + H:V =  NOT (159 > V) *  - 159 + V:H =  NOT (H / 278 > 1) * H:V =  NOT (V / 158 > 1) * V:X(T) = H:Y(T) = V: DRAW 1 AT H,V: NEXT 

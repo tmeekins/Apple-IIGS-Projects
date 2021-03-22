@@ -1,0 +1,8 @@
+                            memory/disk map for TSE #2
+                            --------------------------
+
+Boot code:      1 block,   0-0,   $0/0800
+Splash1 code:  12 blocks,  7-18   $0/1000
+Splash2 code:  10 blocks, 19-28   $0/1000
+PlayBach code: 13 blocks, 29-41   $1/A000
+Splash3 code:  17 blocks, 42-58   $2/4000

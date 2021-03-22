@@ -1,0 +1,4 @@
+compile makedisk.asm keep=makedisk
+link makedisk keep=makedisk
+delete makedisk.a
+delete makedisk.root

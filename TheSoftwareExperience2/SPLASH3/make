@@ -1,0 +1,5 @@
+linkiigs -x -p dosplash3.root dosplash3.a font.root -o splash3
+makebin splash3
+copy splash3 ../makedisk
+delete splash3
+

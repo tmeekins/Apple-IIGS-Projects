@@ -1,0 +1,1 @@
+ 1  HGR2 :X(1) = 25:X(2) = 50:X(3) = 240:Y(1) = 25:Y(2) = 180:Y(3) = 100: FOR I = 0 TO 191: FOR J = 0 TO 279:M = 0: FOR K = 1 TO 3:Q = I - Y(K):R = J - X(K):S =  SQR (Q * Q + R * R):M = M + ( - .2 * S + 50) * (1 +  COS (.1 * S)): NEXT K:A =  INT ((M + .5) / 8): HCOLOR=  INT ((A / 2 -  INT (A / 2)) * 2 + .1) * 7: HPLOT J,I: NEXT J: NEXT I

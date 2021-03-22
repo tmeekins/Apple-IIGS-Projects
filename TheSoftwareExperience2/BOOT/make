@@ -1,0 +1,6 @@
+compile boot.asm keep=boot
+linkiigs -p -s -x boot.root -o boot -t exe
+makebin -p -s boot
+copy boot ../makedisk
+delete boot.root
+delete boot
