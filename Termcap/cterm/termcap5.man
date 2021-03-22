@@ -1,0 +1,727 @@
+
+
+
+TERMCAP(5)                FILE FORMATS                 TERMCAP(5)
+
+
+
+NAME
+     termcap - terminal capability data base
+
+DESCRIPTION
+     termcap is a data base describing the capabilities of termi-
+     nals.   Terminals  are  described in termcap source descrip-
+     tions by giving a set of capabilities which  they  have,  by
+     describing  how operations are performed, by describing pad-
+     ding  requirements,   and   by   specifying   initialization
+     sequences.   This  database is used by applications programs
+     such as vi(1), and libraries such as curses(3X), so they can
+     work with a variety of terminals without changes to the pro-
+     grams.
+
+     Each termcap entry consist of a  number  of  colon-separated
+     (:)  fields.   The  first  field for each terminal lists the
+     various names by which it is known, separated by bar (  |  )
+     characters.   The  first name is always two characters long,
+     and is used by older (version 6) systems  (which  store  the
+     terminal  type  in a 16-bit word in a system-wide database).
+     The second name given is the most  common  abbreviation  for
+     the terminal (this is the one to which the environment vari-
+     able TERM would normally be  set).   The  last  name  should
+     fully  identify  the  terminal's  make and model.  All other
+     names are taken as synonyms for the initial  terminal  name.
+     All names but the first and last should be in lower case and
+     contain no blanks; the last name may well contain upper case
+     and blanks for added readability.
+
+     Terminal names (except for the last, verbose  entry)  should
+     be chosen using the following conventions:
+
+     o+  The particular piece of hardware making up  the  terminal
+        should  have  a  root  name  chosen; for example, for the
+        Hewlett-Packard 2621, hp2621.  This name should not  con-
+        tain hyphens.
+
+     o+  Modes that the hardware can be  in  or  user  preferences
+        should  be indicated by appending a hyphen and an indica-
+        tor of the mode.  Thus, a vt100 in 132-column mode  would
+        be  given  as: vt100-w.  The following suffixes should be
+        used where possible:
+
+               _S_u_f_f_i_x                   _M_e_a_n_i_n_g                       _E_x_a_m_p_l_e
+               -w        wide mode (more than 80 columns)          vt100-w
+               -am      with automatic margins (usually default)   vt100-am
+               -nam     without automatic margins                  vt100-nam
+               -_n       number of lines on the screen              aaa-60
+               -na      no arrow keys (leave them in local)        concept100-na
+               -_np      number of pages of memory                  concept100-4p
+               -rv      reverse video                              concept100-rv
+
+
+
+
+Sun Release 4.0   Last change: 16 February 1988                 1
+
+
+
+
+
+
+TERMCAP(5)                FILE FORMATS                 TERMCAP(5)
+
+
+
+     Terminal entries may continue onto multiple lines by  giving
+     a \ as the last character of a line, and empty fields may be
+     included for readability (here between the last field  on  a
+     line  and  the  first  field  on the next).  Comments may be
+     included on lines beginning with #.
+
+  Types of Capabilities
+     Terminal capabilities each have a two-letter code,  and  are
+     of three types:
+
+     _b_o_o_l_e_a_n     These indicate particular features of the termi-
+                 nal.  For instance, an entry for a terminal that
+                 has automatic margins (an automatic  RETURN  and
+                 LINEFEED  when  the  end  of  a line is reached)
+                 would contain a field with the boolean  capabil-
+                 ity am.
+
+     _n_u_m_e_r_i_c     These give the size of the display of some other
+                 attribute.  Numeric capabilities are followed by
+                 the character `#', and a number.  An entry for a
+                 teminal  with  an 80-column display would have a
+                 field containing co#80.
+
+     _s_t_r_i_n_g      These indicate the character sequences  used  to
+                 perform    particular    terminal    operations.
+                 String-valued capabilities, such as  ce  (clear-
+                 to-end-of-line  sequence)  are given by the two-
+                 letter code, followed by the character `=',  and
+                 a  string  (which  ends at the following : field
+                 delimiter).
+
+     A delay factor, in milliseconds may appear  after  the  `='.
+     Padding characters are supplied by tputs after the remainder
+     of the string is sent.  The delay can be either a number, or
+     a number followed by the character `*', which indicates that
+     the proportional padding is  required,  in  which  case  the
+     number given is the amount of padding for each line affected
+     by an operation using that capability.  (In the case  of  an
+     insert-character  operation,  the factor is still the number
+     of _l_i_n_e_s affected; this is always 1 unless the terminal  has
+     in and the software uses it.)
+
+     When a * is specified, it is  sometimes  useful  to  give  a
+     delay  of the form 3.5 to specify a delay per line to tenths
+     of milliseconds.  (Only one decimal place is allowed.)
+
+  Comments
+     To comment-out a capability field, insert a `.' (period)  as
+     the first character in that field (following the :).
+
+  Escape Sequence Codes
+     A number of escape sequences are  provided  in  the  string-
+
+
+
+Sun Release 4.0   Last change: 16 February 1988                 2
+
+
+
+
+
+
+TERMCAP(5)                FILE FORMATS                 TERMCAP(5)
+
+
+
+     valued capabilities for easy encoding of characters there:
+
+          \E   maps to ESC
+          ^X   maps to CTRL-_X for any appropriate character _X
+          \n   maps to LINEFEED
+          \r   maps to RETURN
+          \t   maps to TAB
+          \b   maps to BACKSPACE
+          \f   maps to FORMFEED
+
+     Finally, characters may be given as three octal digits after
+     a  backslash  (for  example,  \123),  and  the  characters ^
+     (caret) and \ (backslash) may be given as \^ and \\  respec-
+     tively.
+
+     If it is necessary to place a : in a capability it  must  be
+     escaped in octal as \072.
+
+     If it is necessary to place a  NUL  character  in  a  string
+     capability  it  must be encoded as \200.  (The routines that
+     deal with termcap use C strings and strip the high  bits  of
+     the  output  very  late,  so that a \200 comes out as a \000
+     would.)
+
+  Parameterized Strings
+     Cursor addressing and other strings requiring parameters are
+     described   by   a  parameterized  string  capability,  with
+     printf(3S)-like escapes (%_x) in  it;  other  characters  are
+     passed  through unchanged.  For example, to address the cur-
+     sor, the cm capability is given, using two  parameters:  the
+     row  and  column to move to.  (Rows and columns are numbered
+     from zero and refer to the physical screen  visible  to  the
+     user,  not  to  any  unseen  memory.   If  the  terminal has
+     memory-relative cursor addressing, that can be indicated  by
+     an analogous CM capability.)
+
+     The % escapes have the following meanings:
+          %%     produce the character %
+          %d     output _v_a_l_u_e as in printf %d
+          %2     output _v_a_l_u_e as in printf %2d
+          %3     output _v_a_l_u_e as in printf %3d
+          %.     output _v_a_l_u_e as in printf %c
+          %+_x    add _x to _v_a_l_u_e, then do `%.'
+          %>_x_y   if _v_a_l_u_e > _x then add _y, no output
+          %r     reverse order of two parameters, no output
+          %i     increment by one, no output
+          %n     exclusive-or all parameters with 0140 (Datamedia 2500)
+          %B     BCD (16*(_v_a_l_u_e/10)) + (_v_a_l_u_e%10), no output
+          %D     Reverse coding (_v_a_l_u_e - 2*(_v_a_l_u_e%16)), no output (Delta Data)
+
+     Consider the Hewlett-Packard 2645, which, to get  to  row  3
+     and  column  12,  needs  to  be sent \E&a12c03Y padded for 6
+
+
+
+Sun Release 4.0   Last change: 16 February 1988                 3
+
+
+
+
+
+
+TERMCAP(5)                FILE FORMATS                 TERMCAP(5)
+
+
+
+     milliseconds.  Note: the order of the row and column coordi-
+     nates  is reversed here and that the row and column are sent
+     as  two-digit  integers.   Thus   its   cm   capability   is
+     `:cm=6\E&%r%2c%2Y:'.   Terminals  that  use  `%.' need to be
+     able to backspace the cursor (le) and to move the cursor  up
+     one  line  on the screen (up).  This is necessary because it
+     is not always safe to transmit \n, ^D, and \r, as the system
+     may  change  or  discard them.  (Programs using termcap must
+     set terminal modes so that TAB characters are not  expanded,
+     making  \t safe to send.  This turns out to be essential for
+     the Ann Arbor 4080.)
+
+     A final example is the Lear Siegler  ADM-3a,  which  offsets
+     row  and  column  by  a  blank  character,  thus it requires
+     `:cm=\E=%+ %+:'.
+
+     Row or column absolute cursor addressing  can  be  given  as
+     single-parameter  capabilities ch (horizontal position abso-
+     lute) and cv (vertical position absolute).  Sometimes  these
+     are shorter than the more general two-parameter sequence (as
+     with the Hewlett-Packard 2645) and can be used in preference
+     to  cm.  If there are parameterized local motions (for exam-
+     ple, move _n positions to the right) these can  be  given  as
+     DO,  LE,  RI,  and UP with a single parameter indicating how
+     many positions to move.  These are primarily useful  if  the
+     terminal does not have cm, such as the Tektronix 4025.
+
+  Delays
+     Certain capabilities control padding in the terminal driver.
+     These  are  primarily  needed  by hardcopy terminals and are
+     used by the tset (1) program to set  terminal  driver  modes
+     appropriately.   Delays embedded in the capabilities cr, sf,
+     le, ff, and ta will set the appropriate delay  bits  in  the
+     terminal  driver.  If pb (padding baud rate) is given, these
+     values can be ignored at baud rates below the value  of  pb.
+     For  4.2BSD  tset, the delays are given as numeric capabili-
+     ties dC, dN, dB, dF, and dT instead.
+
+  Similar Terminals
+     If there are two very similar terminals, one can be  defined
+     as  being  just like the other with certain exceptions.  The
+     string capability tc can be given with the name of the simi-
+     lar  terminal.   This  capability must be _l_a_s_t, and the com-
+     bined length of the entries must not exceed 1024.  The capa-
+     bilities given before tc override those in the terminal type
+     invoked by tc.  A capability can be canceled by placing  xx@
+     to  the  left of the tc invocation, where _x_x is the capabil-
+     ity.  For example, the entry
+
+          hn|2621-nl:ks@:ke@:tc=2621:
+
+
+
+
+
+Sun Release 4.0   Last change: 16 February 1988                 4
+
+
+
+
+
+
+TERMCAP(5)                FILE FORMATS                 TERMCAP(5)
+
+
+
+     defines a 2621-nl that does not have the ks or ke  capabili-
+     ties, hence does not turn on the function key labels when in
+     visual mode.  This is useful for different modes for a  ter-
+     minal, or for different user preferences.
+
+CAPABILITIES
+     The characters in the _N_o_t_e_s field in the next table have the
+     following  meanings  (more  than one may apply to a capabil-
+     ity):
+
+          N   indicates numeric parameter(s)
+          P   indicates that padding may be specified
+          *   indicates that padding may be based on the number of lines affected
+          o   indicates capability is obsolete
+
+     Obsolete capabilities have no  terminfo  equivalents,  since
+     they were considered useless, or are subsumed by other capa-
+     bilities.  New software should not rely on them.
+
+          _N_a_m_e    _T_y_p_e   _N_o_t_e_s   _D_e_s_c_r_i_p_t_i_o_n
+          !1      _s_t_r            sent by shifted save key
+          !2      _s_t_r            sent by shifted suspend key
+          !3      _s_t_r            sent by shifted undo key
+          #1      _s_t_r            sent by shifted help key
+          #2      _s_t_r            sent by shifted home key
+          #3      _s_t_r            sent by shifted input key
+          #4      _s_t_r            sent by shifted left-arrow key
+          %0      _s_t_r            sent by redo key
+          %1      _s_t_r            sent by help key
+          %2      _s_t_r            sent by mark key
+          %3      _s_t_r            sent by message key
+          %4      _s_t_r            sent by move key
+          %5      _s_t_r            sent by next-object key
+          %6      _s_t_r            sent by open key
+          %7      _s_t_r            sent by options key
+          %8      _s_t_r            sent by previous-object key
+          %9      _s_t_r            sent by print or copy key
+          %a      _s_t_r            sent by shifted message key
+          %b      _s_t_r            sent by shifted move key
+          %c      _s_t_r            sent by shifted next-object key
+          %d      _s_t_r            sent by shifted options key
+          %e      _s_t_r            sent by shifted previous-object key
+          %f      _s_t_r            sent by shifted print or copy key
+          %g      _s_t_r            sent by shifted redo key
+          %h      _s_t_r            sent by shifted replace key
+          %i      _s_t_r            sent by shifted right-arrow key
+          %j      _s_t_r            sent by shifted resume key
+          &0      _s_t_r            sent by shifted cancel key
+          &1      _s_t_r            sent by ref(erence) key
+          &2      _s_t_r            sent by refresh key
+          &3      _s_t_r            sent by replace key
+          &4      _s_t_r            sent by restart key
+
+
+
+Sun Release 4.0   Last change: 16 February 1988                 5
+
+
+
+
+
+
+TERMCAP(5)                FILE FORMATS                 TERMCAP(5)
+
+
+
+          &5      _s_t_r            sent by resume key
+          &6      _s_t_r            sent by save key
+          &7      _s_t_r            sent by suspend key
+          &8      _s_t_r            sent by undo key
+          &9      _s_t_r            sent by shifted beg(inning) key
+          *0      _s_t_r            sent by shifted find key
+          *1      _s_t_r            sent by shifted cmd (command) key
+          *2      _s_t_r            sent by shifted copy key
+          *3      _s_t_r            sent by shifted create key
+          *4      _s_t_r            sent by shifted delete-char key
+          *5      _s_t_r            sent by shifted delete-line key
+          *6      _s_t_r            sent by select key
+          *7      _s_t_r            sent by shifted end key
+          *8      _s_t_r            sent by shifted clear-line key
+          *9      _s_t_r            sent by shifted exit key
+          5i      _b_o_o_l           printer will not echo on screen
+          @0      _s_t_r            sent by find key
+          @1      _s_t_r            sent by beg(inning) key
+          @2      _s_t_r            sent by cancel key
+          @3      _s_t_r            sent by close key
+          @4      _s_t_r            sent by cmd (command) key
+          @5      _s_t_r            sent by copy key
+          @6      _s_t_r            sent by create key
+          @7      _s_t_r            sent by end key
+          @8      _s_t_r            sent by enter/send key (unreliable)
+          @9      _s_t_r            sent by exit key
+          AL      _s_t_r    (_N_P*)   add _n new blank lines
+          CC      _s_t_r            terminal settable command character in prototype
+          CM      _s_t_r    (_N_P)    memory-relative cursor motion to row _m, column _n
+          DC      _s_t_r    (_N_P*)   delete _n characters
+          DL      _s_t_r    (_N_P*)   delete _n lines
+          DO      _s_t_r    (_N_P*)   move cursor down _n lines
+          EP      _b_o_o_l    (_o)    even parity
+          F1-F9   _s_t_r            sent by function keys 11-19
+          FA-FZ   _s_t_r            sent by function keys 20-45
+          Fa-Fr   _s_t_r            sent by function keys 46-63
+          HC      _b_o_o_l           cursor is hard to see
+          HD      _b_o_o_l    (_o)    half-duplex
+          IC      _s_t_r    (_N_P*)   insert _n blank characters
+          K1      _s_t_r            sent by keypad upper left
+          K2      _s_t_r            sent by keypad center
+          K3      _s_t_r            sent by keypad upper right
+          K4      _s_t_r            sent by keypad lower left
+          K5      _s_t_r            sent by keypad lower right
+          LC      _b_o_o_l    (_o)    lower-case only
+          LE      _s_t_r    (_N_P)    move cursor left _n positions
+          LF      _s_t_r     (_P)    turn off soft labels
+          LO      _s_t_r     (_P)    turn on soft labels
+          MC      _s_t_r     (_P)    clear left and right soft margins
+          ML      _s_t_r     (_P)    set soft left margin
+          MR      _s_t_r     (_P)    set soft right margin
+          NL      _b_o_o_l    (_o)    \n is NEWLINE, not LINEFEED
+
+
+
+Sun Release 4.0   Last change: 16 February 1988                 6
+
+
+
+
+
+
+TERMCAP(5)                FILE FORMATS                 TERMCAP(5)
+
+
+
+          NP      _b_o_o_l           pad character does not exist
+          NR      _b_o_o_l           ti does not reverse te
+          Nl      _n_u_m            number of labels on screen (start at 1)
+          OP      _b_o_o_l    (_o)    odd parity
+          RA      _s_t_r     (_P)    turn off automatic margins
+          RF      _s_t_r            send next input character (for ptys)
+          RI      _s_t_r    (_N_P)    move cursor right _n positions
+          RX      _s_t_r     (_P)    turn off xoff/xon handshaking
+          SA      _s_t_r     (_P)    turn on automatic margins
+          SF      _s_t_r    (_N_P*)   scroll forward _n lines
+          SR      _s_t_r    (_N_P*)   scroll backward _n lines
+          SX      _s_t_r     (_P)    turn on xoff/xon handshaking
+          UC      _b_o_o_l    (_o)    upper-case only
+          UP      _s_t_r    (_N_P*)   move cursor up _n lines
+          XF      _s_t_r            x-off character (default DC3)
+          XN      _s_t_r            x-on character (default DC1)
+          ac      _s_t_r            graphic character set pairs aAbBcC - def=VT100
+          ae      _s_t_r     (_P)    end alternate character set
+          al      _s_t_r    (_P*)    add new blank line
+          am      _b_o_o_l           terminal has automatic margins
+          as      _s_t_r     (_P)    start alternate character set
+          bc      _s_t_r     (_o)    backspace if not ^H
+          bl      _s_t_r     (_P)    audible signal (bell)
+          bs      _b_o_o_l    (_o)    terminal can backspace with ^H
+          bt      _s_t_r     (_P)    back-tab
+          bw      _b_o_o_l           le (backspace) wraps from column 0 to last column
+          cb      _s_t_r     (_P)    clear to beginning of line, inclusive
+          cd      _s_t_r    (_P*)    clear to end of display
+          ce      _s_t_r     (_P)    clear to end of line
+          ch      _s_t_r    (_N_P)    set cursor column (horizontal position)
+          cl      _s_t_r    (_P*)    clear screen and home cursor
+          cm      _s_t_r    (_N_P)    screen-relative cursor motion to row _m, column _n
+          co      _n_u_m            number of columns in a line
+          cr      _s_t_r    (_P*)    RETURN
+          cs      _s_t_r    (_N_P)    change scrolling region to lines _m through _n (VT100)
+          ct      _s_t_r     (_P)    clear all tab stops
+          cv      _s_t_r    (_N_P)    set cursor row (vertical position)
+          dB      _n_u_m     (_o)    milliseconds of bs delay needed (default 0)
+          dC      _n_u_m     (_o)    milliseconds of cr delay needed (default 0)
+          dF      _n_u_m     (_o)    milliseconds of ff delay needed (default 0)
+          dN      _n_u_m     (_o)    milliseconds of nl delay needed (default 0)
+          dT      _n_u_m     (_o)    milliseconds of horizontal tab delay needed (default 0)
+          dV      _n_u_m     (_o)    milliseconds of vertical tab delay needed (default 0)
+          da      _b_o_o_l           display may be retained above the screen
+          db      _b_o_o_l           display may be retained below the screen
+          dc      _s_t_r    (_P*)    delete character
+          dl      _s_t_r    (_P*)    delete line
+          dm      _s_t_r            enter delete mode
+          do      _s_t_r            down one line
+          ds      _s_t_r            disable status line
+          eA      _s_t_r     (_P)    enable graphic character set
+          ec      _s_t_r    (_N_P)    erase _n characters
+
+
+
+Sun Release 4.0   Last change: 16 February 1988                 7
+
+
+
+
+
+
+TERMCAP(5)                FILE FORMATS                 TERMCAP(5)
+
+
+
+          ed      _s_t_r            end delete mode
+          ei      _s_t_r            end insert mode
+          eo      _b_o_o_l           can erase overstrikes with a blank
+          es      _b_o_o_l           escape can be used on the status line
+          ff      _s_t_r    (_P*)    hardcopy terminal page eject
+          fs      _s_t_r            return from status line
+          gn      _b_o_o_l           generic line type (for example dialup, switch)
+          hc      _b_o_o_l           hardcopy terminal
+          hd      _s_t_r            half-line down (forward 1/2 linefeed)
+          ho      _s_t_r     (_P)    home cursor
+          hs      _b_o_o_l           has extra status line
+          hu      _s_t_r            half-line up (reverse 1/2 linefeed)
+          hz      _b_o_o_l           cannot print ~s (Hazeltine)
+          i1      _s_t_r            terminal initialization string (terminfo only)
+          i3      _s_t_r            terminal initialization string (terminfo only)
+          iP      _s_t_r            pathname of program for initialization (terminfo only)
+          ic      _s_t_r    (_P*)    insert character
+          if      _s_t_r            name of file containing initialization string
+          im      _s_t_r            enter insert mode
+          in      _b_o_o_l           insert mode distinguishes nulls
+          ip      _s_t_r    (_P*)    insert pad after character inserted
+          is      _s_t_r            terminal initialization string
+          it      _n_u_m            tab stops initially every _n positions
+          k0-k9   _s_t_r            sent by function keys 0-9
+          k;      _s_t_r            sent by function key 10
+          kA      _s_t_r            sent by insert-line key
+          kB      _s_t_r            sent by back-tab key
+          kC      _s_t_r            sent by clear-screen or erase key
+          kD      _s_t_r            sent by delete-character key
+          kE      _s_t_r            sent by clear-to-end-of-line key
+          kF      _s_t_r            sent by scroll-forward/down key
+          kH      _s_t_r            sent by home-down key
+          kI      _s_t_r            sent by insert-character or enter-insert-mode key
+          kL      _s_t_r            sent by delete-line key
+          kM      _s_t_r            sent by insert key while in insert mode
+          kN      _s_t_r            sent by next-page key
+          kP      _s_t_r            sent by previous-page key
+          kR      _s_t_r            sent by scroll-backward/up key
+          kS      _s_t_r            sent by clear-to-end-of-screen key
+          kT      _s_t_r            sent by set-tab key
+          ka      _s_t_r            sent by clear-all-tabs key
+          kb      _s_t_r            sent by backspace key
+          kd      _s_t_r            sent by down-arrow key
+          ke      _s_t_r            out of keypad transmit mode
+          kh      _s_t_r            sent by home key
+          kl      _s_t_r            sent by left-arrow key
+          km      _b_o_o_l           has a meta key (shift, sets parity bit)
+          kn      _n_u_m     (_o)    number of function (k0-k9) keys (default 0)
+          ko      _s_t_r     (_o)    termcap entries for other non-function keys
+          kr      _s_t_r            sent by right-arrow key
+          ks      _s_t_r            put terminal in keypad transmit mode
+          kt      _s_t_r            sent by clear-tab key
+
+
+
+Sun Release 4.0   Last change: 16 February 1988                 8
+
+
+
+
+
+
+TERMCAP(5)                FILE FORMATS                 TERMCAP(5)
+
+
+
+          ku      _s_t_r            sent by up-arrow key
+          l0-l9   _s_t_r            labels on function keys 0-9 if not f0-f9
+          la      _s_t_r            label on function key 10 if not f10
+          le      _s_t_r     (_P)    move cursor left one position
+          lh      _n_u_m            number of rows in each label
+          li      _n_u_m            number of lines on screen or page
+          ll      _s_t_r            last line, first column
+          lm      _n_u_m            lines of memory if > li (0 means varies)
+          lw      _n_u_m            number of columns in each label
+          ma      _s_t_r     (_o)    arrow key map (used by _v_i version 2 only)
+          mb      _s_t_r            turn on blinking attribute
+          md      _s_t_r            turn on bold (extra bright) attribute
+          me      _s_t_r            turn off all attributes
+          mh      _s_t_r            turn on half-bright attribute
+          mi      _b_o_o_l           safe to move while in insert mode
+          mk      _s_t_r            turn on blank attribute (characters invisible)
+          ml      _s_t_r     (_o)    memory lock on above cursor
+          mm      _s_t_r            turn on meta mode (8th bit)
+          mo      _s_t_r            turn off meta mode
+          mp      _s_t_r            turn on protected attribute
+          mr      _s_t_r            turn on reverse-video attribute
+          ms      _b_o_o_l           safe to move in standout modes
+          mu      _s_t_r     (_o)    memory unlock (turn off memory lock)
+          nc      _b_o_o_l    (_o)    no correctly-working cr (Datamedia 2500, Hazeltine 2000)
+          nd      _s_t_r            non-destructive space (cursor right)
+          nl      _s_t_r     (_o)    NEWLINE character if not
+          ns      _b_o_o_l    (_o)    terminal is a CRT but does not scroll
+          nw      _s_t_r     (_P)    NEWLINE (behaves like cr followed by do)
+          nx      _b_o_o_l           padding will not work, xoff/xon required
+          os      _b_o_o_l           terminal overstrikes
+          pO      _s_t_r     (_N)    turn on the printer for _n bytes
+          pb      _n_u_m            lowest baud where delays are required
+          pc      _s_t_r            pad character (default NUL)
+          pf      _s_t_r            turn off the printer
+          pk      _s_t_r            program function key _n to type string _s (terminfo only)
+          pl      _s_t_r            program function key _n to execute string _s (terminfo only)
+          pn      _s_t_r    (_N_P)    program label _n to show string _s (terminfo only)
+          po      _s_t_r            turn on the printer
+          ps      _s_t_r            print contents of the screen
+          pt      _b_o_o_l    (_o)    has hardware tab stops (may need to be set with is)
+          px      _s_t_r            program function key _n to transmit string _s (terminfo only)
+          r1      _s_t_r            reset terminal completely to sane modes (terminfo only)
+          r2      _s_t_r            reset terminal completely to sane modes (terminfo only)
+          r3      _s_t_r            reset terminal completely to sane modes (terminfo only)
+          rP      _s_t_r     (_P)    like ip but when in replace mode
+          rc      _s_t_r     (_P)    restore cursor to position of last sc
+          rf      _s_t_r            name of file containing reset string
+          ri       ?             unkown at present
+          rp      _s_t_r    (_N_P*)   repeat character _c _n times
+          rs      _s_t_r            reset terminal completely to sane modes
+          sa      _s_t_r    (_N_P)    define the video attributes (9 parameters)
+          sc      _s_t_r     (_P)    save cursor position
+
+
+
+Sun Release 4.0   Last change: 16 February 1988                 9
+
+
+
+
+
+
+TERMCAP(5)                FILE FORMATS                 TERMCAP(5)
+
+
+
+          se      _s_t_r            end standout mode
+          sf      _s_t_r     (_P)    scroll text up
+          sg      _n_u_m            number of garbage chars left by so or se (default 0)
+          so      _s_t_r            begin standout mode
+          sr      _s_t_r     (_P)    scroll text down
+          st      _s_t_r            set a tab stop in all rows, current column
+          ta      _s_t_r     (_P)    move cursor to next 8-position hardware tab stop
+          tc      _s_t_r            entry of similar terminal - must be last
+          te      _s_t_r            string to end programs that use termcap
+          ti      _s_t_r            string to begin programs that use termcap
+          ts      _s_t_r     (_N)    go to status line, column _n
+          uc      _s_t_r            underscore one character and move past it
+          ue      _s_t_r            end underscore mode
+          ug      _n_u_m            number of garbage chars left by us or ue (default 0)
+          ul      _b_o_o_l           underline character overstrikes
+          up      _s_t_r            upline (cursor up)
+          us      _s_t_r            start underscore mode
+          vb      _s_t_r            visible bell (must not move cursor)
+          ve      _s_t_r            make cursor appear normal (undo vs/vi)
+          vi      _s_t_r            make cursor invisible
+          vs      _s_t_r            make cursor very visible
+          vt      _n_u_m            virtual terminal number (not supported on all systems)
+          wi      _s_t_r     (_N)    set current window to lines _i through _j, columns _m through _n
+          ws      _n_u_m            number of columns in status line
+          xb      _b_o_o_l           Beehive (f1=ESC, f2=^C)
+          xn      _b_o_o_l           NEWLINE ignored after 80 cols (Concept)
+          xo      _b_o_o_l           terminal uses xoff/xon handshaking
+          xr      _b_o_o_l    (_o)    RETURN acts like ce cr nl (Delta Data)
+          xs      _b_o_o_l           standout not erased by overwriting (Hewlett-Packard)
+          xt      _b_o_o_l           TAB characters destructive, magic so char (Teleray 1061)
+          xx      _b_o_o_l    (_o)    Tektronix 4025 insert-line
+
+ENVIRONMENT
+     If the environment variable  TERMCAP  contains  an  absolute
+     pathname,  programs  look to that file for terminal descrip-
+     tions, rather than /usr/share/lib/termcap.  If the value  of
+     this varible is in the form of a termcap entry, programs use
+     that value for the terminal description.
+
+FILES
+     /usr/share/lib/termcap
+                         file containing terminal descriptions
+
+SEE ALSO
+     ex(1),   more(1),   tset(1),   ul(1),   vi(1),   curses(3X),
+     printf(3S), termcap(3X), term(5V), terminfo(5V)
+
+     _S_y_s_t_e_m _a_n_d _N_e_t_w_o_r_k _A_d_m_i_n_i_s_t_r_a_t_i_o_n
+
+CAVEATS AND BUGS
+     UNIX System V uses terminfo(5V) rather than termcap.   SunOS
+     supports  either termcap or terminfo(5V) terminal databases,
+
+
+
+Sun Release 4.0   Last change: 16 February 1988                10
+
+
+
+
+
+
+TERMCAP(5)                FILE FORMATS                 TERMCAP(5)
+
+
+
+     depending on  whether  you  link  with  the  termcap(3X)  or
+     curses(3V) libraries.  Transitions between the two should be
+     relatively painless if capabilities flagged as obsolete  are
+     avoided.
+
+     vi allows only 256 characters for string  capabilities,  and
+     the  routines  in  termcap(3X)  do not check for overflow of
+     this buffer.  The total length of a single entry  (excluding
+     only escaped NEWLINE characters) may not exceed 1024.
+
+     Not all programs support all entries.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Sun Release 4.0   Last change: 16 February 1988                11
+
+
+
+ 

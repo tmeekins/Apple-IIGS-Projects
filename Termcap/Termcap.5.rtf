@@ -1,0 +1,102 @@
+{\rtf1\ansi\ansicpg1252\deff0\deflang1033\deflangfe1033{\fonttbl{\f0\fmodern\fprq1\fcharset0 Courier New;}{\f1\froman\fprq2\fcharset0 Times New Roman;}{\f2\fswiss\fprq2\fcharset0 Arial;}{\f3\froman\fprq2\fcharset2 Symbol;}}
+{\colortbl;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;
+\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;\red192\green192\blue192;\red64\green64\blue64;\red255\green153\blue0;}
+\viewkind4\uc1\pard\f0\fs20 \cf9 \f0 <header>\cf0 \par
+\pard\nowidctlpar \f1 \fs14 \fs18 TERMCAP(5)\tab FILE FORMATS\tab TERMCAP(5)\par
+\pard\nowidctlpar \f2 \fs20 \par
+\cf9 \f0 </header>\cf0 \par
+\cf9 \f0 <footer>\cf0 \par
+\pard\nowidctlpar \f0 \fs30 \fs36 \par
+\pard\nowidctlpar \f1 \fs22 GNO/Termcap Release 1.0\tab Last change: April 23, 1992\tab \cf9 <page>\cf0 \par
+\cf9 \f0 \fs20 </footer>\cf0 \par
+\pard\nowidctlpar \f1 \fs22 \par
+\pard\nowidctlpar \f1 \fs18 \b NAME\par
+\pard\nowidctlpar \f1 \fs22 \b0 \tab termcap - terminal capability data base\par
+\pard\nowidctlpar \f1 \par
+\pard\nowidctlpar \f1 \fs18 \b DESCRIPTION\par
+\pard\nowidctlpar\qj \pard\nowidctlpar\qj \f1 \fs22 termcap\b0  is a data base describing the capabilities of terminals. Terminals are described in \b termcap\b0  source descriptions by giving a set of capabilities which they have, by describing how operations are performed, by describing padding requirements, and by specifying initialization sequences.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 Each \b termcap\b0  entry consists of a number of colon-separated (:) fields. The first field for each terminal lists the various names by which it is known, separated by bar (|) characters. The first name is always two characters long, and is used by older systems. The second name given is the most common abbreviation for the terminal (this is the one to which the environment variable \b \fs18 TERM\b0 \fs22  would normally be set). The last name should fully identify the terminal\u8217?s make and model. All other names are taken as synonyms for the initial terminal name. All names but the first and last should be in lower case and contain no blanks; the last name may well contain upper case and blanks for readability.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 Terminal names (except for the last, verbose entry) should be chosen using the following conventions:\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \u8226?\tab The particular piece of hardware making up the terminal should have a root name chosen; for example, for the Hewlett-Packard 2621, \b hp2621\b0 . This name should not contain hyphens.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \u8226?\tab Modes that the hardware can be in or user preferences should be indicated by appending a hyphen and an indicator of the mode. Thus, a \b vt100\b0  in 132-column mode would would be given as: \b vt100-w\b0 . The following suffixes should be used where possible:\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \tab \i Suffix\tab Meaning\tab Example\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \i0 \tab \b -w\b0 \tab wide mode (more than 80 columns)\tab \b vt100-w\par
+\pard\nowidctlpar\qj \f1 \b0 \tab \b -am\b0 \tab with automatic margins (usually default)\tab \b vt100-am\par
+\pard\nowidctlpar\qj \f1 \b0 \tab \b -nam\b0 \tab without automatic margins\tab \b vt100-nam\par
+\pard\nowidctlpar\qj \f1 \b0 \tab \b -\b0 \i n\i0 \tab number of lines on the screen\tab \b aaa-60\par
+\pard\nowidctlpar\qj \f1 \b0 \tab \b -na\b0 \tab no arrow keys (leave them in local)\tab \b concept100-na\par
+\pard\nowidctlpar\qj \f1 \b0 \tab \b -\b0 \i n\b \i0 p\b0 \tab number of pages of memory\tab \b concept100-4p\par
+\pard\nowidctlpar\qj \f1 \b0 \tab \b -rv\b0 \tab reverse video\tab \b concept-rv\par
+\pard\nowidctlpar\qj \f1 \b0 \par
+\pard\nowidctlpar\qj \f1 Terminal entries may continue onto multiple lines by giving a \\ as the last character of a line, and empty fields may be included for readability (here between the last field on a line and the first on the next). Comments may be included on lines beginning with #.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \fs18 \b Types of Capabilities\par
+\pard\nowidctlpar\qj \f1 \fs22 \b0 Terminal capabilities each have a two-letter code, and are of three types:\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \i boolean\i0 \tab These indicate particular features of the terminal. For instance, an entry for a terminal that has automatic margins (an automatic \fs18 RETURN\fs22  and \fs18 LINEFEED\fs22  when the end of a line is reached) would contain a field with the boolean capability \b am\b0 .\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \i numeric\i0 \tab These give the size of the display of some other attribute. Numeric capabilities are followed by the character \u8216?#\u8217?, and a number. An entry for a terminal with an 80-column display would have a field \b co#80\b0 .\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \i string\i0 \tab These indicate the character sequences used to perform particular terminal operations. String-valued capabilities, such as \b ce\b0  (clear-to-end-of-line sequence) are given by the two-letter code, followed by the character \u8216?=\u8217?, and a string (which ends at the following : field delimiter).\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 A delay factor, in milliseconds may appear after the \u8216?=\u8217?. Padding characters are supplied by \b tputs\b0  after the remainder of the string is sent. The delay can be either a number, or a number followed by the character \u8216?*\u8217?, which indicates that the proportional padding is required, in which case the number given is the amount of padding for each line affected by an operation using that capability. (In the case of an insert-character operation, the factor is still the number of \i lines\i0  affected; this is always 1 unless the terminal has an \b in\b0  and the software uses it.)\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 When a * is specified, it is sometimes useful to give a delay of the form \b 3.5\b0  to specify a delay per line of tenths of milliseconds. (Only one decimal place is allowed.)\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \fs18 \b Comments\par
+\pard\nowidctlpar\qj \f1 \fs22 \b0 To comment out-out a capability field, insert a \u8216?.\u8217? (period) as the first character in that field (following the :).\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \fs18 \b Escape Sequence Codes\par
+\pard\nowidctlpar\qj \f1 \fs22 \b0 A number of escape sequences are provided in the string-valued capabilities for easy encoding of the characters there:\par
+\pard\nowidctlpar\qj \f1 \tab \b \\E\b0 \tab maps to \fs18 ESC\par
+\pard\nowidctlpar\qj \f1 \fs22 \tab \b ^X\b0 \tab maps to \fs18 CTRL-\i X\i0 \fs22  for any appropriate character \i \fs18 X\par
+\pard\nowidctlpar\qj \f1 \fs22 \i0 \tab \b \\n\b0 \tab maps to \fs18 LINEFEED\par
+\pard\nowidctlpar\qj \f1 \fs22 \tab \b \\r\b0 \tab maps to \fs18 RETURN\par
+\pard\nowidctlpar\qj \f1 \fs22 \tab \b \\t\b0 \tab maps to \fs18 TAB\par
+\pard\nowidctlpar\qj \f1 \fs22 \tab \b \\b\b0 \tab maps to \fs18 BACKSPACE\par
+\pard\nowidctlpar\qj \f1 \fs22 \tab \b \\f\b0 \tab maps to \fs18 FORMFEED\par
+\pard\nowidctlpar\qj \f1 \fs22 \par
+\pard\nowidctlpar\qj \f1 Finally, characters may be given as three octal digits after a backslash (for example, \b \\123\b0 ), and the characters ^ (caret) and \\ (backslash) may be given as \\^ and \\\\ respectively.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 If it is necessary to place a : in a capability it must be escaped in octal as \b \\072\b0 .\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 If it is necessary to place a \fs18 NUL\fs22  character in a string capability it must be encoded as \b \\200\b0 . (The routines that deal with \b termcap\b0  use C strings and strip the high bits of the output very late, so that a \b \\200\b0  comes out as a\b  \\000\b0  would.)\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \fs18 \b Parameterized Strings\par
+\pard\nowidctlpar\qj \f1 \fs22 \b0 Cursor addressing and other strings requiring parameters are described by a parameterizing string capability, with \b printf\b0 (3V)-like escapes (\i %x\i0 ) in it; other characters are passed through unchanged. For example, to address the cursor, the \b cm\b0  capability is given, using two parameters: the row and column to move to. (Rows and columns are numbered from zero and refer to the physical screen visible to the user, not to any unseen memory. If the terminal has memory-relative cursor addressing, that can be indicated by an analogous \b \fs18 CM\b0 \fs22  capability.)\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 The % escapes have the following meanings:\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \tab \b %%\b0 \tab produce the character \b %\par
+\pard\nowidctlpar\qj \f1 \b0 \tab \b %d\b0 \tab output \i value\i0  as in \b printf %d\par
+\pard\nowidctlpar\qj \f1 \b0 \tab \b %2\b0 \tab output \i value\i0  as in \b printf %2d\par
+\pard\nowidctlpar\qj \f1 \b0 \tab \b %3\b0 \tab output \i value\i0  as in \b printf %3d\par
+\pard\nowidctlpar\qj \f1 \b0 \tab \b %.\b0 \tab output \i value\i0  as in \b printf %c\par
+\pard\nowidctlpar\qj \f1 \b0 \tab \b %+\b0 \i x\i0 \tab add \i x\i0  to \i value\i0 , then do \u8216?\b %.\b0 \u8217?\par
+\pard\nowidctlpar\qj \f1 \tab \b %>\b0 \i xy\i0 \tab if \i value\i0  > \i x\i0  then add \i y\i0 , no output\par
+\pard\nowidctlpar\qj \f1 \tab \b %r\b0 \tab reverse order of two parameters, no output\par
+\pard\nowidctlpar\qj \f1 \tab \b %i\b0 \tab increment by one, no output\par
+\pard\nowidctlpar\qj \f1 \tab \b %n\b0 \tab exclusive-or all parameters with 0140 (Datamedia 2500)\par
+\pard\nowidctlpar\qj \f1 \tab \b %B\b0 \tab BCD (16*(\i value\i0 /10))+(\i value\i0 %10), no output\par
+\pard\nowidctlpar\qj \f1 \tab \b %D\b0 \tab Reverse coding (\i value\i0  - 2*(\i value\i0 %16)), no output (Delta Data)\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 Consider the Hewlett-Paclard 2645, which, to get to row 3 and column 12, needs to ne sent \b \\E&a12c03Y\b0  padded for 6 milliseconds. Note: the order of the row and column coordinates is reversed here and the row and column are sent as two-digit integers. Thus its \b cm\b0  capability is \u8216?\b :cm=6\\E&%r%2c%2Y:\b0 \u8217?. Terminals that use \u8216?\b %.\b0 \u8217? need to be able to backspace the cursor (\b le\b0 ) and to move the cursor up one line on the screen (\b up\b0 ). This is necessary because it is not always safe to transmit \b \\n\b0 , \b ^D\b0 , and \b \\r\b0 , as the system may change or discard them. (Programs using termcap must set terminal modes so that \fs18 TAB\fs22  characters are not expanded, making \b \\t\b0  safe to send. This turns out to be essential for the Ann Arbor 4080.)\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 A final example is the Lear Siegler \fs18 ADM\fs22 -3a, which offsets row and column by a blank character, thus it requires \u8216?\b :cm=\\E=%+ %+:\b0 \u8217?.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \fs18 \b FILES\par
+\pard\nowidctlpar\qj \f1 \fs22 31/etc/termcap\tab \b0 data base\par
+\pard\nowidctlpar\qj \f1 \b 2/ltermcap\tab \b0 GNO/Termcap library\par
+\pard\nowidctlpar\qj \f1 \b 2/orcacdefs/gno/termcap.h\b0 \tab Orca/C header file\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar \pard\nowidctlpar \f1 \fs18 \b SEE ALSO\par
+\pard\nowidctlpar \f1 \fs22 termcap\b0 (5), \b tty\b0 (4)\par
+}
+ 

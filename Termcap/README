@@ -1,0 +1,86 @@
+GNO/Termcap 1.0d02
+------------------
+
+what's new?
+
+I changed the way global variables were defined in the library, it now works
+much more nicely and is now Orca/C sane... If you ever had duplicate labels,
+they'll be gone now.
+
+The previous worms and rain exhibited a problem with dropped characters all
+over the screen. This is not a termcap bug, but a long-standing bug in the
+the GNO console driver. It has to do with restoring the character under the
+cursor when performing screen operations. I added code to worms and rain to
+turn off the cursor at the start, this removes the dropped character problem,
+speeds up the output, and cleans up the screen so you don't see flickers of
+the cursor flying all over the place.
+
+I'm going to include the bsd termcap testing suite with this distribution,
+but only the source. They're trivially to compile, but they're helpful
+if you want to create new termcap entries. Speaking of which, let me know
+what entries you want included standard with GNO/Termcap.
+
+I've added a termcap.h header file. Unix doesn't use any header files for
+termcap, but I've included one since Orca/C likes functions to be proto-
+typed. Since the header is non-standard, copy it to <gno/termcap.h>.
+
+GNO/Termcap 1.0d01
+------------------
+
+This is an early version GNO/Termcap. All features have not been tested,
+but it does work with the gno terminal capability. Please try this with
+others such as vt100, vt220, etc..
+
+If you find bugs, and you know it's a termcap bug, please let me know
+and explain what capability was interpreted incorrectly. Send me the
+termcap and a segment of code that caused the problem. Normal stdio
+bugs aren't my problem, but I'll try and help you with them.
+
+If you port any cool programs, please let me know! I want to see termcap
+in action -- besides worms and rain :)
+
+INSTALLATION
+------------
+
+copy ltermcap to your libraries directory 2/. ltermcap needs to come before
+syslib, so use ProSel or similar to reorder the directory.
+
+termcap uses soon to come GNO 1.1 features, so add a definition for prefix
+31 in your gshrc file. 31/ should be the location of kern.
+
+create a directory etc/ in the directory that cantains GNO, ie. 'kern'. This
+is the same as the prefix 31/ above, therefore you've created 31/etc.
+
+copy the termcap file into 31/etc. termcap may be edited to add additional
+termincal capability definitions.
+
+edit gshrc and add 'set term=gno' for normal usage. If you log onto gno
+over a terminal using a different terminal emulation, set $term appropriately.
+
+CHANGES and WEIRDNESS
+---------------------
+
+the definition of $TERMCAP variable is changed slightly. It may only contain
+a path, no definitions. If this poses a problem, let me know.
+
+tc=xxx entries are not allowed in this implemention. This will be coming
+in future.
+
+WARNING: Orca converts ALL LFs to CRs. So, getting the Cursor-Down capability
+and printf'ing it will result in the cursor moving to the beginning of the
+line (ie. the line feed became a carriage return). A temporary solution is
+to use WriteCString and WriteChar from Orca. Be sure to #include <texttools.h>.
+
+Add a call to _INITGNOSTDIO() at the start of program to make sure it's
+GNO friendly! This shouldn't cause problems if it's not used, but it will
+certainly improve its speed.
+
+Other than above, GNO/Termcap behaves just like Unix termcap, if something
+seems wrong with GNO/Termcap, please let me know.
+
+THE END
+-------
+
+If you have problems, send e-mail to meekins@cis.ohio-state.edu.
+
+-Tim
