@@ -1,0 +1,29 @@
+imageQuant v0.3
+
+This is a very early version of imageQuant, therefore these docs are going
+to be quite sparse. iQ has been under development for over two years off and
+on. iQ's goal, with precedence over all other goals, is quality images. If
+any part of iQ seems slow, just remember that it's going through a little
+extra effort to make the output that much more stunning.
+
+iQ currently supports octree quantization, 2 types of dithering, multiple
+display formats, and multiple load types. iQ even includes built-in virtual
+memory management to help view those large pictures.
+
+Coming soon:
+
+really fast conversion...
+less memory usage (thus less vm usage)
+more quantization types.
+more load types.
+more display types, including 256 color modes and video expansion boards.
+video digitizing boards.
+picture saving.
+image scaling.
+more gui additions.
+
+This version is freeware, but future versions will most likely be shareware
+to help offset the cost of development.
+
+-Tim Meekins
+9/19/94
