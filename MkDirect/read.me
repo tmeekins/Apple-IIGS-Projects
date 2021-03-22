@@ -1,0 +1,50 @@
+==========================================================================
+MKDIRECT
+Written by Tim Meekins
+Copyright (c) 1992 by Procyon, Inc.
+This program is Public Domain
+==========================================================================
+
+As more complicated programs are written for the IIgs, and environments
+such as GNO/ME allow for multiple programs to run concurrently, bank 0 space
+is at a premium. In fact, compilers such as Orca/C reserve a large amount of
+bank 0 for the stack in case someone should write highly recursive or
+stack intensive programs. Instead of making these rare programs use large
+stacks, all programs are forced to use large stacks, nearly 4k worth! With
+this much memory being used per program, after launching GNO/ME, a user is
+left with only enough bank 0 memory for 2 or 3 programs using large stacks.
+But, in fact, 90% of all programs written under Orca/C, especially those
+designed with this limitation in mind, do not need very much space.
+
+This utility creates a load segment for creating default stack sizes, over-
+riding the default stack size, thus letting the programmer to easily specify
+smaller stacksizes. Mkdirect creates a file called direct.root, which can
+be simply linked to your existing file. For example, we have a program called
+'hello.c'. We compile the program with 'compile hello.c keep=hello' to create
+object files hello.root and hello.a. To link hello and include the stack/direct-
+page segment, link as follows: "link hello direct.root keep=hello". Quite
+simple! Direct.root (the file created by mkdirect) was simply added to the
+list of files to link.
+
+Mkdirect allows a segment as small as $100 bytes to specified, but this isn't
+very good. Small programs should work with $200, but we at Procyon, Inc. recommend that a minimum size of $400 bytes be used. If, after adding the segment you incur more crashes (or any if you had no crashes before :) then increase the segment size.
+
+Mkdirect is extremely easy to use. From GNO (or Orca) simply type:
+
+    mkdirect segsize
+
+where size is a decimal number or hexidecimal preceded by a '$'.
+
+If you have any further questions, contact the author, Tim Meekins, or any
+representative of Procyon, Inc.
+
+The complete source code (almost, you also need 'libgno') is included to help
+those of you wishing to write utilities for GNO and need some pointers.
+
+-Tim Meekins, June 25, 1992
+
+-----------
+Procyon, Inc.
+11738 W. Aqueduct Drive
+Littleton, CO 80127
+(303) 933 4649
