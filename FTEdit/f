@@ -1,0 +1,3 @@
+compile fte.asm keep=fte
+link fte keep=fte
+filetype fte s16
