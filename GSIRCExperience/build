@@ -1,0 +1,5 @@
+compile ircexp.asm keep=ircexp
+echo compile mtplay.asm keep=mtplay
+echo compile unlzssp2p.asm keep=unlzssp2p
+link -x ircexp mtplay unlzssp2p keep=ircexp
+filetype ircexp s16
