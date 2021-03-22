@@ -1,0 +1,3 @@
+compile match.asm
+compile regexp.asm
+link match regexp keep=match
