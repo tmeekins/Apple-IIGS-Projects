@@ -1,0 +1,29 @@
+Tool Tracer 1.0
+Copyright 1992 by Tim Meekins
+
+Tool Tracer is a nifty little CDA which flashes the border red whenever
+a specified tool had been accessed. For example, let's say you need to
+trace BeginUpdate calls. Enter the control panerl, select System Tool
+trace and enter the tool number for BeginUpdate, $1E0E.
+
+That's all there is to it. Tool Tracer is extremely simple to use and
+has not caused any observable trouble to the system. Tool Tracer does
+incur the slightest slowdown during tool calls ONLY IF A TRACE IS
+ACTIVATED. As long as no calls are being traced, Tool Tracer is
+invisible to the system.
+
+Coming soon I'll add the ability to trace user tool calls, GS/OS, and
+any $5C-style vector in memory.
+
+Tool Tracer is hereby donated to the Public Domain by myself, Tim
+Meekins.
+
+If you have any further questons, I can be contacted at:
+
+AOL: "GNO Tim"
+internet: meekins@cis.ohio-state.edu
+          meekins@bluemoon.uucp
+	  timm@pro-tcc.cts.com
+
+5760 Johnstown-Alexandria Rd.
+Johnstown, OH 43031

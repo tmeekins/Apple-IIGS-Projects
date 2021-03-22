@@ -1,0 +1,3 @@
+cmpl tooltrace.asm keep=tooltrace
+filetype tooltrace cda
+copy tooltrace *:system:desk.accs
