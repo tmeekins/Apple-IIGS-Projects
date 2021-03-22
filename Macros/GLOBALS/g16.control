@@ -1,0 +1,210 @@
+**************************************************************************
+*                                                                        *
+* Control Manager global constants, data structures, and error codes     *
+* Written by Tim Meekins                                                 *
+* November 4, 1988                                                       *
+*                                                                        *
+* v1.0  11/04/88 TLM Original version. Uses Control Manager v2.5         *
+* v1.1  11/11/88 TLM Updated to Control Manager v2.6                     *
+* v1.2  08/04/90 TLM Updated to Control Manager v3.1                     *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1990 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+*
+* Inivisble control flag value
+*
+ctlInVis       gequ  $80
+*
+* Simple button control flag values
+*
+simpRound      gequ  0
+simpBRound     gequ  1
+simpSquare     gequ  2
+simpDropSquare gequ  3
+*
+* Radio button control flag values
+*
+family         gequ  $7f
+*
+* Scroll bar control flag values
+*
+upFlag         gequ  $01
+downFlag       gequ  $02
+leftFlag       gequ  $04
+rightFlag      gequ  $08
+horScroll      gequ  $10
+*
+* CtlProc
+*
+simpleProc     gequ  $00000000
+checkProc      gequ  $02000000
+radioProc      gequ  $04000000
+scrollProc     gequ  $06000000
+*
+* procRef
+*
+iconButtonControl gequ $07FF0001
+simpleButtonControl gequ $80000000
+statTextControl gequ $81000000
+checkControl   gequ  $82000000
+editLineControl gequ $83000000
+radioControl   gequ  $84000000
+editTextControl gequ $85000000
+scrollBarControl gequ $86000000
+popUpControl   gequ  $87000000
+growControl    gequ  $88000000
+listControl    gequ  $89000000
+pictureControl gequ  $8d000000
+growProc       gequ  $08000000
+*
+* DefProc
+*  - message parameters
+*
+drawCtl        gequ  0
+calcCRect      gequ  1
+testCtl        gequ  2
+initCtl        gequ  3
+dispCtl        gequ  4
+posCtl         gequ  5
+thumbCtl       gequ  6
+dragCtl        gequ  7
+autoTrack      gequ  8
+newValue       gequ  9
+setParams      gequ  10
+moveCtl        gequ  11
+recSize        gequ  12
+ctlHandleEvent gequ  13
+ctlChangeTarget gequ 14
+ctlChangeBounds gequ 15
+ctlWindChangeSize gequ 16
+ctlHandleTab   gequ  17
+ctlNotifyMultiPart gequ 18
+ctlWindStateChange gequ 19
+*
+* Axis parameters
+*
+noConstraint   gequ  $0000
+hAxisOnly      gequ  $0001
+vAxisOnly      gequ  $0002
+*
+* Part codes
+*
+noPart         gequ  $00
+simpleButton   gequ  $02
+checkBox       gequ  $03
+radioButton    gequ  $04
+upArrow        gequ  $05
+downArrow      gequ  $06
+pageUp         gequ  $07
+pageDown       gequ  $08
+growBox        gequ  $0a
+thumb          gequ  $81
+*
+* Control Manager flags
+*
+fCtlIsMultiPart gequ $0400
+fCtlTellAboutSize gequ $0800
+fCtlProcRefNotPtr gequ $1000
+fCtlWantEvents gequ  $2000
+fCtlCanBeTarget gequ $4000
+fCtlTarget     gequ  $8000
+
+titleIsPtr     gequ  $00
+titleIsHandle  gequ  $01
+titleIsResource gequ $02
+
+colorTableIsPtr gequ $00
+colorTableIsHandle gequ $04
+colorTableIsResource gequ $08
+*
+* HiliteControl parameters
+*
+noHilite       gequ  $0000
+inactiveHilite gequ  $00ff
+*
+* CtlRec
+*  - control record
+*
+oCtlNext       gequ  $00
+oCtlOwner      gequ  $04
+oCtlRect       gequ  $08
+oCtlFlag       gequ  $10
+oCtlHilite     gequ  $11
+oCtlValue      gequ  $12
+oCtlProc       gequ  $14
+oCtlAction     gequ  $18
+oCtlData       gequ  $1c
+oCtlRefCon     gequ  $20
+oCtlColor      gequ  $24
+*
+* BarColors
+*  - scroll bar color table
+*
+oBarOutline    gequ  $00
+oBarNorArrow   gequ  $02
+oBarSelArrow   gequ  $04
+oBarArrowBack  gequ  $06
+oBarNorThumb   gequ  $08
+oBarSelThumb   gequ  $0a
+oBarPageRgn    gequ  $0c
+oBarInactive   gequ  $0e
+*
+* BoxColors
+*  - check box color table
+*
+oBoxReserved   gequ  $00
+oBoxNor        gequ  $02
+oBoxSel        gequ  $04
+oBoxTitle      gequ  $06
+*
+* bttnColors
+*  - button color table
+*
+oBttnOutline   gequ  $00
+oBttnNorBack   gequ  $02
+oBttnSelBack   gequ  $04
+oBttnNorText   gequ  $06
+oBttnSelText   gequ  $08
+*
+* LimitBlk
+*  - limit block
+*
+oBoundRect     gequ  $00
+oSlopRect      gequ  $08
+oAxisParam     gequ  $10
+oDragPatt      gequ  $12
+*
+* RadioColors
+*  - radio button color table
+*
+oRadReserved   gequ  $00
+oRadNor        gequ  $02
+oRadSel        gequ  $04
+oRadTitle      gequ  $06
+*
+* Control Manager error codes
+*
+wmNotStartedUp gequ  $1001
+cmNotInitialized gequ $1002
+noCtlInList    gequ  $1003
+noCtlError     gequ  $1004
+noExtendedCtlError gequ $1005
+noCtlTargetError gequ $1006
+notExtendedCtlError gequ $1007
+canNotBeTargetError gequ $1008
+noSuchIDError  gequ  $1009
+tooFewParmsError gequ $100a
+noCtlToBeTargetError gequ $100b
+noFrontWindowError gequ $100c

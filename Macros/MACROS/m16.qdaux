@@ -1,0 +1,162 @@
+**************************************************************************
+*                                                                        *
+* QuickDraw Auxiliary macros                                             *
+* Written by Tim Meekins                                                 *
+* Ausust 24, 1989                                                        *
+*                                                                        *
+* Requires: M16.MACROS                                                   *
+*                                                                        *
+* Note: Several of these macros use tool box calls that are              *
+* associated with QuickDraw II and not QuickDraw Auxiliary. These        *
+* calls require that QuickDraw Auxiliary be loaded first, thus they      *
+* are included in this file.                                             *
+*                                                                        *
+* v1.0  08/24/89 TLM Original Version. Using QuickDraw Auxiliary v2.5    *
+* v1.1  07/26/90 TLM Updated for QuickDraw Auxiliary v3.0                *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1990 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+               macro
+&lab           QDAuxBootInit
+&lab           Tool  $0112
+               mend
+
+               macro
+&lab           QDAuxStartUp
+&lab           Tool  $0212
+               mend
+
+               macro
+&lab           QDAuxShutDown
+&lab           Tool  $0312
+               mend
+
+               macro
+&lab           QDAuxVersion &a1
+&lab           pha
+               Tool  $0412
+               pl2   &a1
+               mend
+
+               macro
+&lab           QDAuxReset
+&lab           Tool  $0512
+               mend
+
+               macro
+&lab           QDAuxStatus &a1
+&lab           pha
+               Tool  $0612
+               pl2   &a1
+               mend
+
+               macro
+&lab           CopyPixels &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               ph4   &a1(4)
+               ph2   &a1(5)
+               ph4   &a1(6)
+               Tool  $0912
+               mend
+
+               macro
+&lab           WaitCursor
+&lab           Tool  $0a12
+               mend
+
+               macro
+&lab           DrawIcon &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               ph2   &a1(4)
+               Tool  $0b12
+               mend
+
+               macro
+&lab           SpecialRect &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               Tool  $0c12
+               mend
+
+               macro
+&lab           SeedFill &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               ph4   &a1(4)
+               ph2   &a1(5)
+               ph2   &a1(6)
+               ph2   &a1(7)
+               ph4   &a1(8)
+               ph4   &a1(9)
+               Tool  $0d12
+               mend
+
+               macro
+&lab           CalcMask &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               ph4   &a1(4)
+               ph2   &a1(5)
+               ph4   &a1(6)
+               ph4   &a1(7)
+               Tool  $0e12
+               mend
+
+
+*
+* QuickDraw II calls contained in QuickDraw Auxiliary
+*
+
+               macro
+&lab           OpenPicture &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1
+               Tool  $b704
+               pl4   &a2
+               mend
+
+               macro
+&lab           PicComment &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               ph4   &a1(3)
+               Tool  $b804
+               mend
+
+               macro
+&lab           ClosePicture
+&lab           Tool  $b904
+               mend
+
+               macro
+&lab           DrawPicture &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $ba04
+               mend
+
+               macro
+&lab           KillPicture &a1
+&lab           ph4   &a1
+               Tool  $bb04
+               mend

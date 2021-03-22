@@ -1,0 +1,112 @@
+**************************************************************************
+*                                                                        *
+* Note Synthesizer macros                                                *
+* Written by Tim Meekins                                                 *
+* September 6, 1989                                                      *
+*                                                                        *
+* Requires: M16.MACROS                                                   *
+*                                                                        *
+* v1.0  09/06/89 TLM Original Version. Using Note Synthesizer v1.3       *
+* v1.1  07/26/90 TLM Updated to Note Synthesizer v1.4 and fixed          *
+*                    typos in NSSetUpdateRate & NSSetUserUpdateRtn       *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1990 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+               macro
+&lab           NSBootInit
+&lab           Tool  $0119
+               mend
+
+               macro
+&lab           NSStartUp &a1
+&lab           ph2   &a1(1)
+               ph4   &a1(2)
+               Tool  $0219
+               mend
+
+               macro
+&lab           NSShutDown
+&lab           Tool  $0319
+               mend
+
+               macro
+&lab           NSVersion &a1
+&lab           pha
+               Tool  $0419
+               pl2   &a1
+               mend
+
+               macro
+&lab           NSReset
+&lab           Tool  $0519
+               mend
+
+               macro
+&lab           NSStatus &a1
+&lab           pha
+               Tool  $0619
+               pl2   &a1
+               mend
+
+               macro
+&lab           AllocGen &a1,&a2
+&lab           pha
+               ph2   &a1
+               Tool  $0919
+               pl2   &a2
+               mend
+
+               macro
+&lab           DeallocGen &a1
+&lab           ph2   &a1
+               Tool  $0a19
+               mend
+
+               macro
+&lab           NoteOn &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               ph4   &a1(4)
+               Tool  $0b19
+               mend
+
+               macro
+&lab           NoteOff &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               Tool  $0c19
+               mend
+
+               macro
+&lab           AllNotesOff
+&lab           Tool  $0d19
+               mend
+
+               macro
+&lab           NSSetUpdateRate &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               Tool  $0e19
+               mend
+
+               macro
+&lab           NSSetUserUpdateRtn &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1
+               Tool  $0f19
+               pl4   &a2
+               mend

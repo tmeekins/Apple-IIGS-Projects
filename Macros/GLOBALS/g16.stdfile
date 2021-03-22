@@ -1,0 +1,40 @@
+**************************************************************************
+*                                                                        *
+* Standard File Operations Tool Set                                      *
+* constants, data structures, and error codes                            *
+*                                                                        *
+* Written by Tim Meekins                                                 *
+* August 26, 1989                                                        *
+*                                                                        *
+* v1.0  08/26/89 Original version. Uses Standard File v2.2               *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1990 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+*
+* Filter procedure results
+*
+noDisplay      gequ  $0000
+noSelect       gequ  $0001
+displaySelect  gequ  $0002
+*
+* Standard File Operations Tool Set data structures
+*
+* Reply record
+*
+oGood          gequ  $00
+oFileType      gequ  $02
+oAuxFileType   gequ  $04
+oFileName      gequ  $06
+oFullPathname  gequ  $16

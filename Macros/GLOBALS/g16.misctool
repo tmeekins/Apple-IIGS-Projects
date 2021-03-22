@@ -1,0 +1,300 @@
+**************************************************************************
+*                                                                        *
+* Miscellaneous Tool Set global constants, data structures,              *
+* and error codes                                                        *
+* Written by Tim Meekins                                                 *
+* April 11, 1989                                                         *
+*                                                                        *
+* v1.0  04/11/89 Original version. Uses Miscellaneous Tool Set v2.2      *
+*       01/12/90 Fixed typo.                                             *
+* v1.1  08/04/90 Updated to Miscellaneous Tool Set v3.0                  *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1990 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+*
+* Battery RAM parameter reference numbers
+*
+p1PrntModem    gequ  $0000
+p1LineLnth     gequ  $0001
+p1DelLine      gequ  $0002
+p1AddLine      gequ  $0003
+p1Echo         gequ  $0004
+p1Buffer       gequ  $0005
+p1Baud         gequ  $0006
+p1DtStpBits    gequ  $0007
+p1Parity       gequ  $0008
+p1DCDHndShk    gequ  $0009
+p1DSRHndShk    gequ  $000a
+p1XnfHndShk    gequ  $000b
+p2PrntModem    gequ  $000c
+p2LineLnth     gequ  $000d
+p2DelLine      gequ  $000e
+p2AddLine      gequ  $000f
+p2Echo         gequ  $0010
+p2Buffer       gequ  $0011
+p2Baud         gequ  $0012
+p2DtStpBits    gequ  $0013
+p2Parity       gequ  $0014
+p2DCDHndShk    gequ  $0015
+p2DSRHndShk    gequ  $0016
+p2XnfHndShk    gequ  $0017
+dspColMono     gequ  $0018
+dsp40or80      gequ  $0019
+dspTxtColor    gequ  $001a
+dspBckColor    gequ  $001b
+dspBrdColor    gequ  $001c
+hrtz50or60     gequ  $001d
+userVolume     gequ  $001e
+bellVolume     gequ  $001f
+sysSpeed       gequ  $0020
+slt1intExt     gequ  $0021
+slt2intExt     gequ  $0022
+slt3intExt     gequ  $0023
+slt4intExt     gequ  $0024
+slt5intExt     gequ  $0025
+slt6intExt     gequ  $0026
+slt7intExt     gequ  $0027
+startupSlt     gequ  $0028
+txtDspLang     gequ  $0029
+kybdLang       gequ  $002a
+kyBdBuffer     gequ  $002b
+kyBdRepSpd     gequ  $002c
+kyBdRepDel     gequ  $002d
+dblClkTime     gequ  $002e
+flashRate      gequ  $002f
+shftCpsCas     gequ  $0030
+fstSpDelKey    gequ  $0031
+dualSpeed      gequ  $0032
+hiMouseRes     gequ  $0033
+dateFormat     gequ  $0034
+clockFormat    gequ  $0035
+rdMinRam       gequ  $0036
+rdMaxRam       gequ  $0037
+langCount      gequ  $0038
+lang1          gequ  $0039
+lang2          gequ  $003a
+lang3          gequ  $003b
+lang4          gequ  $003c
+lang5          gequ  $003d
+lang6          gequ  $003e
+lang7          gequ  $003f
+lang8          gequ  $0040
+layout         gequ  $0041
+layout1        gequ  $0042
+layout2        gequ  $0043
+layout3        gequ  $0044
+layout4        gequ  $0045
+layout5        gequ  $0046
+layout6        gequ  $0047
+layout7        gequ  $0048
+layout8        gequ  $0049
+layout9        gequ  $004a
+layout10       gequ  $004b
+layout11       gequ  $004c
+layout12       gequ  $004d
+layout13       gequ  $004e
+layout14       gequ  $004f
+layout15       gequ  $0050
+layout16       gequ  $0051
+aTalkNodeNo    gequ  $0080
+*
+* GetAddr parameter reference numbers
+*
+irqIntFlag     gequ  $0000
+irqDataReg     gequ  $0001
+irqSerial1     gequ  $0002
+irqSerial2     gequ  $0003
+irqAplTlkHi    gequ  $0004
+tickCnt        gequ  $0005
+irqVolume      gequ  $0006
+irqActive      gequ  $0007
+irqSndData     gequ  $0008
+brkVar         gequ  $0009
+evMgrData      gequ  $000a
+mouseSlot      gequ  $000b
+mouseClamps    gequ  $000c
+absClamps      gequ  $000d
+sccIntFlag     gequ  $000e
+*
+* Hardware interrupt status (returned by GetIRQEnable)
+*
+extVGCInt      gequ  $01
+scanLineInt    gequ  $02
+adbDataInt     gequ  $04
+oneSecInt      gequ  $10
+quartSecInt    gequ  $20
+vbInt          gequ  $40
+kbdInt         gequ  $80
+*
+* Interrupt reference numbers
+*
+kybdEnable     gequ  $0000
+kybdDisable    gequ  $0001
+vblEnable      gequ  $0002
+vblDisable     gequ  $0003
+qSecEnable     gequ  $0004
+qSecDisable    gequ  $0005
+oSecEnable     gequ  $0006
+oSecDisable    gequ  $0007
+adbEnable      gequ  $000a
+adbDisable     gequ  $000b
+scLnEnable     gequ  $000c
+scLnDisable    gequ  $000d
+exVCGEnable    gequ  $000e
+exVCGDisable   gequ  $000f
+*
+* Mouse mode reference numbers
+*
+mouseOff       gequ  $0000
+transparent    gequ  $0001
+moveIntrpt     gequ  $0003
+bttnIntrpt     gequ  $0005
+bttnOrMove     gequ  $0007
+mouseOffVI     gequ  $0008
+transparentVI  gequ  $0009
+moveIntrptVI   gequ  $000b
+bttnIntrptVI   gequ  $000d
+bttnOrMoveVI   gequ  $000f
+*
+* Vector reference numbers
+*
+toolLoc1       gequ  $0000
+toolLoc2       gequ  $0001
+usrTLoc1       gequ  $0002
+usrTLoc2       gequ  $0003
+intrptMgr      gequ  $0004
+copMgr         gequ  $0005
+abortMgr       gequ  $0006
+sysFailMgr     gequ  $0007
+aTalkIntHnd    gequ  $0008
+sccIntHnd      gequ  $0009
+scLnIntHnd     gequ  $000a
+sndIntHnd      gequ  $000b
+vblIntHnd      gequ  $000c
+mouseIntHnd    gequ  $000d
+qSecIntHnd     gequ  $000e
+kybdIntHnd     gequ  $000f
+adbRBIHnd      gequ  $0010
+adbSRQHnd      gequ  $0011
+deskAccHnd     gequ  $0012
+flshBufHnd     gequ  $0013
+kybdMicHnd     gequ  $0014
+oneSecHnd      gequ  $0015
+extVCGHnd      gequ  $0016
+otherIntHnd    gequ  $0017
+crsrUpdtHnd    gequ  $0018
+incBsyFlag     gequ  $0019
+decBsyFlag     gequ  $001a
+bellVector     gequ  $001b
+breakVector    gequ  $001c
+traceVector    gequ  $001d
+stepVector     gequ  $001e
+ctlYVector     gequ  $0028
+proDOSVctr     gequ  $002a
+osVector       gequ  $002b
+msgPtrVctr     gequ  $002c
+*
+* TimeRec data structure
+*
+oSecond        gequ  $00
+oMinute        gequ  $01
+oHour          gequ  $02
+oYear          gequ  $03
+oDay           gequ  $04
+oMonth         gequ  $05
+oExtra         gequ  $06
+oWeekDay       gequ  $07
+*
+* MouseRec data structure
+*
+oMouseMode     gequ  $00
+oMouseStatus   gequ  $01
+oYPos          gequ  $02
+oXPos          gequ  $04
+*
+* ClampRec data structure
+*
+oYMaxClamp     gequ  $00
+oYMinClamp     gequ  $02
+oXMaxClamp     gequ  $04
+oXMinClamp     gequ  $
+*
+* FWRec data structure
+*
+oYRegExit      gequ  $00
+oXRegExit      gequ  $02
+oARegExit      gequ  $04
+oStatus        gequ  $06
+*
+* Interrupt state record
+*
+irq_A          gequ  $00
+irq_X          gequ  $02
+irq_Y          gequ  $04
+irq_S          gequ  $06
+irq_D          gequ  $08
+irq_P          gequ  $0a
+irq_DB         gequ  $0b
+irq_e          gequ  $0c
+irq_K          gequ  $0d
+irq_PC         gequ  $0e
+irq_state      gequ  $10
+irq_shadow     gequ  $11
+irq_irqmslot   gequ  $13
+*
+* System failure codes
+*
+pdosUnClmdIntErr gequ $0001
+divByZeroErr   gequ  $0004
+pdosVCBErr     gequ  $000a
+pdosFCBErr     gequ  $000b
+pdosBlk0Err    gequ  $000c
+pdosIntShdwErr gequ  $000d
+segLoader1Err  gequ  $0015
+sPackage0Err   gequ  $0017
+package1Err    gequ  $0018
+package2Err    gequ  $0019
+package3Err    gequ  $001a
+package4Err    gequ  $001b
+package5Err    gequ  $001c
+package6Err    gequ  $001d
+package7Err    gequ  $001e
+package8Err    gequ  $0020
+package9Err    gequ  $0021
+package10Err   gequ  $0022
+package11Err   gequ  $0023
+package12Err   gequ  $0024
+outOfMemErr    gequ  $0025
+segLoader2Err  gequ  $0026
+fMapTrshdErr   gequ  $0027
+stkOvrFlwErr   gequ  $0028
+psInstDiskErr  gequ  $0030
+stupVolMntErr  gequ  $0100
+*
+* Miscellaneous Tool Set error codes
+*
+badInputErr    gequ  $0301
+noDevParamErr  gequ  $0302
+taskInstlErr   gequ  $0303
+noSigTaskErr   gequ  $0304
+queueDmgdErr   gequ  $0305
+taskNtFdErr    gequ  $0306
+firmTaskErr    gequ  $0307
+hbQueueBadErr  gequ  $0308
+unCnctDevErr   gequ  $0309
+idTagNtAvlErr  gequ  $030b
+notInList      gequ  $0380
+invalidTag     gequ  $0381
+alreadyInQueue gequ  $0382

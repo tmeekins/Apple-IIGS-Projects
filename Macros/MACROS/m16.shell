@@ -1,0 +1,220 @@
+**************************************************************************
+*                                                                        *
+* Shell macros                                                           *
+* Written by Tim Meekins                                                 *
+* November 2, 1989                                                       *
+*                                                                        *
+* Requires: M16.MACROS                                                   *
+*                                                                        *
+* v1.0  11/02/89 TLM Original Version.                                   *
+* v1.1  04/27/91 TLM Duplicated some calls fdue to differing naming      *
+*                    conventions.                                        *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                 Copyright 1990,91 by Tim Meekins                       *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+         macro
+&lab     GET_LINFO &a1
+&lab     p16   $101,&a1
+         mend
+
+         macro
+&lab     SET_LINFO &a1
+&lab     p16   $102,&a1
+         mend
+
+         macro
+&lab     GET_LANG &a1
+&lab     p16   $103,&a1
+         mend
+
+         macro
+&lab     SET_LANG &a1
+&lab     p16   $104,&a1
+         mend
+
+         macro
+&lab     ERROR &a1
+&lab     p16   $105,&a1
+         mend
+
+         macro
+&lab     Set_Variable &a1
+&lab     p16   $106,&a1
+         mend
+
+         macro
+&lab     SET_VAR &a1
+&lab     p16   $106,&a1
+         mend
+
+         macro
+&lab     VERSION &a1
+&lab     p16   $107,&a1
+         mend
+
+         macro
+&lab     READ_INDEXED &a1
+&lab     p16   $108,&a1
+         mend
+
+         macro
+&lab     INIT_WILDCARD &a1
+&lab     p16   $109,&a1
+         mend
+
+         macro
+&lab     NEXT_WILDCARD &a1
+&lab     p16   $10A,&a1
+         mend
+
+         macro
+&lab     READ_VARIABLE &a1
+&lab     p16   $10B,&a1
+         mend
+
+         macro
+&lab     GET_VAR &a1
+&lab     p16   $10B,&a1
+         mend
+
+         macro
+&lab     ChangeVector &a1
+&lab     p16   $10C,&a1
+         mend
+
+         macro
+&lab     CHANGE_VECTOR &a1
+&lab     p16   $10C,&a1
+         mend
+
+         macro
+&lab     EXECUTE &a1
+&lab     p16   $10D,&a1
+         mend
+
+         macro
+&lab     FASTFILE &a1
+&lab     p16   $10E,&a1
+         mend
+
+         macro
+&lab     DIRECTION &a1
+&lab     p16   $10F,&a1
+         mend
+
+         macro
+&lab     REDIRECT &a1
+&lab     p16   $110,&a1
+         mend
+
+         macro
+&lab     STOP  &a1
+&lab     p16   $113,&a1
+         mend
+
+         macro
+&lab     ExpandDevices &a1
+&lab     p16   $114,&a1
+         mend
+
+         macro
+&lab     EXPAND_DEVICES &a1
+&lab     p16   $114,&a1
+         mend
+
+         macro
+&lab     UnsetVariable &a1
+&lab     p16   $115,&a1
+         mend
+
+         macro
+&lab     UNSET_VARIABLE &a1
+&lab     p16   $115,&a1
+         mend
+
+         macro
+&lab     EXPORT &a1
+&lab     p16   $116,&a1
+         mend
+
+         macro
+&lab     PopVariables &a1
+&lab     p16   $117,&a1
+         mend
+
+         macro
+&lab     POP_VARIABLES &a1
+&lab     p16   $117,&a1
+         mend
+
+         macro
+&lab     PushVariables &a1
+&lab     p16   $118,&a1
+         mend
+
+         macro
+&lab     PUSH_VARIABLES &a1
+&lab     p16   $118,&a1
+         mend
+
+         macro
+&lab     SetStopFlag &a1
+&lab     p16   $119,&a1
+         mend
+
+         macro
+&lab     SET_STOP_FLAG &a1
+&lab     p16   $119,&a1
+         mend
+
+         macro
+&lab     ConsoleOut &a1
+&lab     p16   $11A,&a1
+         mend
+
+         macro
+&lab     WRITE_CONSOLE &a1
+&lab     p16   $11A,&a1
+         mend
+
+         macro
+&lab     SetIODevices &a1
+&lab     p16   $11B,&a1
+         mend
+
+         macro
+&lab     SET_IODEVICES &a1
+&lab     p16   $11B,&a1
+         mend
+
+         macro
+&lab     GetIODevices &a1
+&lab     p16   $11C,&a1
+         mend
+
+         macro
+&lab     GET_IODEVICES &a1
+&lab     p16   $11C,&a1
+         mend
+
+         macro
+&lab     GetCommand &a1
+&lab     p16   $11D,&a1
+         mend
+
+         macro
+&lab     GET_COMMAND &a1
+&lab     p16   $11D,&a1
+         mend

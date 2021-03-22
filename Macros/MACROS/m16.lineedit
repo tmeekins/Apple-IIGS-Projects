@@ -1,0 +1,260 @@
+**************************************************************************
+*                                                                        *
+* LineEdit Tool Set macros                                               *
+* Written by Tim Meekins                                                 *
+* November 8, 1988                                                       *
+*                                                                        *
+* Requires: M16.MACROS                                                   *
+*                                                                        *
+* v1.0  11/08/88 TLM Original version. Uses LineEdit Tool Set v2.1       *
+* v1.1  11/11/88 TLM Updated to LineEdit Tool Set v2.2                   *
+* v3.1  07/26/90 TLM Upadted to LineEdit Tool Set v3.1                   *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1990 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+                macro
+&lab            LEBootInit
+&lab            tool    $0114
+                mend
+
+                macro
+&lab            LEStartUp &a1
+&lab            ph2     &a1(1)
+                ph2     &a1(2)
+                tool    $0214
+                mend
+
+                macro
+&lab            LEShutDown
+&lab            tool    $0314
+                mend
+
+                macro
+&lab            LEVersion &a1
+&lab            pha
+                tool    $0414
+                pl2     &a1
+                mend
+
+                macro
+&lab            LEReset
+&lab            tool    $0514
+                mend
+
+                macro
+&lab            LEStatus &a1
+&lab            pha
+                tool    $0614
+                pl2     &a1
+                mend
+
+                macro
+&lab            LENew &a1,&a2
+&lab            pha
+                pha
+                ph4     &a1(1)
+                ph4     &a1(2)
+                ph2     &a1(3)
+                tool    $0914
+                pl4     &a2
+                mend
+
+                macro
+&lab            LEDispose &a1
+&lab            ph4     &a1
+                tool    $0a14
+                mend
+
+                macro
+&lab            LESetText &a1
+&lab            ph4     &a1(1)
+                ph2     &a1(2)
+                ph4     &a1(3)
+                tool    $0b14
+                mend
+
+                macro
+&lab            LEIdle &a1
+&lab            ph4     &a1
+                tool    $0c14
+                mend
+
+                macro
+&lab            LEClick &a1
+&lab            ph4     &a1(1)
+                ph4     &a1(2)
+                tool    $0d14
+                mend
+
+                macro
+&lab            LESetSelect &a1
+&lab            ph2     &a1(1)
+                ph2     &a1(2)
+                ph4     &a1(3)
+                tool    $0e14
+                mend
+
+                macro
+&lab            LEActivate &a1
+&lab            ph4     &a1
+                tool    $0f14
+                mend
+
+                macro
+&lab            LEDeactivate &a1
+&lab            ph4     &a1
+                tool    $1014
+                mend
+
+                macro
+&lab            LEKey &a1
+&lab            ph2     &a1(1)
+                ph2     &a1(2)
+                ph4     &a1(3)
+                tool    $1114
+                mend
+
+                macro
+&lab            LECut &a1
+&lab            ph4     &a1
+                tool    $1214
+                mend
+
+                macro
+&lab            LECopy &a1
+&lab            ph4     &a1
+                tool    $1314
+                mend
+
+                macro
+&lab            LEPaste &a1
+&lab            ph4     &a1
+                tool    $1414
+                mend
+
+                macro
+&lab            LEDelete &a1
+&lab            ph4     &a1
+                tool    $1514
+                mend
+
+                macro
+&lab            LEInsert &a1
+&lab            ph4     &a1(1)
+                ph2     &a1(2)
+                ph4     &a1(3)
+                tool    $1614
+                mend
+
+                macro
+&lab            LEUpdate &a1
+&lab            ph4     &a1
+                tool    $1714
+                mend
+
+                macro
+&lab            LETextBox &a1
+&lab            ph4     &a1(1)
+                ph2     &a1(2)
+                ph4     &a1(3)
+                ph2     &a1(4)
+                tool    $1814
+                mend
+
+                macro
+&lab            LEFromScrap
+&lab            tool    $1914
+                mend
+
+                macro
+&lab            LEToScrap
+&lab            tool    $1a14
+                mend
+
+                macro
+&lab            LEScrapHandle &a1
+&lab            pha
+                pha
+                tool    $1b14
+                pl4     &a1
+                mend
+
+                macro
+&lab            LEGetScrapLen &a1
+&lab            pha
+                tool    $1c14
+                pl2     &a1
+                mend
+
+                macro
+&lab            LESetScrapLen &a1
+&lab            ph2     &a1
+                tool    $1d14
+                mend
+
+                macro
+&lab            LESetHilite &a1
+&lab            ph4     &a1(1)
+                ph4     &a1(2)
+                tool    $1e14
+                mend
+
+                macro
+&lab            LESetCaret &a1
+&lab            ph4     &a1(1)
+                ph4     &a1(2)
+                tool    $1f14
+                mend
+
+                macro
+&lab            LETextBox2 &a1
+&lab            ph4     &a1(1)
+                ph2     &a1(2)
+                ph4     &a1(3)
+                ph2     &a1(4)
+                tool    $2014
+                mend
+
+                macro
+&lab            LESetJust &a1
+&lab            ph2     &a1(1)
+                ph4     &a1(2)
+                tool    $2114
+                mend
+
+                macro
+&lab            LEGetTextHand &a1,&a2
+&lab            pha
+                pha
+                ph4     &a1
+                tool    $2214
+                pl4     &a2
+                mend
+
+                macro
+&lab            LEGetTextLen &a1,&a2
+&lab            pha
+                ph4     &a1
+                tool    $2314
+                pl2     &a2
+                mend
+
+                macro
+&lab            GetLEDefProc &a1
+&lab            pha
+                pha
+                tool    $2414
+                pl4     &a1
+                mend

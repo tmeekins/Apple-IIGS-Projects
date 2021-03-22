@@ -1,0 +1,491 @@
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1990 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+                        M16.MACROS DOCUMENTATION
+                        ========================
+                              Release 1.4
+
+05/25/91 Added UserTool, Jxx.
+
+                        M16.MACROS DOCUMENTATION
+                        ========================
+                              Release 1.2
+
+12/20/90 Added Deref macro.
+
+                        M16.MACROS DOCUMENTATION
+                        ========================
+                              Release 1.1
+
+08/31/90 Added SmartPort and SmartPortX macros.
+09/19/90 Modified the ay PL4 works.
+12/06/90 Added descriptions for Neg2 and IF2
+12/14/90 Removed CM2.
+
+
+                        M16.MACROS DOCUMENTATION
+                        ========================
+                              Release 1.0
+
+
+                           HINTS AND TIPS
+--------------------------------------------------------------------------
+
+Many macros have '@' operators which can replace variables. The basic '@'
+operators are: '@', '@A', '@X', @'Y'.
+
+Since the comma, ',', and parantheses, '(',')', are reserved for the macro
+generator for separating parameters, parameters which contain commas or
+parentheses normally can't be used directory. Instead, place the entire
+parameter in double-quotes '"'. For example, LD2 100,"(memory),y"
+
+See also DOX.TOOLS and DOX.PASCAL for other hints and macro usages.
+
+--------------------------------------------------------------------------
+
+
+                           THE MACRO CALLS
+
+--------------------------------------------------------------------------
+
+ADD2 &Src,&Val,&Dest
+    Adds &Src to &Val and stores at &Dest. Automatically generates a CLC.
+    If &Src = '@' then assume value is already in accumulator, generates
+    nothing. If &Dest = '@' then leaves result in accumulator, generates
+    nothing. If &Src = '@X' or '@Y' then generate a TXA or TYA. If 
+    &Dest = '@X' or '@Y' then generate a TAX or TAY.
+
+ADD4 &Src,&Val,&Dest
+    Adds long values &Src and &Val then stores it in &Dest
+
+SUB2 &Src,&Val,&Dest
+    Subtracts &Src to &Val and stores at &Dest. Automatically generates a SEC.
+    If &Src = '@' then assume value is already in accumulator, generates
+    nothing. If &Dest = '@' then leaves result in accumulator, generates
+    nothing. If &Src = '@X' or '@Y' then generate a TXA or TYA. If 
+    &Dest = '@X' or '@Y' then generate a TAX or TAY.
+
+SUB4 &Src,&Val,&Dest
+    Subtracts long words &Val from &Src and stores the result in &Dest
+
+SADD2 &Src,&Val,&Dest
+    Adds the &Src to &Val and places the result in &Dest, BUT it assumes
+    that the Accumulator is short.
+
+SSUB2 &Src,&Val,&Dest
+    Subtracts &Val from &Src adn places the result in &Dest, BUT it is
+    assumed that the accumulator is short.
+
+--------------------------------------------------------------------------
+
+NEG2
+    Generates the following:
+        EOR #$FFFF
+        INC A
+
+--------------------------------------------------------------------------
+
+AND2 &Src,&Val,&Dest
+    Logically and's &Src to &Val and stores at &Dest. If &Src = '@' then assume
+    value is already in accumulator, generate nothing. If &Dest = '@' then
+    leaves result in accumulator, generates nothing. If &Src = '@X' or '@Y'
+    then generate a TXA or TYA. If &Dest = '@X' or '@Y' then generate a
+    TAX or TAY.
+
+EOR2 &Src,&Val,&Dest
+    Logically xor's &Src to &Val and stores at &Dest. If &Src = '@' then assume
+    value is already in accumulator, generate nothing. If &Dest = '@' then
+    leaves result in accumulator, generates nothing. If &Src = '@X' or '@Y'
+    then generate a TXA or TYA. If &Dest = '@X' or '@Y' then generate a
+    TAX or TAY.
+
+ORA2 &Src,&Val,&Dest
+    Logically or's &Src to &Val and stores at &Dest. If &Src = '@' then assume
+    value is already in accumulator, generate nothing. If &Dest = '@' then
+    leaves result in accumulator, generates nothing. If &Src = '@X' or '@Y'
+    then generate a TXA or TYA. If &Dest = '@X' or '@Y' then generate a
+    TAX or TAY.
+
+--------------------------------------------------------------------------
+
+ASL2 &Address
+LSR2 &Address
+    Generate two consecutive shifts.
+
+ASL3 &Address
+LSR3 &Address
+    Generate three consecutive shifts.
+
+ASL4 &Address
+LSR4 &Address
+    Generate four consecutive shifts.
+
+--------------------------------------------------------------------------
+
+BGT &Address
+    Branch if greater than.
+
+BLE &Address
+    Branch if less than or equal.
+
+-------------------------------------------------------------------------
+
+JEQ &Address
+    Jump if equal
+
+JNE &address
+    Jump if not equal
+
+JPL &Address
+    Jump if positive (or zero)
+
+JMI &Address
+    Jump if negative
+
+JCS &Address
+    Jump if carry set
+
+JCC &Address
+    Jump if carry clear
+
+JGT &Address
+    Jump if greater than or equal
+
+JLT &Address
+    Jump if less than
+
+-------------------------------------------------------------------------
+
+IF2 &Variable,&Relation,&Value,&Label
+    Generates an IF/THEN expression
+    If &Variable is not an '@' operator, then generate:
+        LDA  &Variable
+        CMP  &Value
+    Otherwise, If @X, then generate
+        CPX  &Value
+    or if @Y, generate
+        CPY  &Value,
+    else generate
+        CMP  &Value.
+
+    If &Relation = '@', then that is all that is generated, otherwise,
+    Generate a branch to &Label based on &Relation, where &Relation is
+    one of the following: CC,CS,EQ,MI,NE,PL,VC,VS,LT,GE,LE,GT. For example,
+    IF2 var,eq,#10,alldone   would generate:
+        LDA  var
+        CMP  #10
+        Beq  alldone
+    IF2 @x,cc,limit,loop     would generate:
+        CPX  limit
+        Bcc  loop
+    IF2 flag,@,#0,@          would generate:
+        LDA  FLAG
+        CMP  #0
+
+-------------------------------------------------------------------------
+
+DEC2
+DEX2
+DEY2
+    Generate two consecutive decrements
+
+DEC4
+DEX4
+DEY4
+    Generate four consecutive decrements
+
+INC2
+INX2
+INY2
+    Generates two consecutive increments
+
+INC4
+INX4
+INY4
+    Generates four consecutive increments
+
+--------------------------------------------------------------------------
+
+EMULATE
+    Sets emulation mode. Generates the following code:
+      SEC
+      XCE
+
+NATIVE
+    Set native mode. Generates the following code:
+      CLC
+      XCE
+
+LONG &Flags
+    &Flags is a string containg the registers to be set to long mode.
+    &Flags can include any of the following: x,y,i,a,m; where i,x,y
+    are used to set the index register length, and m,a are used to set the
+    accumulator length. For example, each of the following will set the
+    index register and accumulator to long:
+      LONG mi
+      LONG ax
+    either of these would generate:
+      REP #$30
+      LONGA ON
+      LONGI ON
+
+SHORT &Flags
+    &Flags is a string containg the registers to be set to short mode.
+    &Flags can include any of the following: x,y,i,a,m; where i,x,y
+    are used to set the index register length, and m,a are used to set the
+    accumulator length. For example, each of the following will set the
+    index register and accumulator to short:
+      SHORT mi
+      SHORT ax
+    either of these would generate:
+      SEP #$30
+      LONGA OFF
+      LONGI OFF
+
+--------------------------------------------------------------------------
+
+GET2  &Array,&Value,&Index
+    Get a word from an array. Generates the following code:
+      LDY &Index
+      LDA [&Array],y
+      STA &Value
+    If &Index = '@', then the LDY is not generated
+
+GET4  &Array,&Value,&Index
+    Get a long word from an array. Generates the following code:
+      LDY &Index
+      LDA [&Array],y
+      STA &Value
+      INY
+      INY
+      LDA [&Array],y
+      STA &Value+2
+    If &Index = '@', then the LDY is not generated
+
+STO2 &Value,&Array,&Index
+    Stores &Value into &Array offset by &Index. The following code is
+    generated:
+      LDY &Index
+      LDA &Value
+      STA [&Array],y
+    If &Index = '@', then the LDY is not generated
+
+STO4
+    Stores long &Value into &Array offset by &Index. The following code is
+    generated:
+      LDY &Index
+      LDA &Value
+      STA [&Array],y
+      INY
+      INY
+      LDA &Value+2
+      STA [&Array],y
+    If &Index = '@', then the LDY is not generated
+
+--------------------------------------------------------------------------
+
+DEREF &Arg1,&Arg2
+    Dereferences a handle. Generates the following code:
+        LDA [&Arg1]
+        STA &Arg2
+        LDY #2
+        LDA [&Arg1],y
+        STA &Arg2+2
+
+--------------------------------------------------------------------------
+
+
+GSOS &Function,&Paramter_Pointer
+    Generate a GS/OS call.
+    For example, Open would be:
+      P16 $2010,Open_Parm  ; where Open_Parm is a pointer to the Open parameter
+                             table
+
+P16 &Function,&Paramter_Pointer
+    Generate a ProDOS 16 call.
+    For example, Open would be:
+      P16 $10,Open_Parm  ; where Open_Parm is a pointer to the Open parameter
+                           table
+
+P8 &MLI_Function,&Paramter_Pointer
+    Generate a ProDOS 8 MLI call.
+    For example, Open would be:
+      P8 $C8,Open_Parm  ; where Open_Parm is a pointer to the Open parameter
+                          table
+
+SmartPort &SPCallNumber,&Parameter_Ptr
+SmartPortX &SPCallNumber,&Parameter_Ptr
+    Generates a SmartPort call. If followed by 'X', then it generates an
+    extended SmartPort call.
+    For example, SPReadBlock woule be:
+      SmartPort $01,Read_Parms
+
+Tool &ToolNumber
+    Generates a toolbox call for tool &ToolNumber.
+    For example, NewHandle would be:
+      Tool $0902
+
+UserTool &ToolNumber
+    Generates a toolbox call for user tool &ToolNumber.
+
+--------------------------------------------------------------------------
+
+GSSTR &String
+    Defines a GS/OS class 1 string. A length word followed by &String.
+    For example,
+      STR1 'This is a string'
+
+STR &String
+    Defines a pascal-type string. A length byte followed by &String
+    For example,
+      STR 'This is a string'
+
+STR1 &String
+    Defines a GS/OS class 1 string. A length word followed by &String.
+    For example,
+      STR1 'This is a string'
+
+--------------------------------------------------------------------------
+
+LD2 &value,&address
+    Load a word value into an address. For example,
+      LD2 10,Somewhere
+    would generate
+      LDA #10
+      STA Somewhere
+    &address may also be a list of addresses contained in parantheses, For ex.
+      LD2 10,(adr1,adr2)
+    would generate
+      LDA #10
+      STA adr1
+      STA adr2
+
+LD4 &value,&address
+    Load a long word value into an address. For example,
+      LD2 10,Somewhere
+    would generate
+      LDA #10
+      STA Somewhere
+      LDA #0
+      STA Somewhere+2
+    &address may also be a list of addresses contained in parantheses, For ex.
+      LD4 10,(adr1,adr2)
+    would generate
+      LDA #10
+      STA adr1
+      STA adr2
+      LDA #0
+      STA adr1+2
+      STA adr2+2
+
+MV2 &Source,&Dest
+    Moves a word from one address to another. For example,
+      MV2 Somewhere,SomewhereElse
+    would generate
+      LDA Somewhere
+      STA SomewhereElse
+    &Dest may also be a list of addresses contained in parantheses, For ex.
+      MV2 something,(adr1,adr2)
+    would generate
+      LDA something
+      STA adr1
+      STA adr2
+
+MV4 &Source,&Destination
+    Moves a long word from one address to another. For example,
+      MV2 Somewhere,SomewhereElse
+    would generate
+      LDA Somewhere
+      STA SomewhereElse
+      LDA Somewhere+2
+      STA SomewhereElse+2
+    &Dest may also be a list of addresses contained in parantheses, For ex.
+      MV4 something,(adr1,adr2)
+    would generate
+      LDA something
+      STA adr1
+      STA adr2
+      LDA something+2
+      STA adr1+2
+      STA adr2+2
+
+--------------------------------------------------------------------------
+
+PH2 &Value
+    Pushes the word &Value onto the stack. If &Value is an absolute address
+    then a LDA and PHA is generated. If &Value is immediate mode, then
+    a PEA is generated. If &Value is '@A','@X', or '@Y', then a PHA, PHX,
+    or PHY is generated.
+
+PH4 &Value
+    Pushes the long word &Value onto the stack. If &Value is an absolute address
+    then two LDA,PHA are generated. &Value may be an '@' operator, in which
+    case the '@' is followed by one or two register characters. If followed
+    by one character, then a double push is generated, for example, PH4 @A
+    will generate PHA, PHA. Whereas, if there are two characters, a push is
+    created for each character. For example, if PH4 @XY is specified, then
+    PHX, PHY is generated.
+
+PL2 &Value
+    Pulls the word &Value from the stack. If &Value is an absolute address
+    then a PLA and STA is generated. If &Value is '@A','@X', or '@Y',
+    then a PLA, PLX, or PLY is generated.
+
+PL4 &Value
+    Pulls the long word &Value from the stack. If &Value is an absolute address
+    then two PLA,STA are generated. &Value may be an '@' operator, in which
+    case the '@' is followed by one or two register characters. If followed
+    by one character, then a double pull is generated, for example, PL4 @A
+    will generate PLA, PLA. Whereas, if there are two characters, a pull is
+    created for each character. For example, if PL4 @XY is specified, then
+    PLX, PLY is generated.
+
+--------------------------------------------------------------------------
+
+PROC &Registers
+    Saves the current data bank, then set the data bank to the program bank.
+    Also saves each register specified in the string &Registers. For example,
+      PROC axp
+    would produce:
+      PHB     ;Save the data bank
+      PHA     ;Save each of the registers A,X, and P
+      PHX
+      PHP
+      PHK     ;Set the data bank to the program bank
+      PLB
+
+PROCEND
+    Restores saved registers and data bank, then generates an RTS. Assumes
+    a PROC has already been issued. If our previous PROC was used, then
+      PROCEND
+    would produce:
+      PLP               ;Restore each of the regisres A,X, and P
+      PLX
+      PLA
+      PLB               ;Restore the data bank
+      RTS               ;Resturn to caller
+
+PROCENDL
+    Same as PROCEND, but an RTL is generated instead of an RTS.
+
+--------------------------------------------------------------------------
+
+VBLWAIT
+    Place this before color fades, border color changes, and animation to
+    reduce flicker and "tearing." NOTE: Assumes long accumulator! Generates
+    the following code:
+      LDA $E1C019-1
+      BMI *-4
+      LDA $E1C019-1
+      BPL *-4

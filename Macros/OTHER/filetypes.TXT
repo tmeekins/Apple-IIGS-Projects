@@ -1,0 +1,284 @@
+                             ProDOS File Types
+                          Compiled by Tim Meekins
+                Copyright (C) 1987,88,89,90 by Tim Meekins
+                      Revision 25, December 30, 1990
+
+
+$00 UNK       Uncategorized file
+              ProDOS 16 clipboard
+              Overlay File
+$01 BAD       Bad block file
+$02 PCD       Apple /// Pascal code file
+$03 PTX       Apple /// Pascal text file
+$04 TXT       ASCII text file
+$05 PDA       Apple /// pascal data file
+    PDA       Instant Pascal data file
+$06 BIN       General binary file
+$07 FNT       Apple /// font file
+    CHR       Apple /// character font file
+$08 FOT       Apple /// or Apple IIGraphics screen file
+        $4000    Packed Hi-Res File (PackByte)
+        $4001    Packed Double Hi-Res File (PackByte)
+$09 BA3       Apple /// business BASIC program file
+$0A DA3       Apple /// business BASIC data file
+$0B WPF       Apple /// word processor file
+    WPF       MultiScribe GS word processor file
+$0C SOS       Apple /// system file
+$0D           SOS reserved
+$0E           SOS reserved
+$0F DIR       Directory file
+$10 RPD       Apple /// RPS data file
+$11 RPI       Apple /// RPS index file
+$12 AFD       Apple /// AppleFile discard file
+$13 AFM       Apple /// AppleFile model file
+$14 AFR       Apple /// AppleFile report format file
+$15 SCL       Apple /// Screen Library file
+$16           PFS document
+        $0001    PFS: File document
+        $0002    PFS: Write document
+        $0003    PFS: Graph document
+        $0004    PFS: Plan document
+        $0016    PFS Internal data
+$17           Apple /// SOS reserved
+$18           Apple /// SOS reserved
+$19 ADB       AppleWorks Data Base file
+$1A AWP       AppleWorks Word Processing file
+$1B ASP       AppleWorks Spreadsheet file
+$20 TDM       The Desktop Manager File
+              Instrument file for Zany Golf
+$21 IP        Instant Pascal source file
+$22           UCSD Pascal Volume
+$29           Apple /// SOS Dictionary File
+$2A 8SC       Apple II (8-bit) Source Code File
+$2B 8OB       Apple II (8-bit) Object Code File
+$2C 8IC       Apple II (8-bit) Interpreted Code File
+$2D 8CD       Apple II (8-bit) Programming Language Data File
+$2E P8C       ProDOS 8 Code Module
+$42 FTD       File Type Names
+$50 GWP       Apple IIgs Word Processor File
+        $5445    Teach
+        $8001    DeluxeWrite GS
+        $8010    AppleWorks GS Word Processor
+$51 GSS       Apple IIgs Spreadsheet File
+        $8010    AppleWorks GS Spreadsheet
+$52 GSB       Apple IIgs Data Base File
+        $8010    AppleWorks GS Database file
+        $8011    AppleWorks GS Database Template file
+$53 DRW       Apple IIgs Object-Oriented Graphics File
+        $8002    Graphic Disk Labeler Doc
+        $8010    AppleWorks GS Paint file
+$54 GDP       Apple IIgs Desktop Publishing File
+        $8010    AppleWorks GS Page Layout file
+        $DD3E    Medley Document File
+$55 HMD       Hypermedia File
+        $0001    HyperCard IIgs
+        $8001    Tutor-Tech Hypermedia File
+        $8002    HyperStudio File
+$56 EDU       Educational Data File
+        $8001    Tutor-Tech Scores File
+$57 STN       Stationary File
+$58 HLP       Help File
+$59 COM       Communications File
+        $8010    AppleWorks GS Communications file
+$5A CFG       Application Configuration File
+        $0002    Battery RAM configuration
+        $8001    Master Tracks Jr. preferences file
+        $8010    AppleWorks GS Configuration file
+        $801A    Allison Preferences
+$5B ANM       Animation File
+        $8001    Cartooners movie
+        $8002    Cartooners actors
+$5C MUM       Multi-Media Document
+$5D ENT       Entertainment/Game document
+$5E DVU       Development Utility document
+        $0001    Resource Fork
+$68           Cosmocade Tile Set
+$69           Cosmocade Map
+$6B BIO       PC Transporter BIOS and drivers
+$6D TDR       PC Transporter device drivers
+$6E PRE       PC Transporter ProDOS preboot driver
+$6F HDV       PC Transporter Hard Disk Volume
+$80           GEOS System File
+$82           GEOS Application
+$85           GEOS Printer Driver
+$86           GEOS Input Driver
+$87           GEOS Auxiliary Driver
+$8B           GEOS Clock Driver
+$8C           GEOS Card Driver
+$A0 WP        WordPerfect word processing file
+$A1 MAC       WordPerfect macro file
+$A2 HLP       WordPerfect help file
+$A3 DAT       WordPerfect configuration data file
+$A4 VRT       WordPerfect temporary work files
+$A5 LEX       WordPerfect spelling dictionary
+$AB GSB       GS BASIC program file
+$AC TDF       GS BASIC Toolbox Definition File
+    ARC       General purpose archive file
+$AD BDF       GS BASIC data file
+$B0 SRC       APW/ORCA source file
+        $0000    ProDOS TXT file
+        $0001    APW Text file
+        $0002    6502 based assembler
+        $0003    65816 based assembler
+        $0004    Byte Works BASIC (ORCA/Basic)
+        $0005    Byte Works Pascal (ORCA/Pascal)
+        $0006    Command file
+        $0007    Small C (Byte Works)
+        $0008    Byte Works C (Orca/C)
+        $0009    APW Linker command language
+        $000A    APW C
+        $000B    APW Pascal
+        $000C    Byte Works command-processor (Orca/Desktop)
+        $0015    APW Rez source file
+        $001E    TML Pascal
+$B1 OBJ       APW/ORCA object file
+$B2 LIB       APW/ORCA library file
+$B3 S16       ProDOS 16 - GS/OS application program file
+$B4 RTL       APW/ORCA run-time library file
+        $5457    Twilight Module
+$B5 EXE       ProDOS 16-GS/OS executable shell application file
+$B6 STR       ProDOS 16 permanent initialization file
+    PIF       GS/OS permanent initialization file
+$B7 TSF       ProDOS 16 temporary initialization file
+    TIF       GS/OS temporary initialization file
+$B8 NDA       New desk accessory
+$B9 CDA       Classic desk accessory
+$BA TOL       Apple IIgs Tool set file
+$BB DRV       ProDOS 16 device driver
+    DVR       GS/OS driver file
+        $00xx    Print Manager driver
+           00      printer driver
+           01      direct-connect port driver
+           02      network port driver
+        $01xx    GS/OS driver
+           01    Console Driver
+           02    Apple Disk 3.5 Driver
+           04    UniDisk 3.5 Driver
+           0E    Apple Disk 5.25 Driver
+           10    ATalk
+           31    SCSI Driver
+           3F    SCSI CD/HD
+           40    Serial/SCSI Interface card
+           81    Boot driver
+        $02xx    AppleTalk driver
+        $03xx    MIDI Tools driver
+        $7Fxx    Third-party multimedia driver
+$BC LDF       GS/OS generic load file
+        $4001    NiftyList Module
+$BD FST       File System Translator (FST) (GS/OS)
+$BF DOC       ProDOS 16 - GS/OS document file
+$C0 PNT       Compressed super high-res picture file
+        $0000    PaintWorks Plus 1.0 format
+        $0001    PackBytes (Eagle) format
+        $0002    Apple preferred format
+        $0003    PackByted QuickDraw II PICT file
+$C1 PIC       Uncompressed Super Hi-Res picture file
+        $0000    32K Super high-res picture file
+        $0001    QuickDraw II PICT file
+        $8001    Allison Raw data file
+$C2 ANI       PaintWorks animation file
+$C3 PAL       PaintWorks palette file
+$C4           CheapPaint color cycle file
+$C5 OOG       Object-oriented graphics
+        $8000    Draw Plus
+        $C000    DYOH: Architecture doc
+        $C001    DYOH: predrawn objects
+        $C002    DYOH: custom objects
+        $C003    DYOH: clipboard
+        $C006    DYOH: Landscape
+$C6  SCR      Script
+              List Plus data file
+$C7 CDV       Control Panel file (CDEV)
+$C8 FON       ProDOS 16 - GS/OS font file
+        $0000    Standard QuickDraw II font
+    FON       Writer's Choice Elite word processing file
+$C9 FND       Finder data
+$CA ICN       Finder icon file
+$CB AIF       Audio interchange format file
+$CD           A.C.E. Compressed sound file
+$CF           Fantavision GS sound file
+$D0     $0000    Multiscribe GS document file
+        $8001    Multiscribe GS/AppleWorks GS Dictionary
+        $8002    Multiscribe GS/AppleWorks GS Grammar file
+                 AppleWorks GS User Dictionary
+$D5 MUS       Music Sequence File
+        $0000    Music Construction Set GS song file
+        $0001    synthLAB sequence file
+        $0007    SoundSmith song file
+        $8002    Diversi-Tune sequence file
+        $8003    Master Tracks Jr. Sequence
+$D6 INS       Instrument File
+        $0000    Music Construction Set GS instrument file
+        $0001    synthLAB instrument file (.BNK)
+        $8002    Diversi-Tune instrument file
+$D7 MDI       MIDI File
+        $0000    Standard MIDI File
+$D8 SND       Sampled Sound File
+        $0000    Audio IFF
+        $0001    Compressed Sound File (ACE)
+        $0002    ASIF instrument
+        $0004    synthLAB waveform file (.WAV)
+        $8001    HyperStudio sound
+        $8003    Sampled sound resource
+$DB DBM       DB Master Document
+        $0001    DB Master document
+$DD DDD       Dalton's Disk Disintegrator Deluxe file
+$E0 LBR       Apple archive Library File
+        $0000    ALU Telecom Library File
+        $0001    AppleSingle File
+        $0002    AppleDouble Header File
+        $0003    AppleDouble Data File
+        $8000    Binary II File
+        $8001    AppleLink ACU Compressed Data File
+        $8002    ShrinkIt NuFX archive file
+        $8004    Davex Archived Volume
+$E1           Apple IIgs Sales Demo sound file
+              Graphicwriter .RSRC file
+$E2 DTS       ProDOS 16 Defile RAM toolset patch
+    ATK       AppleTalk Data/Init File
+$EA           Bard's Tale character file
+$EE R16       EDASM 816 relocatable object file
+$EF PAS       Pascal area on a partitioned disk
+$F0 CMD       ProDOS 8 CI added command file
+$F1           MouseWrite word processing file
+    OVL       Overlay file
+    PFP       FileMaster file
+$F2 DBF       Database file
+    SKB       ProTERM scrollback file
+$F3 PAD       MouseWrite stationary pad
+              DigiPacked file
+$F4           Used by Sideways
+    MCR       AE Pro Macro file
+              GraphicWriter Scrap file
+$F5 BAT       Shell batch command file
+    ECP       ECP batch file
+    COM       GBBS compile file
+              ProPacker file
+$F6 PRG       ProBASIC program file
+              TopDraw picture file
+              MultiScribe GS 3.0 Palette file
+    DSC       Description file
+$F7 TMP       Temporary work file
+              PublishIt! Font
+$F8 LNK       ProBASIC link file
+    LNK       EDASM link file
+    RSX       Linkable object module
+              PrintShop File
+$F9 P16       ProDOS 16 operating system file
+    O.S       GS/OS operating system file
+$FA INT       Integer BASIC program file
+              GraphicWriter Document File
+$FB IVR       Integer BASIC variable file
+$FC BAS       Applesoft program file
+$FD VAR       Applesoft variable file
+$FE REL       Relocatable code file (EDASM)
+$FF SYS       ProDOS 8 system program file
+
+
+If you have any additions or changes to this list, send them to:
+
+Tim Meekins
+8372 Morris Rd.
+Hilliard, OH 43026
+
+meekins@cis.ohio-state.edu

@@ -1,0 +1,213 @@
+**************************************************************************
+*                                                                        *
+* Video Overlay Tool Set                                                 *
+* Written by Tim Meekins                                                 *
+* February 24, 1991                                                      *
+*                                                                        *
+* Requires: M16.MACROS                                                   *
+*                                                                        *
+* v1.0  02/24/91 TLM Original Version.                                   *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                  Copyright 1990,91 by Tim Meekins                      *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+               macro
+&lab           VDBootInit
+&lab           Tool  $0121
+               mend
+
+               macro
+&lab           VDStartUp
+&lab           Tool  $0221
+               mend
+
+               macro
+&lab           VDShutDown
+&lab           Tool  $0321
+               mend
+
+               macro
+&lab           VDVersion &a1
+&lab           pha
+               Tool  $0421
+               pl2   &a1
+               mend
+
+               macro
+&lab           VDReset
+&lab           Tool  $0521
+               mend
+
+               macro
+&lab           VDStatus &a1
+&lab           pha
+               Tool  $0621
+               pl2   &a1
+               mend
+
+               macro
+&lab           VDInStatus &a1,&a2
+&lab           pha
+               ph2   &a1
+               Tool  $0921
+               pl2   &a2
+               mend
+
+               macro
+&lab           VDInSetStd &a1
+&lab           ph2   &a1
+               Tool  $0a21
+               mend
+
+               macro
+&lab           VDInGetStd &a1
+&lab           pha
+               Tool  $0b21
+               pl2   &a1
+               mend
+
+               macro
+&lab           VDInConvAdj &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               Tool  $0c21
+               mend
+
+               macro
+&lab           VDKeyControl &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               Tool  $0d21
+               mend
+
+               macro
+&lab           VDKeyStatus &a1,&a2
+&lab           pha
+               ph2   &a1
+               Tool  $0e21
+               pl2   &a2
+               mend
+
+               macro
+&lab           VDKeySetKCol &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               Tool  $0f21
+               mend
+
+               macro
+&lab           VDKeyGetKRCol &a1
+&lab           pha
+               Tool  $1021
+               pl2   &a1
+               mend
+
+               macro
+&lab           VDKeyGetKGCol &a1
+&lab           pha
+               Tool  $1121
+               pl2   &a1
+               mend
+
+               macro
+&lab           VDKeyGetKBCol &a1
+&lab           pha
+               Tool  $1221
+               pl2   &a1
+               mend
+
+               macro
+&lab           VDKeySetKDiss &a1
+&lab           ph2   &a1
+               Tool  $01321
+               mend
+
+               macro
+&lab           VDKeyGetKDiss &a1
+&lab           pha
+               Tool  $1421
+               pl2   &a1
+               mend
+
+               macro
+&lab           VDKeySetNKDiss &a1
+&lab           ph2   &a1
+               Tool  $01521
+               mend
+
+               macro
+&lab           VDKeyGetNKDiss &a1
+&lab           pha
+               Tool  $1621
+               pl2   &a1
+               mend
+
+               macro
+&lab           VDOutSetStd &a1
+&lab           ph2   &a1
+               Tool  $01721
+               mend
+
+               macro
+&lab           VDOutGetStd &a1
+&lab           pha
+               Tool  $1821
+               pl2   &a1
+               mend
+
+               macro
+&lab           VDOutControl &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               Tool  $1921
+               mend
+
+               macro
+&lab           VDOutStatus &a1,&a2
+&lab           pha
+               ph2   &a1
+               Tool  $1a21
+               pl2   &a2
+               mend
+
+               macro
+&lab           VDGetFeatures &a1,&a2
+&lab           pha
+               ph2   &a1
+               Tool  $1b21
+               pl2   &a2
+               mend
+
+               macro
+&lab           VDInControl &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               Tool  $1c21
+               mend
+
+               macro
+&lab           VDGGControl &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               Tool  $1d21
+               mend
+
+               macro
+&lab           VDGGStatus &a1,&a2
+&lab           pha
+               ph2   &a1
+               Tool  $1e21
+               pl2   &a2
+               mend

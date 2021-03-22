@@ -1,0 +1,228 @@
+                                PAGE $E1 VECTORS
+                            Compiled by Tim Meekins
+                               August 31, 1990
+
+                                   Update #8
+                                  May 11, 1991
+
+
+$0000  DISPATCH1     Jump to tool set entry type 1                     [1, 264]
+$0004  DISPATCH2     Jump to tool set entry type 2                     [1, 264]
+$0008  UDISPATCH1    Jump to user tool set entry type 1                [1, 264]
+$000C  UDISPATCH2    Jump to user tool set entry type 2                [1, 264]
+$0010  INTMGRV       Jump to system interrupt manager                  [1, 264]
+$0014  COPMGRV       Jump to COP manager                               [1, 265]
+$0018  ABORTMGRV     Jump to abort manager                             [1, 265]
+$001C  SYSDMGRV      Jump to system failure manager                    [1, 265]
+$0020  IRQ.APTALK    Jump to AppleTalk interrupt handler               [1, 266]
+$0024  IRQ.SERIAL    Jump to serial-port interrupt handler             [1, 266]
+$0028  IRQ.SCAN      Jump to scan-line interrupt handler               [1, 267]
+$002C  IRQ.SOUND     Jump to sound interrupt handler                   [1, 267]
+$0030  IRQ.VBL       Jump to VBL handler                               [1, 267]
+$0034  IRQ.MOUSE     Jump to mouse interrupt handler                   [1, 267]
+$0038  IRQ.QTR       Jump to quarter-second interrupt handler          [1, 268]
+$003C  IRQ.KBD       Jump to keyboard interrupt handler                [1, 268]
+$0040  IRQ.RESPONSE  Jump to ADB response interrupt handler            [1, 268]
+$0044  IRQ.SRQ       Jump to SRQ interrupt handler                     [1, 268]
+$0048  IRQ.DSKACC    Jump to Desk Manager interrupt handler            [1, 268]
+$004C  IRQ.FLUSH     Jump to keyboard FLUSH interrupt handler          [1, 269]
+$0050  IRQ.MICRO     Jump to keyboard micro abort interrupt handler    [1, 269]
+$0054  IRQ.1SEC      Jump to 1-second interrupt handler                [1, 269]
+$0058  IRQ.EXT       Jump to VGC external interrupt handler            [1, 269]
+$005C  IRQ.OTHER     Jump to other interrupt handler                   [1, 269]
+$0060  CUPDATE       Cursor Update vector                              [1, 269]
+$0064  INCBUSYFLG    Increment busy flag vector                        [1, 270]
+$0068  DECBUSYFLG    Decrement busy flag vector                        [1, 270]
+$006C  BELLVECTOR    Monitor bell vector intercept routine             [1, 270]
+$0070  BREAKVECTOR   Break vector                                      [1, 270]
+$0074  TRACEVECTOR   Trace vector                                      [1, 271]
+$0078  STEPVECTOR    Step vector                                       [1, 271]
+$007C                Install ROMDisk                                   [7]
+$0080  TOWRITEBR     Write BATTERYRAM routine                          [1, 272]
+$0084  TOREADBR      Read BATTERYRAM routine                           [1, 272]
+$0088  TOWRITETIME   Write time routine                                [1, 272]
+$008C  TOREADTIME    Read time routine                                 [1, 273]
+$0090  TOCTLPANEL    Show Control Panel                                [1, 273]
+$0094  TOBRAMSETUP   Set up system BATTERYRAM parameters routine       [1, 273]
+$0098  TOPRINTMSG8   Print ASCII string designated by the 8-bit acc    [1, 273]
+$009C  TOPRINTMSG16  Print ASCII string designated by the 16-bit acc   [1, 274]
+$00A0  CTRLYVECTOR   User Control-Y vector                             [1, 274]
+$00A4  TOALTDISPCDA  Point to Alternate Display Mode desk accessory    [1, 274]
+                                                                       [7]
+$00A8                Entry vector for all P16 & GS/OS system calls     [2, 36]
+$00AC                OS Vector                                         [7]
+$00B0                Stacked base GS/OS entry                          [5, 69]
+$00B4                reserved
+$00BA                two null bytes guaranteed                         [2,36]
+$00BC  OS_KIND       0=PDOS 8, 1= PDOS16/GSOS, $FF=none                [2,36]
+$00BD  OS_BOOT       " " " " " " "                                     [2,36]
+$00BE                ProDOS busy flags. Bit 15 = 1 if busry            [2,36]
+$00C0  MSGPOINTER    Pointer to all strings used in Control Panel, etc [1,275]
+$00CA                Main Sound Manager volume                         [0]
+$00CB                If non-zero MM will not purge or move memory      [4,#57]
+$00D6                <> 0 if DOC or sound RAM not found                [0]
+$00FF  BUSYFLAG      Busy flag                                         [3,19-3]
+$0104  SerFlag       SCC Interrupt flag. ROM 00 only??                 [3,14-21]
+$01B2  MidiInputPoll                                                   [3,47-6]
+                                                                       [3,38-22]
+$0208  SLOT_ARBITER  On ROM 03, copies $01/FCBC                        [4, #69]
+$0220                HyperCard IIgs XCMD vector                        [0]
+$0288                Mouse clamps                                      [6, 139]
+$02C0                A copy of battery RAM at system startup           [6, 74]
+$02C0                   Port 1 Function
+$02C1                   Port 1 Line length
+$02C2                   Port 1 Delete line feed after carriage return
+$02C3                   Port 1 Add line feed after carriage return
+$02C4                   Port 1 Echo
+$02C5                   Port 1 Buffer
+$02C6                   Port 1 Baud rate
+$02C7                   Port 1 Number of Data/Stop bits
+$02C8                   Port 1 Parity
+$02C9                   Port 1 DCD handshake
+$02CA                   Port 1 DSR handshake
+$02CB                   Port 1 XON/XOFF handshake
+$02CC                   Port 2 Function
+$02CD                   Port 2 Line length
+$02CE                   Port 2 Delete line feed after carriage return
+$02CF                   Port 2 Add line feed after carriage return
+$02D0                   Port 2 Echo
+$02D1                   Port 2 Buffer
+$02D2                   Port 2 Baud rate
+$02D3                   Port 2 Number of Data/Stop bits
+$02D4                   Port 2 Parity
+$02D5                   Port 2 DCD handshake
+$02D6                   Port 2 DSR handshake
+$02D7                   Port 2 XON/XOFF handshake
+$02D8                   Display color/monochrome
+$02D9                   Display 40/80-column text
+$02DA                   Color for text
+$02DB                   Color for background
+$02DC                   Color for border
+$02DD                   50/60 Hz operation
+$02DE                   Speaker volume
+$02DF                   Speaker pitch
+$02E0                   System speed
+$02E1                   Slot 1 use
+$02E2                   Slot 2 use
+$02E3                   Slot 3 use
+$02E4                   Slot 4 use
+$02E5                   Slot 5 use
+$02E6                   Slot 6 use
+$02E7                   Slot 7 use
+$02E8                   Startup slot
+$02E9                   Text display language
+$02EA                   Keyboard language
+$02EB                   Keyboard buffering
+$02EC                   Keyboard repeat speed
+$02ED                   Keyboard repeat delay
+$02EE                   Double-click time
+$02EF                   Flash rate
+$02F0                   Shift Caps/lowercase
+$02F1                   Fast Space/Delete keys
+$02F2                   Dual speed
+$02F3                   High-mouse resolution
+$02F4                   Date format
+$02F5                   Time format
+$02F6                   RAMDisk minimum space
+$02F7                   RAMDisk maximum space
+$02F8                   List of available display languages
+$0301                   List of available keyboard layouts
+$0312                   Reserved
+$0340                   AppleTalk node number
+$0341                   Operating system variables
+$0362                   Reserved
+$03BC                   Checksum
+$03C0                Pointer to active TPT                             [3, A-4]
+$03C4                Pointer to active user's TPT                      [3, A-4]
+$03C8                Pointer to WAPT                                   [3, A-4]
+$03CC                Pointer to user's WAPT                            [3, A-4]
+$03D0                ADB interrupt queue                               [6, 139]
+$03E0                Clock buffer                                      [6, 74]
+$0400                Text Page 1
+$0800                Text Page 2
+$0C00-0FDF           SmartPort Usage                                   [6,134]
+$0C00-0EFF              disk buffer                                    [9]
+$0F1E                   Standard/extended call flag. 0=sdrd, $0 Ext    [9]
+$0F22                   Track # for drive 1 (hi bit = 1 if unknown)    [9]
+$0F23                   Track # for drive 2 (hi bit = 1 if unknown)    [9]
+$0F26                   Seek delay counter for drive 1                 [9]
+$0F27                   Seek delay counter for drive 2                 [9]
+$0F28                   Drive number (0 or 1)                          [9]
+$0F29                   Track # to seek to ($0-$F)                     [9]
+$0F30                   Checksum of most recent block hdr read         [9]
+$0F31                   "Format" field of most recent block hdr read   [9]
+$0F32                   "Sides" field of most recent block hdr read    [9]
+$0F33                   Sector # of most recently read block hdr       [9]
+$0F34                   Track # of most recently read block hdr        [9]
+$0F44                   Error bits                                     [9]
+$0F45                   Address field retry count                      [9]
+$0F4B                   Error code                                     [9]
+$0F57-0F6C              Mark Table                                     [9]
+$0F6F                   Read Address Hook 1                            [9]
+$0F73                   Read Address Hook 2                            [9]
+$0F77                   Read Data Hook 1                               [9]
+$0F7B                   Read Data Hook 2                               [9]
+$0F7F                   Write Data Hook 1                              [9]
+$0F83                   Write Data Hook 2                              [9]
+$0F87                   Seek Hook 1                                    [9]
+$0F8B                   Seek Hook 2                                    [9]
+$0F8F                   Format Hook 1                                  [9]
+$0F93                   Format Hook 2                                  [9]
+$0F97                   Write Track Hook 1                             [9]
+$0F9B                   Write Track Hook 2                             [9]
+$0F9F                   Verify Track Hook 1                            [9]
+$0FA3                   Verify Track Hook 2                            [9]
+#0FA7                   Command Dispatcher 1                           [9]
+$0FAB                   Command Dispatcher 2                           [9]
+$0FB4                   # bytes transferred                            [6,565]
+$0FD0-$FD5           Miscellaneous tools                               [6,132]
+$0FD6-0FFB           ADB                                               [6,132]
+$0FFC-0FFF           Serial port storage                               [6,134]
+$1000-14E1           AppleTalk usage                                   [6,131]
+$14E2-1549           SmartPort usage                                   [6,134]
+$154A-1589           ADB address/attribute list                        [6,132]
+$158A-15A9           Serial port variables                             [6,134]
+$15AA-15C0           Text Tools storage                                [6,132]
+$15AA                   InANDMask                                      [0]
+$15AB                   InORMask                                       [0]
+$15AC                   OutANDMask                                     [0]
+$15AD                   OutORMask                                      [0]
+$15AE                   ErrANDMask                                     [0]
+$15AF                   ErrORMask                                      [0]
+$15B0                   InDeviceType                                   [0]
+$15B1                   OutDeviceType                                  [0]
+$15B2                   ErrDeviceType                                  [0]
+$15B3                   InSlotPtr                                      [0]
+$15B7                   OutSlotPtr                                     [0]
+$15BB                   ErrSlotPtr                                     [0]
+$15C1-15CC           Serial port variables                             [6,134]
+$15CD-15FD           Reserved                                          [6,132]
+$15FE-1987           Memory Manager buffer                             [6,140]
+$1680                   Ctl-OA-Reset vector for Rom 01                 [8]
+$1988-1DAF           Reserved for future expansion                     [6,140]
+$1DB0-1DCF           Sound variables buffer                            [6,134]
+$1DB0                   System volume                                  [0]
+$1DB2                   genStatusInfo (see FFSoundStatus)              [0]
+$1DB4                   temporary genStatus                            [0]
+$1DB6                   0 if Sound Tool started, else $FF              [0]
+$1DB7                   Sound Manager Direct Page                      [0]
+$1DB9                   MasterIRQFlag (False if user installed MIRQV)  [0]
+$1DBD                   UserIRQVector                                  [0]
+$1DC1                   0 if Sound Manager active, else $FF            [0]
+$1DD0-1DD7           Miscellaneous Tools buffer                        [6,132]
+$1DD8-1FFF           Serial input buffer                               [6,134]
+$2000                Super Hi-Res Graphics screen
+$A000                Unused
+$C000                I/O softswitches
+$D000                AppleTalk High-Level routines                     [6,132]
+
+[0]      From disassembly [Meekins]
+[1]      Apple IIgs Firmware Reference
+[2]      Apple IIgs ProDOS 16 Reference
+[3]      Apple IIgs ToolBox Reference
+[4]      Apple IIgs Technical Note
+[5]      Exploring Apple GS/OS and ProDOS 8 [Little]
+[6]      Apple IIgs Technical Reference [Fischer]
+[7]      NiftyList data file [Lyons]
+[8]      Parik Rao
+[9]      Neil Parker

@@ -1,0 +1,213 @@
+**************************************************************************
+*                                                                        *
+* Macros for Jawaid Bazyar's Modem Manager tool set.                     *
+* Modem Manager is Copyright 1990,91 by Jawaid Bazyar.                   *
+* Written by Tim Meekins                                                 *
+* April 27, 1991                                                         *
+*                                                                        *
+* Requires: M16.MACROS                                                   *
+*                                                                        *
+* v1.0  04/27/91 TLM Original Version. Based on MM v1.2                  *
+*                                                                        *
+* Equate the MM Tool Number to modemToolNum before invoking macros.      *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1991 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+               macro
+&lab           ModemMBootInit
+&lab           UserTool modemToolNum+$0100
+               mend
+
+               macro
+&lab           ModemMStartUp &a1
+&lab           ph2   &a1
+               UserTool modemToolNum+$0200
+               mend
+
+               macro
+&lab           ModemMShutDown
+&lab           UserTool modemToolNum+$0300
+               mend
+
+               macro
+&lab           ModemMVersion &a1
+&lab           pha
+               UserTool modemToolNum+$0400
+               pl2   &a1
+               mend
+
+               macro
+&lab           ModemMReset
+&lab           UserTool modemToolNum+$0500
+               mend
+
+               macro
+&lab           ModemMStatus &a1
+&lab           pha
+               UserTool  modemToolNum+$0600
+               pl2   &a1
+               mend
+
+               macro
+&lab           InitModem &a1
+&lab           ph2   &a1
+               UserTool modemToolNum+$0900
+               mend
+
+               macro
+&lab           DisableModem &a1
+&lab           ph2   &a1
+               UserTool modemToolNum+$0a00
+               mend
+
+               macro
+&lab           SetDTR &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               UserTool modemToolNum+$0b00
+               mend
+
+               macro
+&lab           GetByte &a1,&a2
+&lab           pha
+               ph2   &a1(1)
+               ph2   &a1(2)
+               UserTool modemToolNum+$0c00
+               pla   &a2
+               mend
+
+               macro
+&lab           SendByte &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               UserTool modemToolNum+$0d00
+               mend
+
+               macro
+&lab           WrStr2Modem &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               UserTool modemToolNum+$0e00
+               mend
+
+               macro
+&lab           Pause &a1
+&lab           ph2   &a1
+               UserTool modemToolNum+$0f00
+               mend
+
+               macro
+&lab           PushBackChar &a1
+&lab           ph2     &a1(1)
+               ph2     &a1(2)
+               UserTool modemToolNum+$1000
+               mend
+
+               macro
+&lab           WaitForChar
+&lab           UserTool modemToolNum+$1100
+               mend
+
+               macro
+&lab           SendBytes &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               UserTool modemToolNum+$1200
+               mend
+
+               macro
+&lab           GetBytes &a1,&a2
+&lab           pha
+               ph4   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               ph2   &a1(4)
+               UserTool modemToolNum+$1300
+               pl2   &a2
+               mend
+
+               macro
+&lab           FlushInput &a1
+&lab           ph2     &a1
+               UserTool modemToolNum+$1400
+               mend
+
+               macro
+&lab           SCCInput &a1,&a2
+&lab           pha
+               ph4   &a1(1)
+               ph2   &a1(2)
+               UserTool modemToolNum+$1500
+               mend
+
+               macro
+&lab           SetBaud &a1,&a2
+&lab           pha
+               ph2   &a1(1)
+               ph2   &a1(2)
+               UserTool modemToolNum+$1600
+               pl2   &a2
+               mend
+
+               macro
+&lab           SendBreak &a1
+&lab           ph2   &a1
+               UserTool modemToolNum+$1700
+               mend
+
+               macro
+&lab           ResetCheckSum &a1
+&lab           ph2   &a1
+               UserTool modemToolNum+$1800
+               mend
+
+               macro
+&lab           GetCheckSum &a1,&a2
+&lab           pha
+               pha
+               ph2   &a1
+               UserTool modemToolNum+$1900
+               pl4   &a2
+               mend
+
+               macro
+&lab           SetCheckType &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               UserTool modemToolNum+$1a00
+               mend
+
+               macro
+&lab           SetBits &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               UserTool modemToolNum+$1b00
+               mend
+
+               macro
+&lab           SetParity &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               UserTool modemToolNum+$1c00
+               mend
+
+               macro
+&lab           SetBuffers &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               UserTool modemToolNum+$1d00
+               mend

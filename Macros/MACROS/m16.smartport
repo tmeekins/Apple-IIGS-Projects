@@ -1,0 +1,123 @@
+**************************************************************************
+*                                                                        *
+* ProDOS 8 macros                                                        *
+* Written by Tim Meekins                                                 *
+* August 31, 1990                                                        *
+*                                                                        *
+* Requires: M16.MACROS                                                   *
+*                                                                        *
+* v1.0  08/31/90 TLM Original Version.                                   *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1990 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+         macro
+&lab     SPStatus &a1
+&lab     smartport $00,&a1
+         mend
+
+         macro
+&lab     SPReadBlock &a1
+&lab     smartport $01,&a1
+         mend
+
+         macro
+&lab     SPWriteBlock &a1
+&lab     smartport $02,&a1
+         mend
+
+         macro
+&lab     SPFormat &a1
+&lab     smartport $03,&a1
+         mend
+
+         macro
+&lab     SPControl &a1
+&lab     smartport $04,&a1
+         mend
+
+         macro
+&lab     SPInit &a1
+&lab     smartport $05,&a1
+         mend
+
+         macro
+&lab     SPOpen &a1
+&lab     smartport $06,&a1
+         mend
+
+         macro
+&lab     SPClose &a1
+&lab     smartport $07,&a1
+         mend
+
+         macro
+&lab     SPRead &a1
+&lab     smartport $08,&a1
+         mend
+
+         macro
+&lab     SPWrite &a1
+&lab     smartport $09,&a1
+         mend
+
+         macro
+&lab     SPStatusX &a1
+&lab     smartportX $40,&a1
+         mend
+
+         macro
+&lab     SPReadBlockX &a1
+&lab     smartportX $41,&a1
+         mend
+
+         macro
+&lab     SPWriteBlockX &a1
+&lab     smartportX $42,&a1
+         mend
+
+         macro
+&lab     SPFormatX &a1
+&lab     smartportX $43,&a1
+         mend
+
+         macro
+&lab     SPControlX &a1
+&lab     smartportX $44,&a1
+         mend
+
+         macro
+&lab     SPInitX &a1
+&lab     smartportX $45,&a1
+         mend
+
+         macro
+&lab     SPOpenX &a1
+&lab     smartportX $46,&a1
+         mend
+
+         macro
+&lab     SPCloseX &a1
+&lab     smartportX $47,&a1
+         mend
+
+         macro
+&lab     SPReadX &a1
+&lab     smartportX $48,&a1
+         mend
+
+         macro
+&lab     SPWriteX &a1
+&lab     smartportX $49,&a1
+         mend

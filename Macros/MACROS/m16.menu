@@ -1,0 +1,500 @@
+**************************************************************************
+*                                                                        *
+* Menu Manager macros                                                    *
+* Written by Tim Meekins                                                 *
+* November 13, 1988                                                      *
+*                                                                        *
+* Requires: M16.MACROS                                                   *
+*                                                                        *
+* v1.0  11/13/88 TLM Original Version. Using Menu Manager v2.2           *
+* v1.1  07/26/90 TLM Updated to Menu Manager v3.1                        *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1990 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+               macro
+&lab           MenuBootInit
+&lab           Tool  $010f
+               mend
+
+               macro
+&lab           MenuStartUp &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               Tool  $020f
+               mend
+
+               macro
+&lab           MenuShutDown
+&lab           Tool  $030f
+               mend
+
+               macro
+&lab           MenuVersion &a1
+&lab           pha
+               Tool  $040f
+               pl2   &a1
+               mend
+
+               macro
+&lab           MenuReset
+&lab           Tool  $050f
+               mend
+
+               macro
+&lab           MenuStatus &a1
+&lab           pha
+               Tool  $060f
+               pl2   &a1
+               mend
+
+               macro
+&lab           MenuKey &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $090f
+               mend
+
+               macro
+&lab           GetMenuBar &a1
+&lab           pha
+               pha
+               Tool  $0a0f
+               pl4   &a1
+               mend
+
+               macro
+&lab           MenuRefresh &a1
+&lab           ph4   &a1
+               Tool  $0b0f
+               mend
+
+               macro
+&lab           FlashMenuBar &a1
+&lab           Tool  $0c0f
+               mend
+
+               macro
+&lab           InsertMenu &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               Tool  $0d0f
+               mend
+
+               macro
+&lab           DeleteMenu &a1
+&lab           ph2   &a1
+               Tool  $0e0f
+               mend
+
+               macro
+&lab           InsertMItem &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               Tool  $0f0f
+               mend
+
+               macro
+&lab           DeleteMItem &a1
+&lab           ph2   &a1
+               Tool  $100f
+               mend
+
+               macro
+&lab           GetSysBar &a1
+&lab           pha
+               pha
+               Tool  $110f
+               pl4   &a1
+               mend
+
+               macro
+&lab           SetSysBar &a1
+&lab           ph4   &a1
+               Tool  $120f
+               mend
+
+               macro
+&lab           FixMenuBar &a1
+&lab           pha
+               Tool  $130f
+               pl2   &a1
+               mend
+
+               macro
+&lab           CountMItems &a1,&a2
+&lab           pha
+               ph2   &a1
+               Tool  $140f
+               pl2   &a2
+               mend
+
+               macro
+&lab           NewMenuBar &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1
+               Tool  $150f
+               pl4   &a2
+               mend
+
+               macro
+&lab           GetMHandle &a1,&a2
+&lab           pha
+               pha
+               ph2   &a1
+               Tool  $160f
+               pl4   &a2
+               mend
+
+               macro
+&lab           SetBarColors &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               Tool  $170f
+               mend
+
+               macro
+&lab           GetBarColors &a1
+&lab           pha
+               pha
+               Tool  $180f
+               pl4   &a1
+               mend
+
+               macro
+&lab           SetMTitleStart &a1
+&lab           ph2   &a1
+               Tool  $190f
+               mend
+
+               macro
+&lab           GetMTitleStart &a1
+&lab           pha
+               Tool  $1a0f
+               pl2   &a1
+               mend
+
+               macro
+&lab           GetMenuMgrPort &a1
+&lab           pha
+               pha
+               Tool  $1b0f
+               pl4   &a1
+               mend
+
+               macro
+&lab           CalcMenuSize &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               Tool  $1c0f
+               mend
+
+               macro
+&lab           SetMTitleWidth &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               Tool  $1d0f
+               mend
+
+               macro
+&lab           GetMTitleWidth &a1,&a2
+&lab           pha
+               ph2   &a1
+               Tool  $1e0f
+               pl2   &a2
+               mend
+
+               macro
+&lab           SetMenuFlag &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               Tool  $1f0f
+               mend
+
+               macro
+&lab           GetMenuFlag &a1,&a2
+&lab           pha
+               ph2   &a1
+               Tool  $200f
+               pl2   &a2
+               mend
+
+               macro
+&lab           SetMenuTitle &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               Tool  $210f
+               mend
+
+               macro
+&lab           GetMenuTitle &a1,&a2
+&lab           pha
+               pha
+               ph2   &a1
+               Tool  $220f
+               pl4   &a2
+               mend
+
+               macro
+&lab           MenuGlobal &a1,&a2
+&lab           pha
+               ph2   &a1
+               Tool  $230f
+               pl2   &a2
+               mend
+
+               macro
+&lab           SetMItem &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               Tool  $240f
+               mend
+
+               macro
+&lab           GetMItem &a1,&a2
+&lab           pha
+               pha
+               ph2   &a1
+               Tool  $250f
+               pl4   &a2
+               mend
+
+               macro
+&lab           SetMItemFlag &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               Tool  $260f
+               mend
+
+               macro
+&lab           GetMItemFlag &a1,&a2
+&lab           pha
+               ph2   &a1
+               Tool  $270f
+               pl2   &a2
+               mend
+
+               macro
+&lab           SetMItemBlink &a1
+&lab           ph2   &a1
+               Tool  $280f
+               mend
+
+               macro
+&lab           MenuNewRes &a1
+&lab           Tool  $290f
+               mend
+
+               macro
+&lab           DrawMenuBar &a1
+&lab           Tool  $2a0f
+               mend
+
+               macro
+&lab           MenuSelect &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $2b0f
+               mend
+
+               macro
+&lab           HiliteMenu &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               Tool  $2c0f
+               mend
+
+               macro
+&lab           NewMenu &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1
+               Tool  $2d0f
+               pl4   &a2
+               mend
+
+               macro
+&lab           DisposeMenu &a1
+&lab           ph4   &a1
+               Tool  $2e0f
+               mend
+
+               macro
+&lab           InitPalette
+&lab           Tool  $2f0f
+               mend
+
+               macro
+&lab           EnableMItem &a1
+&lab           ph2   &a1
+               Tool  $300f
+               mend
+
+               macro
+&lab           DisableMItem &a1
+&lab           ph2   &a1
+               Tool  $310f
+               mend
+
+               macro
+&lab           CheckMItem &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               Tool  $320f
+               mend
+
+               macro
+&lab           SetMItemMark &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               Tool  $330f
+               mend
+
+               macro
+&lab           GetMITemMark &a1,&a2
+&lab           pha
+               ph2   &a1
+               Tool  $340f
+               pl2   &a2
+               mend
+
+               macro
+&lab           SetMItemStyle &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               Tool  $350f
+               mend
+
+               macro
+&lab           GetMItemStyle &a1,&a2
+&lab           pha
+               ph2   &a1
+               Tool  $360f
+               pl2   &a2
+               mend
+
+               macro
+&lab           SetMenuID &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               Tool  $370f
+               mend
+
+               macro
+&lab           SetMItemID &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               Tool  $380f
+               mend
+
+               macro
+&lab           SetMenuBar &a1
+&lab           ph4   &a1
+               Tool  $390f
+               mend
+
+               macro
+&lab           SetMItemName &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               Tool  $3a0f
+               mend
+
+               macro
+&lab           GetPopUpDefProc &a1
+&lab           pha
+               pha
+               Tool  $3b0f
+               pl4   &a1
+               mend
+
+               macro
+&lab           PopUpMenuSelect &a1,&a2
+&lab           pha
+               ph2   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               ph2   &a1(4)
+               ph4   &a1(5)
+               Tool  $3c0f
+               pl2   &a2
+               mend
+
+               macro
+&lab           NewMenu2 &a1,&a2
+&lab           pha
+               pha
+               ph2   &a1(1)
+               ph4   &a1(2)
+               Tool  $3e0f
+               pl4   &a2
+               mend
+
+               macro
+&lab           InsertMItem2 &a1
+&lab           ph2   &a1(1)
+               ph4   &a1(2)
+               ph2   &a1(3)
+               ph2   &a1(4)
+               Tool  $3f0f
+               mend
+
+               macro
+&lab           SetMenuTitle2 &a1
+&lab           ph2   &a1(1)
+               ph4   &a1(2)
+               ph2   &a1(3)
+               Tool  $400f
+               mend
+
+               macro
+&lab           SetMItem2 &a1
+&lab           ph2   &a1(1)
+               ph4   &a1(2)
+               ph2   &a1(3)
+               Tool  $410f
+               mend
+
+               macro
+&lab           SetMItemName2 &a1
+&lab           ph2   &a1(1)
+               ph4   &a1(2)
+               ph2   &a1(3)
+               Tool  $420f
+               mend
+
+               macro
+&lab           NewMenuBar2 &a1,&a2
+&lab           pha
+               pha
+               ph2   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               Tool  $430f
+               pl4   &a2
+               mend
+
+               macro
+&lab           HideMenuBar
+&lab           Tool  $450f
+               mend
+
+               macro
+&lab           ShowMenuBar
+&lab           Tool  $460f
+               mend

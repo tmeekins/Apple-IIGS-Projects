@@ -1,0 +1,872 @@
+**************************************************************************
+*                                                                        *
+* SANE macros                                                            *
+* Written by Tim Meekins                                                 *
+* Ausust 24, 1989                                                        *
+*                                                                        *
+* Requires: M16.MACROS                                                   *
+*                                                                        *
+* v1.0  08/24/89 TLM Original Version. Using SANE v2.2                   *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1990 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+               macro
+&lab           SANEBootInit
+&lab           Tool  $010a
+               mend
+
+               macro
+&lab           SANEStartUp &a1
+&lab           ph2   &a1
+               Tool  $020a
+               mend
+
+               macro
+&lab           SANEShutDown
+&lab           Tool  $030a
+               mend
+
+               macro
+&lab           SANEVersion &a1
+&lab           pha
+               Tool  $040a
+               pl2   &a1
+               mend
+
+               macro
+&lab           SANEReset
+&lab           Tool  $050a
+               mend
+
+               macro
+&lab           SANEStatus &a1
+&lab           pha
+               Tool  $060a
+               pl2   &a1
+               mend
+
+               macro
+&lab           SANEFP816 &a1
+&lab           pea   &a1
+               Tool  $090a
+               mend
+
+               macro
+&lab           SANEDecStr816 &a1
+&lab           pea   &a1
+               Tool  $0a0a
+               mend
+
+               macro
+&lab           SANEElems816 &a1
+&lab           pea   &a1
+               Tool  $0b0a
+               mend
+
+*
+* Arithmetic operations, Auxiliary routines, Conversions, Comparisons,
+* Inquiries, Environmental control, and Halt control.
+*
+
+               macro
+&lab           fAddX &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0000
+               mend
+
+               macro
+&lab           fSetEnv &a1
+&lab           ph4   &a1
+               SANEFP816 $0001
+               mend
+
+               macro
+&lab           fSubX &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0002
+               mend
+
+               macro
+&lab           fGetEnv
+&lab           SANEFP816 $0003
+               mend
+
+               macro
+&lab           fMulX &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0004
+               mend
+
+               macro
+&lab           fSetHV &a1
+&lab           ph4   &a1
+               SANEFP816 $0005
+               mend
+
+               macro
+&lab           fDivX &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0006
+               mend
+
+               macro
+&lab           fGetHV
+&lab           SANEFP816 $0007
+               mend
+
+               macro
+&lab           fCmpX &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0008
+               mend
+
+               macro
+&lab           fDec2X &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0009
+               mend
+
+               macro
+&lab           fCpxX &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $000a
+               mend
+
+               macro
+&lab           fX2Dec  &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               SANEFP816 $000b
+               mend
+
+               macro
+&lab           fRemX &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $000c
+               mend
+
+               macro
+&lab           fNegX &a1
+&lab           ph4   &a1
+               SANEFP816 $000d
+               mend
+
+               macro
+&lab           fAbsX &a1
+&lab           ph4   &a1
+               SANEFP816 $000f
+               mend
+
+               macro
+&lab           fX2X  &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0010
+               mend
+
+               macro
+&lab           fCpySgnX &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0011
+               mend
+
+               macro
+&lab           fSqrtX &a1
+&lab           ph4   &a1
+               SANEFP816 $0012
+               mend
+
+               macro
+&lab           fRIntX &a1
+&lab           ph4   &a1
+               SANEFP816 $0014
+               mend
+
+               macro
+&lab           fSetXcp &a1
+&lab           ph4   &a1
+               SANEFP816 $0015
+               mend
+
+               macro
+&lab           fTIntX &a1
+&lab           ph4   &a1
+               SANEFP816 $0016
+               mend
+
+               macro
+&lab           fProcEntry &a1
+&lab           ph4   &a1
+               SANEFP816 $0017
+               mend
+
+               macro
+&lab           fScalBX &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0018
+               mend
+
+               macro
+&lab           fProcExit &a1
+&lab           ph4   &a1
+               SANEFP816 $0019
+               mend
+
+               macro
+&lab           fLogBX &a1
+&lab           ph4   &a1
+               SANEFP816 $001a
+               mend
+
+               macro
+&lab           fTestXcp &a1
+&lab           ph4   &a1
+               SANEFP816 $001b
+               mend
+
+               macro
+&lab           fClassX &a1
+&lab           ph4   &a1
+               SANEFP816 $001c
+               mend
+
+               macro
+&lab           fNextX &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $001e
+               mend
+
+               macro
+&lab           fAddD &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0100
+               mend
+
+               macro
+&lab           fSubD &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0102
+               mend
+
+               macro
+&lab           fMulD &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0104
+               mend
+
+               macro
+&lab           fDivD &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0106
+               mend
+
+               macro
+&lab           fCmpD &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0108
+               mend
+
+               macro
+&lab           fDec2D &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0109
+               mend
+
+               macro
+&lab           fCpxD &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $010a
+               mend
+
+               macro
+&lab           fD2Dec  &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               SANEFP816 $010b
+               mend
+
+               macro
+&lab           fRemD &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $010c
+               mend
+
+               macro
+&lab           fD2X  &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $010e
+               mend
+
+               macro
+&lab           fX2D  &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0110
+               mend
+
+               macro
+&lab           fCpySgnD &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0111
+               mend
+
+               macro
+&lab           fClassD &a1
+&lab           ph4   &a1
+               SANEFP816 $011c
+               mend
+
+               macro
+&lab           fNextD &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $011e
+               mend
+
+               macro
+&lab           fAddS &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0200
+               mend
+
+               macro
+&lab           fSubS &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0202
+               mend
+
+               macro
+&lab           fMulS &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0204
+               mend
+
+               macro
+&lab           fDivS &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0206
+               mend
+
+               macro
+&lab           fCmpS &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0208
+               mend
+
+               macro
+&lab           fDec2S &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0209
+               mend
+
+               macro
+&lab           fCpxS &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $020a
+               mend
+
+               macro
+&lab           fS2Dec  &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               SANEFP816 $020b
+               mend
+
+               macro
+&lab           fRemS &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $020c
+               mend
+
+               macro
+&lab           fS2X  &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $020e
+               mend
+
+               macro
+&lab           fX2S  &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0210
+               mend
+
+               macro
+&lab           fCpySgnS &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0211
+               mend
+
+               macro
+&lab           fClassS &a1
+&lab           ph4   &a1
+               SANEFP816 $021c
+               mend
+
+               macro
+&lab           fNextS &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $021e
+               mend
+
+               macro
+&lab           fAddL &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0300
+               mend
+
+               macro
+&lab           fSubL &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0302
+               mend
+
+               macro
+&lab           fMulL &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0304
+               mend
+
+               macro
+&lab           fDivL &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0306
+               mend
+
+               macro
+&lab           fCmpL &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0008
+               mend
+
+               macro
+&lab           fDec2L &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0309
+               mend
+
+               macro
+&lab           fCpxL &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $030a
+               mend
+
+               macro
+&lab           fL2Dec  &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               SANEFP816 $030b
+               mend
+
+               macro
+&lab           fRemL &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $030c
+               mend
+
+               macro
+&lab           fL2X  &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $030e
+               mend
+
+               macro
+&lab           fX2L  &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0310
+               mend
+
+               macro
+&lab           fCpySgnL &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0311
+               mend
+
+               macro
+&lab           fClassL &a1
+&lab           ph4   &a1
+               SANEFP816 $031c
+               mend
+
+               macro
+&lab           fAddI &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0400
+               mend
+
+               macro
+&lab           fSubI &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0402
+               mend
+
+               macro
+&lab           fMulI &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0404
+               mend
+
+               macro
+&lab           fDivI &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0406
+               mend
+
+               macro
+&lab           fCmpI &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0408
+               mend
+
+               macro
+&lab           fDec2I &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0409
+               mend
+
+               macro
+&lab           fCpxI &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $040a
+               mend
+
+               macro
+&lab           fI2Dec  &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               SANEFP816 $040b
+               mend
+
+               macro
+&lab           fRemI &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $040c
+               mend
+
+               macro
+&lab           fI2X  &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $040e
+               mend
+
+               macro
+&lab           fX2I  &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0410
+               mend
+
+               macro
+&lab           fCpySgnI &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0411
+               mend
+
+               macro
+&lab           fClassI &a1
+&lab           ph4   &a1
+               SANEFP816 $041c
+               mend
+
+               macro
+&lab           fAddC &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0500
+               mend
+
+               macro
+&lab           fSubC &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0502
+               mend
+
+               macro
+&lab           fMulC &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0504
+               mend
+
+               macro
+&lab           fDivC &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0506
+               mend
+
+               macro
+&lab           fCmpC &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0508
+               mend
+
+               macro
+&lab           fDec2C &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0509
+               mend
+
+               macro
+&lab           fCpxC &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $050a
+               mend
+
+               macro
+&lab           fC2Dec  &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               SANEFP816 $050b
+               mend
+
+               macro
+&lab           fRemC &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $050c
+               mend
+
+               macro
+&lab           fC2X  &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $050e
+               mend
+
+               macro
+&lab           fX2C  &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0510
+               mend
+
+               macro
+&lab           fCpySgnC &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEFP816 $0511
+               mend
+
+               macro
+&lab           fClassC &a1
+&lab           ph4   &a1
+               SANEFP816 $051c
+               mend
+
+*
+* Elementary functions
+*
+
+               macro
+&lab           fLnX &a1
+&lab           ph4   &a1
+               SANEElems816 $00
+               mend
+
+               macro
+&lab           fLog2X &a1
+&lab           ph4   &a1
+               SANEElems816 $02
+               mend
+
+               macro
+&lab           fLn1X &a1
+&lab           ph4   &a1
+               SANEElems816 $04
+               mend
+
+               macro
+&lab           fLog21X &a1
+&lab           ph4   &a1
+               SANEElems816 $06
+               mend
+
+               macro
+&lab           fExpX &a1
+&lab           ph4   &a1
+               SANEElems816 $08
+               mend
+
+               macro
+&lab           fExp2X &a1
+&lab           ph4   &a1
+               SANEElems816 $0a
+               mend
+
+               macro
+&lab           fExp1X &a1
+&lab           ph4   &a1
+               SANEElems816 $0c
+               mend
+
+               macro
+&lab           fExp21X &a1
+&lab           ph4   &a1
+               SANEElems816 $0e
+               mend
+
+               macro
+&lab           fXPwrI &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEElems816 $10
+               mend
+
+               macro
+&lab           fXPwrY &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               SANEElems816 $12
+               mend
+
+               macro
+&lab           fCompound &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               SANEElems816 $14
+               mend
+
+               macro
+&lab           fAnnuity &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               SANEElems816 $16
+               mend
+
+               macro
+&lab           fAtanX &a1
+&lab           ph4   &a1
+               SANEElems816 $18
+               mend
+
+               macro
+&lab           fSinX &a1
+&lab           ph4   &a1
+               SANEElems816 $1a
+               mend
+
+               macro
+&lab           fCosX &a1
+&lab           ph4   &a1
+               SANEElems816 $1c
+               mend
+
+               macro
+&lab           fTanX &a1
+&lab           ph4   &a1
+               SANEElems816 $1e
+               mend
+
+               macro
+&lab           fRandX &a1
+&lab           ph4   &a1
+               SANEElems816 $20
+               mend
+
+*
+* Scanners and formatters
+*
+
+               macro
+&lab           fPStr2Dec &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               ph4   &a1(4)
+               SANEDecStr816 $02
+               mend
+
+               macro
+&lab           fDec2Str &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               SANEDecStr816 $03
+               mend
+
+               macro
+&lab           fCStr2Dec &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               ph4   &a1(4)
+               SANEDecStr816 $04
+               mend

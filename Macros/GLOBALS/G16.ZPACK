@@ -1,0 +1,34 @@
+**************************************************************************
+*                                                                        *
+* ZPACK TOOL constants, data structures, and error codes                 *
+* Written by Tim Meekins                                                 *
+* March 2, 1991                                                          *
+*                                                                        *
+* v1.0  03/01/91 TLM Original version.                                   *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1991 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+**************************************************************************
+*
+* ZPTOOL error codes
+*
+**************************************************************************
+
+ZPDupStartUp   gequ  $E601              ;Already Started Up
+ZPNotStartUp   gequ  $E602              ;Wasn't Started Up
+ZP1BadVersion  gequ  $E603              ;ZP1 was wrong version
+ZP1notZP1      gequ  $E604              ;File wasn't ZP1
+ZPAPFnoBlock   gequ  $E605              ;The APF block wasn't found
+ZPnotImp       gequ  $E6FF              ;This function not implemented

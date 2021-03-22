@@ -1,0 +1,222 @@
+**************************************************************************
+*                                                                        *
+* Event Manager macros                                                   *
+* Written by Tim Meekins                                                 *
+* November 5, 1988                                                       *
+*                                                                        *
+* Requires: M16.MACROS                                                   *
+*                                                                        *
+* v1.0  11/05/88 TLM Original version. Using Event Manager v1.0          *
+* v1.1  11/05/88 TLM Now uses Tool macro                                 *
+* v1.2  11/11/88 TLM Updated to Event Manager v2.2                       *
+* v1.3   7/26/90 TLM Updates to Event Manager v3.0                       *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1990 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+               macro
+&lab           EMBootInit
+&lab           Tool  $0106
+               mend
+
+               macro
+&lab           EMStartup &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               ph2   &a1(4)
+               ph2   &a1(5)
+               ph2   &a1(6)
+               ph2   &a1(7)
+               Tool  $0206
+               mend
+
+               macro
+&lab           EMShutDown
+&lab           Tool  $0306
+               mend
+
+               macro
+&lab           EMVersion &a1
+&lab           pha
+               Tool  $0406
+               pl2   &a1
+               mend
+
+               macro
+&lab           EMReset
+&lab           Tool  $0506
+               mend
+
+               macro
+&lab           EMStatus &a1
+&lab           pha
+               Tool  $0606
+               pl2   &a1
+               mend
+
+               macro
+&lab           DoWindows &a1
+&lab           pha
+               Tool  $0906
+               pl2   &a1
+               mend
+
+               macro
+&lab           GetNextEvent &a1,&a2
+&lab           pha
+               ph2   &a1(1)
+               ph4   &a1(2)
+               Tool  $0a06
+               pl2   &a2
+               mend
+
+               macro
+&lab           EventAvail &a1,&a2
+&lab           pha
+               ph2   &a1(1)
+               ph4   &a1(2)
+               Tool  $0b06
+               pl2   &a2
+               mend
+
+               macro
+&lab           GetMouse &a1
+&lab           ph4   &a1
+               Tool  $0c06
+               mend
+
+               macro
+&lab           Button &a1,&a2
+&lab           pha
+               ph2   &a1
+               Tool  $0d06
+               pl2   &a2
+               mend
+
+               macro
+&lab           StillDown &a1,&a2
+&lab           pha
+               ph2   &a1
+               Tool  $0e06
+               pl2   &a2
+               mend
+
+               macro
+&lab           WaitMouseUp &a1,&a2
+&lab           pha
+               ph2   &a1
+               Tool  $0f06
+               pl2   &a2
+               mend
+
+               macro
+&lab           TickCount &a1
+&lab           pha
+               pha
+               Tool  $1006
+               pl4   &a1
+               mend
+
+               macro
+&lab           GetDblTime &a1
+&lab           pha
+               pha
+               Tool  $1106
+               pl4   &a1
+               mend
+
+               macro
+&lab           GetCaretTime &a1
+&lab           pha
+               pha
+               Tool  $1206
+               pl4   &a1
+               mend
+
+               macro
+&lab           SetSwitch
+&lab           Tool  $1306
+               mend
+
+               macro
+&lab           PostEvent &a1,&a2
+&lab           pha
+               ph2   &a1(1)
+               ph4   &a1(2)
+               Tool  $1406
+               pl2   &a2
+               mend
+
+               macro
+&lab           FlushEvents &a1,&a2
+&lab           pha
+               ph2   &a1(1)
+               ph2   &a1(2)
+               Tool  $1506
+               pl2   &a2
+               mend
+
+               macro
+&lab           GetOSEvent &a1,&a2
+&lab           pha
+               ph2   &a1(1)
+               ph4   &a1(2)
+               Tool  $1606
+               pl2   &a2
+               mend
+
+               macro
+&lab           OSEventAvail &a1,&a2
+&lab           pha
+               ph2   &a1(1)
+               ph4   &a1(2)
+               Tool  $1706
+               pl2   &a2
+               mend
+
+               macro
+&lab           SetEventMask &a1
+&lab           ph2   &a1
+               Tool  $1806
+               mend
+
+               macro
+&lab           FakeMouse &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               ph2   &a1(4)
+               ph2   &a1(5)
+               Tool  $1906
+               mend
+
+               macro
+&lab           SetAutoKeyLimit &a1
+&lab           ph2   &a1
+               Tool  $1a06
+               mend
+
+               macro
+&lab           GetKeyTranslation &a1
+&lab           pha
+               Tool  $1b06
+               pl2   &a1
+               mend
+
+               macro
+&lab           SetKeyTranslation &a1
+&lab           ph2   &a1
+               Tool  $1c06
+               mend

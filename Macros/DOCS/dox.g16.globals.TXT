@@ -1,0 +1,25 @@
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1990 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+**************************************************************************
+
+                        G16.GLOBALS DOCUMENTATION
+                        =========================
+                              Release 1.0
+
+Basically these files consist of global constants, data structure offsets,
+and error codes. That's about all I'll say about them. In fact, many them
+aren't up to date since I've never actually found that I've needed them.
+However, if you need any one of them updated (including those more recent
+tools for which a G16 file doesn't exist) just let me know!
+

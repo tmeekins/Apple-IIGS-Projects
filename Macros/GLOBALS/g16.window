@@ -1,0 +1,179 @@
+**************************************************************************
+*                                                                        *
+* Window Manager constants, data structures, and error codes             *
+* Written by Tim Meekins                                                 *
+* September 3, 1989                                                      *
+*                                                                        *
+* v1.0  09/03/89 Original version. Uses Window Manager v2.3              *
+*       04/06/90 Fixed several typos.                                    *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1990 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+*
+* Axis parameters
+*
+wNoConstraint  gequ  $0000
+wHAxisOnly     gequ  $0001
+wVAxisOnly     gequ  $0002
+*
+* Desktop commands
+*
+FromDesk       gequ  $00
+ToDesk         gequ  $01
+GetDesktop     gequ  $02
+SetDesktop     gequ  $03
+GetDeskPat     gequ  $04
+SetDeskPat     gequ  $05
+GetVisDesktop  gequ  $06
+BackGroundRgn  gequ  $07
+*
+* SendBehind values
+*
+toBottom       gequ  -2
+topMost        gequ  -1
+bottomMost     gequ  $0000
+*
+* Task mask values
+*
+tmMenuKey      gequ  $0001
+tmUpdate       gequ  $0002
+tmFindW        gequ  $0004
+tmMenuSel      gequ  $0008
+tmOpenNDA      gequ  $0010
+tmSysClick     gequ  $0020
+tmDragW        gequ  $0040
+tmContent      gequ  $0080
+tmClose        gequ  $0100
+tmZoom         gequ  $0200
+tmGrow         gequ  $0400
+tmScroll       gequ  $0800
+tmSpecial      gequ  $1000
+tmCRedraw      gequ  $2000
+tmInactive     gequ  $4000
+tmInfo         gequ  $8000
+*
+* TaskMaster codes
+*
+wInDesk        gequ  $0010
+wInMenuBar     gequ  $0011
+wClickCalled   gequ  $0012
+wInContent     gequ  $0013
+wInDrag        gequ  $0014
+wInGrow        gequ  $0015
+wInGoAway      gequ  $0016
+wInZoom        gequ  $0017
+wInInfo        gequ  $0018
+wInSpecial     gequ  $0019
+wInDeskItem    gequ  $001a
+wInFrame       gequ  $001b
+wInactMenu     gequ  $001c
+wCloseNDA      gequ  $001d
+wCalledSysEdit gequ  $001e
+wInSysWindow   gequ  $8000
+*
+* varCode values
+*
+wDraw          gequ  $00
+wHit           gequ  $01
+wCalcRgns      gequ  $02
+wNew           gequ  $03
+wDispose       gequ  $04
+*
+* wFrame values
+*
+fHilited       gequ  $0001
+fZoomed        gequ  $0002
+fAllocated     gequ  $0004
+fCtlTie        gequ  $0008
+fInfo          gequ  $0010
+fVis           gequ  $0020
+fQContent      gequ  $0040
+fMove          gequ  $0080
+fZoom          gequ  $0100
+fFlex          gequ  $0200
+fGrow          gequ  $0400
+fBScroll       gequ  $0800
+fRScroll       gequ  $1000
+fAlert         gequ  $2000
+fClose         gequ  $4000
+fTitle         gequ  $8000
+*
+* Record sizes
+*
+windSize       gequ  $145
+wmTaskRecSize  gequ  $16
+*
+* WindRec (window record)
+*
+oWNext         gequ  $00
+oWPort         gequ  $04
+oWPadding      gequ  $ae
+oWStructRgn    gequ  $be
+oWContRgn      gequ  $c2
+oWUpdateRgn    gequ  $c6
+oWControls     gequ  $ca
+oWFrameCtrls   gequ  $ce
+oWFrame        gequ  $d2
+*
+* WindColor (window color table)
+*
+oFrameColor    gequ  $00
+oTitleColor    gequ  $02
+oTBarColor     gequ  $04
+oGrowColor     gequ  $06
+oInfoColor     gequ  $08
+*
+* paramlist (NewWindow parameter list)
+*
+oParamLength   gequ  $00
+oWFrameBits    gequ  $02
+oWTitle        gequ  $04
+oWRefCon       gequ  $08
+oWZoom         gequ  $0c
+oWColor        gequ  $14
+oWYOrigin      gequ  $18
+oWXOrigin      gequ  $1a
+oWDataH        gequ  $1c
+oWDataW        gequ  $1e
+oWMaxH         gequ  $20
+oWMaxW         gequ  $22
+oWScrollVer    gequ  $24
+oWScrollHor    gequ  $26
+oWPageVer      gequ  $28
+oWPageHor      gequ  $2a
+oWInfoRefCon   gequ  $2c
+oWInfoHeight   gequ  $30
+oWFrameDefProc gequ  $32
+oWInfoDefProc  gequ  $36
+oWContDefProc  gequ  $3a
+oWPosition     gequ  $3e
+oWPlane        gequ  $46
+oWStorage      gequ  $4a
+*
+* WmTaskRec (task record)
+*
+oWmWhat        gequ  $00
+oWmMessage     gequ  $02
+oWmWhen        gequ  $06
+oWmWhere       gequ  $0a
+oWmModifiers   gequ  $0e
+oWmTaskData    gequ  $10
+oWmTaskMask    gequ  $14
+*
+* Window Manager error codes
+*
+paramLenErr    gequ  $0e01
+allocateErr    gequ  $0e02
+taskMaskErr    gequ  $0e03

@@ -1,0 +1,72 @@
+**************************************************************************
+*                                                                        *
+* Menu Manager global constants, data structures, and error codes        *
+* Written by Tim Meekins                                                 *
+* November 20, 1988                                                      *
+*                                                                        *
+* v1.0  11/20/88 Original version. Uses Menu Manager v2.2                *
+* v1.1  08/04/90 Fixed possible error in MenuRecord                      *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1990 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+*
+* Masks for MenuFlag
+*
+mInvis         gequ  $0004
+enableCache    gequ  $0008
+mCustom        gequ  $0010
+mXor           gequ  $0020
+mSelected      gequ  $0040
+mDisabled      gequ  $0080
+*
+* Messages to menu definition procedures
+*
+mDrawMsg       gequ  $0000
+mChooseMsg     gequ  $0001
+mSizeMsg       gequ  $0002
+mDrawTitle     gequ  $0003
+mDrawMItem     gequ  $0004
+mGetMItemID    gequ  $0005
+*
+* Inputs to the SetMenuFlag routine
+*
+customMenu     gequ  $0010
+disableMenu    gequ  $0080
+enableMenu     gequ  $ff7f
+colorReplace   gequ  $ffdf
+standardMenu   gequ  $ffef
+*
+* Inputs to THE SetMItemFlag routine
+*
+xorMItemHilite gequ  $0020
+underMItem     gequ  $0040
+noUnderMItem   gequ  $ffbf
+colorMItemHilite gequ $ffdf
+disableItem    gequ  $0080
+enableItem     gequ  $ff7f
+*
+* MENU
+*   - Menu record
+*
+oMenuID        gequ  $00
+oMenuWidth     gequ  $02
+oMenuHeight    gequ  $04
+oMenuProc      gequ  $06
+oMenuFlag      gequ  $0a
+oMenuRes       gequ  $0b
+oNumOfItems    gequ  $0c
+oTitleWidth    gequ  $0e
+oTitleName     gequ  $10
+oMenuCache     gequ  $14

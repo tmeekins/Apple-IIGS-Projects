@@ -1,0 +1,174 @@
+**************************************************************************
+*                                                                        *
+* Sound Tools macros                                                     *
+* Written by Tim Meekins                                                 *
+* Ausust 25, 1989                                                        *
+*                                                                        *
+* Requires: M16.MACROS                                                   *
+*                                                                        *
+* v1.0  08/25/89 TLM Original Version. Using Sound Tools v2.4            *
+* v1.1  07/27/90 TLM Updated to Sound Tools v3.1                         *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1990 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+               macro
+&lab           SoundBootInit
+&lab           Tool  $0108
+               mend
+
+               macro
+&lab           SoundStartUp &a1
+&lab           ph2   &a1
+               Tool  $0208
+               mend
+
+               macro
+&lab           SoundShutDown
+&lab           Tool  $0308
+               mend
+
+               macro
+&lab           SoundVersion &a1
+&lab           pha
+               Tool  $0408
+               pl2   &a1
+               mend
+
+               macro
+&lab           SoundReset
+&lab           Tool  $0508
+               mend
+
+               macro
+&lab           SoundToolStatus &a1
+&lab           pha
+               Tool  $0608
+               pl2   &a1
+               mend
+
+               macro
+&lab           WriteRamBlock &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               Tool  $0908
+               mend
+
+               macro
+&lab           ReadRamBlock &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               Tool  $0a08
+               mend
+
+               macro
+&lab           GetTableAddress &a1
+&lab           pha
+               pha
+               Tool  $0b08
+               pl4   &a1
+               mend
+
+               macro
+&lab           GetSoundVolume &a1,&a2
+&lab           pha
+               ph2   &a1
+               Tool  $0c08
+               pl2   &a2
+               mend
+
+               macro
+&lab           SetSoundVolume &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               Tool  $0d08
+               mend
+
+               macro
+&lab           FFStartSound &a1
+&lab           ph2   &a1(1)
+               ph4   &a1(2)
+               Tool  $0e08
+               mend
+
+               macro
+&lab           FFStopSound &a1
+&lab           ph2   &a1
+               Tool  $0f08
+               mend
+
+               macro
+&lab           FFSoundStatus &a1
+&lab           pha
+               Tool  $1008
+               pl2   &a1
+               mend
+
+               macro
+&lab           FFGeneratorStatus &a1,&a2
+&lab           pha
+               ph2   &a1
+               Tool  $1108
+               pl2   &a2
+               mend
+
+               macro
+&lab           SetSoundMIRQV &a1
+&lab           ph4   &a1
+               Tool  $1208
+               mend
+
+               macro
+&lab           SetUserSoundIRQV &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1
+               Tool  $1308
+               pl4   &a2
+               mend
+
+               macro
+&lab           FFSoundDoneStatus &a1,&a2
+&lab           pha
+               ph2   &a1
+               Tool  $1408
+               pl2   &a2
+               mend
+
+               macro
+&lab           FFSetUpSound &a1
+&lab           ph2   &a1(1)
+               ph4   &a1(2)
+               Tool  $1508
+               mend
+
+               macro
+&lab           FFStartPlaying &a1
+&lab           ph2   &a1
+               Tool  $1608
+               mend
+
+               macro
+&lab           SetDOCReg &a1
+&lab           ph4   &a1
+               Tool  $1708
+               mend
+
+               macro
+&lab           ReadDOCReg &a1
+&lab           ph4   &a1
+               Tool  $1808
+               mend

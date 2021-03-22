@@ -1,0 +1,141 @@
+**************************************************************************
+*                                                                        *
+* Note Sequencer macros                                                  *
+* Written by Tim Meekins                                                 *
+* July 26, 1990                                                          *
+*                                                                        *
+* Requires: M16.MACROS                                                   *
+*                                                                        *
+* v1.0  07/26/90 TLM Original Version. Using Note Sequencer v1.4         *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1990 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+               macro
+&lab           SeqBootInit
+&lab           Tool  $011a
+               mend
+
+               macro
+&lab           SeqStartUp &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               ph2   &a1(4)
+               Tool  $021a
+               mend
+
+               macro
+&lab           SeqShutDown
+&lab           Tool  $031a
+               mend
+
+               macro
+&lab           SeqVersion &a1
+&lab           pha
+               Tool  $041a
+               pl2   &a1
+               mend
+
+               macro
+&lab           SeqReset
+&lab           Tool  $051a
+               mend
+
+               macro
+&lab           SeqStatus &a1
+&lab           pha
+               Tool  $061a
+               pl2   &a1
+               mend
+
+               macro
+&lab           SetIncr &a1
+&lab           ph2   &a1
+               Tool  $091a
+               mend
+
+               macro
+&lab           ClearIncr &a1
+&lab           pha
+               Tool  $0a1a
+               pl2   &a1
+               mend
+
+               macro
+&lab           GetLoc &a1
+&lab           pha
+               pha
+               pha
+               Tool  $0c1a
+               pl2   &a1(1)
+               pl2   &a1(2)
+               pl2   &a1(3)
+               mend
+
+               macro
+&lab           SeqAllNotesOff
+&lab           Tool  $0d1a
+               mend
+
+               macro
+&lab           SetTrkInfo &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               Tool  $0e1a
+               mend
+
+               macro
+&lab           StartSeq &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               Tool  $0f1a
+               mend
+
+               macro
+&lab           StepSeq
+&lab           Tool  $101a
+               mend
+
+               macro
+&lab           StopSeq &a1
+&lab           ph2   &a1
+               Tool  $111a
+               mend
+
+               macro
+&lab           SetInstTable &a1
+&lab           ph4   &a1
+               Tool  $121a
+               mend
+
+               macro
+&lab           StartInts
+&lab           Tool  $131a
+               mend
+
+               macro
+&lab           StopInts
+&lab           Tool  $141a
+               mend
+
+               macro
+&lab           StartSeqRel &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               Tool  $151a
+               mend

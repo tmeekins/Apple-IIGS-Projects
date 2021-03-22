@@ -1,0 +1,1474 @@
+**************************************************************************
+*                                                                        *
+* QuickDraw II macros                                                    *
+* Written by Tim Meekins                                                 *
+* Ausust 23, 1989                                                        *
+*                                                                        *
+* Requires: M16.MACROS                                                   *
+*                                                                        *
+* v1.0  08/23/89 TLM Original Version. Using QuickDraw II v2.3           *
+*       01/05/90 TLM Fixed Typos.                                        *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1990 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+               macro
+&lab           QDBootInit
+&lab           Tool  $0104
+               mend
+
+               macro
+&lab           QDStartUp &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               ph2   &a1(4)
+               Tool  $0204
+               mend
+
+               macro
+&lab           QDShutDown
+&lab           Tool  $0304
+               mend
+
+               macro
+&lab           QDVersion &a1
+&lab           pha
+               Tool  $0404
+               pl2   &a1
+               mend
+
+               macro
+&lab           QDReset
+&lab           Tool  $0504
+               mend
+
+               macro
+&lab           QDStatus &a1
+&lab           pha
+               Tool  $0604
+               pl2   &a1
+               mend
+
+               macro
+&lab           GetAddress &a1,&a2
+&lab           pha
+               pha
+               ph2   &a1
+               Tool  $0904
+               pl4   &a2
+               mend
+
+               macro
+&lab           GrafOn
+&lab           Tool  $0a04
+               mend
+
+               macro
+&lab           GrafOff
+&lab           Tool  $0b04
+               mend
+
+               macro
+&lab           GetStandardSCB &a1
+&lab           pha
+               Tool  $0c04
+               pl2   &a1
+               mend
+
+               macro
+&lab           InitColorTable &a1
+&lab           ph4   &a1
+               Tool  $0d04
+               mend
+
+               macro
+&lab           SetColorTable &a1
+&lab           ph2   &a1(1)
+               ph4   &a1(2)
+               Tool  $0e04
+               mend
+
+               macro
+&lab           GetColorTable &a1
+&lab           ph2   &a1(1)
+               ph4   &a1(2)
+               Tool  $0f04
+               mend
+
+               macro
+&lab           SetColorEntry &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               Tool  $1004
+               mend
+
+               macro
+&lab           GetColorEntry &a1,&a2
+&lab           pha
+               ph2   &a1(1)
+               ph2   &a1(2)
+               Tool  $1104
+               pl2   &a2
+               mend
+
+               macro
+&lab           SetSCB &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               Tool  $1204
+               mend
+
+               macro
+&lab           GetSCB &a1,&a2
+&lab           pha
+               ph2   &a1
+               Tool  $1304
+               pl2   &a2
+               mend
+
+               macro
+&lab           SetAllSCBs &a1
+&lab           ph2   &a1
+               Tool  $1404
+               mend
+
+               macro
+&lab           ClearScreen &a1
+&lab           ph2   &a1
+               Tool  $1504
+               mend
+
+               macro
+&lab           SetMasterSCB &a1
+&lab           ph2   &a1
+               Tool  $1604
+               mend
+
+               macro
+&lab           GetMasterSCB &a1
+&lab           pha
+               Tool  $1704
+               pl2   &a1
+               mend
+
+               macro
+&lab           openPort &a1
+&lab           ph4   &a1
+               Tool  $1804
+               mend
+
+               macro
+&lab           InitPort &a1
+&lab           ph4   &a1
+               Tool  $1904
+               mend
+
+               macro
+&lab           ClosePort &a1
+&lab           ph4   &a1
+               Tool  $1a04
+               mend
+
+               macro
+&lab           SetPort &a1
+&lab           ph4   &a1
+               Tool  $1b04
+               mend
+
+               macro
+&lab           GetPort &a1
+&lab           pha
+               pha
+               Tool  $1c04
+               pl4   &a1
+               mend
+
+               macro
+&lab           SetportLoc &a1
+&lab           ph4   &a1
+               Tool  $1d04
+               mend
+
+               macro
+&lab           GetPortLoc &a1
+&lab           ph4   &a1
+               Tool  $1e04
+               mend
+
+               macro
+&lab           SetPortRect &a1
+&lab           ph4   &a1
+               Tool  $1f04
+               mend
+
+               macro
+&lab           GetPortRect &a1
+&lab           ph4   &a1
+               Tool  $2004
+               mend
+
+               macro
+&lab           SetPortSize &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               Tool  $2104
+               mend
+
+               macro
+&lab           MovePortTo &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               Tool  $2204
+               mend
+
+               macro
+&lab           SetOrigin &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               Tool  $2304
+               mend
+
+               macro
+&lab           SetClip &a1
+&lab           ph4   &a1
+               Tool  $2404
+               mend
+
+               macro
+&lab           GetClip &a1
+&lab           ph4   &a1
+               Tool  $2504
+               mend
+
+               macro
+&lab           ClipRect &a1
+&lab           ph4   &a1
+               Tool  $2604
+               mend
+
+               macro
+&lab           HidePen
+&lab           Tool  $2704
+               mend
+
+               macro
+&lab           ShowPen
+&lab           Tool  $2804
+               mend
+
+               macro
+&lab           GetPen &a1
+&lab           ph4   &a1
+               Tool  $2904
+               mend
+
+               macro
+&lab           SetPenState &a1
+&lab           ph4   &a1
+               Tool  $2a04
+               mend
+
+               macro
+&lab           GetPenState &a1
+&lab           ph4   &a1
+               Tool  $2b04
+               mend
+
+               macro
+&lab           SetPenSize &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               Tool  $2c04
+               mend
+
+               macro
+&lab           GetPenSize &a1
+&lab           ph4   &a1
+               Tool  $2d04
+               mend
+
+               macro
+&lab           SetPenMode &a1
+&lab           ph2   &a1
+               Tool  $2e04
+               mend
+
+               macro
+&lab           GetPenMode &a1
+&lab           pha
+               Tool  $2f04
+               pl2   &a1
+               mend
+
+               macro
+&lab           SetPenPat &a1
+&lab           ph4   &a1
+               Tool  $3004
+               mend
+
+               macro
+&lab           GetPenPat &a1
+&lab           ph4   &a1
+               Tool  $3104
+               mend
+
+               macro
+&lab           SetPenMask &a1
+&lab           ph4   &a1
+               Tool  $3204
+               mend
+
+               macro
+&lab           GetPenMask &a1
+&lab           ph4   &a1
+               Tool  $3304
+               mend
+
+               macro
+&lab           SetBackPat &a1
+&lab           ph4   &a1
+               Tool  $3404
+               mend
+
+               macro
+&lab           GetBackPat &a1
+&lab           pha
+               pha
+               Tool  $3504
+               pl4   &a1
+               mend
+
+               macro
+&lab           PenNormal
+&lab           Tool  $3604
+               mend
+
+               macro
+&lab           SetSolidPenPat &a1
+&lab           ph2   &a1
+               Tool  $3704
+               mend
+
+               macro
+&lab           SetSolidBackPat &a1
+&lab           ph2   &a1
+               Tool  $3804
+               mend
+
+               macro
+&lab           SolidPattern &a1
+&lab           ph2   &a1(1)
+               ph4   &a1(2)
+               Tool  $3904
+               mend
+
+               macro
+&lab           MoveTo &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               Tool  $3a04
+               mend
+
+               macro
+&lab           Move &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               Tool  $3b04
+               mend
+
+               macro
+&lab           LineTo &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               Tool  $3c04
+               mend
+
+               macro
+&lab           Line  &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               Tool  $3d04
+               mend
+
+               macro
+&lab           SetPicSave &a1
+&lab           ph4   &a1
+               Tool  $3e04
+               mend
+
+               macro
+&lab           GetPicSave &a1
+&lab           pha
+               pha
+               Tool  $3f04
+               pl4   &a1
+               mend
+
+               macro
+&lab           SetRgnSave &a1
+&lab           ph4   &a1
+               Tool  $4004
+               mend
+
+               macro
+&lab           GetRgnSave &a1
+&lab           pha
+               pha
+               Tool  $4104
+               pl4   &a1
+               mend
+
+               macro
+&lab           SetPolySave &a1
+&lab           ph4   &a1
+               Tool  $4204
+               mend
+
+               macro
+&lab           GetPolySave &a1
+&lab           pha
+               pha
+               Tool  $4304
+               pl4   &a1
+               mend
+
+               macro
+&lab           SetGrafProcs &a1
+&lab           ph4   &a1
+               Tool  $4404
+               mend
+
+               macro
+&lab           GetGrafProcs &a1
+&lab           pha
+               pha
+               Tool  $4504
+               pl4   &a1
+               mend
+
+               macro
+&lab           SetUserField &a1
+&lab           ph4   &a1
+               Tool  $4604
+               mend
+
+               macro
+&lab           GetUserField &a1
+&lab           pha
+               pha
+               Tool  $4704
+               pl4   &a1
+               mend
+
+               macro
+&lab           SetSysField &a1
+&lab           ph4   &a1
+               Tool  $4804
+               mend
+
+               macro
+&lab           GetSysField &a1
+&lab           pha
+               pha
+               Tool  $4904
+               pl4   &a1
+               mend
+
+               macro
+&lab           SetRect &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               ph2   &a1(4)
+               ph2   &a1(5)
+               Tool  $4a04
+               mend
+
+               macro
+&lab           OffsetRect &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               Tool  $4b04
+               mend
+
+               macro
+&lab           InsetRect &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               Tool  $4c04
+               mend
+
+               macro
+&lab           SectRect &a1,&a2
+&lab           pha
+               ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               Tool  $4d04
+               pl2   &a2
+               mend
+
+               macro
+&lab           UnionRect &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               Tool  $4e04
+               mend
+
+               macro
+&lab           PtInRect &a1,&a2
+&lab           pha
+               ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $4f04
+               pl2   &a2
+               mend
+
+               macro
+&lab           Pt2Rect &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               Tool  $5004
+               mend
+
+               macro
+&lab           EqualRect &a1,&a2
+&lab           pha
+               ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $5104
+               pl2   &a2
+               mend
+
+               macro
+&lab           NotEmptyRect &a1,&a2
+&lab           pha
+               ph4   &a1
+               Tool  $5204
+               pl2   &a2
+               mend
+
+               macro
+&lab           FrameRect &a1
+&lab           ph4   &a1
+               Tool  $5304
+               mend
+
+               macro
+&lab           PaintRect &a1
+&lab           ph4   &a1
+               Tool  $5404
+               mend
+
+               macro
+&lab           EraseRect &a1
+&lab           ph4   &a1
+               Tool  $5504
+               mend
+
+               macro
+&lab           Invertrect &a1
+&lab           ph4   &a1
+               Tool  $5604
+               mend
+
+               macro
+&lab           FillRect &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $5704
+               mend
+
+               macro
+&lab           FrameOval &a1
+&lab           ph4   &a1
+               Tool  $5804
+               mend
+
+               macro
+&lab           PaintOval &a1
+&lab           ph4   &a1
+               Tool  $5904
+               mend
+
+               macro
+&lab           EraseOval &a1
+&lab           ph4   &a1
+               Tool  $5a04
+               mend
+
+               macro
+&lab           InvertOval &a1
+&lab           ph4   &a1
+               Tool  $5b04
+               mend
+
+               macro
+&lab           FillOval &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $5c04
+               mend
+
+               macro
+&lab           FrameRRect &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               Tool  $5d04
+               mend
+
+               macro
+&lab           PaintRRect &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               Tool  $5e04
+               mend
+
+               macro
+&lab           EraseRRect &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               Tool  $5f04
+               mend
+
+               macro
+&lab           InvertRRect &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               Tool  $6004
+               mend
+
+               macro
+&lab           FillRRect &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               ph4   &a1(4)
+               Tool  $6104
+               mend
+
+               macro
+&lab           FrameArc &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               Tool  $6204
+               mend
+
+               macro
+&lab           PaintArc &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               Tool  $6304
+               mend
+
+               macro
+&lab           EraseArc &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               Tool  $6404
+               mend
+
+               macro
+&lab           InvertArc &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               Tool  $6504
+               mend
+
+               macro
+&lab           FillArc &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               ph4   &a1(4)
+               Tool  $6604
+               mend
+
+               macro
+&lab           NewRgn &a1
+&lab           pha
+               pha
+               Tool  $6704
+               pl4   &a1
+               mend
+
+               macro
+&lab           DisposeRgn &a1
+&lab           ph4   &a1
+               Tool  $6804
+               mend
+
+               macro
+&lab           CopyRgn &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $6904
+               mend
+
+               macro
+&lab           SetEmptyRgn &a1
+&lab           ph4   &a1
+               Tool  $6a04
+               mend
+
+               macro
+&lab           SetRectRgn &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               ph2   &a1(4)
+               ph2   &a1(5)
+               Tool  $6b04
+               mend
+
+               macro
+&lab           RectRgn &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $6c04
+               mend
+
+               macro
+&lab           OpenRgn
+&lab           Tool  $6d04
+               mend
+
+               macro
+&lab           CloseRgn &a1
+&lab           ph4   &a1
+               Tool  $6e04
+               mend
+
+               macro
+&lab           OffsetRgn &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               Tool  $6f04
+               mend
+
+               macro
+&lab           InsetRgn &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               Tool  $7004
+               mend
+
+               macro
+&lab           SectRgn &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               Tool  $7104
+               mend
+
+               macro
+&lab           UnionRgn &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               Tool  $7204
+               mend
+
+               macro
+&lab           DiffRgn &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               Tool  $7304
+               mend
+
+               macro
+&lab           XorRgn &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               Tool  $7404
+               mend
+
+               macro
+&lab           PtInRgn &a1,&a2
+&lab           pha
+               ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $7504
+               pl2   &a2
+               mend
+
+               macro
+&lab           RectInRgn &a1,&a2
+&lab           pha
+               ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $7604
+               pl2   &a2
+               mend
+
+               macro
+&lab           EqualRgn &a1,&a2
+&lab           pha
+               ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $7704
+               pl2   &a2
+               mend
+
+               macro
+&lab           EmptyRgn &a1,&a2
+&lab           pha
+               ph4   &a1
+               Tool  $7804
+               ph2   &a2
+               mend
+
+               macro
+&lab           FrameRgn &a1
+&lab           ph4   &a1
+               Tool  $7904
+               mend
+
+               macro
+&lab           PaintRgn &a1
+&lab           ph4   &a1
+               Tool  $7a04
+               mend
+
+               macro
+&lab           EraseRgn &a1
+&lab           ph4   &a1
+               Tool  $7b04
+               mend
+
+               macro
+&lab           InvertRgn &a1
+&lab           ph4   &a1
+               Tool  $7c04
+               mend
+
+               macro
+&lab           FillRgn &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $7d04
+               mend
+
+               macro
+&lab           ScrollRect &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               ph4   &a1(4)
+               Tool  $7e04
+               mend
+
+               macro
+&lab           PaintPixels &a1
+&lab           ph4   &a1
+               Tool  $7f04
+               mend
+
+               macro
+&lab           AddPt &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $8004
+               mend
+
+               macro
+&lab           SubPt &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $8104
+               mend
+
+               macro
+&lab           SetPt &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               Tool  $8204
+               mend
+
+               macro
+&lab           EqualPt &a1,&a2
+&lab           pha
+               ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $8304
+               pl2   &a2
+               mend
+
+               macro
+&lab           LocalToGlobal &a1
+&lab           ph4   &a1
+               Tool  $8404
+               mend
+
+               macro
+&lab           GlobalToLocal &a1
+&lab           ph4   &a1
+               Tool  $8504
+               mend
+
+               macro
+&lab           Random &a1
+&lab           pha
+               Tool  $8604
+               pl2   &a1
+               mend
+
+               macro
+&lab           SetRandSeed &a1
+&lab           ph4   &a1
+               Tool  $8704
+               mend
+
+               macro
+&lab           GetPixel &a1,&a2
+&lab           pha
+               ph2   &a1(1)
+               ph2   &a1(2)
+               Tool  $8804
+               pl2   &a2
+               mend
+
+               macro
+&lab           ScalePt &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               Tool  $8904
+               mend
+
+               macro
+&lab           MapPt &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               Tool  $8a04
+               mend
+
+               macro
+&lab           MapRect &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               Tool  $8b04
+               mend
+
+               macro
+&lab           MapRgn &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               Tool  $8c04
+               mend
+
+               macro
+&lab           SetStdProcs &a1
+&lab           ph4   &a1
+               Tool  $8d04
+               mend
+
+               macro
+&lab           SetCursor &a1
+&lab           ph4   &a1
+               Tool  $8e04
+               mend
+
+               macro
+&lab           GetCursorAdr &a1
+&lab           pha
+               pha
+               Tool  $8f04
+               pl4   &a1
+               mend
+
+               macro
+&lab           HideCursor
+&lab           Tool  $9004
+               mend
+
+               macro
+&lab           ShowCursor
+&lab           Tool  $9104
+               mend
+
+               macro
+&lab           ObscureCursor
+&lab           Tool  $9204
+               mend
+
+               macro
+&lab           SetFont &a1
+&lab           ph4   &a1
+               Tool  $9404
+               mend
+
+               macro
+&lab           GetFont &a1
+&lab           pha
+               pha
+               Tool  $9504
+               pl4   &a1
+               mend
+
+               macro
+&lab           GetFontInfo &a1
+&lab           pha
+               pha
+               Tool  $9604
+               pl4   &a1
+               mend
+
+               macro
+&lab           GetFontGlobals &a1
+&lab           pha
+               pha
+               Tool  $9704
+               pl4   &a1
+               mend
+
+               macro
+&lab           SetFontFlags &a1
+&lab           ph2   &a1
+               Tool  $9804
+               mend
+
+               macro
+&lab           GetFontFlags &a1
+&lab           pha
+               Tool  $9904
+               pl2   &a1
+               mend
+
+               macro
+&lab           SetTextFace &a1
+&lab           ph2   &a1
+               Tool  $9a04
+               mend
+
+               macro
+&lab           GetTextFace &a1
+&lab           pha
+               Tool  $9b04
+               pl2   &a1
+               mend
+
+               macro
+&lab           SetTextMode &a1
+&lab           ph2   &a1
+               Tool  $9c04
+               mend
+
+               macro
+&lab           GetTextMode &a1
+&lab           pha
+               Tool  $9d04
+               pl2   &a1
+               mend
+
+               macro
+&lab           SetSpaceExtra &a1
+&lab           ph4   &a1
+               Tool  $9e04
+               mend
+
+               macro
+&lab           GetSpaceExtra &a1
+&lab           pha
+               pha
+               Tool  $9f04
+               pl4   &a1
+               mend
+
+               macro
+&lab           SetForeColor &a1
+&lab           ph2   &a1
+               Tool  $a004
+               mend
+
+               macro
+&lab           GetForeColor &a1
+&lab           pha
+               Tool  $a104
+               pl2   &a1
+               mend
+
+               macro
+&lab           SetBackColor &a1
+&lab           ph2   &a1
+               Tool  $a204
+               mend
+
+               macro
+&lab           GetBackColor &a1
+&lab           pha
+               Tool  $a304
+               pl2   &a1
+               mend
+
+               macro
+&lab           DrawChar &a1
+&lab           ph2   &a1
+               Tool  $a404
+               mend
+
+               macro
+&lab           DrawString &a1
+&lab           ph4   &a1
+               Tool  $a504
+               mend
+
+               macro
+&lab           DrawCString &a1
+&lab           ph4   &a1
+               Tool  $a604
+               mend
+
+               macro
+&lab           DrawText &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               Tool  $a704
+               mend
+
+               macro
+&lab           CharWidth &a1,&a2
+&lab           pha
+               ph2   &a1
+               Tool  $a804
+               pl2   &a2
+               mend
+
+               macro
+&lab           StringWidth &a1,&a2
+&lab           pha
+               ph4   &a1
+               Tool  $a904
+               pl2   &a2
+               mend
+
+               macro
+&lab           CStringWidth &a1,&a2
+&lab           pha
+               ph4   &a1
+               Tool  $aa04
+               pl2   &a2
+               mend
+
+               macro
+&lab           TextWidht &a1,&a2
+&lab           pha
+               ph4   &a1(1)
+               ph2   &a1(2)
+               Tool  $ab04
+               pl2   &a2
+               mend
+
+               macro
+&lab           CharBounds &a1
+&lab           ph2   &a1(1)
+               ph4   &a1(2)
+               Tool  $ac04
+               mend
+
+               macro
+&lab           StringBounds &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $ad04
+               mend
+
+               macro
+&lab           CStringBounds &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $ae04
+               mend
+
+               macro
+&lab           TextBounds &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               ph4   &a1(3)
+               Tool  $af04
+               mend
+
+               macro
+&lab           SetArcRot &a1
+&lab           ph2   &a1
+               Tool  $b004
+               mend
+
+               macro
+&lab           GetArcRot &a1
+&lab           pha
+               Tool  $b104
+               pl2   &a1
+               mend
+
+               macro
+&lab           SetSysFont &a1
+&lab           ph4   &a1
+               Tool  $b204
+               mend
+
+               macro
+&lab           GetSysFont &a1
+&lab           pha
+               pha
+               Tool  $b304
+               pl4   &a1
+               mend
+
+               macro
+&lab           SetVisRgn &a1
+&lab           ph4   &a1
+               Tool  $b404
+               mend
+
+               macro
+&lab           GetVisRgn &a1
+&lab           ph4   &a1
+               Tool  $b504
+               mend
+
+               macro
+&lab           SetIntUse &a1
+&lab           ph2   &a1
+               Tool  $b604
+               mend
+
+               macro
+&lab           FramePoly &a1
+&lab           ph4   &a1
+               Tool  $bc04
+               mend
+
+               macro
+&lab           PaintPoly &a1
+&lab           ph4   &a1
+               Tool  $bd04
+               mend
+
+               macro
+&lab           ErasePoly &a1
+&lab           ph4   &a1
+               Tool  $be04
+               mend
+
+               macro
+&lab           InvertPoly &a1
+&lab           ph4   &a1
+               Tool  $bf04
+               mend
+
+               macro
+&lab           FillPoly &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $c004
+               mend
+
+               macro
+&lab           OpenPoly &a1
+&lab           pha
+               pha
+               Tool  $c104
+               pl4   &a1
+               mend
+
+               macro
+&lab           ClosePoly
+&lab           Tool  $c204
+               mend
+
+               macro
+&lab           KillPoly &a1
+&lab           ph4   &a1
+               Tool  $c304
+               mend
+
+               macro
+&lab           OffsetPoly &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               Tool  $c404
+               mend
+
+               macro
+&lab           MapPoly &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               Tool  $c504
+               mend
+
+               macro
+&lab           SetClipHandle &a1
+&lab           ph4   &a1
+               Tool  $c604
+               mend
+
+               macro
+&lab           GetClipHandle &a1
+&lab           pha
+               pha
+               Tool  $c704
+               pl4   &a1
+               mend
+
+               macro
+&lab           SetVisHandle &a1
+&lab           ph4   &a1
+               Tool  $c804
+               mend
+
+               macro
+&lab           GetVisHandle &a1
+&lab           pha
+               pha
+               Tool  $c904
+               pl4   &a1
+               mend
+
+               macro
+&lab           InitCursor
+&lab           Tool  $ca04
+               mend
+
+               macro
+&lab           SetBufDims &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               Tool  $cb04
+               mend
+
+               macro
+&lab           ForceBufDims &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               Tool  $cc04
+               mend
+
+               macro
+&lab           SaveBufDims &a1
+&lab           ph4   &a1
+               Tool  $cd04
+               mend
+
+               macro
+&lab           RestoreBufDims &a1
+&lab           ph4   &a1
+               Tool  $ce04
+               mend
+
+               macro
+&lab           GetFGSize &a1
+&lab           pha
+               Tool  $cf04
+               pl2   &a1
+               mend
+
+               macro
+&lab           SetFontID &a1
+&lab           ph4   &a1
+               Tool  $d004
+               mend
+
+               macro
+&lab           GetFontID &a1
+&lab           pha
+               pha
+               Tool  $d104
+               pl4   &a1
+               mend
+
+               macro
+&lab           SetTextSize &a1
+&lab           ph2   &a1
+               Tool  $d204
+               mend
+
+               macro
+&lab           GetTextSize &a1
+&lab           pha
+               Tool  $d304
+               pl2   &a1
+               mend
+
+               macro
+&lab           SetCharExtra &a1
+&lab           ph4   &a1
+               Tool  $d404
+               mend
+
+               macro
+&lab           GetCharExtra &a1
+&lab           pha
+               pha
+               Tool  $d504
+               pl4   &a1
+               mend
+
+               macro
+&lab           PPtoPort &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               ph2   &a1(3)
+               ph2   &a1(4)
+               ph2   &a1(5)
+               Tool  $d604
+               mend
+
+               macro
+&lab           InflateTextBuffer &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               Tool  $d704
+               mend
+
+               macro
+&lab           GetRomFont &a1
+&lab           ph4   &a1
+               Tool  $d804
+               mend
+
+               macro
+&lab           GetFontLore &a1,&a2
+&lab           pha
+               ph4   &a1(1)
+               ph2   &a1(2)
+               Tool  $d904
+               pl2   &a2
+               mend

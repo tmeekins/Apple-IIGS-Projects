@@ -1,0 +1,88 @@
+**************************************************************************
+*                                                                        *
+* MIDI Tool Set constants, data structures, and error codes              *
+* Written by Tim Meekins                                                 *
+* August 4, 1990                                                         *
+*                                                                        *
+* v1.0  08/04/90 Original version. Uses MIDI Tool Set v1.3               *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1990 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+*
+* MidiClock functions
+*
+miSetClock     gequ  0
+miStartClock   gequ  1
+miStopClock    gequ  2
+miSetFrew      gequ  3
+*
+* MidiControl functions
+*
+miSetRTVec     gequ  0
+miSetErrVec    gequ  1
+miSetInBuf     gequ  2
+miSetOutBuf    gequ  3
+miStartInput   gequ  4
+miStartOutput  gequ  5
+miStopInput    gequ  6
+miStopOutput   gequ  7
+miFlushInput   gequ  8
+miFlushOutput  gequ  9
+miFlushPacket  gequ  10
+miWaitOutput   gequ  11
+miSetInMode    gequ  12
+miSetOutMode   gequ  13
+miClrNotePad   gequ  14
+miSetDelay     gequ  15
+miOutputStat   gequ  16
+miIgnoreSysEx  gequ  17
+*
+* MidiDevice functions
+*
+MiLoadDrvr     gequ  1
+miUnloadDrvr   gequ  2
+*
+* MidiInfo functions
+*
+miNextPktLen   gequ  0
+miInputChars   gequ  1
+miOutputChars  gequ  2
+miMaxInChars   gequ  3
+miMaxOutChars  gequ  4
+miClockValue   gequ  7
+miClockFreq    gequ  8
+*
+* Error codes
+*
+miStartUpErr   gequ  $2000
+miPacketErr    gequ  $2001
+miArrayErr     gequ  $2002
+miFullBufErr   gequ  $2003
+miToolsErr     gequ  $2004
+miOutOffErr    gequ  $2005
+miNoBuffErr    gequ  $2007
+MiDriverErr    gequ  $2008
+miBadFreqErr   gequ  $2009
+miClockErr     gequ  $200a
+miConflictErr  gequ  $200b
+miNoDevErr     gequ  $200c
+miDevNotAvail  gequ  $2080
+miDevSlotBusy  gequ  $2081
+miDevBusy      gequ  $2082
+miDevOverrun   gequ  $2083
+miDevNoConnect gequ  $2084
+miDevReadErr   gequ  $2085
+miDevVersion   gequ  $2086
+miDevIntHndlr  gequ  $2087

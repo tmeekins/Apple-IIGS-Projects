@@ -1,0 +1,229 @@
+**************************************************************************
+*                                                                        *
+* QuickDraw II constants, data structures, and error codes               *
+* Written by Tim Meekins                                                 *
+* August 24, 1989                                                        *
+*                                                                        *
+* v1.0  08/24/89 Original version. Uses QuickDraw II v2.3                *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1990 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+*
+* Color data
+*
+table320       gequ  $32
+table640       gequ  $32
+*
+* GrafPort sizes
+*
+maskSize       gequ  $08
+locSize        gequ  $10
+patSize        gequ  $20
+pnStateSize    gequ  $32
+portSize       gequ  $aa
+*
+* Color masks
+*
+blueMask       gequ  $000f
+greenMask      gequ  $00f0
+redMask        gequ  $0f00
+*
+* Font flags
+*
+eidMaxSize     gequ  $0001
+zeroSize       gequ  $0002
+*
+* Master colors
+*
+black          gequ  $0000
+blue           gequ  $000f
+darkGreen320   gequ  $0080
+green320       gequ  $00e0
+green640       gequ  $00f0
+lightBlue320   gequ  $04df
+purple320      gequ  $072c
+darkGray320    gequ  $0777
+periwinkleBlue320 gequ $078f
+brown320       gequ  $0841
+lightGray320   gequ  $0ccc
+red320         gequ  $0d00
+lilac320       gequ  $0daf
+red640         gequ  $0f00
+orange320      gequ  $0f70
+flesh320       gequ  $0fa9
+yellow         gequ  $0ff0
+white          gequ  $0fff
+*
+* Pen modes
+*
+modeCopy       gequ  $0000
+modeOR         gequ  $0001
+modeXOR        gequ  $0002
+modeBIC        gequ  $0003
+notCopy        gequ  $8000
+notOR          gequ  $8001
+notXOR         gequ  $8002
+notBIC         gequ  $8003
+*
+* Pen and text modes
+*
+modeForeCopy   gequ  $0004
+modeForeOR     gequ  $0005
+modeForeXOR    gequ  $0006
+modeForeBIC    gequ  $0007
+notForeCopy    gequ  $8004
+notForeOR      gequ  $8005
+notForeXOR     gequ  $8006
+notForeBIC     gequ  $8007
+*
+* Mode for QDStartUp
+*
+mode320        gequ  $00
+mode640        gequ  $80
+*
+* SCB byte masks
+*
+colorTable     gequ  $0f
+scbReserved    gequ  $10
+scbFill        gequ  $20
+scbInterrupt   gequ  $40
+scbColorMode   gequ  $80
+*
+* Text styles
+*
+boldMask       gequ  $0001
+italicMask     gequ  $0002
+underlineMask  gequ  $0004
+outlineMask    gequ  $0008
+shadowMask     gequ  $0010
+*
+* QuickDraw II dta structures
+*
+
+*
+* BufDimRec (buffer sizing record)
+*
+oMaxWidth      gequ  $0
+oTextBufHeight gequ  $2
+oTextBufferWords gequ $4
+oFontWidth     gequ  $6
+*
+* Font (font record)
+*
+oOffsetToMF    gequ  $00
+oFamily        gequ  $02
+oStyle         gequ  $04
+oSize          gequ  $06
+oVersion       gequ  $08
+oFbrExtent     gequ  $0a
+*
+* FontGlobalsRecord
+*
+oFgFontID      gequ  $00
+oFgStyle       gequ  $02
+oFgSize        gequ  $04
+oFgVersion     gequ  $06
+oFgWidMax      gequ  $08
+oFgFBRExtent   gequ  $0a
+*
+* FontInfoRecord
+*
+oAscent        gequ  $00
+oDescent       gequ  $02
+oWidMax        gequ  $04
+oLeading       gequ  $06
+*
+* GrafPort
+*
+oPortInfo      gequ  $00
+oPortRect      gequ  $10
+oClipRgn       gequ  $18
+oVisRgn        gequ  $1c
+oBkPat         gequ  $20
+oPnLoc         gequ  $40
+oPnSize        gequ  $44
+oPnMode        gequ  $48
+oPnPat         gequ  $4a
+oPnMask        gequ  $6a
+oPnVis         gequ  $72
+oFontHandle    gequ  $74
+oFontID        gequ  $78
+oFontFlags     gequ  $7c
+oTxSize        gequ  $7e
+oTxFace        gequ  $80
+oTxMode        gequ  $82
+oSpExtra       gequ  $84
+oChExtra       gequ  $88
+oFgColor       gequ  $8c
+oBgColor       gequ  $8e
+oPicSave       gequ  $90
+oRgnSave       gequ  $94
+oPolySave      gequ  $98
+oGrafProcs     gequ  $9c
+oArcRot        gequ  $a0
+oUserField     gequ  $a2
+oSysField      gequ  $a6
+*
+* LocInfo
+*
+oPortSCB       gequ  $00
+oPtrToPixImage gequ  $02
+oWidth         gequ  $06
+oBoundsRect    gequ  $08
+*
+* PaintParam (PaintPixels parameter block)
+*
+oPtrToSourceLocInfo gequ $00
+oPtrToDestLocInfo gequ $04
+oPtrToSourceRect gequ $08
+oPtrToDestPoint gequ $0c
+oMode          gequ  $10
+oMaskHandle    gequ  $12
+*
+* PenState record
+*
+oPsPnSize      gequ  $00
+oPsPnMode      gequ  $04
+oPsPnPat       gequ  $06
+oPsPnMask      gequ  $26
+*
+* ROMFontRecord
+*
+oRfFamNum      gequ  $00
+oRfFamStyle    gequ  $02
+oRfSize        gequ  $04
+oRfFonthandle  gequ  $06
+oRfNamePtr     gequ  $0a
+oRfFBRExtent   gequ  $0e
+*
+* QuickDraw II error codes
+*
+alreadyInitialized gequ $0401
+cannotreset    gequ  $0402
+notInitialized gequ  $0403
+screenReserved gequ  $0410
+badRect        gequ  $0411
+notEqualChunkiness gequ $0420
+rgnAlreadyOpen gequ  $0430
+rgnNotOpen     gequ  $0431
+rgnScanOverflow gequ $0432
+rgnFull        gequ  $0433
+polyAlreadyOpen gequ $0440
+polyNotOpen    gequ  $0441
+polyTooBig     gequ  $0442
+badTableNum    gequ  $0450
+badColorNUm    gequ  $0451
+badScanLine    gequ  $0452
+notImplemented gequ  $04ff

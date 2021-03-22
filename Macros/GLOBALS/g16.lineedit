@@ -1,0 +1,60 @@
+**************************************************************************
+*                                                                        *
+* LineEdit Tool Set global constants, data structures, and error codes   *
+* Written by Tim Meekins                                                 *
+* November 9, 1988                                                       *
+*                                                                        *
+* v1.0  11/09/88 Original verison. Uses LineEdit Tool Set v2.1           *
+* v1.1  11/11/88 Updated to LineEdit Tool Set v2.2                       *
+* v1.2  08/04/90 Updated to LineEdit Tool Set v3.1                       *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1990 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+*
+* Justification
+*
+leJustLeft     gequ  $0000
+leJustCenter   gequ  $0001
+leJustRight    gequ  $ffff
+leJustFill     gequ  $0002
+*
+* LERec
+*  - Edit Record
+*
+oLELineHandle  gequ  $00
+oLELength      gequ  $04
+oLEMaxLength   gequ  $06
+oLEDestRect    gequ  $08
+oLEViewRect    gequ  $10
+oLEPort        gequ  $18
+oLELineHite    gequ  $1c
+oLEBaseHite    gequ  $1e
+oLESelStart    gequ  $20
+oLESelEnd      gequ  $22
+oLEActFlg      gequ  $24
+oLECarAct      gequ  $26
+oLECarOn       gequ  $28
+oLECarTime     gequ  $2a
+oLEHiliteHook  gequ  $2e
+oLECaretHook   gequ  $32
+oLEJust        gequ  $36
+oLEPWChar      gequ  $38
+*
+* LineEdit Tool Set error codes
+*
+leDupStrtUpErr gequ  $1401
+leResetError   gequ  $1402
+leNotActiveErr gequ  $1403
+leScrapErr     gequ  $1404

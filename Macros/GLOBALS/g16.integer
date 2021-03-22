@@ -1,0 +1,48 @@
+**************************************************************************
+*                                                                        *
+* Integer Math Tool Set global constants and error codes                 *
+* Written by Tim Meekins                                                 *
+* November 8, 1988                                                       *
+*                                                                        *
+* v1.0  11/08/88 TLM Original Version. Uses Integer Math Tool Set v1.2   *
+* v1.1  11/11/88 TLM Updated to Integer Math Tool Set v2.0               *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1990 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+*
+* Limits
+*
+minLongint     gequ  $80000000
+minFrac        gequ  $80000000
+minFixed       gequ  $80000000
+minInt         gequ  $8000
+maxInt         gequ  $7fff
+maxUInt        gequ  $ffff
+maxLongint     gequ  $7fffffff
+maxFrac        gequ  $7fffffff
+maxFixed       gequ  $7fffffff
+maxULong       gequ  $ffffffff
+*
+* SignedFlag
+*
+unsignedFlag   gequ  $0000
+signedFlag     gequ  $0001
+*
+* Integer Math Tool Set error codes
+*
+imBadInptParam gequ  $0b01
+imIllegalChar  gequ  $0b02
+imOverflow     gequ  $0b03
+imStrOverflow  gequ  $0b04

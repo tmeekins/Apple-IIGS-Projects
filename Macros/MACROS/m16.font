@@ -1,0 +1,220 @@
+**************************************************************************
+*                                                                        *
+* Font Manager Macros                                                    *
+* Written by Tim Meekins                                                 *
+* November 6, 1988                                                       *
+*                                                                        *
+* Requires: M16.MACROS                                                   *
+*                                                                        *
+* v1.0  11/06/88 TLM Original version. Using Font Manager v2.3           *
+* v1.1  11/11/88 TLM Updated to Font Manager v2.4                        *
+* v1.2  07/26/90 TLM Updated to Font Manager v3.1                        *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1990 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+               macro
+&lab           FMBootInit
+&lab           Tool  $011b
+               mend
+
+               macro
+&lab           FMStartup &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               Tool  $021b
+               mend
+
+               macro
+&lab           FMShutDown
+&lab           Tool  $031b
+               mend
+
+               macro
+&lab           FMVersion &a1
+&lab           pha
+               Tool  $041b
+               pl2   &a1
+               mend
+
+               macro
+&lab           FMReset
+&lab           Tool  $051b
+               mend
+
+               macro
+&lab           FMStatus &a1
+&lab           pha
+               Tool  $061b
+               pl2   &a1
+               mend
+
+               macro
+&lab           CountFamilies &a1,&a2
+&lab           pha
+               ph2   &a1
+               Tool  $091b
+               pl2   &a2
+               mend
+
+               macro
+&lab           FindFamily &a1,&a2
+&lab           pha
+               ph2   &a1(1)
+               ph2   &a1(2)
+               ph4   &a1(3)
+               Tool  $0a1b
+               pl2   &a2
+               mend
+
+               macro
+&lab           GetFamInfo &a1,&a2
+&lab           pha
+               ph2   &a1(1)
+               ph4   &a1(2)
+               Tool  $0b1b
+               pl2   &a2
+               mend
+
+               macro
+&lab           GetFamNum &a1,&a2
+&lab           pha
+               ph4   &a1
+               Tool  $0c1b
+               pl2   &a2
+               mend
+
+               macro
+&lab           AddFamily &a1
+&lab           ph2   &a1(1)
+               ph4   &a1(2)
+               Tool  $0d1b
+               mend
+
+               macro
+&lab           InstallFont &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               Tool  $0e1b
+               mend
+
+               macro
+&lab           SetPurgeStat &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               Tool  $0f1b
+               mend
+
+               macro
+&lab           CountFonts &a1,&a2
+&lab           pha
+               ph4   &a1(1)
+               ph2   &a1(2)
+               Tool  $101b
+               pl2   &a2
+               mend
+
+               macro
+&lab           FindFontStats &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               ph4   &a1(4)
+               Tool  $111b
+               mend
+
+               macro
+&lab           LoadFont &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               ph4   &a1(4)
+               Tool  $121b
+               mend
+
+               macro
+&lab           LoadSysFont
+&lab           Tool  $131b
+               mend
+
+               macro
+&lab           AddFontVar &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               Tool  $141b
+               mend
+
+               macro
+&lab           FixFontMenu &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               Tool  $151b
+               mend
+
+               macro
+&lab           ChooseFont &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1(1)
+               ph2   &a1(2)
+               Tool  $161b
+               pl4   &a2
+               mend
+
+               macro
+&lab           ItemID2FamNum &a1,&a2
+&lab           pha
+               ph2   &a1
+               Tool  $171b
+               pl2   &a2
+               mend
+
+               macro
+&lab           FMSetSysFont &a1
+&lab           ph4   &a1
+               Tool  $181b
+               mend
+
+               macro
+&lab           FMGetSysFID &a1
+&lab           pha
+               pha
+               Tool  $191b
+               pl4   &a1
+               mend
+
+               macro
+&lab           FMGetCurFID &a1
+&lab           pha
+               pha
+               Tool  $1a1b
+               pl4   &a1
+               mend
+
+               macro
+&lab           FamNum2ItemID &a1,&a2
+&lab           pha
+               ph2   &a1
+               Tool  $1b1b
+               pl2   &a2
+               mend
+
+               macro
+&lab           InstallWithStats &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               ph4   &a1(3)
+               Tool  $1c1b
+               mend

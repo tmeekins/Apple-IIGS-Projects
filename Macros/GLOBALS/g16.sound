@@ -1,0 +1,89 @@
+**************************************************************************
+*                                                                        *
+* Sound Tool Set constants, data structures, and error codes             *
+* Written by Tim Meekins                                                 *
+* August 25, 1989                                                        *
+*                                                                        *
+* v1.0  08/25/89 Original version. Uses Sound Tool Set v2.4              *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1990 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+*
+* Jump table offsets
+*
+readRegister   gequ  $00
+writeRegister  gequ  $04
+readRam        gequ  $08
+writeRam       gequ  $0c
+readNext       gequ  $10
+writeNext      gequ  $14
+oscTable       gequ  $18
+genTable       gequ  $1c
+gcbAddrTable   gequ  $20
+disableInc     gequ  $24
+*
+* Channel-generator-type word
+*
+ffSynthMode    gequ  $0001
+noteSynthMode  gequ  $0002
+*
+* Stop-sound mask
+*
+gen0off        gequ  $0001
+gen1off        gequ  $0002
+gen2off        gequ  $0004
+gen3off        gequ  $0008
+gen4off        gequ  $0010
+gen5off        gequ  $0020
+gen6off        gequ  $0040
+gen7off        gequ  $0080
+gen8off        gequ  $0100
+gen9off        gequ  $0200
+gen10off       gequ  $0400
+gen11off       gequ  $0800
+gen12off       gequ  $1000
+gen13off       gequ  $2000
+gen14off       gequ  $4000
+*
+* Generator status word
+*
+genAvail       gequ  $0000
+ffSynth        gequ  $0100
+noteSynth      gequ  $0200
+lastBlock      gequ  $8000
+*
+* Sound Tool Set data structures
+*
+* SoundParamBlock (sound parameter block)
+*
+oWaveStart     gequ  $00
+oWaveSize      gequ  $04
+oFreqOffset    gequ  $06
+oDocBuffer     gequ  $08
+oBufferSize    gequ  $0a
+oNextWavePtr   gequ  $0c
+oVolSetting    gequ  $10
+*
+* Sound Tool Set error codes
+*
+noDOCFndErr    gequ  $0810
+docAddrRngErr  gequ  $0811
+noSAppInitErr  gequ  $0812
+invalGenNumErr gequ  $0813
+synthModeErr   gequ  $0814
+genBusyErr     gequ  $0815
+mstrIRQNotAssgnErr gequ $817
+sndAlreadyStrtErr gequ $0818
+unclaimedSndIntErr gequ $08ff

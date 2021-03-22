@@ -1,0 +1,203 @@
+**************************************************************************
+*                                                                        *
+* Tool Locator macros                                                    *
+* Written by Tim Meekins                                                 *
+* Ausust 27, 1989                                                        *
+*                                                                        *
+* Requires: M16.MACROS                                                   *
+*                                                                        *
+* v1.0  08/27/89 TLM Original Version. Using Text Tool Set v2.4          *
+* v1.1  07/17/90 TLM Updated to Tool Locator v3.0                        *
+* v1.2  03/01/91 TLM Fixed type in SetTSPtr.                             *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                  Copyright 1990,91 by Tim Meekins                      *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+               macro
+&lab           TLBootInit
+&lab           Tool  $0101
+               mend
+
+               macro
+&lab           TLStartUp
+&lab           Tool  $0201
+               mend
+
+               macro
+&lab           TLShutDown
+&lab           Tool  $0301
+               mend
+
+               macro
+&lab           TLVersion &a1
+&lab           pha
+               Tool  $0401
+               pl2   &a1
+               mend
+
+               macro
+&lab           TLReset
+&lab           Tool  $0501
+               mend
+
+               macro
+&lab           TLStatus &a1
+&lab           pha
+               Tool  $0601
+               pl2   &a1
+               mend
+
+               macro
+&lab           GetTSPtr &a1,&a2
+&lab           pha
+               pha
+               ph2   &a1(1)
+               ph2   &a1(2)
+               Tool  $0901
+               pl4   &a2
+               mend
+
+               macro
+&lab           SetTSPtr &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               ph4   &a1(3)
+               Tool  $0a01
+               mend
+
+               macro
+&lab           GetFuncPtr &a1,&a2
+&lab           pha
+               pha
+               ph2   &a1(1)
+               ph2   &a1(2)
+               Tool  $0b01
+               pl4   &a2
+               mend
+
+               macro
+&lab           GetWAP &a1,&a2
+&lab           pha
+               pha
+               ph2   &a1(1)
+               ph2   &a1(2)
+               Tool  $0c01
+               pl4   &a2
+               mend
+
+               macro
+&lab           SetWAP &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               ph4   &a1(3)
+               Tool  $0d01
+               mend
+
+               macro
+&lab           LoadTools &a1
+&lab           ph4   &a1
+               Tool  $0e01
+               mend
+
+               macro
+&lab           LoadOneTool &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               Tool  $0f01
+               mend
+
+               macro
+&lab           UnloadOneTool &a1
+&lab           ph2   &a1
+               Tool  $1001
+               mend
+
+               macro
+&lab           TLMountVolume &a1,&a2
+&lab           pha
+               ph2   &a1(1)
+               ph2   &a1(2)
+               ph4   &a1(3)
+               ph4   &a1(4)
+               ph4   &a1(5)
+               ph4   &a1(6)
+               Tool  $1101
+               pl2   &a2
+               mend
+
+               macro
+&lab           TLTextMountVolume &a1,&a2
+&lab           pha
+               ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               ph4   &a1(4)
+               Tool  $1201
+               pl2   &a2
+               mend
+
+               macro
+&lab           SaveTextState &a1
+&lab           pha
+               pha
+               Tool  $1301
+               pl4   &a1
+               mend
+
+               macro
+&lab           RestoreTextState &a1
+&lab           ph4   &a1
+               Tool  $1401
+               mend
+
+               macro
+&lab           MessageCenter &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               ph4   &a1(3)
+               Tool  $1501
+               mend
+
+               macro
+&lab           SetDefaultTPT
+&lab           Tool  $1601
+               mend
+
+               macro
+&lab           MessageByName &a1,&a2
+&lab           pha
+               pha
+               ph2   &a1(1)
+               ph4   &a1(2)
+               Tool  $1701
+               pl4   &a2
+               mend
+
+               macro
+&lab           StartUpTools &a1,&a2
+&lab           pha
+               pha
+               ph2   &a1(1)
+               ph2   &a1(2)
+               ph4   &a1(3)
+               Tool  $1801
+               pl4   &a2
+               mend
+
+               macro
+&lab           ShutDownTools &a1
+&lab           ph2   &a1(1)
+               ph4   &a1(2)
+               Tool  $1901
+               mend

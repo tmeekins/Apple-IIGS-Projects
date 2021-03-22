@@ -1,0 +1,70 @@
+**************************************************************************
+*                                                                        *
+* Scheduler macros                                                       *
+* Written by Tim Meekins                                                 *
+* August 25, 1989                                                        *
+*                                                                        *
+* Requires: M16.MACROS                                                   *
+*                                                                        *
+* v1.0  08/25/89 TLM Original Version. Using Scheduler v2.0              *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1990 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+               macro
+&lab           SchBootInit
+&lab           Tool  $0107
+               mend
+
+               macro
+&lab           SchStartUp
+&lab           Tool  $0207
+               mend
+
+               macro
+&lab           SchShutDown
+&lab           Tool  $0307
+               mend
+
+               macro
+&lab           SchVersion &a1
+&lab           pha
+               Tool  $0407
+               pl2   &a1
+               mend
+
+               macro
+&lab           SchReset
+&lab           Tool  $0507
+               mend
+
+               macro
+&lab           SchStatus &a1
+&lab           pha
+               Tool  $0607
+               pl2   &a1
+               mend
+
+               macro
+&lab           SchAddTask &a1,&a2
+&lab           pha
+               ph4   &a1
+               Tool  $0907
+               pl2   &a2
+               mend
+
+               macro
+&lab           SchFlush
+&lab           Tool  $0a07
+               mend

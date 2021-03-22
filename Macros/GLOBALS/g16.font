@@ -1,0 +1,101 @@
+**************************************************************************
+*                                                                        *
+* Font Manager global constants, data structures, and error messages     *
+* Written by Tim Meekins                                                 *
+* November 6, 1988                                                       *
+*                                                                        *
+* v1.0  11/06/88 TLM Original Version. Uses Font Manager v2.3            *
+* v1.1  11/11/88 TLM Updated to Font Manager v2.4                        *
+*       04/06/90 TLM Fixed minor typos                                   *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1990 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+*
+* FontStatBits
+*
+memBit         gequ  $0001
+unrealBit      gequ  $0002
+apFamBit       gequ  $0004
+apVarBit       gequ  $0008
+purgeBit       gequ  $0010
+notDiskBit     gequ  $0020
+notFoundBit    gequ  $8000
+*
+* FontSpecBits
+*
+memOnlyBit     gequ  $0001
+realOnlyBit    gequ  $0002
+anyFamBit      gequ  $0004
+anyStyleBit    gequ  $0008
+anySizeBit     gequ  $0010
+*
+* FamStatBits
+*
+;apFamBit      gequ  $0004
+notBaseBitBit  gequ  $0020
+;notFoundBit   gequ  $8000
+*
+* FamSpecBits
+*
+baseOnlyBit    gequ  $0020
+*
+* Scale word
+*
+dontScaleBit   gequ  $0001
+*
+* Family numbers
+*
+newYork        gequ  $0002
+geneva         gequ  $0003
+monaco         gequ  $0004
+venice         gequ  $0005
+london         gequ  $0006
+athens         gequ  $0007
+sanFran        gequ  $0008
+toronto        gequ  $0009
+cairo          gequ  $000b
+losAngeles     gequ  $000c
+times          gequ  $0014
+helvetica      gequ  $0015
+courier        gequ  $0016
+symbol         gequ  $0017
+taliesin       gequ  $0018
+shaston        gequ  $fffe
+*
+* FontID
+*
+oFamNum        gequ  $00
+oFontStyle     gequ  $02
+oFontSize      gequ  $03
+*
+* FontStatRec
+*
+oResultID      gequ  $00
+oResultStats   gequ  $04
+*
+* Font Manager error codes
+*
+fmDupStartUpErr gequ $1b01
+fmResetErr     gequ  $1b02
+fmNotActiveErr gequ  $1b03
+fmFamNotFndErr gequ  $1b04
+fmFontNtFndErr gequ  $1b05
+fmFontMemErr   gequ  $1b06
+fmSysFontErr   gequ  $1b07
+fmBadFamNumErr gequ  $1b08
+fmBadSizeErr   gequ  $1b09
+fmBadNameErr   gequ  $1b0a
+fmMenuErr      gequ  $1b0b
+fmScaleSize    gequ  $1b0c

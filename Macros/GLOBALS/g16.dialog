@@ -1,0 +1,131 @@
+**************************************************************************
+*                                                                        *
+* Dialog Manager global contants, data structures, and error codes       *
+* Written by Tim Meekins                                                 *
+* November 4, 1988                                                       *
+*                                                                        *
+* v1.0  11/04/88 TLM Original Version. Uses Dialog Manager v2.2          *
+* v1.1  11/11/88 TLM Updated to Dialog Manager v2.3                      *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1990 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+*
+* Dialog scroll bar commands
+*
+getInitView    gequ  $0001
+getInitTotal   gequ  $0002
+getInitValue   gequ  $0003
+scrollLineUp   gequ  $0004
+scrollLineDown gequ  $0005
+scrollPageUp   gequ  $0006
+scrollPageDown gequ  $0007
+scrollThumb    gequ  $0008
+*
+* Item types
+*
+buttonItem     gequ  $000a
+checkItem      gequ  $000b
+radioItem      gequ  $000c
+scrollBarItem  gequ  $000d
+userCtlItem    gequ  $000e
+statText       gequ  $000f
+longStatText   gequ  $0010
+editLine       gequ  $0011
+iconItem       gequ  $0012
+picItem        gequ  $0013
+userItem       gequ  $0014
+userCtlItem2   gequ  $0015
+longStatText2  gequ  $0016
+itemDisable    gequ  $8000
+*
+* Item type range
+*
+minItemType    gequ  $000a
+maxItemType    gequ  $0016
+*
+* Item IDs
+*
+ok             gequ  $0001
+cancel         gequ  $0002
+*
+* Part codes
+*
+inButton       gequ  $0002
+inCheckBox     gequ  $0003
+inRadioButton  gequ  $0004
+inUpArrow      gequ  $0005
+inDownArrow    gequ  $0006
+inPageUp       gequ  $0007
+inPageDown     gequ  $0008
+inStatText     gequ  $0009
+inGrow         gequ  $000a
+inEditLine     gequ  $000b
+inUserItem     gequ  $000c
+inLongStatText gequ  $000d
+inIconItem     gequ  $000e
+inLongStateText2 gequ $000f
+inThumb        gequ  $0081
+*
+* Stage bit flags
+*
+okDefault      gequ  $0000
+cancelDefault  gequ  $0040
+alertDrawn     gequ  $0080
+*
+* AlertTemplate
+*
+oATBoundsRect  gequ  $00
+oATAlertID     gequ  $08
+oATStage1      gequ  $0a
+oATStage2      gequ  $0b
+oATStage3      gequ  $0c
+oATStage4      gequ  $0d
+oATItemList    gequ  $0e
+*
+* DialogTemplate
+*
+oDTBoundsRect  gequ  $00
+oDTVisible     gequ  $08
+oDTRefCon      gequ  $0a
+oDTItemList    gequ  $0e
+*
+* IconRecord
+*
+oIconrect      gequ  $00
+oIconImage     gequ  $08
+*
+* ItemTemplate
+*
+oItemID        gequ  $00
+oItemRect      gequ  $02
+oItemType      gequ  $0a
+oItemDescr     gequ  $0c
+oItemValue     gequ  $10
+oItemFlag      gequ  $12
+oItemColor     gequ  $14
+*
+* UserCtlItemPB
+*
+oDefProcParm   gequ  $00
+oTitleParm     gequ  $04
+oParam2        gequ  $08
+oParam1        gequ  $0a
+*
+* Dialog Manager error codes
+*
+badItemType    gequ  $150a
+newItemFailed  gequ  $150b
+itemNotFound   gequ  $150c
+notModalDialog gequ  $150d

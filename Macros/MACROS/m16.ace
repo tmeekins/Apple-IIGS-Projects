@@ -1,0 +1,99 @@
+**************************************************************************
+*                                                                        *
+* ACE Tool Set macros                                                    *
+* Written by Tim Meekins                                                 *
+* September 3, 1989                                                      *
+*                                                                        *
+* Requires: M16.MACROS                                                   *
+*                                                                        *
+* v1.0  09/03/89 TLM Original Version. Using ACE Tool Set v1.1           *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1990 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+               macro
+&lab           ACEBootInit
+&lab           Tool  $011d
+               mend
+
+               macro
+&lab           ACEStartUp &a1
+&lab           ph2   &a1
+               Tool  $021d
+               mend
+
+               macro
+&lab           ACEShutDown
+&lab           Tool  $031d
+               mend
+
+               macro
+&lab           ACEVersion &a1
+&lab           pha
+               Tool  $041d
+               pl2   &a1
+               mend
+
+               macro
+&lab           ACEReset
+&lab           Tool  $051d
+               mend
+
+               macro
+&lab           ACEStatus &a1
+&lab           pha
+               Tool  $061d
+               pl2   &a1
+               mend
+
+               macro
+&lab           ACEInfo &a1,&a2
+&lab           pha
+               pha
+               ph2   &a1
+               Tool  $071d
+               pl4   &a2
+               mend
+
+               macro
+&lab           ACECompress &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               ph4   &a1(4)
+               ph2   &a1(5)
+               ph2   &a1(6)
+               Tool  $091d
+               mend
+
+               macro
+&lab           ACEExpand &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               ph4   &a1(4)
+               ph2   &a1(5)
+               ph2   &a1(6)
+               Tool  $0a1d
+               mend
+
+               macro
+&lab           ACECompBegin
+&lab           Tool  $0b1d
+               mend
+
+               macro
+&lab           ACEExpBegin
+&lab           Tool  $0c1d
+               mend

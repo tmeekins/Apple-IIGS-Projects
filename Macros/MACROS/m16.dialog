@@ -1,0 +1,432 @@
+**************************************************************************
+*                                                                        *
+* Dialog Manager macros                                                  *
+* Written by Tim Meekins                                                 *
+* November 4, 1988                                                       *
+*                                                                        *
+* Requires: M16.MACROS                                                   *
+*                                                                        *
+* v1.0  11/04/88 TLM Original version. Using Dialog Manager v2.2         *
+* v1.1  11/05/88 TLM Uses Tool macro                                     *
+* v1.2  11/11/88 TLM Updated to Dialog Manager v2.3                      *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1990 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+               macro
+&lab           DialogBootInit
+&lab           Tool  $0115
+               mend
+
+               macro
+&lab           DialogStartUp &a1
+&lab           ph2   &a1
+               Tool  $0215
+               mend
+
+               macro
+&lab           DialogShutDown
+&lab           Tool  $0315
+               mend
+
+               macro
+&lab           DialogVersion &a1
+&lab           pha
+               Tool  $0415
+               pl2   &a1
+               mend
+
+               macro
+&lab           DialogReset
+&lab           Tool  $0515
+               mend
+
+               macro
+&lab           DialogStatus &a1
+&lab           pha
+               Tool  $0615
+               pl2   &a1
+               mend
+
+               macro
+&lab           ErrorSound &a1
+&lab           ph4   &a1
+               Tool  $0915
+               mend
+
+               macro
+&lab           NewModalDialog &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1(1)
+               ph2   &a1(2)
+               ph4   &a1(3)
+               Tool  $0a15
+               pl4   &a2
+               mend
+
+               macro
+&lab           NewModelessDialog &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               ph2   &a1(4)
+               ph4   &a1(5)
+               ph4   &a1(6)
+               Tool  $0b15
+               pl4   &a2
+               mend
+
+               macro
+&lab           CloseDialog &a1
+&lab           ph4   &a1
+               Tool  $0c15
+               mend
+
+               macro
+&lab           NewDItem &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               ph4   &a1(3)
+               ph2   &a1(4)
+               ph4   &a1(5)
+               ph2   &a1(6)
+               ph2   &a1(7)
+               ph4   &a1(8)
+               Tool  $0d15
+               mend
+
+               macro
+&lab           RemoveDItem &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               Tool  $0e15
+               mend
+
+               macro
+&lab           ModalDialog &a1,&a2
+&lab           pha
+               ph4   &a1
+               Tool  $0f15
+               pl2   &a2
+               mend
+
+               macro
+&lab           IsDialogEvent &a1,&a2
+&lab           pha
+               ph4   &a1
+               Tool  $1015
+               pl2   &a2
+               mend
+
+               macro
+&lab           DialogSelect &a1,&a2
+&lab           pha
+               ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               Tool  $1115
+               pl2   &a2
+               mend
+
+               macro
+&lab           DlgCut &a1
+&lab           ph4   &a1
+               Tool  $1215
+               mend
+
+               macro
+&lab           DlgCopy &a1
+&lab           ph4   &a1
+               Tool  $1315
+               mend
+
+               macro
+&lab           DlgPaste &a1
+&lab           ph4   &a1
+               Tool  $1415
+               mend
+
+               macro
+&lab           DlgDelete &a1
+&lab           ph4   &a1
+               Tool  $1515
+               mend
+
+               macro
+&lab           DrawDialog &a1
+&lab           ph4   &a1
+               Tool  $1615
+               mend
+
+               macro
+&lab           Alert &a1,&a2
+&lab           pha
+               ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $1715
+               pl2   &a2
+               mend
+
+               macro
+&lab           StopAlert &a1,&a2
+&lab           pha
+               ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $1815
+               pl2   &a2
+               mend
+
+               macro
+&lab           NoteAlert &a1,&a2
+&lab           pha
+               ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $1915
+               pl2   &a2
+               mend
+
+               macro
+&lab           CautionAlert &a1,&a2
+&lab           pha
+               ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $1a15
+               pl2   &a2
+               mend
+
+               macro
+&lab           ParamText &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               ph4   &a1(4)
+               Tool  $1b15
+               mend
+
+               macro
+&lab           SetDAFont &a1
+&lab           ph4   &a1
+               Tool  $1c15
+               mend
+
+               macro
+&lab           GetControlDItem &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1(1)
+               ph2   &a1(2)
+               Tool  $1e15
+               pl4   &a2
+               mend
+
+               macro
+&lab           GetIText &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               ph4   &a1(3)
+               Tool  $1f15
+               mend
+
+               macro
+&lab           SetIText &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               ph4   &a1(3)
+               Tool  $2015
+               mend
+
+               macro
+&lab           SelectIText &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               ph2   &a1(4)
+               Tool  $2115
+               mend
+
+               macro
+&lab           HideDItem &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               Tool  $2215
+               mend
+
+               macro
+&lab           ShowDItem &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               Tool  $2315
+               mend
+
+               macro
+&lab           FindDItem &a1,&a2
+&lab           pha
+               ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $2415
+               pl2   &a2
+               mend
+
+               macro
+&lab           UpDateDialog &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $2515
+               mend
+
+               macro
+&lab           GetDItemType &a1,&a2
+&lab           pha
+               ph4   &a1(1)
+               ph2   &a1(2)
+               Tool  $2615
+               pl2   &a2
+               mend
+
+               macro
+&lab           SetDItemType &a1
+&lab           ph2   &a1(1)
+               ph4   &a1(2)
+               ph2   &a1(3)
+               Tool  $2715
+               mend
+
+               macro
+&lab           GetDItemBox &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               ph4   &a1(3)
+               Tool  $2815
+               mend
+
+               macro
+&lab           SetDItemBox &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               ph4   &a1(3)
+               Tool  $2915
+               mend
+
+               macro
+&lab           GetFirstItem &a1,&a2
+&lab           pha
+               ph4   &a1
+               Tool  $2a15
+               pl2   &a2
+               mend
+
+               macro
+&lab           GetNextDItem &a1,&a2
+&lab           pha
+               ph4   &a1(1)
+               ph2   &a1(2)
+               Tool  $2b15
+               pl2   &a2
+               mend
+
+               macro
+&lab           ModalDialog2 &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1
+               Tool  $2c15
+               pl4   &a2
+               mend
+
+               macro
+&lab           GetDItemValue &a1,&a2
+&lab           pha
+               ph4   &a1(1)
+               ph2   &a1(2)
+               Tool  $2e15
+               pl2   &a2
+               mend
+
+               macro
+&lab           SetDItemValue &a1
+&lab           ph2   &a1(1)
+               ph4   &a1(2)
+               ph2   &a1(3)
+               Tool  $2f15
+               mend
+
+               macro
+&lab           GetNewModalDialog &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1
+               Tool  $3215
+               pl4   &a2
+               mend
+
+               macro
+&lab           GetNewDItem &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $3315
+               mend
+
+               macro
+&lab           GetAlertStage &a1
+&lab           pha
+               Tool  $3415
+               pl2   &a1
+               mend
+
+               macro
+&lab           ResetAlertStage
+&lab           Tool  $3515
+               mend
+
+               macro
+&lab           DefaultFilter &a1,&a2
+&lab           pha
+               ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               Tool  $3615
+               pl2   &a2
+               mend
+
+               macro
+&lab           GetDefButton &a1,&a2
+&lab           pha
+               ph4   &a1
+               Tool  $3715
+               pl2   &a2
+               mend
+
+               macro
+&lab           SetDefButton &a1
+&lab           ph2   &a1(1)
+               ph4   &a1(2)
+               Tool  $3815
+               mend
+
+               macro
+&lab           DisableDItem &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               Tool  $3915
+               mend
+
+               macro
+&lab           EnableDItem &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               Tool  $3a15
+               mend

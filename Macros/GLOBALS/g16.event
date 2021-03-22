@@ -1,0 +1,97 @@
+**************************************************************************
+*                                                                        *
+* Event Manager global constants, data structures, and error codes       *
+* Written by Tim Meekins                                                 *
+* November 6, 1988                                                       *
+*                                                                        *
+* v1.0  11/06/88 TLM Original versio. Uses Event Manager v1.0            *
+* v1.1  11/11/88 TLM Updated to Event Manager v2.2                       *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1990 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+*
+* Event codes
+*
+nullEvt        gequ  $0000
+mouseDownEvt   gequ  $0001
+mouseUpEvt     gequ  $0002
+keyDownEvt     gequ  $0003
+autoKeyEvt     gequ  $0005
+updateEvt      gequ  $0006
+activateEvt    gequ  $0008
+switchEvt      gequ  $0009
+deskAccEvt     gequ  $000a
+driverEvt      gequ  $000b
+app1Evt        gequ  $000c
+app2Evt        gequ  $000d
+app3Evt        gequ  $000e
+app4Evt        gequ  $000f
+*
+* Event masks
+*
+mDownMask      gequ  $0002
+mUpMask        gequ  $0004
+keyDownMask    gequ  $0008
+autoKeyMask    gequ  $0020
+updateMask     gequ  $0040
+activateMask   gequ  $0100
+switchMask     gequ  $0200
+deskAccMask    gequ  $0400
+driverMask     gequ  $0800
+app1Mask       gequ  $1000
+app2Mask       gequ  $2000
+app3Mask       gequ  $4000
+app4Mask       gequ  $8000
+everyEvent     gequ  $ffff
+*
+* Journal codes
+*
+jcTickCount    gequ  $00
+jcGetMouse     gequ  $01
+jcButton       gequ  $02
+jcEvent        gequ  $04
+*
+* Modifier flags
+*
+activateFlag   gequ  $0001
+changeFlag     gequ  $0002
+btn1State      gequ  $0040
+btn0State      gequ  $0080
+appleKey       gequ  $0100
+shiftKey       gequ  $0200
+capsLock       gequ  $0400
+optionKey      gequ  $0800
+controlKey     gequ  $1000
+keyPad         gequ  $2000
+*
+* Event record
+*
+oWhat          gequ  $00
+oMessage       gequ  $02
+oWhen          gequ  $06
+oWhere         gequ  $0a
+oModifiers     gequ  $0e
+*
+* Event Manager error codes
+*
+emDupStrtUpErr gequ  $0601
+emResetErr     gequ  $0602
+emNotActErr    gequ  $0603
+emBadEvtCodeErr gequ $0604
+emBadBttnNoErr gequ  $0605
+emQSize2LrgErr gequ  $0606
+emNoMemQueueErr gequ $0607
+emBadEvtQErr   gequ  $0681
+emBadQHndlErr  gequ  $0682

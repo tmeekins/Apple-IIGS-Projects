@@ -1,0 +1,172 @@
+**************************************************************************
+*                                                                        *
+* List Manager macros                                                    *
+* Written by Tim Meekins                                                 *
+* November 11, 1988                                                      *
+*                                                                        *
+* Requires: M16.MACROS                                                   *
+*                                                                        *
+* v1.0  11/11/88 TLM Original version. Uses List Manager v2.3            *
+* v1.1  07/26/90 TLM Updated to List Manager v3.1                        *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1990 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+               macro
+&lab           ListBootInit
+&lab           tool  $011c
+               mend
+
+               macro
+&lab           ListStartUp
+&lab           tool  $021c
+               mend
+
+               macro
+&lab           ListShutDown
+&lab           tool  $031c
+               mend
+
+               macro
+&lab           ListVersion &a1
+&lab           pha
+               tool  $041c
+               pl2   &a1
+               mend
+
+               macro
+&lab           ListReset
+&lab           tool  $051c
+               mend
+
+               macro
+&lab           ListStatus &a1
+&lab           pha
+               tool  $061c
+               pl2   &a1
+               mend
+
+               macro
+&lab           CreateList &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1(1)
+               ph4   &a1(2)
+               tool  $091c
+               pl4   &a2
+               mend
+
+               macro
+&lab           SortList &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               tool  $0a1c
+               mend
+
+               macro
+&lab           NextMember &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1(1)
+               ph4   &a1(2)
+               tool  $0b1c
+               pl4   &a2
+               mend
+
+               macro
+&lab           DrawMember &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               tool  $0c1c
+               mend
+
+               macro
+&lab           SelectMember &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               tool  $0d1c
+               mend
+
+               macro
+&lab           GetListDefProc &a1
+&lab           pha
+               pha
+               tool  $0e1c
+               pl4   &a1
+               mend
+
+               macro
+&lab           ResetMember &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1
+               tool  $0f1c
+               pl4   &a2
+               mend
+
+               macro
+&lab           NewList &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               tool  $101c
+               mend
+
+               macro
+&lab           DrawMember2 &a1
+&lab           ph2   &a1(1)
+               ph4   &a1(2)
+               tool  $111c
+               mend
+
+               macro
+&lab           NextMember2 &a1,&a2
+&lab           pha
+               ph2   &a1(1)
+               ph4   &a1(2)
+               tool  $121c
+               pl2   &a2
+               mend
+
+               macro
+&lab           ResetMember2 &a1,&a2
+&lab           pha
+               ph4   &a1
+               tool  $131c
+               pl2   &a2
+               mend
+
+               macro
+&lab           SelectMember2 &a1
+&lab           ph2   &a1(1)
+               ph4   &a1(2)
+               tool  $141c
+               mend
+
+               macro
+&lab           SortList2 &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               tool  $151c
+               mend
+
+               macro
+&lab           NewList2 &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               ph4   &a1(3)
+               ph2   &a1(4)
+               ph2   &a1(5)
+               ph4   &a1(6)
+               tool  $161c
+               mend

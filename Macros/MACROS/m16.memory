@@ -1,0 +1,263 @@
+**************************************************************************
+*                                                                        *
+* Memory Manager macros                                                  *
+* Written by Tim Meekins                                                 *
+* November 11, 1988                                                      *
+*                                                                        *
+* Requires: M16.MACROS                                                   *
+*                                                                        *
+* v1.0  11/11/88 TLM Original version. Uses Memory Manager v2.2          *
+* v1.1  07/26/90 TLM Updated to Memory Manger v3.0                       *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1990 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+               macro
+&lab           MMBootInit
+&lab           tool  $0102
+               mend
+
+               macro
+&lab           MMStartUp &a1
+&lab           pha
+               tool  $0202
+               pl2   &a1
+               mend
+
+               macro
+&lab           MMShutDown &a1
+&lab           ph2   &a1
+               tool  $0302
+               mend
+
+               macro
+&lab           MMVersion &a1
+&lab           pha
+               tool  $0402
+               pl2   &a1
+               mend
+
+               macro
+&lab           MMReset
+&lab           tool  $0502
+               mend
+
+               macro
+&lab           MMStatus &a1
+&lab           pha
+               tool  $0602
+               pl2   &a1
+               mend
+
+               macro
+&lab           NewHandle &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               ph4   &a1(4)
+               tool  $0902
+               pl4   &a2
+               mend
+
+               macro
+&lab           ReAllocHandle &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               ph4   &a1(4)
+               ph4   &a1(5)
+               tool  $0a02
+               mend
+
+               macro
+&lab           RestoreHandle &a1
+&lab           ph4   &a1
+               tool  $0b02
+               mend
+
+               macro
+&lab           AddToOOMQueue &a1
+&lab           ph4   &a1
+               tool  $0c02
+               mend
+
+               macro
+&lab           RemoveFromOOMQueue &a1
+&lab           ph4   &a1
+               tool  $0d02
+               mend
+
+               macro
+&lab           DisposeHandle &a1
+&lab           ph4   &a1
+               tool  $1002
+               mend
+
+               macro
+&lab           DisposeAll &a1
+&lab           ph2   &a1
+               tool  $1102
+               mend
+
+               macro
+&lab           PurgeHandle &a1
+&lab           ph4   &a1
+               tool  $1202
+               mend
+
+               macro
+&lab           PurgeAll &a1
+&lab           ph2   &a1
+               tool  $1302
+               mend
+
+               macro
+&lab           GetHandleSize &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1
+               tool  $1802
+               pl4   &a2
+               mend
+
+               macro
+&lab           SetHandleSize &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               tool  $1902
+               mend
+
+               macro
+&lab           FindHandle &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1
+               tool  $1a02
+               pl4   &a2
+               mend
+
+               macro
+&lab           FreeMem &a1
+&lab           pha
+               pha
+               tool  $1b02
+               pl4   &a1
+               mend
+
+               macro
+&lab           MaxBlock &a1
+&lab           pha
+               pha
+               tool  $1c02
+               pl4   &a1
+               mend
+
+               macro
+&lab           TotalMem &a1
+&lab           pha
+               pha
+               tool  $1d02
+               pl4   &a1
+               mend
+
+               macro
+&lab           CheckHandle &a1
+&lab           ph4   &a1
+               tool  $1e02
+               mend
+
+               macro
+&lab           CompactMem
+&lab           tool  $1f02
+               mend
+
+               macro
+&lab           HLock &a1
+&lab           ph4   &a1
+               tool  $2002
+               mend
+
+               macro
+&lab           HLockAll &a1
+&lab           ph2   &a1
+               tool  $2102
+               mend
+
+               macro
+&lab           HUnlock &a1
+&lab           ph4   &a1
+               tool  $2202
+               mend
+
+               macro
+&lab           HUnlockAll &a1
+&lab           ph2   &a1
+               tool  $2302
+               mend
+
+               macro
+&lab           SetPurge &a1
+&lab           ph2   &a1(1)
+               ph4   &a1(2)
+               tool  $2402
+               mend
+
+               macro
+&lab           SetPurgeAll &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               tool  $2502
+               mend
+
+               macro
+&lab           PtrToHand &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               tool  $2802
+               mend
+
+               macro
+&lab           HandToPtr &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               tool  $2902
+               mend
+
+               macro
+&lab           HandToHand &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               tool  $2a02
+               mend
+
+               macro
+&lab           BlockMove &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               tool  $2b02
+               mend
+
+               macro
+&lab           RealFreeMem &a1
+&lab           pha
+               pha
+               tool  $2f02
+               pl4   &a1
+               mend

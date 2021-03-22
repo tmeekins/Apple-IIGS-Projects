@@ -1,0 +1,201 @@
+**************************************************************************
+*                                                                        *
+* Desk Manager macros                                                    *
+* Written by Tim Meekins                                                 *
+* November 4, 1988                                                       *
+*                                                                        *
+* Requires: M16.MACROS                                                   *
+*                                                                        *
+* v1.0  11/04/88 TLM Original Version. Using Desk Manager v2.4           *
+* v1.1  11/05/88 TLM Uses Tool macro                                     *
+* v1.2  11/11/88 TLM Updated to Desk Manager v2.5                        *
+* v1.3  07/26/90 TLM Updated to Desk Manager v3.1                        *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1990 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+               macro
+&lab           DeskBootInit
+&lab           Tool  $0105
+               mend
+
+               macro
+&lab           DeskStartUp
+&lab           Tool  $0205
+               mend
+
+               macro
+&lab           DeskShutDown
+&lab           Tool  $0305
+               mend
+
+               macro
+&lab           DeskVersion &a1
+&lab           pha
+               Tool  $0405
+               pl2   &a1
+               mend
+
+               macro
+&lab           DeskReset
+&lab           Tool  $0505
+               mend
+
+               macro
+&lab           DeskStatus &a1
+&lab           pha
+               Tool  $0605
+               pl2   &a1
+               mend
+
+               macro
+&lab           SaveScrn
+&lab           Tool  $0905
+               mend
+
+               macro
+&lab           RestScrn
+&lab           Tool  $0a05
+               mend
+
+               macro
+&lab           SaveAll
+&lab           Tool  $0b05
+               mend
+
+               macro
+&lab           RestAll
+&lab           Tool  $0c05
+               mend
+
+               macro
+&lab           InstallNDA &a1
+&lab           ph4   &a1
+               Tool  $0e05
+               mend
+
+               macro
+&lab           ChooseCDA
+&lab           Tool  $1105
+               mend
+
+               macro
+&lab           SetDAStrPtr &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $1305
+               mend
+
+               macro
+&lab           GetDAStrPtr &a1
+&lab           pha
+               pha
+               Tool  $1405
+               pl4   &a1
+               mend
+
+               macro
+&lab           OpenNDA &a1,&a2
+&lab           pha
+               ph2   &a1
+               Tool  $1505
+               pl2   &a2
+               mend
+
+               macro
+&lab           CloseNDA &a1
+&lab           ph2   &a1
+               Tool  $1605
+               mend
+
+               macro
+&lab           SystemClick &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               ph2   &a1(3)
+               Tool  $1705
+               mend
+
+               macro
+&lab           SystemEdit &a1,&a2
+&lab           pha
+               ph2   &a1
+               Tool  $1805
+               pl2   &a2
+               mend
+
+               macro
+&lab           SystemTask
+&lab           Tool  $1905
+               mend
+
+               macro
+&lab           SystemEvent &a1,&a2
+&lab           pha
+               ph2   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               ph4   &a1(4)
+               ph2   &a1(5)
+               Tool  $1a05
+               pl2   &a2
+               mend
+
+               macro
+&lab           GetNumNDAs &a1
+&lab           pha
+               Tool  $1b05
+               pl2   &a1
+               mend
+
+               macro
+&lab           CloseNDAbyWinPtr &a1
+&lab           ph4   &a1
+               Tool  $1c05
+               mend
+
+               macro
+&lab           CloseAllNDAs
+&lab           Tool  $1d05
+               mend
+
+               macro
+&lab           FixAppleMenu &a1
+&lab           ph2   &a1
+               Tool  $1e05
+               mend
+
+               macro
+&lab           AddToRunQ &a1
+&lab           ph4   &a1
+               Tool  $1f05
+               mend
+
+               macro
+&lab           RemoveFromRunQ &a1
+&lab           ph4   &a1
+               Tool  $2005
+               mend
+
+               macro
+&lab           RemoveCDA &a1
+&lab           ph4   &a1
+               Tool  $2105
+               mend
+
+               macro
+&lab           RemoveNDA &a1
+&lab           ph4   &a1
+               Tool  $2205
+               mend

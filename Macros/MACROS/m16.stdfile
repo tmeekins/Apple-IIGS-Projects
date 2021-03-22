@@ -1,0 +1,209 @@
+**************************************************************************
+*                                                                        *
+* Standard File Operations tool set macros                               *
+* Written by Tim Meekins                                                 *
+* Ausust 26, 1989                                                        *
+*                                                                        *
+* Requires: M16.MACROS                                                   *
+*                                                                        *
+* v1.0  08/26/89 TLM Original Version. Using Standard File v2.2          *
+* v1.1  07/27/90 TLM Updates to Standard File v3.0                       *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1990 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+               macro
+&lab           SFBootInit
+&lab           Tool  $0117
+               mend
+
+               macro
+&lab           SFStartUp &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               Tool  $0217
+               mend
+
+               macro
+&lab           SFShutDown
+&lab           Tool  $0317
+               mend
+
+               macro
+&lab           SFVersion &a1
+&lab           pha
+               Tool  $0417
+               pl2   &a1
+               mend
+
+               macro
+&lab           SFReset
+&lab           Tool  $0517
+               mend
+
+               macro
+&lab           SFStatus &a1
+&lab           pha
+               Tool  $0617
+               pl2   &a1
+               mend
+
+               macro
+&lab           SFGetFile &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               ph4   &a1(3)
+               ph4   &a1(4)
+               ph4   &a1(5)
+               ph4   &a1(6)
+               Tool  $0917
+               mend
+
+               macro
+&lab           SFPutFile &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               ph4   &a1(3)
+               ph4   &a1(4)
+               ph2   &a1(5)
+               ph4   &a1(6)
+               Tool  $0a17
+               mend
+
+               macro
+&lab           SFPGetFile &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               ph4   &a1(3)
+               ph4   &a1(4)
+               ph4   &a1(5)
+               ph4   &a1(6)
+               ph4   &a1(7)
+               ph4   &a1(8)
+               Tool  $0b17
+               mend
+
+               macro
+&lab           SFPPutFile &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               ph4   &a1(3)
+               ph4   &a1(4)
+               ph2   &a1(5)
+               ph4   &a1(6)
+               ph4   &a1(7)
+               ph4   &a1(8)
+               Tool  $0c17
+               mend
+
+               macro
+&lab           SFAllCaps &a1
+&lab           ph2   &a1
+               Tool  $0d17
+               mend
+
+               macro
+&lab           SFGetFile2 &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               ph4   &a1(4)
+               ph4   &a1(5)
+               ph4   &a1(6)
+               ph4   &a1(7)
+               Tool  $0e17
+               mend
+
+               macro
+&lab           SFPutFile2 &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               ph4   &a1(4)
+               ph2   &a1(5)
+               ph4   &a1(6)
+               ph4   &a1(7)
+               Tool  $0f17
+               mend
+
+               macro
+&lab           SFPGetFile2 &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               ph4   &a1(3)
+               ph2   &a1(4)
+               ph4   &a1(5)
+               ph4   &a1(6)
+               ph4   &a1(7)
+               ph4   &a1(8)
+               ph4   &a1(9)
+               ph4   &a1(10)
+               Tool  $1017
+               mend
+
+               macro
+&lab           SFPPutFile2 &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               ph4   &a1(3)
+               ph2   &a1(4)
+               ph4   &a1(5)
+               ph2   &a1(6)
+               ph4   &a1(7)
+               ph4   &a1(8)
+               ph4   &a1(9)
+               ph4   &a1(10)
+               Tool  $1117
+               mend
+
+               macro
+&lab           SFShowInvisible &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               Tool  $1217
+               mend
+
+               macro
+&lab           SFReScan &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $1317
+               mend
+
+               macro
+&lab           SFMultiGet2 &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               ph4   &a1(4)
+               ph4   &a1(5)
+               ph4   &a1(6)
+               ph4   &a1(7)
+               Tool  $1417
+               mend
+
+               macro
+&lab           SFPMultiGetFile2 &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               ph4   &a1(3)
+               ph2   &a1(4)
+               ph4   &a1(5)
+               ph4   &a1(6)
+               ph4   &a1(7)
+               ph4   &a1(8)
+               ph4   &a1(9)
+               ph4   &a1(10)
+               Tool  $1517
+               mend

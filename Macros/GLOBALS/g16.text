@@ -1,0 +1,59 @@
+**************************************************************************
+*                                                                        *
+* Text Tool Set constants, data structures, and error codes              *
+* Written by Tim Meekins                                                 *
+* August 26, 1989                                                        *
+*                                                                        *
+* v1.0  08/26/89 Original version. Uses Sound Tool Set v2.1              *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1990 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+*
+* Echo flag values
+*
+noEcho         gequ  $0000
+echo           gequ  $0001
+*
+* Device numbers
+*
+input          gequ  $0000
+output         gequ  $0001
+errorOutput    gequ  $0002
+*
+* Device types
+*
+basicType      gequ  $0000
+pascalType     gequ  $0001
+ramBased       gequ  $0002
+*
+* Text Tool Set error codes
+*
+badDevType     gequ  $0c01
+badDevNum      gequ  $0c02
+badMode        gequ  $0c03
+unDefHW        gequ  $0c04
+lostDev        gequ  $0c05
+lostFile       gequ  $0c06
+badTitle       gequ  $0c07
+noRoom         gequ  $0c08
+noDevice       gequ  $0c09
+noFile         gequ  $0c0a
+dupFile        gequ  $0c0b
+notClosed      gequ  $0c0c
+notOpen        gequ  $0c0d
+badFormat      gequ  $0c0e
+ringBuffOFlo   gequ  $0c0f
+writeProtected gequ  $0c10
+devErr         gequ  $0c40

@@ -1,0 +1,72 @@
+**************************************************************************
+*                                                                        *
+* List Manager global contants, data structures, and error codes         *
+* Written by Tim Meekins                                                 *
+* November 11, 1988                                                      *
+*                                                                        *
+* v1.0  11/11/88 TLM Original version. Uses List Manager v2.3            *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1990 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+*
+* Bit mask for listType
+*
+cString        gequ  $0001
+selectOnlyOne  gequ  $0002
+*
+* memFlag
+*
+memDisabled    gequ  $40
+memSelected    gequ  $80
+*
+* List record
+*  - ListRec
+*
+oListRect      gequ  $0
+oListSize      gequ  $8
+oListView      gequ  $a
+oListType      gequ  $c
+oListStart     gequ  $e
+oListCtl       gequ  $10
+oListDraw      gequ  $14
+oListMemHeight gequ  $18
+oListMemSize   gequ  $1a
+oListPointer   gequ  $1c
+oListRefCon    gequ  $20
+oListScrollClr gequ  $24
+*
+* List control record
+*  - ListCtlRec
+*
+oCtlMemDraw    gequ  $28
+oCtlMemHeight  gequ  $2c
+oCtlMemSize    gequ  $2e
+oCtlList       gequ  $30
+oCtlListBar    gequ  $34
+*
+* Member record
+*  - MemRec
+*
+oMemPtr        gequ  $0
+oMemFlag       gequ  $4
+*
+* List color table
+*  - LColorTable
+*
+oListFrameClr  gequ  $00
+oListNorTextClr gequ $2
+oListSelTextClr gequ $4
+oListNorBackClr gequ $6
+oListSelBackClr gequ $8

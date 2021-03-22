@@ -1,0 +1,170 @@
+**************************************************************************
+*                                                                        *
+* Macros for Fake Modal Dialog Tool Set from Apple DTS.                  *
+* Written by Tim Meekins                                                 *
+* April 27, 1991                                                         *
+*                                                                        *
+* Requires: M16.MACROS                                                   *
+*                                                                        *
+* v1.0  04/27/91 TLM Original Version.                                   *
+*                                                                        *
+* Equate the Tool Number to fmdToolNum before invoking macros.           *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1991 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+               macro
+&lab           fmdBootInit
+&lab           UserTool fmdToolNum+$0100
+               mend
+
+               macro
+&lab           fmdStartUp
+&lab           UserTool fmdToolNum+$0200
+               mend
+
+               macro
+&lab           fmdShutDown
+&lab           UserTool fmdToolNum+$0300
+               mend
+
+               macro
+&lab           fmdVersion &a1
+&lab           pha
+               UserTool fmdToolNum+$0400
+               pl2   &a1
+               mend
+
+               macro
+&lab           fmdReset
+&lab           UserTool fmdToolNum+$0500
+               mend
+
+               macro
+&lab           fmdStatus &a1
+&lab           pha
+               UserTool  fmdToolNum+$0600
+               pl2   &a1
+               mend
+
+               macro
+&lab           fakeModalDialog &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               ph4   &a1(4)
+               ph2   &a1(5)
+               UserTool fmdToolNum+$0900
+               pl4   &a2
+               mend
+
+               macro
+&lab           fmdSetMenuProc &a1
+&lab           ph4   &a1
+               UserTool fmdToolNum+$0a00
+               mend
+
+               macro
+&lab           fmdGetMenuProc &a1
+&lab           pha
+               pha
+               UserTool fmdToolNum+$0b00
+               pl4   &a1
+               mend
+
+               macro
+&lab           fmdStdDrawProc
+&lab           UserTool fmdToolNum+$0c00
+               mend
+
+               macro
+&lab           fmdEditMenu
+&lab           UserTool fmdToolNum+$0d00
+               mend
+
+               macro
+&lab           fmdFindCursorCtl &a1,&a2
+&lab           pha
+               ph4   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               ph4   &a1(4)
+               UserTool fmdToolNum+$0e00
+               pl2   &a2
+               mend
+
+               macro
+&lab           fmdLESetText &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               ph4   &a1(3)
+               UserTool fmdToolNum+$0f00
+               mend
+
+               macro
+&lab           fmdLEGetText &a1
+&lab           ph4     &a1(1)
+               ph2     &a1(2)
+               ph4     &a1(3)
+               UserTool fmdToolNum+$1000
+               mend
+
+               macro
+&lab           fmdWhichRadio &a1,&a2
+&lab           pha
+               ph4    &a1(1)
+               ph2    &a1(2)
+               UserTool fmdToolNum+$1100
+               pl2    &a2
+               mend
+
+               macro
+&lab           fmdIBeamCursor
+&lab           UserTool fmdToolNum+$1200
+               mend
+
+               macro
+&lab           fmdInitIBeam
+&lab           UserTool fmdToolNum+$1300
+               mend
+
+               macro
+&lab           fmdSetIBeam &a1
+&lab           ph4     &a1
+               UserTool fmdToolNum+$1400
+               mend
+
+               macro
+&lab           fmdGetIBeamAdr &a1
+&lab           pha
+               pha
+               UserTool fmdToolNum+$1500
+               pl4   &a1
+               mend
+
+               macro
+&lab           fmdGetCtlPart &a1
+&lab           pha
+               UserTool fmdToolNum+$1600
+               pl2   &a1
+               mend
+
+               macro
+&lab           fmdGetError &a1
+&lab           pha
+               UserTool fmdToolNum+$1700
+               pl2   &a1
+               mend

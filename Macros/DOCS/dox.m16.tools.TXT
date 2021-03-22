@@ -1,0 +1,92 @@
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1990 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+                        M16.TOOLS DOCUMENTATION
+                        =======================
+                              Release 1.1
+
+
+This document describes how to use macros for creating tool calls. All of the
+tools use very powerful macros which create a Pascal-like interface to the
+Apple IIgs ToolBox.
+
+Each tool call has an entry parameter and a return parameter, unless the
+tool call does not use any. If multiple inputs or outputs are required, then
+the parameters are listed in parantheses and separated by commas. The
+parameters being passed and received use the format specified by the macros
+PH2, PH4, PL2, and PL4. See documentation for these macros for more information
+on formatting the parameters.
+
+In a nutshell, to pass a value to/from a memory location, simply use the label
+as the parameter. To pass constants and addresses, prefix the label/constant
+with the pound sign, '#'. Other special symbols have been created which are
+based on the '@' sign. For example, if the value to pass is already in the
+X register, the parameter would simply be '@X'.
+
+Also note that the macro calls do not start with a '_' like the standard
+APW/Orca macros. This allows us to inter-mix both types of macros if it is
+necessary.
+
+In conclusion, these macros are quite powerful, yet simple enough that
+you should never have to reference the macro files to see what the
+tool's syntax is (assuming you have the Apple IIgs Toolbox Reference to
+see what the syntax is!)
+
+Below are some sample tool calls:
+
+              CompactMem                    ;Has no parameters
+
+              MMStartUp UserID              ;Has a return parm
+
+              DisposeAll UserID             ;Has one passed parm
+
+              NewHandle (#$100,UserID,#$C018,#0),Handle
+
+;
+; The following code should increase the hue of palette 0
+;
+              ldx       #15
+FadeLoop      phx
+              GetColorEntry (#0,@x),@a
+              add2      @,#$111,@
+              plx
+              phx
+              SetColorEntry (#0,@x,@a)
+              plx
+              dex
+              bpl       FadeLoop
+
+
+ Error checking is a bit more tricky with tool calls that return values.
+ If we try to put the return value into the accumulator, the error number
+ will get destroyed, therefore, use the X and Y registers.
+ For example, checking for a MM error:
+
+
+              NewHandle (#$100,UserID,#$C018,#0),@xy
+              bcs       Error
+              stx       Handle
+              sty       handle+2
+
+ Also, sometimes we have a word value in a register such as the accumulator
+ and we wish to pass it as long word. Try the following trick.
+ Let's say the accumulator has the index into a string table, to print the
+ string we would do the following:
+
+
+              add2      @a,#<StringTbl,@a   ;A now has lower 2 bytes of addr
+              ldx       #^StringTbl         ; and X has upper 2 bytes
+              DrawString @xa                ;Draws the string!!
+
+If you have any tricks that also may be of interest, send them to me.

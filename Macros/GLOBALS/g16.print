@@ -1,0 +1,97 @@
+**************************************************************************
+*                                                                        *
+* Print Manager constants, data structures, and error codes              *
+* Written by Tim Meekins                                                 *
+* August 22, 1989                                                        *
+*                                                                        *
+* v1.0  08/22/89 Original version. Uses Print Manager v2.2               *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1990 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+*
+* Print Manager constants
+*
+prAbort        gequ  $80
+*
+* Print Manager structures
+*
+* Print record (PrRec)
+*
+oPrVersion     gequ  $0
+oPrInfo        gequ  $2
+oRPaper        gequ  $10
+oPrStl         gequ  $18
+oPrInfoPT      gequ  $2a
+oPrXInfo       gequ  $38
+oPrJob         gequ  $50
+oPrintX        gequ  $64
+oIReserved     gequ  $8a
+*
+* Print information subrecord (PrInfoRec)
+*
+oIDev          gequ  $0
+oIVRes         gequ  $2
+oIHRes         gequ  $4
+oRPage         gequ  $6
+*
+* Printer style subrecord (PrStyleRec)
+*
+oWDev          gequ  $0
+oInternA       gequ  $2
+oFeed          gequ  $8
+oPaperType     gequ  $a
+oCrWidth       gequ  $c
+oVSizing       gequ  $c
+oReduction     gequ  $e
+oInternB       gequ  $10
+*
+* Job information subrecord (PrJobRec)
+*
+oIFstPage      gequ  $0
+oILstPage      gequ  $2
+oICopies       gequ  $4
+oBjDocLoop     gequ  $6
+oFFromUser     gequ  $7
+oPIdleProc     gequ  $9
+oPFileName     gequ  $D
+oIFileVol      gequ  $11
+oBFileVers     gequ  $13
+oBJobX         gequ  $14
+*
+* Printer status subrecord (PrStatusRec)
+*
+oITotPages     gequ  $0
+oICurPage      gequ  $2
+oITotCopies    gequ  $4
+oICurCopy      gequ  $6
+oITotBands     gequ  $8
+oICurBand      gequ  $a
+oFPgDirty      gequ  $c
+oFImaging      gequ  $e
+oHPrint        gequ  $10
+oPPrPort       gequ  $14
+oHPic          gequ  $18
+*
+* Print Manager error codes
+*
+missingDriver  gequ  $1301
+portNotOn      gequ  $1302
+noPrintRecord  gequ  $1303
+badLaserPrep   gequ  $1304
+badLPFile      gequ  $1305
+papConnNotOpen gequ  $1306
+papReadWriteErr gequ $1307
+startUpAlreadyMade gequ $1321
+invalidCtlVal  gequ  $1322

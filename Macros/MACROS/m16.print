@@ -1,0 +1,253 @@
+**************************************************************************
+*                                                                        *
+* Print Manager macros                                                   *
+* Written by Tim Meekins                                                 *
+* Ausust 22, 1989                                                        *
+*                                                                        *
+* Requires: M16.MACROS                                                   *
+*                                                                        *
+* v1.0  08/22/89 TLM Original Version. Using Print Manager v2.2          *
+* v1.1  07/26/90 TLM Updated to Print Manager v3.0 and fixed typo in     *
+*                    PMLoadDriver                                        *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1990 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+               macro
+&lab           PMBootInit
+&lab           Tool  $0113
+               mend
+
+               macro
+&lab           PMStartUp &a1
+&lab           ph2   &a1(1)
+               ph2   &a2(2)
+               Tool  $0213
+               mend
+
+               macro
+&lab           PMShutDown
+&lab           Tool  $0313
+               mend
+
+               macro
+&lab           PMVersion &a1
+&lab           pha
+               Tool  $0413
+               pl2   &a1
+               mend
+
+               macro
+&lab           PMReset
+&lab           Tool  $0513
+               mend
+
+               macro
+&lab           PMStatus &a1
+&lab           pha
+               Tool  $0613
+               pl2   &a1
+               mend
+
+               macro
+&lab           PrDefault &a1
+&lab           ph4   &a1
+               Tool  $0913
+               mend
+
+               macro
+&lab           PrValidate &a1,&a2
+&lab           pha
+               ph4   &a1
+               Tool  $0a13
+               pl2   &a2
+               mend
+
+               macro
+&lab           PrStlDialog &a1,&a2
+&lab           pha
+               ph4   &a1
+               Tool  $0b13
+               pl2   &a2
+               mend
+
+               macro
+&lab           PrJobDialog &a1,&a2
+&lab           pha
+               ph4   &a1
+               Tool  $0c13
+               pl2   &a2
+               mend
+
+               macro
+&lab           PrPixelMap &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               Tool  $0d13
+               mend
+
+               macro
+&lab           PrOpenDoc &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $0e13
+               pl2   &a2
+               mend
+
+               macro
+&lab           PrCloseDoc &a1
+&lab           ph4   &a1
+               Tool  $0f13
+               mend
+
+               macro
+&lab           PrOpenPage &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $1013
+               mend
+
+               macro
+&lab           PrClosePage &a1
+&lab           ph4   &a1
+               Tool  $1113
+               mend
+
+               macro
+&lab           PrPicFile &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               Tool  $1213
+               mend
+
+               macro
+&lab           PrError &a1
+&lab           pha
+               Tool  $1413
+               pl2   &a1
+               mend
+
+               macro
+&lab           PrSetError &a1
+&lab           ph2   &a1
+               Tool  $1513
+               mend
+
+               macro
+&lab           PrChoosePrinter &a1
+&lab           pha
+               Tool  $1613
+               pl2   &a1
+               mend
+
+               macro
+&lab           PrGetPrinterSpecs &a1
+&lab           pha
+               pha
+               Tool  $1813
+               pl2   &a1(1)
+               pl2   &a1(2)
+               mend
+
+               macro
+&lab           PrDriverVer &a1
+&lab           pha
+               Tool  $2313
+               pl2   &a1
+               mend
+
+               macro
+&lab           PrPortVer &a1
+&lab           pha
+               Tool  $2413
+               pl2   &a1
+               mend
+
+               macro
+&lab           PrGetZoneName &a1
+&lab           pha
+               pha
+               Tool  $2513
+               pl4   &a1
+               mend
+
+               macro
+&lab           PrGetPrinterDvrName &a1
+&lab           pha
+               pha
+               Tool  $2813
+               pl4   &a1
+               mend
+
+               macro
+&lab           PrGetPortDvrName &a1
+&lab           pha
+               pha
+               Tool  $2913
+               pl4   &a1
+               mend
+
+               macro
+&lab           PrGetUserName &a1
+&lab           pha
+               pha
+               Tool  $2a13
+               pl4   &a1
+               mend
+
+               macro
+&lab           PrGetNetworkName &a1
+&lab           pha
+               pha
+               Tool  $2b13
+               pl4   &a1
+               mend
+
+               macro
+&lab           PMUnloadDriver &a1
+&lab           ph2   &a1
+               Tool  $3413
+               mend
+
+               macro
+&lab           PMLoadDriver &a1
+&lab           ph2   &a1
+               Tool  $3513
+               mend
+
+               macro
+&lab           PrGetDocName &a1
+&lab           pha
+               pha
+               Tool  $3613
+               pl4   &a1
+               mend
+
+               macro
+&lab           PrSetDocName &a1
+&lab           ph4   &a1
+               Tool  $3713
+               mend
+
+               macro
+&lab           PrGetPgOrientation &a1,&a2
+&lab           pha
+               ph4   &a1
+               Tool  $3813
+               pl2   &a2
+               mend

@@ -1,0 +1,775 @@
+**************************************************************************
+*                                                                        *
+* Window Manager macros                                                  *
+* Written by Tim Meekins                                                 *
+* September 2, 1989                                                      *
+*                                                                        *
+* Requires: M16.MACROS                                                   *
+*                                                                        *
+* v1.0  09/02/89 TLM Original Version. Using Window Manager v2.3         *
+* v1.1  06/27/90 Updated to Window Manager v3.1                          *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1990 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+               macro
+&lab           WindBootInit
+&lab           Tool  $010e
+               mend
+
+               macro
+&lab           WindStartUp &a1
+&lab           ph2   &a1
+               Tool  $020e
+               mend
+
+               macro
+&lab           WindShutDown
+&lab           Tool  $030e
+               mend
+
+               macro
+&lab           WindVersion &a1
+&lab           pha
+               Tool  $040e
+               pl2   &a1
+               mend
+
+               macro
+&lab           WindReset
+&lab           Tool  $050e
+               mend
+
+               macro
+&lab           WindStatus &a1
+&lab           pha
+               Tool  $060e
+               pl2   &a1
+               mend
+
+               macro
+&lab           NewWindow &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1
+               Tool  $090e
+               pl4   &a2
+               mend
+
+               macro
+&lab           CheckUpdate &a1,&a2
+&lab           pha
+               ph4   &a1
+               Tool  $0a0e
+               pl2   &a2
+               mend
+
+               macro
+&lab           CloseWindow &a1
+&lab           ph4   &a1
+               Tool  $0b0e
+               mend
+
+               macro
+&lab           Desktop &a1,&a2
+&lab           pha
+               pha
+               ph2   &a1(1)
+               ph4   &a1(2)
+               Tool  $0c0e
+               pl4   &a2
+               mend
+
+               macro
+&lab           SetWTitle &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $0d0e
+               mend
+
+               macro
+&lab           GetWTitle &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1
+               Tool  $0e0e
+               pl4   &a2
+               mend
+
+               macro
+&lab           SetFrameColor &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $0f0e
+               mend
+
+               macro
+&lab           GetFrameColor &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $100e
+               mend
+
+               macro
+&lab           SelectWindow &a1
+&lab           ph4   &a1
+               Tool  $110e
+               mend
+
+               macro
+&lab           HideWindow &a1
+&lab           ph4   &a1
+               Tool  $120e
+               mend
+
+               macro
+&lab           ShowWindow &a1
+&lab           ph4   &a1
+               Tool  $130e
+               mend
+
+               macro
+&lab           SendBehind &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $140e
+               mend
+
+               macro
+&lab           FrontWindow &a1
+&lab           pha
+               pha
+               Tool  $150e
+               pl4   &a1
+               mend
+
+               macro
+&lab           SetInfoDraw &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $160e
+               mend
+
+               macro
+&lab           FindWindow &a1,&a2
+&lab           pha
+               ph4   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               Tool  $170e
+               pl2   &a2
+               mend
+
+               macro
+&lab           TrackGoAway &a1,&a2
+&lab           pha
+               ph2   &a1(1)
+               ph2   &a1(2)
+               ph4   &a1(3)
+               Tool  $180e
+               pl2   &a2
+               mend
+
+               macro
+&lab           MoveWindow &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               ph4   &a1(3)
+               Tool  $190e
+               mend
+
+               macro
+&lab           DragWindow &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               ph2   &a1(4)
+               ph4   &a1(5)
+               ph4   &a1(6)
+               Tool  $1a0e
+               mend
+
+               macro
+&lab           GrowWindow &a1,&a2
+&lab           pha
+               pha
+               ph2   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               ph2   &a1(4)
+               ph4   &a1(5)
+               Tool  $1b0e
+               pl4   &a2
+               mend
+
+               macro
+&lab           SizeWindow &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               ph4   &a1(3)
+               Tool  $1c0e
+               mend
+
+               macro
+&lab           TaskMaster &a1,&a2
+&lab           pha
+               ph2   &a1(1)
+               ph4   &a1(2)
+               Tool  $1d0e
+               pl2   &a2
+               mend
+
+               macro
+&lab           BeginUpdate &a1
+&lab           ph4   &a1
+               Tool  $1e0e
+               mend
+
+               macro
+&lab           EndUpdate &a1
+&lab           ph4   &a1
+               Tool  $1f0e
+               mend
+
+               macro
+&lab           GetWMgrPort &a1
+&lab           pha
+               pha
+               Tool  $200e
+               pl4   &a1
+               mend
+
+               macro
+&lab           PinRect &a1,&a2
+&lab           pha
+               pha
+               ph2   &a1(1)
+               ph2   &a1(2)
+               ph4   &a1(3)
+               Tool  $210e
+               pl4   &a2
+               mend
+
+               macro
+&lab           HiliteWindow &a1
+&lab           ph2   &a1(1)
+               ph4   &a1(2)
+               Tool  $220e
+               mend
+
+               macro
+&lab           ShowHide &a1
+&lab           ph2   &a1(1)
+               ph4   &a1(2)
+               Tool  $230e
+               mend
+
+               macro
+&lab           BringToFront &a1
+&lab           ph4   &a1
+               Tool  $240e
+               mend
+
+               macro
+&lab           WindNewRes
+&lab           Tool  $250e
+               mend
+
+               macro
+&lab           TrackZoom &a1,&a2
+&lab           pha
+               ph2   &a1(1)
+               ph2   &a1(2)
+               ph4   &a1(3)
+               Tool  $260e
+               pl2   &a2
+               mend
+
+               macro
+&lab           ZoomWindow &a1
+&lab           ph4   &a1
+               Tool  $270e
+               mend
+
+               macro
+&lab           SetWRefCon &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $280e
+               mend
+
+               macro
+&lab           GetWRefCon &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1
+               Tool  $290e
+               pl4   &a2
+               mend
+
+               macro
+&lab           GetNextWindow &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1
+               Tool  $2a0e
+               pl4   &a2
+               mend
+
+               macro
+&lab           GetWKind &a1,&a2
+&lab           pha
+               ph4   &a1
+               Tool  $2b0e
+               pl2   &a2
+               mend
+
+               macro
+&lab           GetWFrame &a1,&a2
+&lab           pha
+               ph4   &a1
+               Tool  $2c0e
+               pl2   &a2
+               mend
+
+               macro
+&lab           SetWFrame &a1
+&lab           ph2   &a1(1)
+               ph4   &a1(2)
+               Tool  $2d0e
+               mend
+
+               macro
+&lab           GetStructRgn &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1
+               Tool  $2e0e
+               pl4   &a2
+               mend
+
+               macro
+&lab           GetContentRgn &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1
+               Tool  $2f0e
+               pl4   &a2
+               mend
+
+               macro
+&lab           GetUpdateRgn &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1
+               Tool  $300e
+               pl4   &a2
+               mend
+
+               macro
+&lab           GetDefProc &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1
+               Tool  $310e
+               pl4   &a2
+               mend
+
+               macro
+&lab           SetDefProc &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $320e
+               mend
+
+               macro
+&lab           GetWControls &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1
+               Tool  $330e
+               pl4   &a2
+               mend
+
+               macro
+&lab           SetOriginMask &a1
+&lab           ph2   &a1(1)
+               ph4   &a1(2)
+               Tool  $340e
+               mend
+
+               macro
+&lab           GetInfoRefCon &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1
+               Tool  $350e
+               pl4   &a2
+               mend
+
+               macro
+&lab           SetInfoRefCon &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $360e
+               mend
+
+               macro
+&lab           GetZoomRect &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1
+               Tool  $370e
+               pl4   &a2
+               mend
+
+               macro
+&lab           SetZoomRect &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $380e
+               mend
+
+               macro
+&lab           RefreshDesktop &a1
+&lab           ph4   &a1
+               Tool  $390e
+               mend
+
+               macro
+&lab           InvalRect &a1
+&lab           ph4   &a1
+               Tool  $3a0e
+               mend
+
+               macro
+&lab           InvalRgn &a1
+&lab           ph4   &a1
+               Tool  $3b0e
+               mend
+
+               macro
+&lab           ValidRect &a1
+&lab           ph4   &a1
+               Tool  $3c0e
+               mend
+
+               macro
+&lab           ValidRgn &a1
+&lab           ph4   &a1
+               Tool  $3d0e
+               mend
+
+               macro
+&lab           GetContentOrigin &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1
+               Tool  $3e0e
+               pl4   &a2
+               mend
+
+               macro
+&lab           SetContentOrigin &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               ph4   &a1(3)
+               Tool  $3f0e
+               mend
+
+               macro
+&lab           GetDataSize &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1
+               Tool  $400e
+               pl4   &a2
+               mend
+
+               macro
+&lab           SetDataSize &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               ph4   &a1(3)
+               Tool  $410e
+               mend
+
+               macro
+&lab           GetMaxGrow &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1
+               Tool  $420e
+               pl4   &a2
+               mend
+
+               macro
+&lab           SetMaxGrow &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               ph4   &a1(3)
+               Tool  $430e
+               mend
+
+               macro
+&lab           GetScroll &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1
+               Tool  $440e
+               pl4   &a2
+               mend
+
+               macro
+&lab           SetScroll &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               ph4   &a1(3)
+               Tool  $450e
+               mend
+
+               macro
+&lab           GetPage &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1
+               Tool  $460e
+               pl4   &a2
+               mend
+
+               macro
+&lab           SetPage &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               ph4   &a1(3)
+               Tool  $470e
+               mend
+
+               macro
+&lab           GetContentDraw &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1
+               Tool  $480e
+               pl4   &a2
+               mend
+
+               macro
+&lab           SetContentDraw &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $490e
+               mend
+
+               macro
+&lab           GetInfoDraw &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1
+               Tool  $4a0e
+               pl4   &a2
+               mend
+
+               macro
+&lab           SetSysWindow &a1
+&lab           ph4   &a1
+               Tool  $4b0e
+               mend
+
+               macro
+&lab           GetSysWFlag &a1,&a2
+&lab           pha
+               ph4   &a1
+               Tool  $4c0e
+               pl2   &a2
+               mend
+
+               macro
+&lab           StartDrawing &a1
+&lab           ph4   &a1
+               Tool  $4d0e
+               mend
+
+               macro
+&lab           SetWindowIcons &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1
+               Tool  $4e0e
+               pl4   &a2
+               mend
+
+               macro
+&lab           GetRectInfo &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $4f0e
+               mend
+
+               macro
+&lab           StartInfoDrawing &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $500e
+               mend
+
+               macro
+&lab           EndInfoDrawing
+&lab           Tool  $510e
+               mend
+
+               macro
+&lab           GetFirstWindow &a1
+&lab           pha
+               pha
+               Tool  $520e
+               pl4   &a1
+               mend
+
+               macro
+&lab           WindDragRect &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1(1)
+               ph4   &a1(2)
+               ph2   &a1(3)
+               ph2   &a1(4)
+               ph4   &a1(5)
+               ph4   &a1(6)
+               ph4   &a1(7)
+               ph2   &a1(8)
+               Tool  $530e
+               pl4   &a2
+               mend
+
+               macro
+&lab           GDRPrivate
+&lab           Tool  $540e
+               mend
+
+               macro
+&lab           DrawInfoBar &a1
+&lab           ph4   &a1
+               Tool  $550e
+               mend
+
+               macro
+&lab           WindowGlobal &a1,&a2
+&lab           pha
+               ph2   &a1
+               Tool  $560e
+               pl2   &a2
+               mend
+
+               macro
+&lab           SetContentOrigin2 &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               ph4   &a1(4)
+               Tool  $570e
+               mend
+
+               macro
+&lab           GetWindowMgrGlobals &a1
+&lab           pha
+               pha
+               Tool  $580e
+               pl4   &a1
+               mend
+
+               macro
+&lab           AlertWindow &a1,&a2
+&lab           pha
+               ph2   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               Tool  $590e
+               pl2   &a2
+               mend
+
+               macro
+&lab           StartFrameDrawing &a1
+&lab           ph4   &a1
+               Tool  $5a0e
+               mend
+
+               macro
+&lab           EndFrameDrawing
+&lab           Tool  $5b0e
+               mend
+
+               macro
+&lab           ResizeWindow &a1
+&lab           ph2   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               Tool  $5c0e
+               mend
+
+               macro
+&lab           TaskMasterContent
+&lab           Tool  $5d0e
+               mend
+
+               macro
+&lab           TaskMasterKey
+&lab           Tool  $5e0e
+               mend
+
+               macro
+&lab           TaskMasterDA &a1,&a2
+&lab           pha
+               ph2   &a1(1)
+               ph4   &a1(2)
+               Tool  $5f0e
+               pl2   &a2
+               mend
+
+               macro
+&lab           CompileText &a1,&a2
+&lab           pha
+               pha
+               ph2   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               ph2   &a1(4)
+               Tool  $600e
+               pl4   &a2
+               mend
+
+               macro
+&lab           NewWindow2 &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               ph4   &a1(4)
+               ph2   &a1(5)
+               ph4   &a1(6)
+               ph2   &a1(7)
+               Tool  $610e
+               pl4   &a2
+               mend
+
+               macro
+&lab           ErrorWindow &a1,&a2
+&lab           pha
+               ph2   &a1(1)
+               ph4   &a1(2)
+               ph2   &a1(3)
+               Tool  $620e
+               pl2   &a2
+               mend

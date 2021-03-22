@@ -1,0 +1,106 @@
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                 Copyright 1990,91 by Tim Meekins                       *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+                        M16.PASCAL DOCUMENTATION
+                        ========================
+                              Release 1.1
+
+
+This file (M16.PASCAL) consists of two macros for developing Pascal-like
+subroutines. I highly reccomend that you use these macros when writing
+subroutines, especially if there is a need to pass parameters back and forth.
+
+The two macros are SUBROUTINE and RETURN.
+
+--------------------------------------------------------------------------
+
+SUBROUTINE &Parameters,&WorkSpace
+
+&Parameters contains a list of parameters that are being passed to the
+subroutine. Each paramter is separated with a comma, and each parameter
+is prefixed with the length of the parameter in bytes, separated by a ':'.
+
+&WorkSpace is the amount of space to be reserved for local variables.
+
+--------------------------------------------------------------------------
+
+RETURN &Return
+
+Return is the value to return. &Return is prefixed with the length of the
+return value and separated with a ':'.
+
+If the return length is 2 then the Accumulator contains &Return.
+
+If the return length is 4 then the Accumulator contains the LSB of &Return
+and the X-register contains the MSB of &Register.
+
+If the return length is 10 then the Y-Register contains the LSB of
+&Return's address and the X-Register contains the MSB of &Return's Address.
+
+--------------------------------------------------------------------------
+
+AN EXAMPLE:
+;
+; An example of using SUBROUTINE and RETURN
+;
+Local1        equ       0                   ;These are the local variables!
+Local2        equ       Local1+2
+Local3        equ       Local2+2
+Space         equ       Local3+2            ;This is the workspace needed!!
+;
+;
+              SUBROUTINE (2:Parm1,4:Parm2),Space
+;
+; Put the body of the subroutine here, the local variables and parameters
+; can be used simply by referencing them, for example,
+;             LDA       Parm1
+;             STA       Local2
+;
+              RETURN 2:Local3               ;Return Local3 in Y reg.
+
+Return values may also be returned via the stack. In our previous example,
+Just after SUBROUTINE was declared, we could have placed:
+
+Return1       equ       Parm1+2             ;Note, this is the first
+Return2       equ       Return1+2           ;  parameter
+
+--------------------------------------------------------------------------
+
+THE STACK.
+
+Below is the stack of the previous example:
+
+
+           Stack Offset
+                ___   _____
+              18           \
+Return2       17___         |
+              16            |
+Return1       15___         |
+              14             \   These values are placed on the stack by
+Parm1         13___          /   the calling program. When the subroutine
+              12            |    exits, only Return1 and Return2 are left on
+              11            |    the stack.
+              10            |
+Parm2         9____   _____/
+              8            \
+              7             >    This is the return address for RTL
+Return Addr   6____   _____/
+              5            \
+Local3        4____         |
+              3              \   This is the local storage created by the
+Local2        2____          /   subroutine
+              1             |
+Local1        0_____  _____/     <- Top of stack
+

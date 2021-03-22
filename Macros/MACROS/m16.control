@@ -1,0 +1,450 @@
+**************************************************************************
+*                                                                        *
+* Control Manager macros                                                 *
+* Written by Tim Meekins                                                 *
+* November 4, 1988                                                       *
+*                                                                        *
+* Requires: M16.MACROS                                                   *
+*                                                                        *
+* v1.0  11/04/88 TLM Original Version. Using Control Manager v2.5        *
+* v1.1  11/11/88 TLM Now uses Tool macro                                 *
+* v1.2  11/11/88 TLM Updated to Control Manager v2.6                     *
+* v1.3  07/25/90 TLM Updates to Control Manager v3.1                     *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1990 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+               macro
+&lab           CtlBootInit
+&lab           Tool  $0110
+               mend
+
+               macro
+&lab           CtlStartUp &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               Tool  $0210
+               mend
+
+               macro
+&lab           CtlShutDown
+&lab           Tool  $0310
+               mend
+
+               macro
+&lab           CtlVersion &a1
+&lab           pha
+               Tool  $0410
+               pl2   &a1
+               mend
+
+               macro
+&lab           CtlReset
+&lab           Tool  $0510
+               mend
+
+               macro
+&lab           CtlStatus &a1
+&lab           pha
+               Tool  $0610
+               pl2   &a1
+               mend
+
+               macro
+&lab           NewControl &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1(1)
+               ph4   &a1(2)
+               ph4   &a1(3)
+               ph2   &a1(4)
+               ph2   &a1(5)
+               ph2   &a1(6)
+               ph2   &a1(7)
+               ph4   &a1(8)
+               ph4   &a1(9)
+               ph4   &a1(10)
+               Tool  $0910
+               pl4   &a2
+               mend
+
+               macro
+&lab           DisposeControl &a1
+&lab           ph4   &a1
+               Tool  $0a10
+               mend
+
+               macro
+&lab           KillControls &a1
+&lab           ph4   &a1
+               Tool  $0b10
+               mend
+
+               macro
+&lab           SetCtlTitle &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               Tool   $0c10
+               mend
+
+               macro
+&lab           GetCtlTitle &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1
+               Tool  $0d10
+               pl4   &a2
+               mend
+
+               macro
+&lab           HideControl &a1
+&lab           ph4   &a1
+               Tool  $0e10
+               mend
+
+               macro
+&lab           ShowControl &a1
+&lab           ph4   &a1
+               Tool  $0f10
+               mend
+
+               macro
+&lab           DrawControls &a1
+&lab           ph4   &a1
+               Tool  $1010
+               mend
+
+               macro
+&lab           HiliteControl &a1
+&lab           ph2   &a1(1)
+               ph4   &a1(2)
+               Tool  $1110
+               mend
+
+               macro
+&lab           CtlNewRes
+&lab           Tool  $1210
+               mend
+
+               macro
+&lab           FindControl &a1,&a2
+&lab           pha
+               ph4   &a1(1)
+               ph2   &a1(2)
+               ph2   &a1(3)
+               ph4   &a1(4)
+               Tool  $1310
+               pl2   &a2
+               mend
+
+               macro
+&lab           TestControl &a1,&a2
+&lab           pha
+               ph2   &a1(1)
+               ph2   &a1(2)
+               ph4   &a1(3)
+               Tool  $1410
+               pl2   &a2
+               mend
+
+               macro
+&lab           TrackControl &a1,&a2
+&lab           pha
+               ph2   &a1(1)
+               ph2   &a1(2)
+               ph4   &a1(3)
+               ph4   &a1(4)
+               Tool  $1510
+               pl2   &a2
+               mend
+
+               macro
+&lab           MoveControl &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               ph4   &a1(3)
+               Tool  $1610
+               mend
+
+               macro
+&lab           DragControl &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               ph4   &a1(3)
+               ph4   &a1(4)
+               ph2   &a1(5)
+               ph4   &a1(6)
+               Tool  $1710
+               mend
+
+               macro
+&lab           SetCtlIcons &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1
+               Tool  $1810
+               pl4   &a2
+               mend
+
+               macro
+&lab           SetCtlValue &a1
+&lab           ph2   &a1(1)
+               ph4   &a1(2)
+               Tool  $1910
+               mend
+
+               macro
+&lab           GetCtlValue &a1,&a2
+&lab           pha
+               ph4   &a1
+               Tool  $1a10
+               ph2   &a2
+               mend
+
+               macro
+&lab           SetCtlParams &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               ph4   &a1(3)
+               Tool  $1b10
+               mend
+
+               macro
+&lab           GetCtlParams &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1
+               Tool  $1c10
+               pl2   &a2(1)
+               pl2   &a2(2)
+               mend
+
+               macro
+&lab           DragRect &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1(1)
+               ph4   &a1(2)
+               ph2   &a1(3)
+               ph2   &a1(4)
+               ph4   &a1(5)
+               ph4   &a1(6)
+               ph4   &a1(7)
+               ph2   &a1(8)
+               Tool  $1d10
+               pl4   &a2
+               mend
+
+               macro
+&lab           GrowSize &a1
+&lab           pha
+               pha
+               Tool  $1e10
+               pl4   &a1
+               mend
+
+               macro
+&lab           GetCtlDpage &a1
+&lab           pha
+               Tool  $1f10
+               pl2   &a1
+               mend
+
+               macro
+&lab           SetCtlAction &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $2010
+               mend
+
+               macro
+&lab           GetCtlAction &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1
+               Tool  $2110
+               pl4   &a2
+               mend
+
+               macro
+&lab           SetCtlRefCon &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $2210
+               mend
+
+               macro
+&lab           GetCtlRefCon &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1
+               Tool  $2310
+               pl4   &a2
+               mend
+
+               macro
+&lab           EraseControl &a1
+&lab           ph4   &a1
+               Tool  $2410
+               mend
+
+               macro
+&lab           DrawOneCtl &a1
+&lab           ph4   &a1
+               Tool  $2510
+               mend
+
+               macro
+&lab           FindTargetCtl &a1
+&lab           pha
+               pha
+               Tool  $2610
+               pl4   &a1
+               mend
+
+               macro
+&lab           MakeNextCtlTarget &a1
+&lab           pha
+               pha
+               Tool  $2710
+               pl4   &a1
+               mend
+
+               macro
+&lab           MakeThisCtlTarget &a1
+&lab           pha
+               pha
+               Tool  $2810
+               pl4   &a1
+               mend
+
+               macro
+&lab           SendEventToCtl &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               ph4   &a1(3)
+               ph4   &a1(4)
+               Tool  $2910
+               mend
+
+               macro
+&lab           GetCtlID &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1
+               Tool  $2a10
+               pl4   &a2
+               mend
+
+               macro
+&lab           SetCtlID &a1
+&lab           ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $2b10
+               mend
+
+               macro
+&lab           CallCtlDefProc &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1(1)
+               ph2   &a1(2)
+               ph4   &a1(3)
+               Tool  $2c10
+               pl4   &a2
+               mend
+
+               macro
+&lab           NotifyCtls &a1
+&lab           ph2   &a1(1)
+               ph2   &a1(2)
+               ph4   &a1(3)
+               ph4   &a1(4)
+               Tool  $2d10
+               mend
+
+               macro
+&lab           GetCtlMoreFlags &a1,&a2
+&lab           pha
+               ph4   &a1
+               Tool  $2e10
+               pl2   &a2
+               mend
+
+               macro
+&lab           SetCtlMoreFlags &a1
+&lab           ph2   &a1(1)
+               ph4   &a1(2)
+               Tool  $2f10
+               mend
+
+               macro
+&lab           GetCtlHandleFromID &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1(1)
+               ph4   &a1(2)
+               Tool  $3010
+               pl4   &a2
+               mend
+
+               macro
+&lab           NewControl2 &a1,&a2
+&lab           pha
+               pha
+               ph4   &a1(1)
+               ph2   &a1(2)
+               ph4   &a1(3)
+               Tool  $3110
+               pl4   &a2
+               mend
+
+               macro
+&lab           CMLoadResource &a1,&a2
+&lab           pha
+               pha
+               ph2   &a1(1)
+               ph4   &a1(2)
+               Tool  $3210
+               pl4   &a2
+               mend
+
+               macro
+&lab           CMReleaseResource &a1
+&lab           ph2   &a1(1)
+               ph4   &a1(2)
+               Tool  $3310
+               mend
+
+               macro
+&lab           SetCtlParamPtr &a1
+&lab           ph4   &a1
+               Tool  $3410
+               mend
+
+               macro
+&lab           GetCtlParamPtr &a1
+&lab           pha
+               pha
+               Tool  $3510
+               pl4   &a1
+               mend
+
+               macro
+&lab           InvalCtls &a1
+&lab           ph4   &a1
+               Tool  $3710
+               mend
+
+

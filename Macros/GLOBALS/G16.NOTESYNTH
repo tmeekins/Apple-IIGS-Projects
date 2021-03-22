@@ -1,0 +1,32 @@
+**************************************************************************
+*                                                                        *
+* Note Synthesizer constants, data structures, and error codes           *
+* Written by Tim Meekins                                                 *
+* September 6, 1989                                                      *
+*                                                                        *
+* v1.0  09/06/89 Original version. Uses Note Synthesizer v1.3            *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1990 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+*
+* Note Synthesizer error codes
+*
+AlreadyInit    gequ  $1901
+SoundNoInit    gequ  $1902
+NoneAvailable  gequ  $1921
+BadGenNum      gequ  $1922
+NotStarted     gequ  $1923
+AlreadyOn      gequ  $1924
+SoundWrongVer  gequ  $1925

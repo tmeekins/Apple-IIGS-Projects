@@ -1,0 +1,128 @@
+**************************************************************************
+*                                                                        *
+* SoundSmith SoundTrack Tool 219 (C) FTA                                 *
+* Written by Tim Meekins                                                 *
+* February 16, 1991                                                      *
+*                                                                        *
+* Requires: M16.MACROS                                                   *
+*                                                                        *
+* v1.0  02/16/91 TLM Original Version.                                   *
+*       02/23/91 TLM Fixed Typo in STGetTrackVU.                         *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                  Copyright 1990,91 by Tim Meekins                      *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+               macro
+&lab           STStartUp &a1
+&lab           ph2   &a1
+               Tool  $02db
+               mend
+
+               macro
+&lab           STShutDown
+&lab           Tool  $03db
+               mend
+
+               macro
+&lab           STVersion &a1
+&lab           pha
+               Tool  $04db
+               pl2   &a1
+               mend
+
+               macro
+&lab           STReset
+&lab           Tool  $05db
+               mend
+
+               macro
+&lab           STStatus &a1
+&lab           pha
+               Tool  $06db
+               pl2   &a1
+               mend
+
+               macro
+&lab           STLoadOneMusic &a1
+&lab           ph4   &a1
+               Tool  $09db
+               mend
+
+               macro
+&lab           STPlayMusic &a1
+&lab           ph2   &a1
+               Tool  $0adb
+               mend
+
+               macro
+&lab           STStopMusic
+&lab           Tool  $0bdb
+               mend
+
+               macro
+&lab           STGetEndOfMusic &a1
+&lab           pha
+               Tool  $0cdb
+               pl2   &a1
+               mend
+
+               macro
+&lab           STAddToBatch &a1
+&lab           ph4   &a1(1)
+               ph2   &a1(2)
+               Tool  $0ddb
+               mend
+
+               macro
+&lab           STSelectBatch &a1
+&lab           ph2   &a1
+               Tool  $0edb
+               mend
+
+               macro
+&lab           STKillBatch &a1
+&lab           ph2   &a1
+               Tool  $0fdb
+               mend
+
+               macro
+&lab           STGetPlayingMusic &a1
+&lab           pha
+               Tool  $10db
+               pl2   &a1
+               mend
+
+               macro
+&lab           STPlayBatch &a1
+&lab           ph4   &a1
+               Tool  $11db
+               mend
+
+               macro
+&lab           STGetTrackVu &a1
+&lab           pha
+               pha
+               Tool  $12db
+               pl4   &a1
+               mend
+
+               macro
+&lab           STPauseMusic
+&lab           Tool  $13db
+               mend
+
+               macro
+&lab           STContinueMusic
+&lab           Tool  $14db
+               mend

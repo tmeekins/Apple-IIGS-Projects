@@ -1,0 +1,292 @@
+**************************************************************************
+*                                                                        *
+* GS/OS macros                                                           *
+* Written by Tim Meekins                                                 *
+* October 28, 1989                                                       *
+*                                                                        *
+* Requires: M16.MACROS                                                   *
+*                                                                        *
+* v1.0  10/28/89 TLM Original Version. Uses GS/OS v2.0                   *
+* v1.1   2/15/91 TLM Added AddNotifyProc. Fixed spelling ClearBackupBit. *
+*                    Added DelNotifyProc,DRename,GetRefInfo,GetRefNum,   *
+*                    GetStdRefNum. Uses GS/OS v3.0                       *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                  Copyright 1990,91 by Tim Meekins                      *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+         macro
+&lab     Create &a1
+&lab     gsos  $2001,&a1
+         mend
+
+         macro
+&lab     Destroy &a1
+&lab     gsos  $2002,&a1
+         mend
+
+         macro
+&lab     OSShutdown &a1
+&lab     gsos  $2003,&a1
+         mend
+
+         macro
+&lab     ChangePath &a1
+&lab     gsos  $2004,&a1
+         mend
+
+         macro
+&lab     SetFileInfo &a1
+&lab     gsos  $2005,&a1
+         mend
+
+         macro
+&lab     GetFileInfo &a1
+&lab     gsos  $2006,&a1
+         mend
+
+         macro
+&lab     Volume &a1
+&lab     gsos  $2008,&a1
+         mend
+
+         macro
+&lab     SetPrefix &a1
+&lab     gsos  $2009,&a1
+         mend
+
+         macro
+&lab     GetPrefix &a1
+&lab     gsos  $200A,&a1
+         mend
+
+         macro
+&lab     ClearBackupBit &a1
+&lab     gsos  $200B,&a1
+         mend
+
+         macro
+&lab     SetSysPrefs &a1
+&lab     gsos  $200C,&a1
+         mend
+
+         macro
+&lab     Null  &a1
+&lab     gsos  $200D,&a1
+         mend
+
+         macro
+&lab     ExpandPath &a1
+&lab     gsos  $200E,&a1
+         mend
+
+         macro
+&lab     GetSysPrefs &a1
+&lab     gsos  $200F,&a1
+         mend
+
+         macro
+&lab     Open  &a1
+&lab     gsos  $2010,&a1
+         mend
+
+         macro
+&lab     NewLine &a1
+&lab     gsos  $2011,&a1
+         mend
+
+         macro
+&lab     Read  &a1
+&lab     gsos  $2012,&a1
+         mend
+
+         macro
+&lab     Write &a1
+&lab     gsos  $2013,&a1
+         mend
+
+         macro
+&lab     Close &a1
+&lab     gsos  $2014,&a1
+         mend
+
+         macro
+&lab     Flush &a1
+&lab     gsos  $2015,&a1
+         mend
+
+         macro
+&lab     SetMark &a1
+&lab     gsos  $2016,&a1
+         mend
+
+         macro
+&lab     GetMark &a1
+&lab     gsos  $2017,&a1
+         mend
+
+         macro
+&lab     SetEOF &a1
+&lab     gsos  $2018,&a1
+         mend
+
+         macro
+&lab     GetEOF &a1
+&lab     gsos  $2019,&a1
+         mend
+
+         macro
+&lab     SetLevel &a1
+&lab     gsos  $201A,&a1
+         mend
+
+         macro
+&lab     GetLevel &a1
+&lab     gsos  $201B,&a1
+         mend
+
+         macro
+&lab     GetDirEntry &a1
+&lab     gsos  $201C,&a1
+         mend
+
+         macro
+&lab     BeginSession &a1
+&lab     gsos  $201D,&a1
+         mend
+
+         macro
+&lab     EndSession &a1
+&lab     gsos  $201E,&a1
+         mend
+
+         macro
+&lab     SessionStatus &a1
+&lab     gsos  $201F,&a1
+         mend
+
+         macro
+&lab     GetDevNumber &a1
+&lab     gsos  $2020,&a1
+         mend
+
+         macro
+&lab     Format &a1
+&lab     gsos  $2024,&a1
+         mend
+
+         macro
+&lab     EraseDisk &a1
+&lab     gsos  $2025,&a1
+         mend
+
+         macro
+&lab     ResetCache &a1
+&lab     gsos  $2026,&a1
+         mend
+
+         macro
+&lab     GetName &a1
+&lab     gsos  $2027,&a1
+         mend
+
+         macro
+&lab     GetBootVol &a1
+&lab     gsos  $2028,&a1
+         mend
+
+         macro
+&lab     Quit &a1
+&lab     gsos  $2029,&a1
+         mend
+
+         macro
+&lab     GetVersion &a1
+&lab     gsos  $202A,&a1
+         mend
+
+         macro
+&lab     GetFSTInfo &a1
+&lab     gsos  $202B,&a1
+         mend
+
+         macro
+&lab     DInfo &a1
+&lab     gsos  $202C,&a1
+         mend
+
+         macro
+&lab     DStatus &a1
+&lab     gsos  $202D,&a1
+         mend
+
+         macro
+&lab     DControl &a1
+&lab     gsos  $202E,&a1
+         mend
+
+         macro
+&lab     DRead &a1
+&lab     gsos  $202F,&a1
+         mend
+
+         macro
+&lab     DWrite &a1
+&lab     gsos  $2030,&a1
+         mend
+
+         macro
+&lab     BindInt &a1
+&lab     gsos  $2031,&a1
+         mend
+
+         macro
+&lab     UnbindInt &a1
+&lab     gsos  $2032,&a1
+         mend
+
+         macro
+&lab     FSTSpecific &a1
+&lab     gsos  $2033,&a1
+         mend
+
+         macro
+&lab     AddNotifyProc &a1
+&lab     gsos  $2034,&a1
+         mend
+
+         macro
+&lab     DelNotifyProc &a1
+&lab     gsos  $2035,&a1
+         mend
+
+         macro
+&lab     DRename &a1
+&lab     gsos  $2036,&a1
+         mend
+
+         macro
+&lab     GetStdRefNum &a1
+&lab     gsos  $2037,&a1
+         mend
+
+         macro
+&lab     GetRefNum &a1
+&lab     gsos  $2038,&a1
+         mend
+
+         macro
+&lab     GetRefInfo &a1
+&lab     gsos  $2039,&a1
+         mend
+

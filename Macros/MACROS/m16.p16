@@ -1,0 +1,205 @@
+**************************************************************************
+*                                                                        *
+* ProDOS 16 macros                                                       *
+* Written by Tim Meekins                                                 *
+* September 12, 1989                                                     *
+*                                                                        *
+* Requires: M16.MACROS                                                   *
+*                                                                        *
+* v1.0  09/12/89 TLM Original Version.                                   *
+*       10/28/89 TLM Prefixed all names with "P16"                       *
+* v1.1  02/15/91 TLM Added D_Info,Erase_Disk,Expand_Path,Get_Dir_Entry.  *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                  Copyright 1990,91 by Tim Meekins                      *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+         macro
+&lab     P16Create &a1
+&lab     p16 $1,&a1
+         mend
+
+         macro
+&lab     P16Destroy &a1
+&lab     p16 $2,&a1
+         mend
+
+         macro
+&lab     P16Change_Path &a1
+&lab     p16 $4,&a1
+         mend
+
+         macro
+&lab     P16Set_File_Info &a1
+&lab     p16 $5,&a1
+         mend
+
+         macro
+&lab     P16Get_File_Info &a1
+&lab     p16 $6,&a1
+         mend
+
+         macro
+&lab     P16Volume &a1
+&lab     p16 $8,&a1
+         mend
+
+         macro
+&lab     P16Set_Prefix &a1
+&lab     p16 $9,&a1
+         mend
+
+         macro
+&lab     P16Get_Prefix &a1
+&lab     p16 $a,&a1
+         mend
+
+         macro
+&lab     P16Clear_Backup_Bit &a1
+&lab     p16 $b,&a1
+         mend
+
+         macro
+&lab     P16Expand_Path &a1
+&lab     p16 $e,&a1
+         mend
+
+         macro
+&lab     P16Open &a1
+&lab     p16 $10,&a1
+         mend
+
+         macro
+&lab     P16NewLine &a1
+&lab     p16 $11,&a1
+         mend
+
+         macro
+&lab     P16Read &a1
+&lab     p16 $12,&a1
+         mend
+
+         macro
+&lab     P16Write &a1
+&lab     p16 $13,&a1
+         mend
+
+         macro
+&lab     P16Close &a1
+&lab     p16 $14,&a1
+         mend
+
+         macro
+&lab     P16Flush &a1
+&lab     p16 $15,&a1
+         mend
+
+         macro
+&lab     P16Set_Mark &a1
+&lab     p16 $16,&a1
+         mend
+
+         macro
+&lab     P16Get_Mark &a1
+&lab     p16 $17,&a1
+         mend
+
+         macro
+&lab     P16Set_EOF &a1
+&lab     p16 $18,&a1
+         mend
+
+         macro
+&lab     P16Get_EOF &a1
+&lab     p16 $19,&a1
+         mend
+
+         macro
+&lab     P16Set_Level &a1
+&lab     p16 $1a,&a1
+         mend
+
+         macro
+&lab     P16Get_Level &a1
+&lab     p16 $1b,&a1
+         mend
+
+         macro
+&lab     P16Get_Dir_Entry &a1
+&lab     p16 $1c,&a1
+         mend
+
+         macro
+&lab     P16Get_Dev_Num &a1
+&lab     p16 $20,&a1
+         mend
+
+         macro
+&lab     P16Get_Last_Dev &a1
+&lab     p16 $21,&a1
+         mend
+
+         macro
+&lab     P16Read_Block &a1
+&lab     p16 $22,&a1
+         mend
+
+         macro
+&lab     P16Write_Block &a1
+&lab     p16 $23,&a1
+         mend
+
+         macro
+&lab     P16Format &a1
+&lab     p16 $24,&a1
+         mend
+
+         macro
+&lab     P16Erase_Disk &a1
+&lab     p16 $25,&a1
+         mend
+
+         macro
+&lab     P16Get_Name &a1
+&lab     p16 $27,&a1
+         mend
+
+         macro
+&lab     P16Get_Boot_Vol &a1
+&lab     p16 $28,&a1
+         mend
+
+         macro
+&lab     P16Quit &a1
+&lab     p16 $29,&a1
+         mend
+
+         macro
+&lab     P16Get_Version &a1
+&lab     p16 $2a,&a1
+         mend
+
+         macro
+&lab     P16D_Info &a1
+&lab     p16 $2c,&a1
+         mend
+
+         macro
+&lab     P16Alloc_Interrupt &a1
+&lab     p16 $31,&a1
+         mend
+
+         macro
+&lab     P16Dealloc_Interrupt &a1
+&lab     p16 $32,&a1
+         mend

@@ -1,0 +1,49 @@
+**************************************************************************
+*                                                                        *
+* Tool Locator constants, data structures, and error codes               *
+* Written by Tim Meekins                                                 *
+* August 29, 1989                                                        *
+*                                                                        *
+* v1.0  08/29/89 Original version. Uses Tool Locator v2.4                *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1990 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+*
+* Message center action codes
+*
+addMessage     gequ  $0001
+getMessage     gequ  $0002
+deleteMessage  gequ  $0003
+*
+* Message center type values
+*
+fileInfoType   gequ  $0001
+*
+* TLMountVolume button values
+*
+mvReturn       gequ  $0001
+mvEscape       gequ  $0002
+*
+* Tool set specification
+*
+sysTool        gequ  $0000
+userTool       gequ  $8000
+*
+* Tool Locator error codes
+*
+toolNotFoundErr gequ $0001
+funcNotFoundErr gequ $0002
+toolVersionErr gequ  $0110
+messNotFoundErr gequ $0111

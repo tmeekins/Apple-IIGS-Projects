@@ -1,0 +1,31 @@
+**************************************************************************
+*                                                                        *
+* Scrap Manager constants, data structures, and error codes              *
+* Written by Tim Meekins                                                 *
+* August 25, 1989                                                        *
+*                                                                        *
+* v1.0  08/25/89 Original version. Uses Scrap Manager v1.4               *
+*                                                                        *
+**************************************************************************
+*                                                                        *
+*                    ZAVTRA MACRO UTILITIES DISK                         *
+*                   Copyright 1990 by Tim Meekins                        *
+*                        All Rights Reserved                             *
+*                                                                        *
+*                   THIS PRODUCT IS SHAREWARE!!                          *
+*   If you find yourself using this product extensively, please take the *
+*   time and send several dollars to the author to compensate for the    *
+*   many hours spent developing this product for your use. Support of    *
+*   this product will help in the development of future products.        *
+*                                                                        *
+**************************************************************************
+
+*
+* Public scrap type
+*
+textScrap      gequ  $0000
+picScrap       gequ  $0001
+*
+* Scrap Manager error codes
+*
+badScrapType   gequ  $1610
