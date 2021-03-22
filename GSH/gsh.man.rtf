@@ -1,0 +1,1406 @@
+{\rtf1\ansi\ansicpg1252\deff0\deflang1033\deflangfe1033{\fonttbl{\f0\fmodern\fprq1\fcharset0 Courier New;}{\f1\froman\fprq2\fcharset0 Times New Roman;}{\f2\fswiss\fprq2\fcharset0 Arial;}{\f3\froman\fprq2\fcharset2 Symbol;}}
+{\colortbl;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;
+\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;\red192\green192\blue192;\red64\green64\blue64;\red255\green153\blue0;}
+\viewkind4\uc1\pard\f0\fs20 \cf9 \f0 <header>\cf0 \par
+\pard\nowidctlpar \f2 \fs24 \par
+\cf9 \f0 \fs20 </header>\cf0 \par
+\cf9 \f0 <footer>\cf0 \par
+\pard\nowidctlpar \f2 \fs24 \par
+\cf9 \f0 \fs20 </footer>\cf0 \par
+\pard\nowidctlpar\qj \pard\nowidctlpar\qj \f2 \fs24 \par
+\pard\nowidctlpar\qj \f2 \par
+\pard\nowidctlpar\qj \f2 \par
+\pard\nowidctlpar\qj \f2 \par
+\pard\nowidctlpar\qj \f2 \par
+\pard\nowidctlpar\qj \f2 \par
+\pard\nowidctlpar\qj \f2 \par
+\pard\nowidctlpar\qj \f2 \par
+\pard\nowidctlpar\qj \f2 \par
+\pard\nowidctlpar\qj \f2 \par
+\pard\nowidctlpar\qj \f2 \par
+\pard\nowidctlpar\qj \f2 \par
+\pard\nowidctlpar\qj \f2 \par
+\pard\nowidctlpar\qj \f2 \par
+\pard\nowidctlpar\qj \f2 \par
+\pard\nowidctlpar\qj \f2 \par
+\pard\nowidctlpar\qj \f2 \par
+\pard\nowidctlpar\qj \f2 \par
+\pard\nowidctlpar\qj \f2 \par
+\pard\nowidctlpar\qj \f2 \par
+\pard\nowidctlpar\qj \f2 \par
+\pard\nowidctlpar\qj \f2 \par
+\pard\nowidctlpar\qj \f2 \par
+\pard\nowidctlpar\qj \f2 \par
+\pard\nowidctlpar\qj \f2 \par
+\pard\nowidctlpar\qj \f2 \par
+\pard\nowidctlpar\qj \f2 \par
+\pard\nowidctlpar\qj \f2 \par
+\pard\nowidctlpar\qj \f2 \par
+\pard\nowidctlpar\qj \f2 \par
+\pard\nowidctlpar\qj \f2 \par
+\pard\nowidctlpar\qj \f2 \par
+\pard\nowidctlpar\qj \f2 \par
+\pard\nowidctlpar\qj \f2 \par
+\pard\nowidctlpar\qj \f2 \par
+\pard\nowidctlpar\qj \f2 \par
+\pard\nowidctlpar\qj \f2 \par
+\pard\nowidctlpar\qj \f2 \par
+\pard\nowidctlpar\qj \f2 \par
+\pard\nowidctlpar\qj \f2 \par
+\pard\nowidctlpar\qj \f1 \fs22 \fs64 \b GNO/ME Shell User's Manual\par
+\pard\nowidctlpar\qj \f1 \fs22 \par
+\pard\nowidctlpar\qj \f1 \fs36 \b0 The U\fs26 NIX\fs36 -like shell for the Apple II\fs26 GS\par
+\pard\nowidctlpar\qj \f1 \fs36 by Timothy Meekins\par
+\cf9 \f0 \fs20 <page-break>\cf0 \par
+\page \pard\nowidctlpar\qj \f1 \fs36 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \fs22 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 The GNO/ME system and this manual are Copyright 1991 Tim Meekins and Procyon, Inc. The Orca/C run-time libraries are Copyright 1987-1989 Byte Works, Inc. and used with permission.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 GNO and GNO/ME are trademarks of Procyon, Inc.\par
+\pard\nowidctlpar\qj \f1 Apple II\fs14 GS\fs22 , APW, Installer, Finder, and GS/OS are registered trademarks of Apple Computer, Inc.\par
+\pard\nowidctlpar\qj \f1 AppleWorks GS is a trademark of Claris, Corp.\par
+\pard\nowidctlpar\qj \f1 UNIX is a registered trademark of AT&T Bell Laboratories.\par
+\pard\nowidctlpar\qj \f1 Orca/M and Orca/C are trademarks of the Byte Works, Inc.\par
+\pard\nowidctlpar\qj \f1 ProSel is a trademark of Glen Bredon.\par
+\pard\nowidctlpar\qj \f1 HyperLaunch is a trademark of So What Software.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b Important Notice:\b0  This is a fully copyrighted work and as such is protected under copyright laws of the United States of America. According to these laws, consumers of copywritten material may make copies for their personal use only. Duplication for any purpose whatsoever would constitute infringement of copyright laws and the offender would be liable to civil damages of up to $50,000 in addition to actual damages, plus criminal penalties of up to one year imprisonment and/or a $10,000 fine.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 Apple Computer, Inc. MAKES NO WARRANTIES, EITHER EXPRESSED OR IMPLIED, REGARDING THE ENCLOSED COMPUTER SOFTWARE PACKAGE, ITS MERCHANTABILITY OR ITS FITNESS FOR ANY PARTICULAR PURPOSE. THE EXCLUSION OF IMPLIED WARRANTIES IS NOT PERMITTED IN SOME STATES. THE ABOVE EXCLUSION MAY NOT APPLY TO YOU. THIS WARRANTY PROVIDES YOU WITH SPECIFIC LEGAL RIGHTS. THERE MAY BE OTHER RIGHTS THAT YOU MAY HAVE WHICH VARY FROM STATE TO STATE.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 This product is sold for use on a \i single computer\i0  at a \i single location\i0 . For information on obtaining a site license for using multiple copies, contact the publisher.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qr \pard\nowidctlpar\qr \f1 Procyon, Inc.\par
+\pard\nowidctlpar\qr \f1 1005 North Kenshighway, Suite 309\par
+\pard\nowidctlpar\qr \f1 Cape Girardeau, MO 63701\par
+\pard\nowidctlpar\qr \f1 314 334-7078\par
+\cf9 \f0 \fs20 <page-break>\cf0 \par
+\page \pard\nowidctlpar\qj \pard\nowidctlpar\qj \f1 \fs26 \b Table of Contents\par
+\pard\nowidctlpar\qj \f1 \fs22 \b0 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 Chapter 1:\tab Introduction and Installation ..........................................................................\tab 4\par
+\pard\nowidctlpar\qj \f1 \tab Introducing \b gsh\b0  ........................................................................................\tab 4\par
+\pard\nowidctlpar\qj \f1 \tab Starting \b gsh\b0  ............................................................................................\tab 4\par
+\pard\nowidctlpar\qj \f1 \tab Customizing the shell environment ..................................................................\tab 5\par
+\pard\nowidctlpar\qj \f1 Chapter 2:\tab Command-line Editor .................................................................................\tab 7\par
+\pard\nowidctlpar\qj \f1 \tab Overview of the editor ................................................................................\tab 7\par
+\pard\nowidctlpar\qj \f1 \tab Editor commands ......................................................................................\tab 7\par
+\pard\nowidctlpar\qj \f1 \tab Command input ........................................................................................\tab 7\par
+\pard\nowidctlpar\qj \f1 \tab Command editing ......................................................................................\tab 7\par
+\pard\nowidctlpar\qj \f1 \tab Fetching old history line ..............................................................................\tab 8\par
+\pard\nowidctlpar\qj \f1 \tab Command/Filename completion .....................................................................\tab 9\par
+\pard\nowidctlpar\qj \f1 Chapter 3:\tab Command Language ..................................................................................\tab 10\par
+\pard\nowidctlpar\qj \f1 \tab Purpose of a command language ....................................................................\tab 10\par
+\pard\nowidctlpar\qj \f1 \tab Executing commands .................................................................................\tab 10\par
+\pard\nowidctlpar\qj \f1 \tab Using aliases as shorthand ...........................................................................\tab 12\par
+\pard\nowidctlpar\qj \f1 \tab Redirecting Input and Output ........................................................................\tab 13\par
+\pard\nowidctlpar\qj \f1 \tab Pipelines ...............................................................................................\tab 13\par
+\pard\nowidctlpar\qj \f1 \tab Background execution of commands ...............................................................\tab 14\par
+\pard\nowidctlpar\qj \f1 \tab Tilde Expansion .......................................................................................\tab 15\par
+\pard\nowidctlpar\qj \f1 \tab Pathname Expansion .................................................................................\tab 16\par
+\pard\nowidctlpar\qj \f1 \tab Quoting special characters ...........................................................................\tab 17\par
+\pard\nowidctlpar\qj \f1 \tab How \b gsh\b0  finds a command .........................................................................\tab 17\par
+\pard\nowidctlpar\qj \f1 Chapter 4:\tab Shell Variables ........................................................................................\tab 19\par
+\pard\nowidctlpar\qj \f1 \tab Using shell variables .................................................................................\tab 19\par
+\pard\nowidctlpar\qj \f1 \tab Scope of shell variables .............................................................................\tab 19\par
+\pard\nowidctlpar\qj \f1 \tab Description of shell variables .......................................................................\tab 19\par
+\pard\nowidctlpar\qj \f1 \tab Accessing shell variables ............................................................................\tab 20\par
+\pard\nowidctlpar\qj \f1 Chapter 5:\tab Built-in Commands ..................................................................................\tab 22\par
+\pard\nowidctlpar\qj \f1 \tab Built-ins vs EXE Commands .......................................................................\tab 22\par
+\pard\nowidctlpar\qj \f1 \tab Shell Commands .....................................................................................\tab 22\par
+\pard\nowidctlpar\qj \f1 \tab GNO Commands ....................................................................................\tab 23\par
+\pard\nowidctlpar\qj \f1 \tab Environment Commands ...........................................................................\tab 24\par
+\pard\nowidctlpar\qj \f1 Appendix A:\tab Installing GNO ......................................................................................\par
+\pard\nowidctlpar\qj \f1 \tab Installing GNO on a floppy-based system .......................................................\par
+\pard\nowidctlpar\qj \f1 \tab Installing GNO on a hard-drive system ..........................................................\par
+\pard\nowidctlpar\qj \f1 \tab Launching into GNO ...............................................................................\par
+\pard\nowidctlpar\qj \f1 Appendix B:\tab Sample \b gsh\b0  session .................................................................................\par
+\pard\nowidctlpar\qj \f1 Appendix C:\tab Signals ................................................................................................\par
+\pard\nowidctlpar\qj \f1 Appendix D:\tab Default GS/OS Prefixes ............................................................................\par
+\pard\nowidctlpar\qj \f1 Appendix E:\tab Errors .................................................................................................\par
+\pard\nowidctlpar\qj \f1 \tab Command-entry Errors .............................................................................\par
+\pard\nowidctlpar\qj \f1 \tab Syntax Errors ........................................................................................\par
+\pard\nowidctlpar\qj \f1 \tab Execution Errors ....................................................................................\par
+\pard\nowidctlpar\qj \f1 \tab Built-in Command Errors ..........................................................................\par
+\pard\nowidctlpar\qj \f1 Glossary:\tab .........................................................................................................\par
+\pard\nowidctlpar\qj \f1 Index:\tab .........................................................................................................\par
+\cf9 \f0 \fs20 <page-break>\cf0 \par
+\page \pard\nowidctlpar\qj \f1 \fs32 \b Chapter 1\par
+\pard\nowidctlpar\qj \f1 \fs26 \ul Introduction and Installation                                                                  \par
+\pard\nowidctlpar\qr \pard\nowidctlpar\qr \f1 \fs18 \b0 \ulnone "\i Computer operating systems are among the most complex objects created by mankind..."\par
+\pard\nowidctlpar\qr \f1 \i0 Dougles Corner, \ul Operating System Design, the Xino Approach\par
+\pard\nowidctlpar\qj \pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \fs22 \b \ulnone Introduction\par
+\pard\nowidctlpar\qj \f1 \b0 \par
+\pard\nowidctlpar\qj \f1 The \b gsh\b0  shell is an integral part of the GNO environment. The shell provides the interface between the user and the GNO multitasking kernel. While both work together, the jobs they perform are quite different. This chapter will provide an overview of the activities of the shell. It will also show you how to customize the shell environment to make the GNO environment more UNIX-like to experienced UNIX users and, for those moving over from the Orca environment, or new to a command-line interface, will show you how to adapt \b gsh\b0  to the environment you are most productive in. Many aspects of \b gsh\b0  are customizable. Chapter 4 documents the various features of the shell that can be customized.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 If you are new to command-line interfaces, please take the time to read through this chapter of the manual very carefully. Command-line interfaces provide a unique way of interacting with the operating system. Unlike GUIs (Graphical User Interface), which you are familiar with from programs such as the Finder (tm), Shrinkit GS(tm), etc., all commands are interepreted by the shell and passed on to the kernel, which then carries out certain tasks, such as executing a program, terminating a program, or prompting the user for input. Commands are sent to the shell via the keyboard. At first, the command-line interface will take some getting use to. However, as with a GUI, once the command-line interface is mastered, you will already know how to run many of the applications provided with GNO at present and in the future. For those of you already familiar with interfaces on UNIX such as the C shell, Bourne shell, and Korn shell, or the Orca shell, you can begin to realize the advantages GNO will provide on the Apple II\fs14 GS\fs22 .\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 Apart from \b gsh\b0  is the GNO kernel, the heart of the GNO/ME system. The kernel provides a layer of communication between the shell (and shell-based programs) and the operating system, GS/OS. The kernel handles such things as multitasking, background processes, foreground processes and many other features that were before not available on the II\fs14 GS\fs22 . For some of you, the wording in the previous sentence might seem very unfamiliar. In the upcoming chapters, all will be made clear, and it is hoped you will begin to see powerful possibilities available under GNO.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 Before delving into the shell, a GNO compliant system should have the following hardware:\par
+\pard\nowidctlpar\qj \f1 \tab o Apple II\fs14 GS\fs22  cpu, ROM 01 or ROM 03\par
+\pard\nowidctlpar\qj \f1 \tab o at least 1 megabyte of RAM (2 megabytes recommended)\par
+\pard\nowidctlpar\qj \f1 \tab o one 3.5" drive (hard drive recommended)\par
+\pard\nowidctlpar\qj \f1 \tab o System Software v5.0.4 or higher\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b Starting gsh\par
+\pard\nowidctlpar\qj \f1 \b0 \par
+\pard\nowidctlpar\qj \f1 Before you begin using \b gsh\b0 , it is important that you read the section on \b Customizing the shell environment\b0  before launching \b gsh\b0 . This customization needs to be done only once. Any further modifications to \b gsh\b0  can be done while you are working under \b gsh\b0 .\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 To start \b gsh\b0 , make sure the following files are in the \b same\b0  directory:\f0 \fs36  \f1 \fs22 \i kern\f0 \fs36 \i0 ,\f1 \fs22 \i  gsh,\i0  and \i gshrc\i0 . The "kern" file is used to launch GNO. GNO will then search for the default shell, \b gsh\b0 , which is the file "gsh". The shell will, in turn, look for a file named "gshrc". The \i gshrc\i0  file contains start-up instructions for the shell. These instructions are used to customize the shell upon startup. It is also possible to modify these instructions while \b gsh\b0  is active (changes made while working under \b gsh\b0  will be deleted upon exit).\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 When you have the \i gshrc\i0  file set up, use your favorite program launcher to start \b gsh\b0 . If you find yourself using GNO often, it is possible to make GNO the startup application when your II\fs14 GS\fs22  is turned on. Information regarding the this can be found in Appendix A.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 In addition to the above files needed to work with GNO, there is also a directory hierarchy that you should establish early on to ease the transion to a UNIX-like environment:\par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 HOME\f1 \fs18  \fs22 Directory\tab This is the default directory \b gsh\b0  starts up in. The \f0 \fs36 \fs30 HOME\f1 \fs18 \fs22  directory is usually the directory containing the GNO files. You can use this directory as a basis to create subdirectories of the remaining directory hierarchy. It is possible to keep the files pertaining to the following directories in the \f0 \fs36 \fs30 HOME\f1 \fs18 \fs22  directory.\par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 BIN\f1 \fs18  \fs22 Directory\tab This directory contains utilities that will run under the GNO environment. It can include any utility that will run under the Orca environment as GNO is able to run \i all\i0  EXE files and shell scripts that run under Orca. In Orca, the subdirectory name is \f0 \fs36 \fs30 UTILITIES\f1 \fs18 \fs22 . There is no need to change this pathname if you switch from Orca to GNO. UNIX users will be accustomed to this directory being called \f0 \fs36 \fs30 BIN\f1 \fs18 \fs22 .\par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 MAN\f1 \fs18  \fs22 Directory\tab All help files should be stored in this directory. Under Orca, the pathname is \f0 \fs36 \fs30 UTILITIES/HELP\f1 \fs18 \fs22 . UNIX users will be accustomed to the pathname \f0 \fs36 \fs30 MAN\f1 \fs18 \fs22 .\par
+\pard\nowidctlpar\qj \f1 \fs18 \par
+\pard\nowidctlpar\qj \f1 \fs22 To make the above clearer, consider you want to install GNO on a device named \f0 \fs36 \fs30 USR\f1 \fs18 \fs22 . You could set up the following directories: \f0 \fs36 \fs30 /USR/BIN\f1 \fs18 \fs22  and \f0 \fs36 \fs30 /USR/MAN\f1 \fs18 \fs22 . \f0 \fs36 \fs30 /USR\f1 \fs18 \fs22  would be your home directory where the GNO startup files would be copied.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 Once you establish your directory hierarchy, make sure to copy all relevant GNO files to their new directories. Appendix A details how you can use the Installer(tm) program to install GNO into your directory hierarchy. This step should be taken once the \i gshrc\i0  file is modified, which the following section details how to do.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b Customizing the Shell Environment\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b0 The following is the default \i gshrc\i0  file shipped with GNO:\par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 \tab #\tab \tab line #1\par
+\pard\nowidctlpar\qj \f0 \tab # Sample GNO/ME Shell Login File\tab \tab line #2\par
+\pard\nowidctlpar\qj \f0 \tab # last update: 7/9/91\tab \tab line #3\par
+\pard\nowidctlpar\qj \f0 \tab #\tab \tab line #4\par
+\pard\nowidctlpar\qj \f0 \tab # setup prefixes just like Orca\tab \tab line #5\par
+\pard\nowidctlpar\qj \f0 \tab #\tab \tab line #6\par
+\pard\nowidctlpar\qj \f0 \tab prefix 2 /hard1/libraries\tab \tab line #7\par
+\pard\nowidctlpar\qj \f0 \tab prefix 5 /hard1/languages\tab \tab line #8\par
+\pard\nowidctlpar\qj \f0 \tab prefix 6 /hard1/utilities\tab \tab line #9\par
+\pard\nowidctlpar\qj \f0 \tab #\tab \tab line #10\par
+\pard\nowidctlpar\qj \f0 \tab # initialize GNO environment\tab \tab line #11\par
+\pard\nowidctlpar\qj \f0 \tab #\tab \tab line #12\par
+\pard\nowidctlpar\qj \f0 \tab set path="/hard1/utilities"\tab \tab line #13\par
+\pard\nowidctlpar\qj \f0 \tab set prompt="[%h] %S%t%s %C> "\tab \tab line #14\par
+\pard\nowidctlpar\qj \f0 \tab set history=15 savehist=15\tab \tab line #15\par
+\pard\nowidctlpar\qj \f0 \tab set home="/hard1/gno"\tab \tab line #16\par
+\pard\nowidctlpar\qj \f0 \tab set user=appleiigs\tab \tab line #17\par
+\pard\nowidctlpar\qj \f0 \tab export path prompt history savehist home user\tab line #18\par
+\pard\nowidctlpar\qj \f0 \tab #\tab \tab line #19\par
+\pard\nowidctlpar\qj \f0 \tab # display welcome and time\tab \tab line #20\par
+\pard\nowidctlpar\qj \f0 \tab #\tab \tab line #21\par
+\pard\nowidctlpar\qj \f0 \tab echo " "\tab \tab line #22\par
+\pard\nowidctlpar\qj \f0 \tab echo "Welcome to GNO, special Kansasfest 1991 Edition"\tab line #23\par
+\pard\nowidctlpar\qj \f0 \tab echo " "\tab \tab line #24\par
+\pard\nowidctlpar\qj \f0 \tab echo -n "Today's time:" ; /hard1/utilities/qtime\tab line #25\par
+\pard\nowidctlpar\qj \f0 \tab #\tab \tab line #26\par
+\pard\nowidctlpar\qj \f0 \tab # Move to the home directory\tab \tab line #27\par
+\pard\nowidctlpar\qj \f0 \tab #\tab \tab line #28\par
+\pard\nowidctlpar\qj \f0 \tab cd\tab \tab line #29\par
+\pard\nowidctlpar\qj \f0 \par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 The only lines needed to set up \b gsh\b0  (for the moment) are 7-9, 13, 16, and 25. Lines 7-9 should not be new for Orca users. If you will not be using any of the Orca languages, you can remove lines 7-9. For the rest of you, change the prefix in line 7 to the prefix of your Orca libraries folder; change line 8 to the prefix of your Orca languages folder; and change line 9 to the prefix of your Orca utilities folder. These changes are only necessary for Orca/C, Orca/Pascal, and Orca/M users. If you plan to use both GNO and pre-Orca 2.0, make sure the prefix in lines 7-9 match those that have been set up for Orca.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 Line 13 contains the pathname of the directory containing any shell utilities you will be using, or plan to use. If you will be using your pre-Orca 2.0 prefixes, the prefix on line 8 should match the prefix on this line. It should also be noted that you can have more than one pathname containing EXE, SYS, or EXEC files (this is impossible under Orca). In the case you have a separate pathname for each type of file, you could change line 8 to read:\par
+\pard\nowidctlpar\qj \f1 \tab \f0 \fs36 \fs30 set path="/hard1/utilities/exe:/hard1/utilities/sys:/hard1/utilities/exec"\par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 You will see that colons have been inserted between pathnames. The colon is the pathname separator for this specific variable, \f0 \fs36 \fs30 PATH\f1 \fs18 \fs22 . As GS/OS allows colons in pathnames, it is important to use slashes ('/') to separate directories (i.e. \f0 \fs36 \fs30 set path=":hard1:utilities:exe:hard1:utilities:sys:hard1:utilities:exec\f1 \fs18 \fs22 " would cause \b gsh\b0  to look in nine separate directories, of which only "hard1" exists, for any files to be run by the shell). All variables (such as \f0 \fs36 \fs30 PATH\f1 \fs18 \fs22 ) are explain in Chapter 4. The \i space\i0  can also be used as the pathname separator.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 Line 16 should be set to the pathname of your \f0 \fs36 \fs30 HOME\f1 \fs18 \fs22  directory.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 The pathname in line 25, "\f0 \fs36 \fs30 /hard1/utilities/qtime\f1 \fs18 \fs22 ", should be the pathname of your \f0 \fs36 \fs30 BIN\f1 \fs18 \fs22  directory, plus "\f0 \fs36 \fs30 /qtime\f1 \fs18 \fs22 " appended to the end. \i Qtime\i0  is a utility that displays the current time in english. It is shipped with the GNO package.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 The remaining lines of the shell script can be left as is. All shell commands and variables are discussed in chapters 4 and 5 respectively.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 You should now have your \i gshrc\i0  file set up and can now launch GNO for a quick glimpse at the environment. However, it is important to read the remainder of the \i Shell Manual\i0  to gain a full understanding of how to use the \b gsh\b0  environment.\par
+\cf9 \f0 \fs20 <page-break>\cf0 \par
+\page \pard\nowidctlpar\qj \f1 \fs32 \b Chapter 2\par
+\pard\nowidctlpar\qj \f1 \fs26 \ul Command-line Editor                                                                            \par
+\pard\nowidctlpar\qj \f1 \fs18 \b0 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b \ulnone \fs22 Overfiew of the editor\par
+\pard\nowidctlpar\qj \f1 \b0 \par
+\pard\nowidctlpar\qj \f1 Part of the command-line interface is a command-line editor, to make entering commands to the shell much easier. \b gsh\b0  has a wide variety of built-in commands which help in entering and editing already existing commands. Because of the editor, it is also possible to modify previous commands saved in the history buffer (more on this below). In addition to entering text and editing text, the editor also provides a mechanism to help you remember filename arguments to commands (an "argument" is a parameter given to a command. In "compile cprogram.c", 'cprogram.c' is an argument to the 'compile' command.)\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b Editor commands\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b0 All \b gsh\b0  editor commands can be broken down into three areas:\par
+\pard\nowidctlpar\qj \f1 \tab o Command input\par
+\pard\nowidctlpar\qj \f1 \tab o Command editing\par
+\pard\nowidctlpar\qj \f1 \tab o Fetching old history file line\par
+\pard\nowidctlpar\qj \f1 \tab o Command/Filename completion\par
+\pard\nowidctlpar\qj \f1 \tab \par
+\pard\nowidctlpar\qj \f1 \i Command input\i0  is how text is entered on the command-line. This is done by simply typing text from the keyboard. \i Command editing\i0  provides the ability to edit any text already entered on the command-line. \i Fetching old history file line\i0  allows you to access previously entered command lines. And \i Command/Filename completion\i0  assists in command name and filename arguments for any given command. Below is a complete description of each command, and short login sessions depicting how each command works.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 The history buffer is a list of previous command lines. The limit to the number of command-lines saved in the history buffer is determined by the shell variable \f0 \fs36 \fs30 HISTSIZE\f1 \fs18 \fs22 . A default value for this variable is set in the \i gshrc\i0  file that comes with the shell. See Chapter 4 on how to change this variable. The lines saved to the history buffer are kept between GNO sessions. That is, when you exit \b gsh\b0 , \f0 \fs36 \fs30 SAVEHIST\f1 \fs18 \fs22  command-lines are saved to the history buffer in "\f0 \fs36 \fs30 */system/history\f1 \fs18 \fs22 ". When \b gsh\b0  is invoked again, all command-lines saved in the history buffer will be available using commands in the \i Fetching old history file line\i0 . Again, see Chapter 4 for a description of the \f0 \fs36 \fs30 HISTSIZE\f1 \fs18 \fs22  and \f0 \fs36 \fs30 SAVEHIST\f1 \fs18 \fs22  shell variables.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 For notation purposes, the underline character, "_", will be used to represent the current cursor position. In addition, "OA" is used to represent the Open Apple key and the term \i word\i0  is used to indicate a string of characters consisting of only letters, digits, and underscores.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b \i Command input\par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 \b0 \i0 RETURN\f1 \fs18 \fs22 \tab The return character is used to terminate line input. gsh will then interpret the command on the line and act accordingly. The position of the cursor on the command-line does not matter.\par
+\pard\nowidctlpar\qj \f1 \tab \f0 \fs36 \fs30 Before\par
+\pard\nowidctlpar\qj \f0 \tab % \b echo f\ul o\ulnone o bar\b0 \tab (RETURN)\par
+\pard\nowidctlpar\qj \f0 \tab After\par
+\pard\nowidctlpar\qj \f0 \tab foo bar\par
+\pard\nowidctlpar\qj \f0 \tab % \ul  \par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 \ulnone \par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 CTRL-D\f1 \fs18 \fs22 \tab Exits the GNO environment if there is no data on the command-line.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 CTRL-R\f1 \fs18 \fs22 \tab Moves to the next line and displays the current line. Use this to redraw the current line if the screen becomes garbled.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b \i Command editing\par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 \b0 \i0 LEFT-ARROW\f1 \fs18 \fs22 \tab Moves the cursor one character to the left. You cannot exceed the first character on the line. If so, gsh will output an error beep.\par
+\pard\nowidctlpar\qj \f1 \tab \f0 \fs36 \fs30 Before\tab \tab After\par
+\pard\nowidctlpar\qj \f0 \tab % \b print f\ul o\ulnone o bar\b0 \tab (LEFT-ARROW)\tab % \b print \ul f\ulnone oo bar\par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 \b0 \par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 RIGHT-ARROW\f1 \fs18 \fs22 \tab Moves the cursor one character to the right. You cannot exceed the last character on the line. If so, gsh will output an error beep.\par
+\pard\nowidctlpar\qj \f1 \tab \f0 \fs36 \fs30 Before\tab \tab After\par
+\pard\nowidctlpar\qj \f0 \tab % \b print f\ul o\ulnone o bar\b0 \tab (RIGHT-ARROW)\tab % \b print fo\ul o\ulnone  bar\par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 \b0 \par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 DELETE\f1 \fs18 \fs22 \tab Deletes the character to the left of the cursor. You can delete up to the first character on the command-line.\par
+\pard\nowidctlpar\qj \f1 \tab \f0 \fs36 \fs30 Before\tab \tab After\par
+\pard\nowidctlpar\qj \f0 \tab % \b print f\ul o\ulnone o bar\b0 \tab (DELETE)\tab % \b print \ul o\ulnone o bar\par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 \b0 \par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 CTRL-X\f1 \fs18 \fs22 \tab Deletes all characters on the command line and positions the cursor after the prompt.\par
+\pard\nowidctlpar\qj \f1 \tab \f0 \fs36 \fs30 Before\tab \tab After\par
+\pard\nowidctlpar\qj \f0 \tab % \b prin\ul t\ulnone  foo bar\b0 \tab (CTRL-X)\tab % \ul  \par
+\pard\nowidctlpar\qj \f0 \ulnone \par
+\pard\nowidctlpar\qj \f0 CTRL-Y\f1 \fs18 \fs22 \tab Deletes all characters from the cursor to the end of the command-line.\par
+\pard\nowidctlpar\qj \f1 \tab \f0 \fs36 \fs30 Before\tab \tab After\par
+\pard\nowidctlpar\qj \f0 \tab % \b print f\ul o\ulnone o bar\b0 \tab (CTRL-Y)\tab % \b print f\ul  \par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 \b0 \ulnone \par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 OA-D\f1 \fs18 \fs22 \tab Deletes the character under the cursor.\par
+\pard\nowidctlpar\qj \f1 \tab \f0 \fs36 \fs30 Before\tab \tab After\par
+\pard\nowidctlpar\qj \f0 \tab % \b print fo\ul o\ulnone  bar\b0 \tab (OA-D)\tab % \b print fo\ul  \ulnone bar\par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 \b0 \par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 OA->\f1 \fs18 \fs22 \tab Moves the cursor to the beginning of the line.\par
+\pard\nowidctlpar\qj \f1 \tab \f0 \fs36 \fs30 Before\tab \tab After\par
+\pard\nowidctlpar\qj \f0 \tab % \b print \ul f\ulnone oo bar\b0 \tab (OA-<)\tab % \b \ul p\ulnone rint foo bar\par
+\pard\nowidctlpar\qj \f0 \b0 \par
+\pard\nowidctlpar\qj \f0 OA-<\f1 \fs18 \fs22 \tab Moves the cursor to the first position past the last character on the line.\par
+\pard\nowidctlpar\qj \f1 \tab \f0 \fs36 \fs30 Before\tab \tab After\par
+\pard\nowidctlpar\qj \f0 \tab % \b print \ul f\ulnone oo bar\b0 \tab (OA->)\tab % \b print foo bar\f1 \fs18 \ul \fs22  \par
+\pard\nowidctlpar\qj \f1 \b0 \ulnone \par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 OA-RIGHT ARROW\f1 \fs18 \fs22 \tab Moves the cursor right to the last character of the current word.\par
+\pard\nowidctlpar\qj \f1 \tab \f0 \fs36 \fs30 Before\tab \tab After\par
+\pard\nowidctlpar\qj \f0 \tab % \b print \ul f\ulnone oo bar\b0 \tab (OA-RIGHT ARROW)\tab % \b print fo\ul o\ulnone  bar\par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 \b0 \par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 OA-LEFT ARROW\f1 \fs18 \fs22 \tab Moves the cursor left to the beginning of the current word.\par
+\pard\nowidctlpar\qj \f1 \tab \f0 \fs36 \fs30 Before\tab \tab After\par
+\pard\nowidctlpar\qj \f0 \tab % \b print f\ul o\ulnone o bar\b0 \tab (OA-LEFT ARROW)\tab % \b print \ul f\ulnone oo bar\par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 \b0 \par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 OA-E\f1 \fs18 \fs22 \tab Toggles input mode between insert and overwrite.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b \i Fetching old history file line\par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 \b0 \i0 UP-ARROW\f1 \fs18 \fs22 \tab Fetches the previous command-line. If the current command-line is the first line in the history buffer, the next line fetched will be an empty command-line. If invoked again, the last line in the history buffer will be displayed.\par
+\pard\nowidctlpar\qj \f1 \tab \f0 \fs36 \fs30 Before\tab \tab After\par
+\pard\nowidctlpar\qj \f0 \tab % \b print foo bar\par
+\pard\nowidctlpar\qj \f0 \b0 \tab % \b echo Apple II\par
+\pard\nowidctlpar\qj \f0 \b0 \tab % \b echo GNO/ME\par
+\pard\nowidctlpar\qj \f0 \b0 \tab % \ul  \ulnone \tab (UP-ARROW)\tab % \b echo GNO/ME\ul  \par
+\pard\nowidctlpar\qj \f0 \b0 \ulnone \tab % \b echo GNO/ME\b0 \ul  \ulnone \tab (UP-ARROW)\tab % \b echo Apple II\ul  \par
+\pard\nowidctlpar\qj \f0 \par
+\pard\nowidctlpar\qj \f0 \b0 \ulnone DOWN-ARROW\f1 \fs18 \fs22 \tab Fetches the next command-line. If the current command-line is the last command line in the history buffer, the next line fetched will be the first command-line in the history buffer.\par
+\pard\nowidctlpar\qj \f1 \tab \f0 \fs36 \fs30 Before\tab \tab After\par
+\pard\nowidctlpar\qj \f0 \tab % \b print foo bar\par
+\pard\nowidctlpar\qj \f0 \b0 \tab % \b echo Apple II\par
+\pard\nowidctlpar\qj \f0 \b0 \tab % \b echo GNO/ME\par
+\pard\nowidctlpar\qj \f0 \b0 \tab % \ul  \ulnone \tab (DOWN-ARROW)\tab % \b print foo bar\ul  \par
+\pard\nowidctlpar\qj \f0 \b0 \ulnone \tab % \b print foo bar\b0 \ul  \ulnone \tab (DOWN-ARROW)\tab % \b echo Apple II\ul  \par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 \b0 \ulnone \par
+\pard\nowidctlpar\qj \f1 \b \i Command/Filename completion\par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 \b0 \i0 CTRL-D\f1 \fs18 \fs22 \tab Lists pathnames that match the current word.\par
+\pard\nowidctlpar\qj \f1 \tab \f0 \fs36 \fs30 Before\par
+\pard\nowidctlpar\qj \f0 \tab % \b print foo\ul  \ulnone  bar\b0 \tab (CTRL-D)\par
+\pard\nowidctlpar\qj \f0 \tab After\par
+\pard\nowidctlpar\qj \f0 \tab 1) foo.c\par
+\pard\nowidctlpar\qj \f0 \tab 2) fool\par
+\pard\nowidctlpar\qj \f0 \tab 3) foo.m\par
+\pard\nowidctlpar\qj \f0 \tab % \b print foo\ul  \ulnone  bar\par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 \b0 \par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 TAB\f1 \fs18 \fs22 \tab Command and pathname completion. If the cursor is positioned on the first word of the command-line, command pathname is performed, else pathname completion is performed. The word is expanded to the closest matching command or pathname. Characters are appended up to the point that they would match more than one command or pathname. If a complete pathname results for pathname completion, gsh appends a "/" if the pathname is a directory, otherwise a space.\par
+\pard\nowidctlpar\qj \f1 \tab \f0 \fs36 \fs30 Before\tab \tab After\par
+\pard\nowidctlpar\qj \f0 \tab % \b ca\b0 \ul  \ulnone \tab (TAB)\tab % \b cat\b0 \ul  \par
+\pard\nowidctlpar\qj \f0 \ulnone \tab % \b mo\ul  \ulnone  foo.c\b0 \tab (TAB)\tab % \b more\ul  \b0 \ulnone  \b foo.c\par
+\pard\nowidctlpar\qj \f0 \b0 \tab % \b more fo\b0 \ul  \ulnone \tab (TAB)\tab % \b more foo\ul  \par
+\cf9 \f0 \fs20 <page-break>\cf0 \par
+\page \pard\nowidctlpar\qj \f0 \fs54 \ulnone \f1 \fs32 Chapter 3\par
+\pard\nowidctlpar\qj \f1 \fs26 \ul Command Language\b0 \fs22                                                                                                                                 \par
+\pard\nowidctlpar\qr \pard\nowidctlpar\qr \f1 \fs18 \i \ulnone "And then one day, hooray! Another way for gnomes to say hooray!"\par
+\pard\nowidctlpar\qr \f1 \i0 Syd Barret, \ul The Gnome\par
+\pard\nowidctlpar\qj \pard\nowidctlpar\qj \f1 \fs22 \ulnone \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b Purpose of a command language\par
+\pard\nowidctlpar\qj \f1 \b0 \par
+\pard\nowidctlpar\qj \f1 The programming language provided with gsh (also called the "command language"), in addition to the utilities that are provided on the GNO distribution disks, allow you to write programs that the shell executes, without you having to compile any of these programs. The command language is interpreted by gsh as it reads each command and the command's arguments. While it is not necessary for any command to have an argument, arguments extend the usefulness of many utilities. While you would normally command the shell through typing commands at the command-line, you can also store a series of often-used commands in a text file that the shell will execute. You could, for example, execute a series of commands when the shell starts (similar to the gshrc file) or when the shell ends. This is one of the main benefits of a command language.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 A file containing a series of shell commands is known as a "script". A script is run no differently than any of the individual shell commands, or utilities you have installed on your system.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b Executing commands\par
+\pard\nowidctlpar\qj \f1 \b0 \par
+\pard\nowidctlpar\qj \f1 A command consists of two parts: a command name and its arguments. The command name is the name used to start the command, like \f0 \fs36 \fs30 PRINT\f1 \fs18 \fs22  in Applesoft BASIC. The command arguments are parameters the command takes as instructions on what to do (that is, "\f0 \fs36 \fs30 HELLO WORLD\f1 \fs18 \fs22 " would be the argument to the \f0 \fs36 \fs30 PRINT\f1 \fs18 \fs22  command). The command name must be separated from the command arguments with a \f0 \fs36 \fs30 SPACE\f1 \fs18 \fs22  and command arguments are separated from each other with \f0 \fs36 \fs30 SPACE\f1 \fs18 \fs22 .\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 The examples below use the following commands:\par
+\pard\nowidctlpar\qj \f1 \tab \f0 \fs36 \b \fs30 qtime\f1 \fs18 \b0 \fs22 \tab displays date in english.\par
+\pard\nowidctlpar\qj \f1 \tab \f0 \fs36 \b \fs30 echo\f1 \fs18 \b0 \fs22 \tab prints arguments to the screen.\par
+\pard\nowidctlpar\qj \f1 \tab \f0 \fs36 \b \fs30 cat\f1 \fs18 \b0 \fs22 \tab displays the contents of the files specified as arguments.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 Examples\par
+\pard\nowidctlpar\qj \f1 \tab \f0 \fs36 \fs30 % \b qtime\par
+\pard\nowidctlpar\qj \f0 \b0 \tab It's almost five.\par
+\pard\nowidctlpar\qj \f0 \tab % \b echo II Infinitum\par
+\pard\nowidctlpar\qj \f0 \b0 \tab II Infinitum\par
+\pard\nowidctlpar\qj \f0 \tab % \b cat file1 file2\par
+\pard\nowidctlpar\qj \f0 \b0 \tab This one line is in file1.\par
+\pard\nowidctlpar\qj \f0 \tab This one line is in file2.\par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 \par
+\pard\nowidctlpar\qj \f1 The prompt, "\f0 \fs36 \fs30 %\f1 \fs18 \fs22 ", notifies you that gsh is ready to receive your input. The format of the prompt string can be customized, as explained in Chapter 4. You could, for instance, make the prompt string "\f0 \fs36 \fs30 Apple II>\f1 \fs18 \fs22  ".\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 There is a second set of arguments command names can recognize, if programmed to do so. These arguments are options to the program. On the GNO distribution disk, there is a utility called ls. This utility catalogs a directory. While it serves the same purpose as the command \f0 \fs36 \fs30 CATALOG\f1 \fs18 \fs22  from Applesoft BASIC, it has a wide number of options which can taylor the output to specific needs. Consider the following output of the \f0 \fs36 \fs30 CATALOG\f1 \fs18 \fs22  command:\par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 \tab /DEV\par
+\pard\nowidctlpar\qj \f0 \tab  NAME           TYPE  BLOCKS  MODIFIED         CREATED          ENDFILE SUBTYPE\par
+\pard\nowidctlpar\qj \f0 \par
+\pard\nowidctlpar\qj \f0 \tab  FINDER.DATA     $C9       1  21-OCT-91 22:38  14-APR-90 18:24      260        \par
+\pard\nowidctlpar\qj \f0 \tab  FINDER.ROOT     $C9       1  22-OCT-91 17:12   6-OCT-91 15:40       82        \par
+\pard\nowidctlpar\qj \f0 \tab  GENESYS         DIR       1  21-OCT-91 23:37  25-APR-91 15:46      512        \par
+\pard\nowidctlpar\qj \f0 \tab  GSBUG           DIR       1  21-OCT-91 23:38  19-JUL-90 16:48      512        \par
+\pard\nowidctlpar\qj \f0 \tab  MERLIN          DIR       2  22-OCT-91  2:50  30-APR-91 20:21     1024        \par
+\pard\nowidctlpar\qj \f0 \tab  LIFEGUARD       $B3      73   4-SEP-87  4:51  25-DEC-89 20:22    36608        \par
+\pard\nowidctlpar\qj \f0 \tab  ORCA            DIR       2  22-OCT-91 17:12  14-SEP-89 18:27     1024        \par
+\pard\nowidctlpar\qj \f0 \tab  GNO             DIR       2  22-OCT-91 17:12  13-AUG-91 16:36     1024        \par
+\pard\nowidctlpar\qj \f0 \tab  FAST.ANIM       DIR       2  21-OCT-91 23:44  11-MAY-91 10:50     1024        \par
+\pard\nowidctlpar\qj \f0 \tab  MICOL           DIR       2  22-OCT-91  3:10  14-JAN-90  2:46     1024        \par
+\pard\nowidctlpar\qj \f0 \tab  SRC             DIR       1  21-OCT-91 23:44   7-AUG-91 20:30      512        \par
+\pard\nowidctlpar\qj \f0 \tab  NIFTYLIST.V3.3  DIR       2  21-OCT-91 23:44  29-JUL-91  4:04     1024        \par
+\pard\nowidctlpar\qj \f0 \tab  MCSRC           DIR       1  21-OCT-91 23:45   7-AUG-91 20:34      512        \par
+\pard\nowidctlpar\qj \f0 \par
+\pard\nowidctlpar\qj \f0 \tab BLOCKS FREE:43923     BLOCKS USED:21185     TOTAL BLOCKS:65108\par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 \par
+\pard\nowidctlpar\qj \f1 With the \f0 \fs36 \fs30 CATALOG\f1 \fs18 \fs22  command, it is impossible to get any variation of this output. However, under UNIX there exists a standard convention for command-line option arguments to programs. There are two standards, short options and long options. Short options are characters that represent commands, whereas long options contain the entire option name. The GNO ls program supports short options only. To view a catalog of your directory similar to the above, "\f0 \fs36 \fs30 ls -l\f1 \fs18 \fs22 " would be the proper command. The result follows:\par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 \tab :dev\par
+\pard\nowidctlpar\qj \f0 \tab total 45k\par
+\pard\nowidctlpar\qj \f0 \tab drw--rd 0000 dir          512 Oct 21 23:45 1991 MCSrc\par
+\pard\nowidctlpar\qj \f0 \tab drw--rd 0000 dir         1024 Oct 21 23:44 1991 NiftyList.v3.3\par
+\pard\nowidctlpar\qj \f0 \tab drw--rd 0000 dir         1024 Oct 21 23:44 1991 fast.anim\par
+\pard\nowidctlpar\qj \f0 \tab drw--rd 0000 dir          512 Oct 21 23:37 1991 genesys\par
+\pard\nowidctlpar\qj \f0 \tab drw--rd 0000 dir         1024 Oct 22 17:29 1991 gno\par
+\pard\nowidctlpar\qj \f0 \tab drw--rd 0000 dir          512 Oct 21 23:38 1991 gsbug\par
+\pard\nowidctlpar\qj \f0 \tab drw--rd 0000 dir         1024 Oct 22 02:50 1991 merlin\par
+\pard\nowidctlpar\qj \f0 \tab drw--rd 0000 dir         1024 Oct 22 03:10 1991 micol\par
+\pard\nowidctlpar\qj \f0 \tab drw--rd 0100 dir         1024 Oct 22 17:28 1991 orca\par
+\pard\nowidctlpar\qj \f0 \tab drw--rd 0000 dir          512 Oct 21 23:44 1991 src\par
+\pard\nowidctlpar\qj \f0 \par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 The above output is available with the "\f0 \fs36 \fs30 ls -l\f1 \fs18 \fs22 " command. The "\f0 \fs36 \fs30 -l\f1 \fs18 \fs22 " is the option argument to the \i ls\i0  command that tells \i ls\i0  to format the output in \i long\i0  format. If \i ls\i0  did support long options, the above command could be changed to "\f0 \fs36 \fs30 ls +format-long\f1 \fs18 \fs22 ". This is clearly more descriptive of what option \i ls\i0  will perform. For beginning users to UNIX, long format options are more user-friendly, quite the opposite of what UNIX is seen to be. However, to advanced UNIX users, short options are more often used as you become more familiar with the commands. The Free Software Foundation (known as the FSF), invented the long format options, and defined the "+" character for interpretation that a long-format follows. This interpretation is generally followed in the U\fs14 NIX\fs22  community. There are two files which will assist you in programming GNO utilities with both short and long-format options, "\f0 \fs36 \fs30 getopt.h\f1 \fs18 \fs22 " for short-options, and "\f0 \fs36 \fs30 getopt1.h\f1 \fs18 \fs22 " for long-options.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 As indicated above, \i ls\i0  has a wide number of options available to format the output. If filenames only were requested, the \i ls\i0  command for filename-only output is "\f0 \fs36 \fs30 ls\f1 \fs18 \fs22 ". The output will be sorted and placed in columns as follows:\par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 \tab :dev:gno\par
+\pard\nowidctlpar\qj \f0 \tab doc             gsh             gshrc           kern            man\par
+\pard\nowidctlpar\qj \f0 \tab message         orca            press.release   release.notes   samples\par
+\pard\nowidctlpar\qj \f0 \tab todo            updates\par
+\pard\nowidctlpar\qj \f0 \par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 Another option of \i ls\i0  is to display filenames with the number of blocks they occupy as follows:\par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 \tab :dev:gno\par
+\pard\nowidctlpar\qj \f0 \tab    1 doc             29 gsh              1 gshrc           70 kern\par
+\pard\nowidctlpar\qj \f0 \tab    1 man              1 message          1 orca             8 press.release\par
+\pard\nowidctlpar\qj \f0 \tab    9 release.notes    1 samples          1 todo            15 updates\par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 \par
+\pard\nowidctlpar\qj \f1 As an example of the usage and importance of long-options, the following is the \f0 \fs36 \fs30 +help\f1 \fs18 \fs22  option used with the \f0 \fs36 \fs30 coff\f1 \fs18 \fs22  utility, a public domain program that disassembles OMF linker files and uses both short and long options:\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 \tab coff [-OPTIONS] filename [segment..] [loadsegment..]\par
+\pard\nowidctlpar\qj \f0 \par
+\pard\nowidctlpar\qj \f0 \tab      OPTIONS        DESCRIPTION\par
+\pard\nowidctlpar\qj \f0 \tab      -v [+version]  display coff's version number\par
+\pard\nowidctlpar\qj \f0 \tab      -D [+default]  disable default options\par
+\pard\nowidctlpar\qj \f0 \tab      -d [+asm]      dump segment body in 65816-format disassembly\par
+\pard\nowidctlpar\qj \f0 \tab      -T [+tool]     interpret Toolbox, GS/OS, ProDOS, ROM calls\par
+\pard\nowidctlpar\qj \f0 \tab      -x [+hex]      dump segment body in hex (can be used with '+asm')\par
+\pard\nowidctlpar\qj \f0 \tab      -l [+label]    print expressions using labels (default is offsets)\par
+\pard\nowidctlpar\qj \f0 \tab      -t [+infix]    display expressions in infix form\par
+\pard\nowidctlpar\qj \f0 \tab      -p [+postfix]  display expressions in postfix form (default)\par
+\pard\nowidctlpar\qj \f0 \tab      -m [+merlin]   format of '+asm' to use merlin opcodes (default)\par
+\pard\nowidctlpar\qj \f0 \tab      -o [+orca]     format of '+asm' to use orca/m opcodes\par
+\pard\nowidctlpar\qj \f0 \tab      -a [+shorta]   assume 8-bit accumulator for disassembly\par
+\pard\nowidctlpar\qj \f0 \tab      -i [+shorti]   assume 8-bit index registers for disassembly\par
+\pard\nowidctlpar\qj \f0 \tab      -s [+header]   dump segment headers only\par
+\pard\nowidctlpar\qj \f0 \tab      -n [+noheader] do not print segment headers\par
+\pard\nowidctlpar\qj \f0 \tab      -f [+nooffset] do not print offset into file\par
+\pard\nowidctlpar\qj \f0 \tab      -h [+help]     print this information, then quit\par
+\pard\nowidctlpar\qj \f0 \tab      filename       name of file to dump\par
+\pard\nowidctlpar\qj \f0 \tab      [segment]      names of segments in file to dump\par
+\pard\nowidctlpar\qj \f0 \tab      [loadsegment]  names of load segments in file to dump\par
+\pard\nowidctlpar\qj \f0 \par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 The long-options are much more descriptive, and provide a very easy way to remember options of programs. If an option passed to a shell utility program is not understood by that program, you will generally receive an error message stating the option is not understood and, many times, a list of options the program understand will be given.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 Command entry on the command-line is terminated by pressing \f0 \fs36 \fs30 RETURN\f1 \fs18 \fs22 . However, this does not mean only one command can be placed on each command-line. It is possible to place multiple command on the line, up to the limit of characters available on the command-line, 1024. To execute multiple command \i in succession\i0 , place a semi-colon, "\f0 \fs36 \fs30 ;\f1 \fs18 \fs22 ", between commands. The number of commands executed on a command line will run in the order they are entered, not at once. It is possible to run all commands at once. This features is discussed in the section "\b Background execution of commands\b0 ".\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 To run the \i echo\i0  command and the \i ls\i0  command in succession, enter the following on the command line:\par
+\pard\nowidctlpar\qj \f1 \tab \f0 \fs36 \fs30 % \b echo Running ls ; ls -l\par
+\pard\nowidctlpar\qj \f0 \par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 \b0 The output of the following command will display the string "\f0 \fs36 \fs30 Running ls\f1 \fs18 \fs22 " followed by the output of the "\f0 \fs36 \fs30 ls -l\f1 \fs18 \fs22 " command. This method of running several commands in succession is used often to save on typing and waiting for any one command to terminate before command \b gsh\b0  to run the next command. Any shell utility command, with a filetype of EXE, or a shell script can be run in this fashion. SYS programs cannot.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 Shell utilities, such as \i cat\i0 , \i coff\i0 , \i echo\i0 , \i ls\i0 , and others, write all output to the screen. Error messages are also sent to the screen. The phrases "standard input", "standard output", and "standard error" are used to represent streams. In the former, "standard input" is used to represent where input is coming from. This is usually the keyboard, although input to a shell utility can come from a file, as discussed in \b Redirecting Input and Output\b0 . "Standard output" is used to represent where output is being sent. The default "standard output" device is the monitor. Output can also be redirected to a file or a GS/OS device such as a printer or modem, as discussed in \b Redirecting Input and Output\b0 . "Standard error" can also be redirected to a file.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b Using aliases as shorthand\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 gsh\b0  provides a built-in command, \i alias\i0 , which allows any command you would type on the command-line to be renamed. You are not limited to renaming a single command name. Rather, you could rename an entire command-line, which, maybe, would allow you to use the name "\f0 \fs36 \fs30 backup\f1 \fs18 \fs22 " to execute the command "\f0 \fs36 \fs30 backup +source /system +destination /tape.drive\f1 \fs18 \fs22 ". The \i alias\i0  command allows a very powerful means of customizing your GNO system to emulate other computing environments.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 To emulate the Orca environment, the following aliases could be setup in your \i gshrc\i0  file, or a script called \i orca.alias\i0  that \i gshrc\i0  would run:\par
+\pard\nowidctlpar\qj \f1 \tab \f0 \fs36 \fs30 % \b alias copy cp\par
+\pard\nowidctlpar\qj \f0 \tab \b0 % \b alias cat "ls -l"\par
+\pard\nowidctlpar\qj \f0 \b0 \tab % \b alias catalog "ls -l"\par
+\pard\nowidctlpar\qj \f0 \b0 \tab % \b alias move mv\par
+\pard\nowidctlpar\qj \f0 \b0 \tab % \b alias rename mv\par
+\pard\nowidctlpar\qj \f0 \b0 \tab % \b alias delete rm\par
+\pard\nowidctlpar\qj \f0 \b0 \tab % \b alias type cat\par
+\pard\nowidctlpar\qj \f0 \tab \b0 % \b alias prefix cd\par
+\pard\nowidctlpar\qj \f0 \b0 \tab % \b alias create crdir\par
+\pard\nowidctlpar\qj \f0 \par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 \b0 As indicated above, if you alias a string containing multiple words, you must enclose the string in quotes, as done for the \f0 \fs36 \fs30 catalog\f1 \fs18 \fs22  alias. \b gsh\b0  interprets the string as one \i value\i0 . If you do not include the opening and closing quotes, the \i alias\i0  command will notify you of your error.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 If you wish to remove an alias, use the command \i unalias\i0  with the aliased name as the argument. To remove the aliases from the \f0 \fs36 \fs30 orca.alias\f1 \fs18 \fs22  file given above, you could do the following:\par
+\pard\nowidctlpar\qj \f1 \tab \f0 \fs36 \fs30 % \b unalias copy cat catalog move rename delete type prefix create\par
+\pard\nowidctlpar\qj \f0 \par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 \b0 Unlike the \i alias\i0  command, the \i unalias\i0  command can take multiple arguments.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b Redirecting Input and Output\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b0 The output of the \i ls\i0  command above was imported into this text via a file. Most shell utilities will write their output to the screen. However, under GNO, like Orca, it is possible to redirect that output to a file or a GS/OS device. The \i ls\i0  output was redirected to a file which was then imported. In addition to redirecting the output of a shell utility, it is also possible to redirect the input to that utility. Consider the following \b gsh\b0  session:\par
+\pard\nowidctlpar\qj \f1 \tab [1]\f0 \fs36 \fs30 % \b echo this is a test\par
+\pard\nowidctlpar\qj \f0 \b0 \tab this is a test\par
+\pard\nowidctlpar\qj \f0 \tab [2]% \b echo this is a test > file1\par
+\pard\nowidctlpar\qj \f0 \b0 \tab [3]% \b cat file1\par
+\pard\nowidctlpar\qj \f0 \b0 \tab this is a test\par
+\pard\nowidctlpar\qj \f0 \tab [4]% \b cat < file1\par
+\pard\nowidctlpar\qj \f0 \tab \b0 this is a test\par
+\pard\nowidctlpar\qj \f0 \par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 It is important to note that when using input redirection, the argument to the "\f0 \fs36 \fs30 <\f1 \fs18 \fs22 "\f0 \fs36 \fs30  \f1 \fs18 \fs22 redirection operator \i must\i0  be a file. In the example above, \f0 \fs36 \fs30 cat \f1 \fs18 \fs22 takes input from standard input. In line 3 above, \f0 \fs36 \fs30 cat \f1 \fs18 \fs22 takes as an argument the filename \i file1\i0  and writes the contents of that file to standard output. Where no filename argument is given, \f0 \fs36 \fs30 cat \f1 \fs18 \fs22 reads input from standard input and writes the output to standard output. In the case of line 4 above, \f0 \fs36 \fs30 cat \f1 \fs18 \fs22 contains no arguments and therefore reads from standard input. However, \b gsh\b0  interprets the "\f0 \fs36 \fs30 <\f1 \fs18 \fs22 " redirection operator and opens the file \i file1\i0  for use as standard input. Therefore, \f0 \fs36 \fs30 cat \f1 \fs18 \fs22 will take its input from \i file1\i0 , even though it thinks it is reading input from standard input. This input redirection is transparent to the utility, making it work with most shell utilities.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 By using the "\f0 \fs36 \fs30 >>\f1 \fs18 \fs22 " redirection operator, output is appended to the argument of the "\f0 \fs36 \fs30 >>\f1 \fs18 \fs22 " operator. Output is appended to the end of the filename argument.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 To redirect output that is sent to standard error, use the following: \f0 \fs36 \fs30 >& \f1 \fs18 \fs22 and \f0 \fs36 \fs30 >>&\f1 \fs18 \fs22 . The "\f0 \fs36 \fs30 >&\f1 \fs18 \fs22 " operator redirects standard error to a file and "\f0 \fs36 \fs30 >>&\f1 \fs18 \fs22 " appends standard error to the end of the file. Below is a summary of the redirection operators:\par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 \tab Standard Input\tab Standard Output\tab Standard Error\par
+\pard\nowidctlpar\qj \f0 \tab \tab <\tab \tab \tab \tab \tab Redirect Input\par
+\pard\nowidctlpar\qj \f0 \tab \tab \tab \tab >\tab \tab >&\tab Redirect Output to file\par
+\pard\nowidctlpar\qj \f0 \tab \tab \tab \tab >>\tab \tab >>&\tab Redirect Output to EOF\par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 \par
+\pard\nowidctlpar\qj \f1 By redirecting the output to a GS/OS device, output can be directed to the storage device, printer, a modem, or any other valid GS/OS device. This provides a very powerful means of communicating directly with these devices from within \b gsh\b0 . See the \i ps\i0  command for a description of a storage device (Chapter 5).\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b Pipelines\par
+\pard\nowidctlpar\qj \f1 \b0 \par
+\pard\nowidctlpar\qj \f1 In addition to the redirection operators, there is one additional operator which gives control over how input and output are handled. The operator is a pipeline, "\f0 \fs36 \fs30 |\f1 \fs18 \fs22 ". The pipeline allows the standard output of one command to be used as the standard input to another command. This is almost equivalent to running the first command with its output redirected to a temporary file, then running the second command with its input redirected from the temporary file, then removing the temporary file. The pipeline allows a filter process where the output of one command can be sent to another command which filters the output to whatever parameters you give the second command. As an example, you could catalog all filenames with the character "a" in their name:\par
+\pard\nowidctlpar\qj \f1 \tab [1]\f0 \fs36 \fs30 % \b echo foo > file1; echo abc >> file1; echo aabc >> file1\par
+\pard\nowidctlpar\qj \f0 \b0 \tab [2]% \b echo GNO >> file1; echo standard >> file1; echo oof >> file1\par
+\pard\nowidctlpar\qj \f0 \b0 \tab [3]% \b cat file1\par
+\pard\nowidctlpar\qj \f0 \b0 \tab foo\par
+\pard\nowidctlpar\qj \f0 \tab abc\par
+\pard\nowidctlpar\qj \f0 \tab aabc\par
+\pard\nowidctlpar\qj \f0 \tab GNO\par
+\pard\nowidctlpar\qj \f0 \tab standard\par
+\pard\nowidctlpar\qj \f0 \tab oof\par
+\pard\nowidctlpar\qj \f0 \tab [4]% \b cat file1 | grep 'a'\par
+\pard\nowidctlpar\qj \f0 \b0 \tab abc\par
+\pard\nowidctlpar\qj \f0 \tab aabc\par
+\pard\nowidctlpar\qj \f0 \tab standard\par
+\pard\nowidctlpar\qj \f0 \par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 The pipeline is most useful when you wish to view lines of text in a file that contain a phrase, or if you want to connect the redirection operator with the pipeline and bypass intermediate files. It is also possible to connect multiple commands with multiple pipelines.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 One more use of the pipeline is in paging output. The \i coff\i0  program explained above prints the output of an OMF disassembly to the screen but does not pause when a key is pressed. This method of pausing the output \b is\b0  required under Orca unless you wait for the entire command to complete execution before the pipeline is processed (this is the reason for the \f0 \fs36 \fs30 SYSPIPE\i n\i0  \f1 \fs18 \fs22 file). Under GNO however, both commands are executed consecutively. Therefore, under GNO, \i coff\i0  will run while a utility that prints a screenful of text to the screen handles the output and allows you to page through the program output. GNO comes with a page utility, called \i more\i0 .\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b Background execution of commands\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b0 A major selling point of the GNO system is multitasking. Multitasking is a means of running multiple applications at once (not literally but very close). On the II\fs14 GS\fs22  GNO accomplishes multitasking (pre-emptive multitasking) by switching among applications that are running in the background. Any application can be run in the background; all applications running in the background run for the same period of time (GNO switches between applications every 1/60th of a second).\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 To background a shell utility, place the "\f0 \fs36 \fs30 &\f1 \fs18 \fs22 " character at the end of the command line. It is also possible to use the background character between commands, as is possible with the "\f0 \fs36 \fs30 ;\f1 \fs18 \fs22 " character. If multiple "\f0 \fs36 \fs30 &\f1 \fs18 \fs22 " characters are used between commands, each command, except possibly the last (unless it has a "\f0 \fs36 \fs30 &\f1 \fs18 \fs22 " appended to it), is executed in the background. When a command is backgrounded, GNO displays the process number of the command. Each background task has a unique process number. With this process number, you can pause, terminate, or send signals to the backgrounded command (more on signals in chapter 4 and Appendix C). If you exit GNO while processes are running, all processes will be terminated. Below is a sample of a GNO session with background tasks.\par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 \tab [1]% \b ps\par
+\pard\nowidctlpar\qj \f0 \b0 \tab   ID  STATE    TTY   userID   TIME COMMAND\par
+\pard\nowidctlpar\qj \f0 \tab    1  running tty03 (1004)      4s gsh\par
+\pard\nowidctlpar\qj \f0 \tab [2]% \b cmpl mycprog.c keep=mycprog > output_file&\par
+\pard\nowidctlpar\qj \f0 \tab \b0 [2]\par
+\pard\nowidctlpar\qj \f0 \tab [3]% \b ps\par
+\pard\nowidctlpar\qj \f0 \b0 \tab   ID  STATE    TTY   userID   TIME COMMAND\par
+\pard\nowidctlpar\qj \f0 \tab    1  running tty03 (1004)      4s gsh\par
+\pard\nowidctlpar\qj \f0 \tab    2    ready tty03 (1005)      1s cmpl mycprog.c keep=mycprog\par
+\pard\nowidctlpar\qj \f0 \tab [4]% \b cmpl myasmprog.asm keep=myasmprog > output_file2& ps ; ls -s\par
+\pard\nowidctlpar\qj \f0 \b0 \tab [3]\par
+\pard\nowidctlpar\qj \f0 \tab   ID  STATE    TTY   userID   TIME COMMAND\par
+\pard\nowidctlpar\qj \f0 \tab    1  running tty03 (1004)     10s gsh\par
+\pard\nowidctlpar\qj \f0 \tab    2    ready tty03 (1005)      7s cmpl mycprog.c keep=mycprog\par
+\pard\nowidctlpar\qj \f0 \tab    3    ready tty03 (1006)      1s cmpl mycprog.asm keep=mycprog.asm\par
+\pard\nowidctlpar\qj \f0 \tab :dev:gno\par
+\pard\nowidctlpar\qj \f0 \tab    1 doc             29 gsh              1 gshrc           70 kern\par
+\pard\nowidctlpar\qj \f0 \tab    1 man              1 message          1 orca             8 press.release\par
+\pard\nowidctlpar\qj \f0 \tab    9 release.notes    1 samples          1 todo            15 updates\par
+\pard\nowidctlpar\qj \f0 \tab [5]% \b cp file1 file2&\par
+\pard\nowidctlpar\qj \f0 \b0 \tab [4]\par
+\pard\nowidctlpar\qj \f0 \tab [6]% \b ps\par
+\pard\nowidctlpar\qj \f0 \b0 \tab   ID  STATE    TTY   userID   TIME COMMAND\par
+\pard\nowidctlpar\qj \f0 \tab    1  running tty03 (1004)     30s gsh\par
+\pard\nowidctlpar\qj \f0 \tab    3    ready tty03 (1006)     17s cmpl mycprog.asm keep=mycprog.asm\par
+\pard\nowidctlpar\qj \f0 \tab    4    ready tty03 (1007)      4s cp file1 file2\par
+\pard\nowidctlpar\qj \f0 \par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 The first command line sends the \i ps\i0  command to the shell. \i ps\i0  lists the processes currently running in the GNO system. The \f0 \fs36 \fs30 ID\f1 \fs18 \fs22  is the process id given to the command by GNO. \b gsh\b0  is always the first process. The other processes depend on what command you run in the background. Up to 9 processes can run concurrently in GNO. \f0 \fs36 \fs30 STATE \f1 \fs18 \fs22 describes the status of the given process. Each process can be in any of the following states: \i defunc, running, ready, blocked, suspended, \i0 or \i waiting\i0 . A description of each process status is given in Chapter 4. The \i ps\i0  command also lists the \f0 \fs36 \fs30 COMMAND\f1 \fs18 \fs22  entered to invoke the process.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 When a command is backgrounded, standard input is never sent to the backgrounded task. However, if the command sends output to the standard output or standard error, the screen will become cluttered. Do the following to verify this:\par
+\pard\nowidctlpar\qj \f1 \tab \f0 \fs36 \fs30 [1]% \b ls -l&\par
+\pard\nowidctlpar\qj \f0 \b0 \tab [2]% \b ls -l\par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 \b0 Both the output of commands #1 and #2 will be sent to the screen. Also, after command #1 is entered and you begin typing command #2, you will see the output of the first "\f0 \fs36 \fs30 ls -l\f1 \fs18 \fs22 " command being sent to the screen while you enter command #2. Therefore, it is advised that programs sending output to standard output or standard error be redirected to a file, as was done in lines #2 and #4 in the example before the last.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 When jobs are run in the background, the performance of the II\fs14 GS\fs22  will seem sluggish. This is not apparent when one or two tasks are running in the background but will become apparent when more are running. As the GS operates at 2.8mhz and was not designed as a multitasking system, the performance of the GNO system should be understandable. If you have an accelerator, the performance of GNO running multiple tasks will be acceptable due to the faster clock speed the GS is running at.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 To send signals to a backgrounded task, use the \i kill\i0  command. The \i kill\i0  command can be used to send signals to any task that is designed to handle them. For example, "\f0 \fs36 \fs30 kill -SIGUSR1 2\f1 \fs18 \fs22 " would send the SIGUSR1 signal to the process with id #2. This signal is a user defined signal and could mean anything to any program. \i ls\i0  could, for example, upon receiving this signal, pause until it received this signal again. A full description of the \i kill\i0  command is documented in Chapter 5.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b Tilde Expansion\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b0 The home directory was described in the section \b Starting gsh\b0  in Chapter 1. To move easily to directories from the home directory, \b gsh\b0  provides the "\f0 \fs36 \fs30 ~\f1 \fs18 \fs22 " (tilde) character. This character represents the home directory. Therefore, if your home directory was "\f0 \fs36 \fs30 /dev/gno\f1 \fs18 \fs22 ", you could use the command "\f0 \fs36 \fs30 cd ~\f1 \fs18 \fs22 " to move to the home directory. To move to subdirectories of the home directory, you could use the command "\f0 \fs36 \fs30 cd ~/dir1\f1 \fs18 \fs22 " command. The tilde character is recognized by \b gsh\b0  before the command is interpreted. Therefore, there is no difference to a command if the tilde is used to specify a directory, or if the complete pathname is used.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 In addition to the tilde character used to represent a partial pathname is the sequence "\f0 \fs36 \fs30 ..\f1 \fs18 \fs22 ". These two periods, when used as part of a pathname, will strip the last path between "\f0 \fs36 \fs30 /\f1 \fs18 \fs22 " or "\f0 \fs36 \fs30 :\f1 \fs18 \fs22 ". For instance, the pathname "\f0 \fs36 \fs30 /dev/gno/..\f1 \fs18 \fs22 " would expand to the pathname "\f0 \fs36 \fs30 /dev\f1 \fs18 \fs22 ". The "\f0 \fs36 \fs30 /gno\f1 \fs18 \fs22 " path is stripped as it is before the periods. This provides an excellent way to backup into your directories. Backup ends when the pathname expands to the volume directory. The following \b gsh\b0  session documents use of the tilde command and the prefix dot expandsion commands (the current directory is enclosed in brackets):\par
+\pard\nowidctlpar\qj \f1 \tab \f0 \fs36 \fs30 [/dev/gno]% \b cd ~\par
+\pard\nowidctlpar\qj \f0 \b0 \tab [/dev/gno]% \b cd ~/src\par
+\pard\nowidctlpar\qj \f0 \b0 \tab [/dev/gno/src]% \b cp ~/file1 file2\b0 \tab \f2 \fs24 \{ copy /dev/gno/file1 to /dev/gno/src/file2 \}\par
+\pard\nowidctlpar\qj \f0 \fs30 \tab [/dev/gno/src]% \b echo ~/..\par
+\pard\nowidctlpar\qj \f0 \b0 \tab /dev/gno/..\par
+\pard\nowidctlpar\qj \f0 \tab [/dev/gno/src]% \b cd ~/..\par
+\pard\nowidctlpar\qj \f0 \b0 \tab [/dev]% \b mkdir ~/utilities\par
+\pard\nowidctlpar\qj \f0 \b0 \tab [/dev]% \b cd ~\par
+\pard\nowidctlpar\qj \f0 \b0 \tab [/dev/gno]%\par
+\pard\nowidctlpar\qj \f0 \par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 Tilde expansion greatly reduces typing, especially if your home directory is nested deep into your directory hierarchy.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b Pathname Expansion\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b0 Many utilities supplied with \b gsh\b0  take, as an argument, a filename or filenames. The shell utilities \i cat, ls, grep, \i0 and \i cp\i0  take multiple filenames as arguments.  If you wish to invoke any of these utilities on filenames that have a sequence of characters in common (i.e. \f0 \fs36 \fs30 AND, APPLE, ANDOVER, FILE1, FILE2, FILE3, \f1 \fs18 \fs22 etc.), \b gsh\b0  provides certain special characters that match multile filenames without having to enter all filename arguments. These characters are "\f0 \fs36 \fs30 *, ?, [..]\f1 \fs18 \fs22 ". These characters provide regular expression matches to the filename containing the special character. \b gsh\b0  will process the word containing these special characters and expand the word(s) as follows:\par
+\pard\nowidctlpar\qj \f1 \tab *\tab Matches any string of characters.\par
+\pard\nowidctlpar\qj \f1 \tab ?\tab Matches a single character.\par
+\pard\nowidctlpar\qj \f1 \tab [abc]\tab Matches any of the characters enclosed in brackets.\par
+\pard\nowidctlpar\qj \f1 \tab [^abc]\tab Mathces any of the characters \i not\i0  enclosed in brackets.\par
+\pard\nowidctlpar\qj \f1 \tab [a-c]\tab Matches the ascending sequence of characters enclosed in brackets.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 This method of matching filenames that contain wildcards is known as file globbing. \b gsh\b0  performs the globbing on the word prior to executing the command. Those of you familiar with programming in the Orca environment should be familiar with the shell calls InitWildcard and NextWildcard. These shell calls, while supported by \b gsh\b0 , are no longer necessary. All shell utilities that work with multiple filenames do not need to provide support for file globbing, as this is taken care of transparently to the command. Indeed, this is how it should happen. The following \b gsh\b0  session further explains the file globbing:\par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 \tab [1]% \b cd /dev/gno/utilities\par
+\pard\nowidctlpar\qj \f0 \b0 \tab [1]% \b ls\par
+\pard\nowidctlpar\qj \f0 \b0 \tab :dev:gno:utilities\par
+\pard\nowidctlpar\qj \f0 \tab CONV            Crunch          CrunchIIGS      DeRez           DiskCheck\par
+\pard\nowidctlpar\qj \f0 \tab DumpObj         Duplicate       EMACS           Equal           Express\par
+\pard\nowidctlpar\qj \f0 \tab Files           LinkIIGS        MakeBin         MakeDirect      OrcaDumpIIGS\par
+\pard\nowidctlpar\qj \f0 \tab Prizm           ResEqual        Search          canon           choose\par
+\pard\nowidctlpar\qj \f0 \tab clrff           cmdfix          coff            compact         count\par
+\pard\nowidctlpar\qj \f0 \tab detab           dir             dirff           dumpfile        eject\par
+\pard\nowidctlpar\qj \f0 \tab emacs.doc       emacs.hlp       emacs.rc        emacs.tut       help\par
+\pard\nowidctlpar\qj \f0 \tab init            join            link            macgen          makelib\par
+\pard\nowidctlpar\qj \f0 \tab mem             online          pageeject       pause           pwd\par
+\pard\nowidctlpar\qj \f0 \tab src             \par
+\pard\nowidctlpar\qj \f0 \tab [2]% \b ls e*\par
+\pard\nowidctlpar\qj \f0 \b0 \tab :dev:gno:utilities\par
+\pard\nowidctlpar\qj \f0 \tab EMACS           Equal           Express         eject           emacs.doc       \par
+\pard\nowidctlpar\qj \f0 \tab emacs.hlp       emacs.rc        emacs.tut\par
+\pard\nowidctlpar\qj \f0 \tab [3]% \b echo *r *m\par
+\pard\nowidctlpar\qj \f0 \b0 \tab dir Prizm mem\par
+\pard\nowidctlpar\qj \f0 \tab [4]% \b echo *i*\par
+\pard\nowidctlpar\qj \f0 \b0 \tab cmdfix CrunchIIGS Prizm DiskCheck Duplicate Files init join LinkIIGS makelib\par
+\pard\nowidctlpar\qj \f0 \tab MakeBin MakeDirect link dirff dumpfile online OrcaDumpIIGS dir\par
+\pard\nowidctlpar\qj \f0 \tab [5]% \b echo NoMatch*\par
+\pard\nowidctlpar\qj \f0 \b0 \tab No match.\par
+\pard\nowidctlpar\qj \f0 \tab [6]% \b echo [a-f]*\par
+\pard\nowidctlpar \pard\nowidctlpar \f0 \b0 \tab coff canon cmdfix compact Crunch CrunchIIGS DeRez DiskCheck DumpObj Duplicate\par
+\pard\nowidctlpar \f0 \tab EMACS emacs.doc emacs.hlp emacs.rc emacs.tut Equal Express Files choose clrff\par
+\pard\nowidctlpar \f0 \tab count detab CONV dirff dumpfile eject dir\par
+\pard\nowidctlpar \f0 \tab [7]% \b echo [a-f,s-t]*\b0 \par
+\pard\nowidctlpar \f0 \tab coff canon cmdfix compact Crunch CrunchIIGS DeRez DiskCheck DumpObj Duplicate\par
+\pard\nowidctlpar \f0 \tab EMACS emacs.doc emacs.hlp emacs.rc emacs.tut Equal Express Files choose clrff\par
+\pard\nowidctlpar \f0 \tab count detab Search src CONV dirff dumpfile eject dir\par
+\pard\nowidctlpar \f0 \tab [8]% \b echo emacs?*\b0 \par
+\pard\nowidctlpar \f0 \tab EMACS emacs.doc emacs.hlp emacs.rc emacs.tut\par
+\pard\nowidctlpar \f0 \tab [9]% \b echo [^a-f]*\b0 \par
+\pard\nowidctlpar \f0 \tab Prizm help init join LinkIIGS makelib MakeBin MakeDirect link mem ResEqual\par
+\pard\nowidctlpar \f0 \tab Search src online pageeject pause OrcaDumpIIGS pwd macgen\par
+\pard\nowidctlpar \f0 \tab [10]% \b echo [^a-f,s-t]*\par
+\pard\nowidctlpar \f0 \tab \b0 Prizm help init join LinkIIGS makelib MakeBin MakeDirect link mem ResEqual\par
+\pard\nowidctlpar \f0 \tab online pageeject pause OrcaDumpIIGS pwd macgen\par
+\pard\nowidctlpar \f0 \tab [11]% \b echo ???\b0 \par
+\pard\nowidctlpar \f0 \tab mem src pwd dir\par
+\pard\nowidctlpar \f0 \tab [12]% \b echo ?\par
+\pard\nowidctlpar \f0 \b0 \tab No match.\par
+\pard\nowidctlpar \f0 \tab [13]% \b echo "???"\par
+\pard\nowidctlpar \f0 \b0 \tab ???\par
+\pard\nowidctlpar \f0 \par
+\pard\nowidctlpar\qj \pard\nowidctlpar\qj \f1 \fs18 \fs22 As can be seen by the above example, character matches are case insensitive. The ProDOS file system treats the filenames "file" and "FILE" as the same file. \b gsh\b0  recognizes this and does not detract from the underlying file system. Under UNIX, all filenames are case sensitive.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 The file globbing performs an invaluable function for grouping filenames. Passing argumes to commands is made much easier and much more powerful. Globbing makes programming under \b gsh\b0  much easier. Using the \i link\i0  command is one such example, as is \i cp, mv, \i0 and \i rm\i0 . You could easily use "*.c" for a list of all C source files, as input to a C compiler, or a file typer utility such as \i more\i0 .\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b Quoting special characters\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b0 When System 6.0 debuts, the II\fs14 GS\fs22  will be able to read files from Macintosh computers. The Macintosh uses a filesystem known as HFS, which allows filenames to contain any character except the color (":"). Thus, using file globbing blindly with ProDOS disks and HFS disks will cause problems. Under HFS, filenames such as "emacs?*" are allowed. This word was used as a regular expression above to specify a list of filenames beginning with the word "emacs" and one or more trailing characters. \b gsh\b0  does provide a way to pass a word as an argument to a command that contains special characters the shell understands. This is known as quoting an argument. There are three ways to quote an expression, using either a single quote ('), double quote ("), or backslash (\\).\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 The single quote will quote everything between the single quote marks. Thus, to pass "emacs?*" as a filename to the \i ls\i0  command, you would enter the following on the command line:\par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 \tab % \b ls 'emacs?*'\par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 \b0 The double quote will quote everything between the double quote marks except variables (more on variables in Chapter 4). The backslash is used to quote one character. To pass "emacs?*" using the backslash, enter the following:\par
+\pard\nowidctlpar\qj \f1 \tab \f0 \fs36 \fs30 % \b ls emacs\\?\\*\par
+\pard\nowidctlpar \pard\nowidctlpar \f0 \par
+\pard\nowidctlpar\qj \pard\nowidctlpar\qj \f1 \fs18 \fs22 \b0 One additional purpose of the quoting mechanism built into \b gsh\b0  is to add spaces to command arguments. Each command and its arguments is separated by a \f0 \fs36 \fs30 SPACE\f1 \fs18 \fs22 . Multiple spaces between arguments are treated as one space. Thus, consider the following:\par
+\pard\nowidctlpar \pard\nowidctlpar \f1 \tab \f0 \fs36 \fs30 % \b echo a     b c\par
+\pard\nowidctlpar \f0 \b0 \tab a b c\par
+\pard\nowidctlpar \f0 \tab % \b echo 'a     b c'\par
+\pard\nowidctlpar \f0 \b0 \tab a     b c\par
+\pard\nowidctlpar \f0 \par
+\pard\nowidctlpar \f0 \par
+\pard\nowidctlpar \f1 \fs18 \fs22 \b How gsh finds a command\par
+\pard\nowidctlpar \f1 \par
+\pard\nowidctlpar\qj \pard\nowidctlpar\qj \f1 \b0 Under the Orca system, only two directories can be used for shell utilities. One directory is the current working directory and the other a directory specifically setup for shell utilities. Of course you could specify by absolute pathname the directory of a command but this would not be something you would want to do often. \b gsh\b0  has a much superior method of searching for its shell utilities. These utilities, as specified heretofore, are EXE files, shell scripts, and SYS programs. The former two are specially written to run in the GNO environment.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b gsh\b0  has a special variable, \f0 \fs36 \fs30 PATH\f1 \fs18 \fs22 , which specifies the directories and order of directories to search for shell utilities. This variable is often setup in the \i gshrc\i0  file although it can be changed as often as needed. In Chapter 1, the section \b Customizing the Shell Environment\b0 , the purpose of the \f0 \fs36 \fs30 PATH\f1 \fs18 \fs22  variable and how to set it up was discussed. Further explanation of \f0 \fs36 \fs30 PATH\f1 \fs18 \fs22  follows.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 When \b gsh\b0  starts up with the \f0 \fs36 \fs30 PATH\f1 \fs18 \fs22  variable set, the shell searches all directories specified in the \f0 \fs36 \fs30 PATH\f1 \fs18 \fs22  variable and establishes a table of all commands, called a hash table. The more pathnames specified, the greater the delay in starting \b gsh\b0  and invoking the \i rehash\i0  command. Because of this table, \b gsh\b0  "knows" where a command is and can execute the command much faster then searching through all directories \i every\i0  time the command is entered. The search process begins with alias names (cf. \b Using aliases as shorthand\b0 ). If an alias is found that matches the command, the alias is replaced with its value and the command-line is again parsed. The search process then interprets the command name and searches for the name in the hash table. If an entry is found in the hash table, the path name of the command is retrieved and the command is executed. If an entry is not found, the current path is searched. If the command name is not found, an error results.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 As explained in Chapter 1, to separate pathnames in the \f0 \fs36 \fs30 PATH\f1 \fs18 \fs22  variable use the \i space\i0  or colon (":") character. If your pathname contains the colon character, make sure to quote the character or it will be misinterpreted as a pathname separator.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 When the \f0 \fs36 \fs30 PATH\f1 \fs18 \fs22  variable is changed (after it is \i set\i0 ), \b gsh\b0  will not automatically recreate a hash table for all the commands specified in the \f0 \fs36 \fs30 PATH\f1 \fs18 \fs22  directories. You will need to issue the command \i rehash\i0  to recreate the hash table. This is the sole purpose of the \i rehash\i0  command. It would be quite easy to create a shell script file that changed \f0 \fs36 \fs30 PATH\f1 \fs18 \fs22  and invoked the \i rehash\i0  command in one step. The following shell script does this:\par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 \tab echo Resetting PATH variable "$PATH" to "$1"\par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 \tab \f0 \fs36 \fs30 set path=$1\par
+\pard\nowidctlpar\qj \f0 \tab rehash\par
+\pard\nowidctlpar\qj \f0 \par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 The number \b 1\b0  specifies the first argument of the preceding script. The \f0 \fs36 \fs30 PATH\f1 \fs18 \fs22  variable will be set and then the command \i rehash\i0  invoked. Shell variables are not case sensitive.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 If, after the \i rehash\i0  command is used or \b gsh\b0  is started with \f0 \fs36 \fs30 PATH\f1 \fs18 \fs22  set, any shell utilities copied into \f1 directories other than those specified in the \f0 \fs36 \fs30 PATH\f1 \fs18 \fs22  variable will not be "seen" by \b gsh\b0 . Only those commands initially read by \b gsh\b0  or when the \i rehash\i0  command is invoked will be entered into the hash table that \b gsh\b0  searches for all commands.\par
+\cf9 \f0 \fs20 <page-break>\cf0 \par
+\page \pard\nowidctlpar\qj \f1 \fs32 \b Chapter 5\par
+\pard\nowidctlpar\qj \f1 \fs26 \ul Shell Variables                                                                                    \par
+\pard\nowidctlpar\qj \f1 \fs18 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \ulnone \fs22 Using shell variables\par
+\pard\nowidctlpar\qj \f1 \b0 \par
+\pard\nowidctlpar\qj \f1 \b gsh\b0  supports variables in the shell environment. These variables can be used by any shell utility or script. Many EXE files and shell scripts predefine certain shell variables that contain formatting options or other options to a specific utility. As an example, the \i ls\i0  utility could set up the variable \f0 \fs36 \fs30 COLUMNS\f1 \fs18 \fs22  that defines the maximum number of characters per line that is output. When \i ls\i0  is started, it would read the value of the \f0 \fs36 \fs30 COLUMNS\f1 \fs18 \fs22  variable and format its output accordingly.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 Like utilites that use shell variables, \b gsh\b0  has set aside certain variables for specific use by the shell. Shell utilites should be aware of these variables and use them appropriately. Therefore, use caution when changing shell variables.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b Scope of shell variables\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b0 It is possible for any shell script or executable program to define a variable. These variables will not be made available to other processes unless the program that defined the variable makes them available. In the \i gshrc\i0  shell script is the command \i export\i0  followed by several variables that have been defined. The \i export\i0  command makes variables defined by one process available to processes spawned by the original process. In the case of the shell, most of its variables are exported and, therefore, all shell utilities can read the value of a shell variable. However, the program that is called cannot change the value of a shell variable unless it too \i export\i0 s the variable. Appendix B contains a sample \b gsh\b0  session that reviews many topics covered in this manual.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 There are generally two calling conventions for a process. The original process, \b gsh\b0  for example, is called a parent process. If \b gsh\b0  invokes a process, such as \i ls, cp, mv\i0 , that process is called a child process. A parent process that exports its variables can be "seen" by any child process. However, for the variable in the parent process to change, the child process must export that variable.\par
+\pard\nowidctlpar\qj \f1 \b \par
+\pard\nowidctlpar\qj \f1 \b0 \par
+\pard\nowidctlpar\qj \f1 \b Description of shell variables\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b0 The following variables have special meaning to \b gsh\b0 .\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 HISTORY\f1 \fs18 \fs22 \tab A numeric value that contains the number of history commands (command-lines) remembered. If the value is 0 or \f0 \fs36 \fs30 HISTORY\f1 \fs18 \fs22  is undefined, all commands will be remembered. Previous command-lines can be called back with the UP-ARROW and DOWN-ARROW (cf. Chapter 2, \b Fetching old history line\b0 ).\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 SAVEHIST\f1 \fs18 \fs22 \tab A numeric value that contains the number of commands to save to disk when exiting \b gsh\b0 . These commands are then read back in when \b gsh\b0  is started. Thus, old commands can be called back again. If the value is 0 or \f0 \fs36 \fs30 SAVEHIST\f1 \fs18 \fs22  is undefined, no commands will be saved to disk.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 PROMPT\f1 \fs18 \fs22 \tab When \b gsh\b0  prompts you to enter a command, the prompt that appears before the cursor can be customized for your \b gsh\b0  environment. Examples of prompts already used in this manual are "\f0 \fs36 \fs30 % \f1 \fs18 \fs22 ", "\f0 \fs36 \fs30 [1]%\f1 \fs18 \fs22 ", and "\f0 \fs36 \fs30 [/dev/gno]%\f1 \fs18 \fs22 ". If \f0 \fs36 \fs30 PROMPT\f1 \fs18 \fs22  is undefined, the default prompt of "\f0 \fs36 \fs30 % \f1 \fs18 \fs22 " is used. The prompt string recognizes certain character sequences in the \f0 \fs36 \fs30 PROMPT\f1 \fs18 \fs22  varialbe and interprets them accordingly. The following are the special characters:\par
+\pard\nowidctlpar\qj \f1 \tab \f0 \fs36 \fs30 %h, %!, !\tab \f1 \fs18 \fs22 Current history number.\par
+\pard\nowidctlpar\qj \f1 \tab \f0 \fs36 \fs30 %t, %@\tab \f1 \fs18 \fs22 Current time of day in 12 hour am/pm format.\par
+\pard\nowidctlpar\qj \f1 \tab \f0 \fs36 \fs30 %d, %/\tab \f1 \fs18 \fs22 Current working directory.\par
+\pard\nowidctlpar\qj \f1 \tab \f0 \fs36 \fs30 %~\tab \f1 \fs18 \fs22 Current working directory with tilde ("\f0 \fs36 \fs30 ~\f1 \fs18 \fs22 ") expansion.\par
+\pard\nowidctlpar\qj \f1 \tab \f0 \fs36 \fs30 %c, %C, %.\tab \f1 \fs18 \fs22 Trailing component of current working directory.\par
+\pard\nowidctlpar\qj \f1 \tab \f0 \fs36 \fs30 %S, %s\tab \f1 \fs18 \fs22 Standard Output inverse mode ON/OFF.\par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 \tab %%\tab \f1 \fs18 \fs22 Displays a single "\f0 \fs36 \fs30 %\f1 \fs18 \fs22 " character.\par
+\pard\nowidctlpar\qj \f1 \tab \f0 \fs36 \fs30 %n\tab \f1 \fs18 \fs22 User name (contents of \f0 \fs36 \fs30 $USER\f1 \fs18 \fs22  variable).\par
+\pard\nowidctlpar\qj \f1 \tab \f0 \fs36 \fs30 %W\tab \f1 \fs18 \fs22 The date in mm/dd/yy format.\par
+\pard\nowidctlpar\qj \f1 \tab \f0 \fs36 \fs30 %D\tab \f1 \fs18 \fs22 The date in yy-mm-dd format.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 HOME\f1 \fs18 \fs22 \tab The \f0 \fs36 \fs30 HOME\f1 \fs18 \fs22  variable was originally discussed in Chapter 3, \b Starting gsh\b0 . Briefly, the \f0 \fs36 \fs30 HOME\f1 \fs18 \fs22  directory is the main directory of the shell. Many times it is the directory \b gsh\b0  defaults to when it starts. The tilde character ("\f0 \fs36 \fs30 ~\f1 \fs18 \fs22 ") can be used as a shorthand method of accesing the \f0 \fs36 \fs30 HOME\f1 \fs18 \fs22  directory (as discussed in Chapter 3, \b Tilde Expansion\b0 ).\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 PATH\f1 \fs18 \fs22 \tab A string value that defines the pathnames where shell scripts, EXE utilities, and SYS programs can be found (cf. Chapter 3, \b How gsh finds a command\b0 ).\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 ECHO\f1 \fs18 \fs22 \tab A boolean value that, if defined, will cause commands in a shell script to be echoed to standard output.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 0\f1 \fs18 \fs22 , \f0 \fs36 \fs30 1\f1 \fs18 \fs22 , \f0 \fs36 \fs30 2\f1 \fs18 \fs22 , ...\tab String values that contain the arguments to shell scripts. Variable 0 contains the name of the command. The first arguments begins with variable 1 and on. To expand a variable, use the dollar character ("\f0 \fs36 \fs30 $\f1 \fs18 \fs22 "), as explained in the next section \b Accessing shell variables\b0 .\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 NOGLOB\f1 \fs18 \fs22 \tab A boolean value that, if enabled, will disable filename globbing. Command arguments will be passed to their commands "as-is".\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 NONEWLINE\f1 \fs18 \fs22 \tab A boolean value that, if set, will disable carriage returns being output before and after command execution. Previous examples given in this manual have this option set.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 USER\f1 \fs18 \fs22 \tab A string that represents the name of the current user. This variable is currently not used by any GNO program.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 $<\f1 \fs18 \fs22 \tab When encountered, the variable is expanded using the value obtained input from standard input.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b Accessing shell variables\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b0 Shell variables are changed with the \i set\i0  command. The first argument to the set command is the name of the variable to set and the second argument is the value of the variable. It is possible to have multiple variable/value argument pairs with the set command. Set, without any arguments, will list all variables that have been set. The \i unset\i0  command is used to remove the variable from the list of program variables.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 To access shell variables from the command line or a shell script, use the character "\f0 \fs36 \fs30 $\f1 \fs18 \fs22 " prior to the variable name. The dollar sign character will expand the variable to its value. Make sure, if using the dollar sign in a string from the command line, to enclose it in single quotes or use the "\f0 \fs36 \fs30 \\\f1 \fs18 \fs22 " escape character, as double quotes will expand the variable. To expand variables that contain numbers, a special means is provided using the curly brackets, "\f0 \fs36 \fs30 \{\f1 \fs18 \fs22 " and "\f0 \fs36 \fs30 \}\f1 \fs18 \fs22 ". The sole purpose of the brackets is to expand a variable with a number as part of the name when a number is to follow the variable in, for example, the \i echo\i0   command. This provides a very powerful way of user interaction with shell scripts. As an example,\par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 \tab [1] gno> \b set\par
+\pard\nowidctlpar \pard\nowidctlpar \f0 \b0 \tab savehist = 25\par
+\pard\nowidctlpar \f0 \tab path = /dev/gno/orca:/dev/gno/utilities\par
+\pard\nowidctlpar \f0 \tab history = 25\par
+\pard\nowidctlpar \f0 \tab prompt = [%h] %C> \par
+\pard\nowidctlpar \f0 \tab user = tmeekins\par
+\pard\nowidctlpar \f0 \tab home = /dev/gno\par
+\pard\nowidctlpar \f0 \tab nonewline = 1\par
+\pard\nowidctlpar \f0 \tab [2] gno> \b set history 30 user user1\par
+\pard\nowidctlpar \f0 \b0 \tab savehist = 25\par
+\pard\nowidctlpar \f0 \tab path = /dev/gno/orca:/dev/gno/utilities\par
+\pard\nowidctlpar \f0 \tab history = 30\par
+\pard\nowidctlpar \f0 \tab prompt = [%h] %C> \par
+\pard\nowidctlpar \f0 \tab user = user1\par
+\pard\nowidctlpar \f0 \tab home = /dev/gno\par
+\pard\nowidctlpar \f0 \tab nonewline = 1\par
+\pard\nowidctlpar \f0 \tab [3] gno> \b unset savehist\par
+\pard\nowidctlpar \f0 \b0 \tab path = /dev/gno/orca:/dev/gno/utilities\par
+\pard\nowidctlpar \f0 \tab history = 30\par
+\pard\nowidctlpar \f0 \tab prompt = [%h] %C>\par
+\pard\nowidctlpar \f0 \tab user = user1\par
+\pard\nowidctlpar \f0 \tab home = /dev/gno\par
+\pard\nowidctlpar \f0 \tab nonewline = 1\par
+\pard\nowidctlpar \f0 \tab [4] gno> \b echo 'Current value of $path = ' $path\par
+\pard\nowidctlpar \f0 \b0 \tab Current value of $path = /dev/gno/orca:/dev/gno/utilities\par
+\pard\nowidctlpar \f0 \tab [5] gno> \b echo "Value of $path = " $path\par
+\pard\nowidctlpar \f0 \b0 \tab Value of /dev/gno/orca:/dev/gno/utilities = /dev/gno/orca:/dev/gno/utilities\par
+\pard\nowidctlpar \f0 \tab [6] gno> \b set user1 foo\par
+\pard\nowidctlpar \f0 \b0 \tab [7] gno> \b echo $user1\par
+\pard\nowidctlpar \f0 \b0 \tab foo\par
+\pard\nowidctlpar \f0 \tab [8] gno> \b echo $\{user\}1\par
+\pard\nowidctlpar \f0 \b0 \tab tmeekins1\par
+\pard\nowidctlpar \f0 \tab [9] gno> \b echo 'echo Command name: $0' > change.path\par
+\pard\nowidctlpar \f0 \b0 \tab [10] gno> \b echo "echo '\\$path = ' \\$path" >> change.path\par
+\pard\nowidctlpar \f0 \b0 \tab [11] gno> \b echo "set \\$path \\$1" >> change.path\par
+\pard\nowidctlpar \f0 \b0 \tab [12] gno> \b echo 'rehash' >> change.path\par
+\pard\nowidctlpar \f0 \b0 \tab [13] gno> \b cat change_path\par
+\pard\nowidctlpar \f0 \b0 \tab echo Command name: $0\par
+\pard\nowidctlpar \f0 \tab echo '$path = ' $path\par
+\pard\nowidctlpar \f0 \tab set $path $1\par
+\pard\nowidctlpar \f0 \tab rehash\par
+\pard\nowidctlpar \f0 \tab [14] gno> \b change.path '/dev/gno/utilities'\par
+\pard\nowidctlpar \f0 \b0 \tab $path = /dev/gno/orca:/dev/gno/utilities\par
+\pard\nowidctlpar \f0 \tab hashed  55 files.\par
+\pard\nowidctlpar \f0 \tab [15] gno> \b change.path $PATH\par
+\pard\nowidctlpar \f0 \b0 \tab $path = /dev/gno/orca:/dev/gno/utilities\par
+\pard\nowidctlpar \f0 \tab hashed  55 files.\par
+\pard\nowidctlpar \f0 \par
+\cf9 \f0 \fs20 <page-break>\cf0 \par
+\page \pard\nowidctlpar \f1 \fs18 \fs32 \b Chapter 5\par
+\pard\nowidctlpar \f1 \fs26 \ul Built-in Commands                                                                             \par
+\pard\nowidctlpar \f1 \fs18 \par
+\pard\nowidctlpar \f1 \par
+\pard\nowidctlpar \f1 \par
+\pard\nowidctlpar \f1 \ulnone \fs22 Built-ins vs EXE Commands\par
+\pard\nowidctlpar \f1 \par
+\pard\nowidctlpar\qj \pard\nowidctlpar\qj \f1 \b0 The term "built-ins" is used to represent commands that a shell has built-in to it. Because of this, utilities such as \i cd, echo,\i0  and \i ps\i0  exist. These utilities also run faster than external commands because the code is already loaded into memory. \b gsh\b0  has a number of built-in commands. These commands allow you to work with the shell, work with the GNO kernel, work with shell scripts, and control the shell environment.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 Files of type "EXE", on the other hand, must be loaded into memory by \b gsh\b0  and executed. If an EXE command is executed again, it might, again, have to be loaded into memory, depending on whether or not the Apple II\fs14 GS\fs22  memory manager has deallocated the block originally allocated to the utility. This results in longer execution time for the program. \b gsh\b0  built-ins will not have this problem.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 The following section describes the commands built-in to \b gsh\b0 . These commands are broken down into three classes: Shell Commands, GNO Commands, and Environment Commands. The "\f0 \fs36 \fs30 [..]\f1 \fs18 \fs22 " character sequence represents an optional argument to a command. The term "\f0 \fs36 \fs30 SIGNAL\f1 \fs18 \fs22 " is used to represent one of the signal names or numbers listed in Appendix C. The sequence "\f0 \fs36 \fs30 ...\f1 \fs18 \fs22 " means the command uses multiple arguments, of the same type as the word before the "\f0 \fs36 \fs30 ...\f1 \fs18 \fs22 " sequence. The sequence "\f0 \fs36 \fs30 \{..\}\f1 \fs18 \fs22 " is used to represent a set.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b Shell Commands\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b0 Shell built-ins provide support for external shell commands (i.e. EXE files and shell scripts) and provide some commands used in every-day work.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 \b cd [pathname]\par
+\pard\nowidctlpar\qj \f0 chdir [pathname]\par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 \b0 Changes the current working directory to \f0 \fs36 \fs30 pathname\f1 \fs18 \fs22 . If \f0 \fs36 \fs30 pathname\f1 \fs18 \fs22  is not given, the default \f0 \fs36 \fs30 HOME\f1 \fs18 \fs22  directory (i.e. the value of the \f0 \fs36 \fs30 HOME\f1 \fs18 \fs22  environment variable) is used. This makes it easy to move back to your \f0 \fs36 \fs30 HOME\f1 \fs18 \fs22  directory. Under \b gsh\b0 , unlike most UNIX shells, the \f0 \fs36 \fs30 cd \f1 \fs18 \fs22 is not necessary, except to change automatically to your \f0 \fs36 \fs30 HOME\f1 \fs18 \fs22  directory. The arguments to the \f0 \fs36 \fs30 cd\f1 \fs18 \fs22  command, if entered as a command, will cause \b gsh\b0  to treat the arguments as if they were arguments to the \f0 \fs36 \fs30 cd\f1 \fs18 \fs22  command.\par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 \tab [1] gno> \b cd utilities\par
+\pard\nowidctlpar\qj \f0 \b0 \tab [2] gno/utilities> \b echo $HOME\par
+\pard\nowidctlpar\qj \f0 \b0 \tab /dev/gno\par
+\pard\nowidctlpar\qj \f0 \tab [3] gno/utilities> \b cd\par
+\pard\nowidctlpar\qj \f0 \b0 \tab [4] gno> \b utilities\par
+\pard\nowidctlpar\qj \f0 \b0 \tab [5] gno/utilities> \b ../utilities\par
+\pard\nowidctlpar\qj \f0 \b0 \tab [6] gno/utilities> \b ~\par
+\pard\nowidctlpar\qj \f0 \b0 \tab [7] gno> \ul  \par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 \ulnone \par
+\pard\nowidctlpar\qj \f1 \f0 \fs36 \b \fs30 clear\par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 \b0 This command takes no arguments. When invoked, the screen will be cleared.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 \b df\par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 \b0 This commands takes no arguments. When invoked, a listing of free blocks for every block device is given. In addition, the device name, type, system, and capacity is listed.\par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 \tab [1] gno> \b df\par
+\pard\nowidctlpar \pard\nowidctlpar \f0 \b0 \tab Volume           Device           Free    Total   Capacity  System\par
+\pard\nowidctlpar \f0 \tab ---------------- ---------------- ------- ------- --------  -----------\par
+\pard\nowidctlpar \f0 \tab :system          .APPLESCSI.HD01.   27561   50773     45%   ProDOS\par
+\pard\nowidctlpar \f0 \tab :dev             .APPLESCSI.HD01.   43431   65108     33%   ProDOS\par
+\pard\nowidctlpar \f0 \tab :usr             .APPLESCSI.HD01.   44376   48725      8%   ProDOS\par
+\pard\nowidctlpar \f0 \tab :ram5            .DEV2                218     512     57%   ProDOS\par
+\pard\nowidctlpar \f0 \par
+\pard\nowidctlpar\qj \pard\nowidctlpar\qj \f0 Volume\f1 \fs18 \fs22  - Name of device.\par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 Device\f1 \fs18 \fs22  -\f1  GS/OS device name.\par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 Free\f1 \fs18 \fs22  - Total number of free blocks on device.\par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 Total\f1 \fs18 \fs22  - Total number of blocks on device.\par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 Capacity\f1 \fs18 \fs22  - Percentage of used blocks on device.\par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 System\f1 \fs18 \fs22  - Format of file system. Under System Software 5.0.2, this is limited to ProDOS. Under System Software 6.0, the file systems available are ProDOS, HFS, Pascal, and DOS 3.3.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 \b echo [-n] arg [arg ...]\par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 \b0 Expands the "\f0 \fs36 \fs30 arg\f1 \fs18 \fs22 " expression(s) and outputs them to the screen. If the "\f0 \fs36 \fs30 -n\f1 \fs18 \fs22 " switch is specified, a \f0 \fs36 \fs30 NEWLINE\f1 \fs18 \fs22  character is not output after the last "\f0 \fs36 \fs30 arg\f1 \fs18 \fs22 " expression.\par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 \tab [1] gno> \b echo Hello World\par
+\pard\nowidctlpar\qj \f0 \b0 \tab Hello World\par
+\pard\nowidctlpar\qj \f0 \tab [2] gno> \b echo -n Hello World\par
+\pard\nowidctlpar\qj \f0 \b0 \tab Hello World[3] gno> \b echo $PATH $HOME 'come get to $gnome'\par
+\pard\nowidctlpar\qj \f0 \b0 \tab /dev/gno/utilities:/dev/orca/utilities /dev/gno come get to $gnome\par
+\pard\nowidctlpar\qj \f0 \par
+\pard\nowidctlpar\qj \f0 \b history [-n]\par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 \b0 This command displays a list of previous command-line entries that have been added to the history file. If an argument is given, the number of entries listed is equal to the argument, unless that number is greater than \f0 \fs36 \fs30 $HISTORY\f1 \fs18 \fs22 , in which case \f0 \fs36 \fs30 $HISTORY\f1 \fs18 \fs22  entries are listed. If no argument is given, up to \f0 \fs36 \fs30 $HISTORY\f1 \fs18 \fs22  entries are listed.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 \b pwd\par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 \b0 Displays the current working directory. This is useful if you have not specified the \f0 \fs36 \fs30 $PROMPT\f1 \fs18 \fs22  string to output your current working directory.\par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 \tab [1]> \b cd $HOME\par
+\pard\nowidctlpar\qj \f0 \b0 \tab [2]> \b pwd\par
+\pard\nowidctlpar\qj \f0 \b0 \tab /dev/gno\par
+\pard\nowidctlpar\qj \f0 \tab [3]> \b cd utilities\par
+\pard\nowidctlpar\qj \f0 \b0 \tab [4]> \b pwd\par
+\pard\nowidctlpar\qj \f0 \b0 \tab /dev/orca/utilities\par
+\pard\nowidctlpar\qj \f0 \par
+\pard\nowidctlpar\qj \f0 \b which command_name [command_name ...]\par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 \b0 If a command is created (i.e. an EXE, shell script, or SYS file) with a name like that of one of the commands in the \f0 \fs36 \fs30 $PATH\f1 \fs18 \fs22  directories, this new command will not be executed when invoked. \b gsh\b0  first looks through the \f0 \fs36 \fs30 $PATH\f1 \fs18 \fs22  directories to locate the command. It then looks at the current directory. If a command is both in one of the \f0 \fs36 \fs30 $PATH\f1 \fs18 \fs22  directories \i and\i0  in the current directory, the command located in \f0 \fs36 \fs30 $PATH\f1 \fs18 \fs22  will be executed. \f0 \fs36 \fs30 which\f1 \fs18 \fs22  will print out the absolute pathname of the command "\f0 \fs36 \fs30 command_name\f1 \fs18 \fs22 ". This will resolve duplicate command name conflicts.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b GNO Commands\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 gsh\b0  provides a set of commands to control the GNO kernel. These commands, at present, are limited to job control.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 \b kill [-SIGNAL] pid\par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 \b0 GNO is a multitasking kernel. While this allows you to execute multiple jobs in succession, it also provides job control, the ability to cancel, pause, or stop a process that is currently executing. \f0 \fs36 \fs30 kill \f1 \fs18 \fs22 will send the signal \f0 \fs36 \fs30 SIGNAL\f1 \fs18 \fs22  to the process number \f0 \fs36 \fs30 pid\f1 \fs18 \fs22 . The \f0 \fs36 \fs30 ps\f1 \fs18 \fs22  command documented below describes how to list all process ID's currently executing.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 SIGNAL \f1 \fs18 \fs22 can be either a numeric value or string representing the signal to be sent to the process. All signals are documented in Appendix C, with numeric and string value listed.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 \b ps\par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 \b0 This command takes no arguments. When invoked, a list of all currently running processes is displayed.\par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 \tab [1] gno> \b ls -lR /dev > /ram5/dev&\par
+\pard\nowidctlpar\qj \f0 \b0 \tab [2]\par
+\pard\nowidctlpar\qj \f0 \tab [2] gno> \b ps\par
+\pard\nowidctlpar \pard\nowidctlpar \f0 \tab   \b0 ID  STATE    TTY   userID   TIME COMMAND\par
+\pard\nowidctlpar \f0 \tab    1  waiting tty03 (1006)     15s gsh\par
+\pard\nowidctlpar \f0 \tab    2    ready tty03 (1007)      1s ls -lR /dev\par
+\pard\nowidctlpar \f0 \tab [3] gno> \b ls -lR /system > /ram5/system&\par
+\pard\nowidctlpar \f0 \b0 \tab [3]\par
+\pard\nowidctlpar \f0 \tab [4] gno> \b ps\par
+\pard\nowidctlpar \f0 \b0 \tab   ID  STATE    TTY   userID   TIME COMMAND\par
+\pard\nowidctlpar \f0 \tab    1  waiting tty03 (1006)     15s gsh\par
+\pard\nowidctlpar \f0 \tab    2    ready tty03 (1007)     16s ls -lR /dev\par
+\pard\nowidctlpar \f0 \tab    3    ready tty03 (1008)      5s ls -lR /system\par
+\pard\nowidctlpar \f0 \tab [5] gno> \b cp -r documentation dumb.dir&\par
+\pard\nowidctlpar \f0 \b0 \tab [6]\par
+\pard\nowidctlpar \f0 \tab [6] gno> \b ps\par
+\pard\nowidctlpar \f0 \tab  \b0  ID  STATE    TTY   userID   TIME COMMAND\par
+\pard\nowidctlpar \f0 \tab    1  waiting tty03 (1006)     29s gsh\par
+\pard\nowidctlpar \f0 \tab    2    ready tty03 (1007)     84s ls -lR /dev\par
+\pard\nowidctlpar \f0 \tab    3    ready tty03 (1008)     73s ls -lR /system\par
+\pard\nowidctlpar \f0 \tab    4  defunct tty03 (1009)     23s cp -r documentation dumb.dir\par
+\pard\nowidctlpar \f0 \tab [7] gno> \b kill -9 3\par
+\pard\nowidctlpar \f0 \b0 \tab   ID  STATE    TTY   userID   TIME COMMAND\par
+\pard\nowidctlpar \f0 \tab    1  waiting tty03 (1006)     35s gsh\par
+\pard\nowidctlpar \f0 \tab    2    ready tty03 (1007)     90s ls -lR /dev\par
+\pard\nowidctlpar \f0 \tab    4  defunct tty03 (1009)     29s cp -r documentation dumb.dir\par
+\pard\nowidctlpar \f0 \tab [8] gno> \b kill 2\par
+\pard\nowidctlpar \f0 \b0 \tab   ID  STATE    TTY   userID   TIME COMMAND\par
+\pard\nowidctlpar \f0 \tab    1  waiting tty03 (1006)     41s gsh\par
+\pard\nowidctlpar \f0 \tab    4  defunct tty03 (1009)     29s cp -r documentation dumb.dir\par
+\pard\nowidctlpar \f0 \tab [9] gno> \b ps\par
+\pard\nowidctlpar \f0 \b0 \tab   ID  STATE    TTY   userID   TIME COMMAND\par
+\pard\nowidctlpar \f0 \tab    1  waiting tty03 (1006)     50s gsh\par
+\pard\nowidctlpar \f0 \par
+\pard\nowidctlpar\qj \pard\nowidctlpar\qj \f0 ID\f1 \fs18 \fs22  - Process ID assigned to command by GNO. Use this number to reference any process.\par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 STATE\f1 \fs18 \fs22  - Current state of process. Possible values are: \f0 \fs36 \fs30 defunct\f1 \fs18 \fs22 , \f0 \fs36 \fs30 running\f1 \fs18 \fs22 , \f0 \fs36 \fs30 ready\f1 \fs18 \fs22 , \f0 \fs36 \fs30 blocked\f1 \fs18 \fs22 , \f0 \fs36 \fs30 suspend\f1 \fs18 \fs22 , and \f0 \fs36 \fs30 waiting\f1 \fs18 \fs22 .\par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 TTY\f1 \fs18 \fs22  - Terminal connected to process.\par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 userID\f1 \fs18 \fs22  - Memory Manager ID assigned to process.\par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 COMMAND\f1 \fs18 \fs22  - Command-line string used to invoke process.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b Environment Commands\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b0 The last set of commands, environment commands, modify the \b gsh\b0  environment. Many of these commands have been used in other parts of this manual and, therefore, should not be new.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 \b alias [name] [value]\par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 \b0 Creates an alias for a string. When this string is called, \f0 \fs36 \fs30 value\f1 \fs18 \fs22  will be executed. For commands that require many arguments, you could use a string to replace the arguments and use the string as a replacement for the command. To obtain a list of all aliases, invoke \f0 \fs36 \fs30 alias\f1 \fs18 \fs22  with no arguments. To list the value of an alias, invoke \f0 \fs36 \fs30 alias\f1 \fs18 \fs22  with \f0 \fs36 \fs30 name\f1 \fs18 \fs22  only. Consider the following aliases:\par
+\pard\nowidctlpar\qj \f1 \tab \b Alias\tab Command Name\par
+\pard\nowidctlpar\qj \f1 \b0 \tab \f0 \fs36 \fs30 ll or list_long\tab ls -l\par
+\pard\nowidctlpar\qj \f0 \tab backup_sys\tab cp -r /system /tape_drive&\par
+\pard\nowidctlpar\qj \f0 \tab backup_dev\tab cp -r /dev /tape_drive&\par
+\pard\nowidctlpar\qj \f0 \tab print\tab echo\par
+\pard\nowidctlpar\qj \f0 \tab catalog\tab ls -l\par
+\pard\nowidctlpar\qj \f0 \tab delete\tab rm\par
+\pard\nowidctlpar\qj \f0 \tab copy\tab cp\par
+\pard\nowidctlpar\qj \f0 \tab type\tab more\par
+\pard\nowidctlpar\qj \f0 \tab rename\tab mv\par
+\pard\nowidctlpar\qj \f0 \par
+\pard\nowidctlpar\qj \f0 \b export [variable ...]\par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 \b0 In Chapter 4, \b Scope of shell variables\b0 , \f0 \fs36 \fs30 export \f1 \fs18 \fs22 was discussed. In short, when a shell environment variable is marked as exportable, any process that is created from within the current process (most likely \b gsh\b0 ), will be given a list of the exported variables. If, in turn, the new process marks the variables as exporable and the value of any variable changes, the parent process (or calling process) will have these variables changed to reflect the value of the child process (or called process). This is the only way variables in a parent process can be changed.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 \b prefix [prefixnum [prefixname]]\par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 \b0 Under GS/OS, a list of prefixes is kept. With this prefix list, it is possible to reference many prefixes with a number. While \b gsh\b0  provides this ability with environment variables, the \f0 \fs36 \fs30 prefix\f1 \fs18 \fs22  command is added to support the Orca compilers and other utilities that are dependent on certain GS/OS prefixes. There are 32 prefixes that can be assigned values. Appendix D contains a list of these prefixes and their "default" meanings, as indicated in the "Apple II\fs14 GS\fs22  GS/OS Reference", Volume 1.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 If\f0 \fs36 \fs30  prefixname\f1 \fs18 \fs22  is not given, the value of \f0 \fs36 \fs30 prefixnum\f1 \fs18 \fs22  is displayed. If neither argument is given, a list of currently assigned prefixes is displayed.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 \b rehash\par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 \b0 When the \f0 \fs36 \fs30 $PATH\f1 \fs18 \fs22  variable is changed, \b gsh\b0  must be made aware that a new search path has been created for shell commands. To increase the lookup time for searching the \f0 \fs36 \fs30 $PATH\f1 \fs18 \fs22  list for a command, \b gsh\b0  first builts a table of all commands contained in the \f0 \fs36 \fs30 $PATH\f1 \fs18 \fs22  pathname list. Then, when a command is invoked, this list is searched for the command. This greatly speeds up the process. When \f0 \fs36 \fs30 $PATH\f1 \fs18 \fs22  changes, however, this list must be rebuilt. While the old list is still active, if \f0 \fs36 \fs30 $PATH\f1 \fs18 \fs22  is changed and one of the previous search paths is no longer online, \b gsh\b0  will try and execute the command from the offline device, resulting in a command failure. Use the \f0 \fs36 \fs30 rehash\f1 \fs18 \fs22  command to rebuild the list when \f0 \fs36 \fs30 $PATH\f1 \fs18 \fs22  has changed.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 To make this a one-step process, the \f0 \fs36 \b \fs30 change_path\f1 \fs18 \b0 \fs22  shell script created in Chapter 4, \b Accessing shell variables\b0  can be used.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 \b set [var] [value] [\{var value\} ...]\par
+\pard\nowidctlpar\qj \f0 set var=value [var=value ...]\par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 \b0 Use this command to create or modify environment variables. If \f0 \fs36 \fs30 set\f1 \fs18 \fs22  is invoked with no arguments, a list of the current environment variables is displayed. If only \f0 \fs36 \fs30 var\f1 \fs18 \fs22  is given as an argument, the \f0 \fs36 \fs30 value\f1 \fs18 \fs22  of \f0 \fs36 \fs30 var\f1 \fs18 \fs22  is displayed. To set or reset a variable, use both the \f0 \fs36 \fs30 var\f1 \fs18 \fs22  and \f0 \fs36 \fs30 value\f1 \fs18 \fs22  arguments. There are two ways to set a variable, either by "\f0 \fs36 \fs30 var value\f1 \fs18 \fs22 " or "\f0 \fs36 \fs30 var=value\f1 \fs18 \fs22 ". Multiple invocations of this type are allowed for setting multiple variables.\par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 \par
+\pard\nowidctlpar\qj \f0 \b unalias name [name ...]\par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 \b0 To remove an alias from the alias list, use this command. More than one alias name can be used as the argument to remove multiple aliases.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 \b unhash\par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 \b0 To disable the internal hash table created with the \f0 \fs36 \fs30 rehash\f1 \fs18 \fs22  command, use this command. This command is useful if you wish to use only utilities in the current working directory.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 \b unset var [var...]\par
+\pard\nowidctlpar\qj \f1 \fs18 \fs22 \b0 To remove a variable from the variable list, use this command. \f0 \fs36 \fs30 unset \f1 \fs18 \fs22 accepts multiple names if more than one variable is to be deleted. Future access to the variable \f0 \fs36 \fs30 var\f1 \fs18 \fs22  will result in a NULL string.\par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 \tab [1] gno> \b set\par
+\pard\nowidctlpar\qj \f0 \b0 \tab savehist = 25\par
+\pard\nowidctlpar\qj \f0 \tab path = /dev/orca/utilities:/dev/gno/orca:/dev/gno/utilities\par
+\pard\nowidctlpar\qj \f0 \tab history = 25\par
+\pard\nowidctlpar\qj \f0 \tab prompt = [%h] %C> \par
+\pard\nowidctlpar\qj \f0 \tab user = tmeekins\par
+\pard\nowidctlpar\qj \f0 \tab home = /dev/gno\par
+\pard\nowidctlpar\qj \f0 \tab nonewline = 1\par
+\pard\nowidctlpar\qj \f0 \tab [2] gno> \b set PATH /dev/orca/utilities:/dev/gno/utilities\par
+\pard\nowidctlpar\qj \f0 \b0 \tab [3] gno> \b set PATH\par
+\pard\nowidctlpar\qj \f0 \par
+\pard\nowidctlpar\qj \f0 \b0 \tab /dev/orca/utilities:/dev/gno/utilities\par
+\pard\nowidctlpar\qj \f0 \tab [4] gno> \b set user foobar\par
+\pard\nowidctlpar\qj \f0 \b0 \tab [5] gno> \b set user\par
+\pard\nowidctlpar\qj \f0 \par
+\pard\nowidctlpar\qj \f0 \b0 \tab foobar\par
+\pard\nowidctlpar\qj \f0 \tab [6] gno> \b unset home user\par
+\pard\nowidctlpar\qj \f0 \b0 \tab [7] gno> \b set savehist 30 history=31; set\par
+\pard\nowidctlpar\qj \f0 \b0 \tab savehist = 30\par
+\pard\nowidctlpar\qj \f0 \tab path = /dev/orca/utilities:/dev/gno/utilities\par
+\pard\nowidctlpar\qj \f0 \tab history = 31\par
+\pard\nowidctlpar\qj \f0 \tab prompt = [%h] %C> \par
+\pard\nowidctlpar\qj \f0 \tab nonewline = 1\par
+\cf9 \f0 \fs20 <page-break>\cf0 \par
+\page \pard\nowidctlpar\qj \f1 \fs18 \fs32 \b Appendix A\par
+\pard\nowidctlpar\qj \f1 \fs26 \ul Installing GNO                                                                                   \par
+\pard\nowidctlpar\qj \f1 \fs18 \b0 \ulnone \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b \fs22 Installing GNO on a floppy-based system\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b0 The following section documents how to install GNO on a floppy-based system. Before you begin, make sure you have established the directory hierarchy as discussed in Chapter 1, \b Starting gsh\b0 . If you wish to make GNO the boot application, see the section \b Launching into GNO\b0 .\par
+\pard\nowidctlpar\qj \f1 \b \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 Installing GNO on a hard-drive system\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b0 The following section documents how to install GNO on a hard-drive based system. Before you begin, make sure you have established the directory hierarchy as discussed in Chapter 1, \b Starting gsh\b0 . If you wish to make GNO the boot application, see the section \b Launching into GNO\b0 .\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b \par
+\pard\nowidctlpar\qj \f1 Launching into GNO\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b0 When the II\fs14 GS\fs22  is turned on, usually the Finder(tm) becomes active. Other program launchers might also be used when the II\fs14 GS\fs22  is turned on, such as ProSel(tm) or HyperLaunch(tm). The following section documents how to make GNO the first application started after bootup.\par
+\cf9 \f0 \fs20 <page-break>\cf0 \par
+\page \pard\nowidctlpar\qj \f1 \fs32 \b Appendix B\par
+\pard\nowidctlpar\qj \f1 \fs26 \ul Sample gsh session                                                                             \par
+\pard\nowidctlpar\qj \f1 \fs18 \b0 \ulnone \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \fs22 The following represents a sample session in \b gsh\b0 . Many of the features discussed in this manual are reviewed here. References to the page number where topics are discussed are given to the right of each command entry. Comments are enclosed in braces ("\{\}").\par
+\pard\nowidctlpar\qj \f1 \b \par
+\pard\nowidctlpar \pard\nowidctlpar \f0 \fs36 \fs30 \b0 [1] gno> \b set\b0 \tab []\par
+\pard\nowidctlpar \f0 savehist = 25\par
+\pard\nowidctlpar \f0 path = /dev/orca/utilities:/dev/gno/orca:/dev/gno/utilities\par
+\pard\nowidctlpar \f0 history = 25\par
+\pard\nowidctlpar \f0 prompt = [%h] %C> \par
+\pard\nowidctlpar \f0 user = achin\par
+\pard\nowidctlpar \f0 home = /dev/gno\par
+\pard\nowidctlpar \f0 nonewline = 1\par
+\pard\nowidctlpar \f0 [2] gno> \b echo environment variable PROMPT = $PROMPT\b0 \tab []\par
+\pard\nowidctlpar \f0 environment variable PROMPT = [%h] %C>\par
+\pard\nowidctlpar \f0 [3] gno> \b cat .gshrc\b0 \tab []\par
+\pard\nowidctlpar \f2 \fs24 \tab \{ \b .gshrc\b0  is the startup file. \}\par
+\pard\nowidctlpar \f0 \fs30 #\par
+\pard\nowidctlpar \f0 # Sample GNO Shell login file\par
+\pard\nowidctlpar \f0 # last update: 9/15/91\par
+\pard\nowidctlpar \f0 #\par
+\pard\nowidctlpar \f0 echo " "\par
+\pard\nowidctlpar \f0 echo "Welcome to GNO, commercial alpha release"\par
+\pard\nowidctlpar \f0 echo " "\par
+\pard\nowidctlpar \f0 #\par
+\pard\nowidctlpar \f0 # Setup the other prefixes to emulate Orca for the benefit of utilities\par
+\pard\nowidctlpar \f0 #\par
+\pard\nowidctlpar \f0 prefix 2 /dev/orca/libraries\par
+\pard\nowidctlpar \f0 prefix 3 /dev/orca\par
+\pard\nowidctlpar \f0 prefix 4 /dev/orca/system\par
+\pard\nowidctlpar \f0 prefix 5 /dev/orca/languages\par
+\pard\nowidctlpar \f0 prefix 6 /dev/orca/utilities\par
+\pard\nowidctlpar \f0 #\par
+\pard\nowidctlpar \f0 # Initializes our environment\par
+\pard\nowidctlpar \f0 #\par
+\pard\nowidctlpar \f0 set path="/dev/orca/utilities:/dev/gno/orca:/dev/gno/utilities"\par
+\pard\nowidctlpar \f0 set prompt="[%h] %C> "\par
+\pard\nowidctlpar \f0 set history=25 savehist=25\par
+\pard\nowidctlpar \f0 set home="/dev/gno"\par
+\pard\nowidctlpar \f0 set user=achin\par
+\pard\nowidctlpar \f0 set nonewline=1\par
+\pard\nowidctlpar \f0 export path prompt history savehist home user\par
+\pard\nowidctlpar \f0 #\par
+\pard\nowidctlpar \f0 # Move to the home directory\par
+\pard\nowidctlpar \f0 #\par
+\pard\nowidctlpar \f0 cd\par
+\pard\nowidctlpar \f0 [4] gno> \b cat gshrc > .printer&\b0 \tab []\par
+\pard\nowidctlpar \f2 \fs24 \tab \{ \b .printer\b0  is the printer connected to the printer port. \}\par
+\pard\nowidctlpar \f0 \fs30 [2]\par
+\pard\nowidctlpar \f0 [5] gno> \b echo File \\'gshrc\\' sent to printer.\b0 \tab []\par
+\pard\nowidctlpar \f0 File 'gshrc' sent to printer.\par
+\pard\nowidctlpar \f0 [6] gno> \b alias l 'ls -F'; l\b0 \tab []\par
+\pard\nowidctlpar \f2 \fs24 \tab \{ The ls "-F" option displays executable and directory files differently. \}\par
+\pard\nowidctlpar \f0 \fs30 :dev:gno\par
+\pard\nowidctlpar \f0 doc/            foo*            gsh*            gshrc*          kern*\par
+\pard\nowidctlpar \f0 man/            message         message2        orca/           press.release \par
+\pard\nowidctlpar \f0 release.notes   samples/        todo            updates         utilities/\par
+\pard\nowidctlpar \f0 [7] gno> \b history\b0 \tab []\par
+\pard\nowidctlpar \f0    1:  set\par
+\pard\nowidctlpar \f0    2:  echo environment variable PROMPT = $PROMPT\par
+\pard\nowidctlpar \f0    3:  cat .gshrc\par
+\pard\nowidctlpar \f0    4:  cat .gshrc > .printer&\par
+\pard\nowidctlpar \f0    5:  echo File \\'gshrc\\' sent to printer.\par
+\pard\nowidctlpar \f0    6:  ls\par
+\pard\nowidctlpar \f0    7:  history\par
+\pard\nowidctlpar \f0 [8] gno> \b ps ; echo I think only \\'gsh\\' is running. Am i right? :)\par
+\pard\nowidctlpar \f0 \b0   ID  STATE    TTY   userID   TIME COMMAND\par
+\pard\nowidctlpar \f0    1  waiting tty03 (1006)      7s gsh                 \par
+\pard\nowidctlpar \f0 I think only 'gsh' is running. Am i right? :)\par
+\pard\nowidctlpar \f0 [9] gno> \b no_file\b0 \tab []\par
+\pard\nowidctlpar \f0 no_file: Command not found.\par
+\pard\nowidctlpar \f0 [10] gno> \b message\b0 \tab []\par
+\pard\nowidctlpar \f0 message: Not executable.\par
+\pard\nowidctlpar \f0 [11] gno> \b unset USER\b0 \tab []\par
+\pard\nowidctlpar \f2 \fs24 \tab \{ Environment variables are not case sensitive. \}\par
+\pard\nowidctlpar \f0 \fs30 [12] gno> \b set PATH\b0 \tab []\par
+\pard\nowidctlpar \f0 \par
+\pard\nowidctlpar \f0 path = /dev/orca/utilities:/dev/gno/orca:/dev/gno/utilities\par
+\pard\nowidctlpar \f0 [13] gno> \b set PROMPT\b0 \tab []\par
+\pard\nowidctlpar \f0 \par
+\pard\nowidctlpar \f0 prompt = [%h] %C>\par
+\pard\nowidctlpar \f0 [14] gno> \b unset PROMPT\b0 \tab []\par
+\pard\nowidctlpar \f0 % \b cp message message2&\b0 \tab []\par
+\pard\nowidctlpar \f0 [2]\par
+\pard\nowidctlpar \f0 % \b rm doc&\b0 \tab []\par
+\pard\nowidctlpar \f0 rm: :dev:gno:doc directory\par
+\pard\nowidctlpar \f0 % \b rm -r doc&\b0 \tab []\par
+\pard\nowidctlpar \f0 [3]\par
+\pard\nowidctlpar \f0 % \b ps\b0 \tab []\par
+\pard\nowidctlpar \f0   ID  STATE    TTY   userID   TIME COMMAND\par
+\pard\nowidctlpar \f0    1  waiting tty03 (1004)     35s gsh                 \par
+\pard\nowidctlpar \f0    2    ready tty03 (1005)      5s cp message message2               \par
+\pard\nowidctlpar \f0    3    ready tty03 (1006)      2s rm -r doc               \par
+\pard\nowidctlpar \f0 % \b ls *\b0 \tab []\par
+\pard\nowidctlpar \f0 :dev:gno\par
+\pard\nowidctlpar \f0 foo*            gsh*            gshrc*          kern*           man/\par
+\pard\nowidctlpar \f0 message         message2        orca/           press.release   release.notes\par
+\pard\nowidctlpar \f0 samples/        todo            updates         utilities/\par
+\pard\nowidctlpar \f0 % \b echo *\b0 \tab []\par
+\pard\nowidctlpar \f0 gshrc foo message Finder.Data utilities press.release man release.notes todo\par
+\pard\nowidctlpar \f0 updates gsh kern samples doc orca message2\par
+\pard\nowidctlpar \f0 % \b echo g* m*\b0 \tab []\par
+\pard\nowidctlpar \f0 gshrc gsh message man message2\par
+\pard\nowidctlpar \f0 % \b echo g?\b0 \tab []\par
+\pard\nowidctlpar \f0 No match.\par
+\pard\nowidctlpar \f0 % \b pwd\b0 \tab []\par
+\pard\nowidctlpar \f0 /dev/gno\par
+\pard\nowidctlpar \f0 % \b clear ; df\b0 \tab []\par
+\pard\nowidctlpar \f0 Volume           Device           Free    Total   Capacity  System\par
+\pard\nowidctlpar \f0 ---------------- ---------------- ------- ------- --------  -----------\par
+\pard\nowidctlpar \f0 :system          .APPLESCSI.HD01.   25746   50773     49%   ProDOS\par
+\pard\nowidctlpar \f0 :dev             .APPLESCSI.HD01.   44868   65108     31%   ProDOS\par
+\pard\nowidctlpar \f0 :usr             .APPLESCSI.HD01.   44526   48725      8%   ProDOS\par
+\pard\nowidctlpar \f0 :ram5            .DEV2                493     512      3%   ProDOS\par
+\pard\nowidctlpar \f0 % \b which ls cp echo ps\b0 \tab [25]\par
+\pard\nowidctlpar \f0 ls: /dev/gno/utilities/ls\par
+\pard\nowidctlpar \f0 cp: /dev/gno/utilities/cp\par
+\pard\nowidctlpar \f0 echo: Shell Built-in Command\par
+\pard\nowidctlpar \f0 ps: Shell Built-in Command\par
+\pard\nowidctlpar \f0 % \b echo -n foo\b0 \tab []\par
+\pard\nowidctlpar \f0 foo % \b l .dev2 .applescsi.hd01.01\b0 \tab []\par
+\pard\nowidctlpar \f2 \fs24 \tab \{ Because of the previous "echo -n", the PROMPT is displayed on the line where echo output ended. \}\par
+\pard\nowidctlpar \f0 \fs30 :ram5\par
+\pard\nowidctlpar \f0 df              echo            history         ls              ls.ram5 \par
+\pard\nowidctlpar \f0 ls.system       prefix          ps              set             which\par
+\pard\nowidctlpar \f0 :system\par
+\pard\nowidctlpar \f0 AppleworksGS/   BASIC.System*   HyperCard/      ProDOS*         a2fx/\par
+\pard\nowidctlpar \f0 basic.launcher* emacs.icon      fontasm/        gutenberg/      icons/\par
+\pard\nowidctlpar \f0 kermit/         publish.it/     review          shr.pic/        shrinkit/\par
+\pard\nowidctlpar \f0 snowterm/       system/\par
+\pard\nowidctlpar \f0 %\b  alias print 'echo'; alias copy 'cp'; alias delete 'rm'; alias\par
+\pard\nowidctlpar \f0 catalog 'ls -l'; alias rename 'mv'\b0 \tab []\par
+\pard\nowidctlpar \f2 \fs24 \tab \{ Useful aliases for Orca fans. \}\par
+\pard\nowidctlpar \f0 \fs30 % \b alias\b0 \tab []\par
+\pard\nowidctlpar \f0 l: ls -F\par
+\pard\nowidctlpar \f0 print: echo\par
+\pard\nowidctlpar \f0 copy: cp\par
+\pard\nowidctlpar \f0 delete: rm\par
+\pard\nowidctlpar \f0 catalog: ls -l\par
+\pard\nowidctlpar \f0 rename: mv\par
+\pard\nowidctlpar \f0 % \b set PROMPT='[!] %C> '\b0 \tab []\par
+\pard\nowidctlpar \f0 [30] gno> \b cd samples\b0 \tab []\par
+\pard\nowidctlpar \f0 [31] samples> \b cmpl ps.c keep=ps > .dev2/ps&\b0 \tab []\par
+\pard\nowidctlpar \f0 [2]\par
+\pard\nowidctlpar \f0 [32] samples> \b cmpl kill.c keep=kill > .dev2/kill&\b0 \tab []\par
+\pard\nowidctlpar \f0 [3]\par
+\pard\nowidctlpar \f0 [33] samples> \b ps\b0 \tab []\par
+\pard\nowidctlpar \f0   ID  STATE    TTY   userID   TIME COMMAND\par
+\pard\nowidctlpar \f0    1  waiting tty03 (1006)      8s gsh                 \par
+\pard\nowidctlpar \f0    2  waiting tty03 (1007)      5s cmpl ps.c keep=ps > .dev2/ps\par
+\pard\nowidctlpar \f0    3  waiting tty03 (1009)      2s cmpl kill.c keep=kill > .dev2/kill\par
+\pard\nowidctlpar \f0 [34] samples> \b ls dummy_dir\b0 \tab []\par
+\pard\nowidctlpar \f0 [35] samples> \b ls -9\b0 \tab []\par
+\pard\nowidctlpar \f0 ls: unrecognized option `-9'\par
+\pard\nowidctlpar \f0 usage: ls [-acdfgilqrstu1ACLFR] [name ...]\par
+\pard\nowidctlpar \f0 [36] samples> \b ls -9 >& .dev2/error\b0 \tab []\par
+\pard\nowidctlpar \f0 \tab \f2 \fs24 \{ Each pathname has a device name entry (cf. \b ps\b0 ). \}\par
+\pard\nowidctlpar \f0 \fs30 [37] samples> \b cat < /ram5/error\b0 \tab []\par
+\pard\nowidctlpar \f0 ls: unrecognized option `-9'\par
+\pard\nowidctlpar \f0 usage: ls [-acdfgilqrstu1ACLFR] [name ...]\par
+\pard\nowidctlpar \f0 [38] samples> \b ls *.c;grep \\#\\i\\n\\c\\l\\u\\d\\e [^sfd]*.c\b0 \tab []\par
+\pard\nowidctlpar \f2 \fs24 \tab \{ \b grep\b0  searches for a regular expression in a file and outputs the line the regex is found. \}\par
+\pard\nowidctlpar \f0 \fs30 comp.c          dp.c            edit.c          ffdir.c         gar.c\par
+\pard\nowidctlpar \f0 kill.c          link.c          ps.c            setdebug.c\par
+\pard\nowidctlpar \f0 kill.c:#include <stdio.h>\par
+\pard\nowidctlpar \f0 kill.c:#include <memory.h>\par
+\pard\nowidctlpar \f0 kill.c:#include "3/work/gno/conf.h"\par
+\pard\nowidctlpar \f0 kill.c:#include "3/work/gno/proc.h"\par
+\pard\nowidctlpar \f0 kill.c:#include "3/work/gno/kerntool.h"\par
+\pard\nowidctlpar \f0 gar.c:#include <stdio.h>\par
+\pard\nowidctlpar \f0 gar.c:#include <orca.h>\par
+\pard\nowidctlpar \f0 gar.c:#include "3/work/gno/kerntool.h"\par
+\pard\nowidctlpar \f0 gar.c:#include <gno/signal.h>\par
+\pard\nowidctlpar \f0 ps.c:#include <stdio.h>\par
+\pard\nowidctlpar \f0 ps.c:#include <memory.h>\par
+\pard\nowidctlpar \f0 ps.c:#include <string.h>\par
+\pard\nowidctlpar \f0 ps.c:#include <orca.h>\par
+\pard\nowidctlpar \f0 ps.c:#include "3/work/gno/conf.h"\par
+\pard\nowidctlpar \f0 ps.c:#include "3/work/gno/proc.h"\par
+\pard\nowidctlpar \f0 ps.c:#include "3/work/gno/kvm.h"\par
+\pard\nowidctlpar \f0 edit.c:#include <stdio.h>\par
+\pard\nowidctlpar \f0 edit.c:#include <stdlib.h>\par
+\pard\nowidctlpar \f0 edit.c:#include <string.h>\par
+\pard\nowidctlpar \f0 edit.c:#include <ctype.h>\par
+\pard\nowidctlpar \f0 edit.c:#include <types.h>\par
+\pard\nowidctlpar \f0 edit.c:#include <gsos.h>\par
+\pard\nowidctlpar \f0 edit.c:#include <shell.h>\par
+\pard\nowidctlpar \f0 edit.c:#include <orca.h>\par
+\pard\nowidctlpar \f0 edit.c:#include <stddef.h>\par
+\pard\nowidctlpar \f0 edit.c:#include <texttool.h>\par
+\pard\nowidctlpar \f0 edit.c:#include <gno/kerntool.h>\par
+\pard\nowidctlpar \f0 comp.c:#include <stdio.h>\par
+\pard\nowidctlpar \f0 comp.c:#include <stdlib.h>\par
+\pard\nowidctlpar \f0 comp.c:#include <string.h>\par
+\pard\nowidctlpar \f0 comp.c:#include <ctype.h>\par
+\pard\nowidctlpar \f0 comp.c:#include <types.h>\par
+\pard\nowidctlpar \f0 comp.c:#include <shell.h>\par
+\pard\nowidctlpar \f0 comp.c:#include <gsos.h>\par
+\pard\nowidctlpar \f0 comp.c:#include <orca.h>\par
+\pard\nowidctlpar \f0 comp.c:#include <texttool.h>\par
+\pard\nowidctlpar \f0 comp.c:#include <gno/kerntool.h>\par
+\pard\nowidctlpar \f0 link.c:#include <stdio.h>\par
+\pard\nowidctlpar \f0 link.c:#include <stdlib.h>\par
+\pard\nowidctlpar \f0 link.c:#include <string.h>\par
+\pard\nowidctlpar \f0 link.c:#include <ctype.h>\par
+\pard\nowidctlpar \f0 link.c:#include <types.h>\par
+\pard\nowidctlpar \f0 link.c:#include <shell.h>\par
+\pard\nowidctlpar \f0 link.c:#include <orca.h>\par
+\pard\nowidctlpar \f0 link.c:#include <texttool.h>\par
+\pard\nowidctlpar \f0 link.c:#include <gno/kerntool.h>\par
+\pard\nowidctlpar \f0 [39] samples> \b head link.c\b0 \tab []\par
+\pard\nowidctlpar \f2 \fs24 \tab \{ \b head\b0  displays the first few lines of a file. \}\par
+\pard\nowidctlpar \f0 \fs30 /*\tab \par
+\pard\nowidctlpar \f0 \par
+\pard\nowidctlpar \f0 parsing code for compile, cmpl, cmplg\par
+\pard\nowidctlpar \f0 \par
+\pard\nowidctlpar \f0 The options flags are set up in a somewhat brain-damaged format as follows:\par
+\pard\nowidctlpar \f0 "People are idiots"- couldn't have summed you up better myself, Mike.\par
+\pard\nowidctlpar \f0 \par
+\pard\nowidctlpar \f0 76543210 76543210 76543210 76543210\par
+\pard\nowidctlpar \f0 yz       qrstuvwx ijklmnop abcdefgh\par
+\pard\nowidctlpar \f0 [40] samples> \b set PATH\b0 \tab []\par
+\pard\nowidctlpar \f0 \par
+\pard\nowidctlpar \f0 path = /dev/orca/utilities:/dev/gno/orca:/dev/gno/utilities\par
+\pard\nowidctlpar \f0 [41] samples> \b unset PATH\b0 \tab []\par
+\pard\nowidctlpar \f0 [42] samples> \b set PATH\b0 \tab []\par
+\pard\nowidctlpar \f0 \par
+\pard\nowidctlpar \f0 path =\par
+\pard\nowidctlpar \f0 [43] samples> \b rm m[e][s][s]age[2]\b0 \tab []\par
+\pard\nowidctlpar \f0 [44] samples> \b rehash\b0 \tab []\par
+\pard\nowidctlpar \f0 hashed   0 files.\par
+\pard\nowidctlpar \f0 [45] samples> \b rm who_cares about_the parameters\b0 \tab []\par
+\pard\nowidctlpar \f0 \tab \f2 \fs24 \{ \b rm\b0  will not be recognized as a command because the hash-table is empty. \}\par
+\pard\nowidctlpar \f0 \fs30 rm: Command not found.\par
+\pard\nowidctlpar \f0 [46] samples> \b set path = /dev/orca/utilities:~/orca:~/utilities\b0 \tab []\par
+\pard\nowidctlpar \f0 \par
+\pard\nowidctlpar \f0 /dev/orca/utilities:/dev/gno/orca:/dev/gno/utilities =\par
+\pard\nowidctlpar \f0 [47] samples> \b set PATH\b0 \tab []\par
+\pard\nowidctlpar \f0 \par
+\pard\nowidctlpar \f0 path = =\par
+\pard\nowidctlpar \f0 [48] samples> \b set path=~/../orca/utilities:~/orca:$HOME/utilities\b0 \tab []\par
+\pard\nowidctlpar \f2 \fs24 \tab \{ Filename expansion will be performed before PATH is set. \}\par
+\pard\nowidctlpar \f0 \fs30 [49] samples> \b set path\b0 \tab []\par
+\pard\nowidctlpar \f0 \par
+\pard\nowidctlpar \f0 path = /dev/orca/utilities:/dev/gno/orca:/dev/gno/utilities\par
+\pard\nowidctlpar \f0 [49] samples> \b rehash\b0 \tab []\par
+\pard\nowidctlpar \f0 hashed  68 files.\par
+\cf9 \f0 \fs20 <page-break>\cf0 \par
+\page \pard\nowidctlpar \f1 \fs18 \fs32 \b Appendix C\par
+\pard\nowidctlpar \f1 \fs26 \ul Signals                                                                                             \par
+\pard\nowidctlpar \f1 \fs18 \par
+\pard\nowidctlpar \f1 \par
+\pard\nowidctlpar \f1 \par
+\pard\nowidctlpar \f1 \b0 \ulnone \fs22 The following list describes all signals present in the GNO system. These signals are used to communicate with processes and the GNO kernel. \b gsh\b0  provides a means to send signals to processes via the \i kill\i0  command. Furthermore, GNO provides interfaces for C and Assembly Language programmers to handle signals in their programs.\par
+\pard\nowidctlpar \f1 \par
+\pard\nowidctlpar\qj \pard\nowidctlpar\qj \f1 \b Name (Value)\b0 \tab \b Description\par
+\pard\nowidctlpar\qj \f1 \b0 SIGHUP (1)\tab Hangup.\par
+\pard\nowidctlpar\qj \f1 SIGINT (2)\tab Interrupt.\par
+\pard\nowidctlpar\qj \f1 SIGQUIT (3)\tab Quit.\par
+\pard\nowidctlpar\qj \f1 SIGILL (4)\tab Illegal Instruction.\par
+\pard\nowidctlpar\qj \f1 SIGTRAP (5)\tab Trace trap.\par
+\pard\nowidctlpar\qj \f1 SIGABRT (6)\tab Abort (cf. abort(3)).\par
+\pard\nowidctlpar\qj \f1 SIGEMT (7)\tab Emulator trap.\par
+\pard\nowidctlpar\qj \f1 SIGFPE (8)\tab Arithmetic exception.\par
+\pard\nowidctlpar\qj \f1 SIGKILL (9)\tab Kill. This signal cannot be caught, blocked, or ignored. If a signal is not specified for the \f0 \fs36 \fs30 kill \f1 \fs18 \fs22 command, this signal is sent to the process.\par
+\pard\nowidctlpar\qj \f1 SIGBUG (10)\tab Bus error.\par
+\pard\nowidctlpar\qj \f1 SIGSEGV (11)\tab Segmentation violation.\par
+\pard\nowidctlpar\qj \f1 SIGSYS (12)\tab Bad argument to system call.\par
+\pard\nowidctlpar\qj \f1 SIGPIPE (13)\tab Write on a pipe or other socket with no one to read it.\par
+\pard\nowidctlpar\qj \f1 SIGALRM (14)\tab Alarm clock.\par
+\pard\nowidctlpar\qj \f1 SIGTERM (15)\tab Software termination signal.\par
+\pard\nowidctlpar\qj \f1 SIGURG (16)\tab Urgent condition present on socket.\par
+\pard\nowidctlpar\qj \f1 SIGSTOP (17)\tab Stop. This signal cannot be caught, blocked, or ignored.\par
+\pard\nowidctlpar\qj \f1 SIGTSTP (18)\tab Stop signal generated from keyboard.\par
+\pard\nowidctlpar\qj \f1 SIGCONT (19)\tab Continue after stop. This signal cannot be blocked.\par
+\pard\nowidctlpar\qj \f1 SIGCHLD (20)\tab Child status has changed.\par
+\pard\nowidctlpar\qj \f1 SIGCLD (20)\tab System V name for SIGCHLD.\par
+\pard\nowidctlpar\qj \f1 SIGTTIN (21)\tab Background read attempted from control terminal.\par
+\pard\nowidctlpar\qj \f1 SIGTTOU (22)\tab Background write attempted to control terminal.\par
+\pard\nowidctlpar\qj \f1 SIGIO (23)\tab Input/Output possible signal.\par
+\pard\nowidctlpar\qj \f1 SIGPOLL (SIGIO)\tab System V name for SIGIO.\par
+\pard\nowidctlpar\qj \f1 SIGXCPU (24)\tab Exceeded CPU time limit.\par
+\pard\nowidctlpar\qj \f1 SIGUSR1 (30)\tab User defined signal 1.\par
+\pard\nowidctlpar\qj \f1 SIGUSR2 (31)\tab User defined signal 2.\par
+\cf9 \f0 \fs20 <page-break>\cf0 \par
+\page \pard\nowidctlpar\qj \f1 \fs32 \b Appendix D\par
+\pard\nowidctlpar \pard\nowidctlpar \f1 \fs26 \ul Default GS/OS Prefixes                                                                        \par
+\pard\nowidctlpar \f1 \fs18 \b0 \ulnone \par
+\pard\nowidctlpar \f1 \par
+\pard\nowidctlpar \f1 \par
+\pard\nowidctlpar \f1 \fs22 When \b gsh\b0  is started, GS/OS assigns values to individual prefixes. A total of 32 prefixes are available to the user. The following list documents each prefix and the purpose of each.\par
+\pard\nowidctlpar \f1 \par
+\pard\nowidctlpar\qj \pard\nowidctlpar\qj \f1 \b Number\tab Description\par
+\pard\nowidctlpar\qj \f1 \b0 @\tab AppleShare prefix. If GNO resides on an AppleShare volume, this prefix is set to the pathname of the user's directory on the file server; otherwise, this prefix is set to the same pathname as prefix number 9.\par
+\pard\nowidctlpar\qj \f1 *\tab Boot volume prefix. It is not possible to modify the value of this prefix with the shell \f0 \fs36 \fs30 prefix\f1 \fs18 \fs22  call. The only access to this prefix is the GS/OS _GetBootVol call.\par
+\pard\nowidctlpar\qj \f1 0\tab If GNO is designated as the boot application (i.e. when you turn your II\fs14 GS\fs22  on, GNO is the application you launch into) this prefix will be the same as prefix *; otherwise, the value of this prefix is unchanged from the application used to launch GNO.\par
+\pard\nowidctlpar\qj \f1 1\tab Full pathname of GNO application.\par
+\pard\nowidctlpar\qj \f1 2\tab If GNO is the boot application, this prefix will equal "\f0 \fs36 \fs30 */SYSTEM/LIBS\f1 \fs18 \fs22 "; otherwise, the prefix string is unchanged from the application used to launch GNO.\par
+\pard\nowidctlpar\qj \f1 3-8\tab If GNO is the boot application, these prefixes are \f0 \fs36 \fs30 NULL\f1 \fs18 \fs22  strings; otherwise, they are unchanged from the application used to launch GNO.\par
+\pard\nowidctlpar\qj \f1 9\tab Full pathname of GNO application.\par
+\pard\nowidctlpar\qj \f1 10-12\tab Device name "\f0 \fs36 \fs30 .CONSOLE\f1 \fs18 \fs22 ".\par
+\pard\nowidctlpar\qj \f1 13-31\tab \f0 \fs36 \fs30 NULL\f1 \fs18 \fs22  string.\par
+\cf9 \f0 \fs20 <page-break>\cf0 \par
+\page \pard\nowidctlpar\qj \f1 \fs32 \b Appendix E\par
+\pard\nowidctlpar \pard\nowidctlpar \f1 \fs26 \ul Errors                                                                                               \par
+\pard\nowidctlpar \f1 \fs18 \b0 \ulnone \par
+\pard\nowidctlpar \f1 \par
+\pard\nowidctlpar \f1 \par
+\pard\nowidctlpar\qj \pard\nowidctlpar\qj \f1 \fs22 \b gsh\b0  tries, when an error occurs, to output an informative error message that will lead you to the solution of your problem. This appendix documents all \b gsh\b0  error messages and what the probable cause of the problem might be. Their are four classes of errors: command-entry, syntax, execution, and built-in. Each error is discussed separately.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b Command-entry Errors\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b0 Command-entry errors occur when entering information on the command-line. If you try to move the cursor too far to the left or right of your command-line (i.e. before the first character or after the last character), an error will occur. At present, \b gsh\b0  indicates a command-entry error with a \f0 \fs36 \b \i \fs30 Beep\f1 \fs18 \b0 \i0 \fs22 . This is to notify you that the action you requested is not possible.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b \par
+\pard\nowidctlpar\qj \f1 Syntax Errors\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b0 Syntax errors occur while \b gsh\b0  is trying to understand the command you have entered on the command-line. Problems arise when you wish to quote an argument (") and only enter one quote. Other problems arise when you wish to bracket an argument and do not enter a closing bracket, or make the closing bracket the first bracket.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b Execution Errors\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b0 After \b gsh\b0  parses the command-line, it will then execute the command and pass any arguments to the command. If, however, the command does not exist, \b gsh\b0  will report an error. The reson the command does not exist could be either the command name was typed wrong or the command does not exist.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 \b \i $0: Command not found.\par
+\pard\nowidctlpar\qj \f0 \b0 \i0 $0\f1 \fs18 \fs22  represents the command to be executed. Either the command name was entered incorrectly or the command does not exist. Recheck the spelling of the command and check \f0 \fs36 \fs30 $PATH\f1 \fs18 \fs22  to make sure the command exists in the pathname list.\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \b \i $0: Not executable.\par
+\pard\nowidctlpar\qj \f0 \fs36 \fs30 \b0 \i0 $0\f1 \fs18 \fs22  represents the command to be executed. \par
+\pard\nowidctlpar\qj \f1 \b \par
+\pard\nowidctlpar\qj \f1 Built-in Command Errors\par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\cf9 \f0 \fs20 <page-break>\cf0 \par
+\page \pard\nowidctlpar\qj \f1 \fs32 Glossary\par
+\pard\nowidctlpar\qj \f1 \fs18 \b0 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \par
+\pard\nowidctlpar\qj \f1 \fs22 \b \i Alias\b0 \i0 . A name used as an abbreviation for one or more commands. An alias allows you to replace any command string with a specific sequence of characters.\par
+\pard\nowidctlpar\qj \f1 \b \i Built-in command\b0 \i0 . A command processed by \b gsh\b0 . These commands are not external to the shell, but are included with the \b gsh\b0  program.\par
+\pard\nowidctlpar\qj \f1 \b \i Command\b0 \i0 . An action for \b gsh\b0  to perform. Commands can be either simple or compound. A simple command is an alias assignment, variable assignment, I/O redirection, or built-in command. A compound command is a pipeline.\par
+\pard\nowidctlpar\qj \f1 \b \i Directory\b0 \i0 . A special filename used to categorize filenames of a specific type. A directory name differs from a filename. Filenames reside in a directory (or path). Special directories to \b gsh\b0  are the \f0 \fs36 \fs30 HOME\f1 \fs18 \fs22 , \f0 \fs36 \fs30 BIN\f1 \fs18 \fs22 , and \f0 \fs36 \fs30 MAN\f1 \fs18 \fs22  directories.\par
+\pard\nowidctlpar\qj \f1 \b \i Environment\b0 \i0 . The state of a process, which includes information such as its open files, current directory (working directory), and local and global variables. Three environments exits under \b gsh\b0 :\par
+\pard\nowidctlpar\qj \f1 \i Child environment\i0 : The environment of the child process.\par
+\pard\nowidctlpar\qj \f1 \i Current environment:\i0  The environment of the current process.\par
+\pard\nowidctlpar\qj \f1 \i Parent environment\i0 : The environment of the parent process.\par
+\pard\nowidctlpar\qj \f1 \b \i Environment file\b0 \i0 . A file that is executed whenever \b gsh\b0  is started. Under \b gsh\b0 , this file is "\f0 \fs36 \fs30 .gshrc\f1 \fs18 \fs22 ".\par
+\pard\nowidctlpar\qj \f1 \b \i Export\b0 \i0 . A means to pass a variable from a parent process to child process, and from the child process back to the parent process.\par
+\pard\nowidctlpar\qj \f1 \b \i File\b0 \i0 . An object used to store data and/or programs. Under \b gsh\b0 , files have special types such as EXE and SRC. Files of these types are handled specially.\par
+\pard\nowidctlpar\qj \f1 \b \i Filter\b0 \i0 . A command that reads from its standard input and writes to its standard output.\par
+\pard\nowidctlpar\qj \f1 \b \i Flag\b0 \i0 . A character used to represent an option to a command. Flags are either short or long options whose character representations are "\f0 \fs36 \fs30 -\f1 \fs18 \fs22 " and "\f0 \fs36 \fs30 +\f1 \fs18 \fs22 ".\par
+\pard\nowidctlpar\qj \f1 \b \i GNO\b0 \i0 . A multitasking kernel developed for the Apple II\fs14 GS\fs22 .\par
+\pard\nowidctlpar\qj \f1 \b \i gsh\b0 \i0 . U\fs14 NIX\fs22 -like shell provided with the GNO multitasking system. Provides an interface between the user and the GNO kernel.\par
+\pard\nowidctlpar\qj \f1 \b \i History\b0 \i0 . A variable number of command-lines saved by \b gsh\b0  for future reference. The number of command-lines saved is dependent on the $HISTORY environment variable.\par
+\pard\nowidctlpar\qj \f1 \b \i History file\b0 \i0 . A file containing command-lines entered while in a \b gsh\b0  session. The number of command-lines saved is dependent on the \f0 \fs36 \fs30 $SAVEHIST\f1 \fs18 \fs22  environment variable.\par
+\pard\nowidctlpar\qj \f1 \b \i Interrupt\b0 \i0 . A signal generated by a sequence of keyboard characters or by a command that terminates the current executing process, unless the process has set up a trap to handle the interrupt signal.\par
+\pard\nowidctlpar\qj \f1 \b \i I/O Redirection\b0 \i0 . The process of changing the standard input, standard output, and standard error associated with a process.\par
+\pard\nowidctlpar\qj \f1 \b \i Job\b0 \i0 . A process. A job can be either:\par
+\pard\nowidctlpar\qj \f1 \i Background job\i0 : A process that executes with the current process. Background jobs are not associated with the terminal.\par
+\pard\nowidctlpar\qj \f1 \i Foreground job\i0 : A process that is currently executing and which is associated with the terminal.\par
+\pard\nowidctlpar\qj \f1 \b \i Path search\b0 \i0 . The means of searching a pathname list for a command or script.\par
+\pard\nowidctlpar\qj \f1 \b \i Pathname\b0 \i0 . A string used to identify a file.\par
+\pard\nowidctlpar\qj \f1 \b \i Pathname completion\b0 \i0 . The means of generating all pathnames matching a given pattern.\par
+\pard\nowidctlpar\qj \f1 \b \i Pathname expansion\b0 \i0 . The means of replacing a pattern with a list of pathnames matching that pattern.\par
+\pard\nowidctlpar\qj \f1 \b \i Pattern\b0 \i0 . A string of characters used to match literal characters and/or multiple characters.\par
+\pard\nowidctlpar\qj \f1 \b \i Permission\b0 \i0 . Each filename has certain permissions associated with it: destroy, rename, backup, invisible, write, and read.\par
+\pard\nowidctlpar\qj \f1 \b \i Pipe\b0 \i0 . A conduit in which a stream of characters can pass from one process to another.\par
+\pard\nowidctlpar\qj \f1 \b \i Pipeline\b0 \i0 . One or more processes connected together by pipes.\par
+\pard\nowidctlpar\qj \f1 \b \i Process\b0 \i0 . A single thread of execution that consists of a program and an execution environment.\par
+\pard\nowidctlpar\qj \f1 \i Child process\i0 : A new process created by another process.\par
+\pard\nowidctlpar\qj \f1 \i Parent process\i0 : A process that creates a child process.\par
+\pard\nowidctlpar\qj \f1 \i Process id\i0 : Each active process is uniquely identified by a positive integer called the process id.\par
+\pard\nowidctlpar\qj \f1 \b \i Prompt\b0 \i0 . A message displayed by \b gsh\b0  when it is ready to receive a command.\par
+\pard\nowidctlpar\qj \f1 \b \i Quoting\b0 \i0 . A means of including special characters as arguments to a command or as the command name.\par
+\pard\nowidctlpar\qj \f1 \b \i Reserved word\b0 \i0 . A word that is treated specially by \b gsh\b0 . This word is part of the \b gsh\b0  grammar.\par
+\pard\nowidctlpar\qj \f1 \b \i Script\b0 \i0 . A sequence of commands contained in a file.\par
+\pard\nowidctlpar\qj \f1 \b \i Signal\b0 \i0 . An asynchronous message that consists of a number or name that can be sent from one process to another.\par
+\pard\nowidctlpar\qj \f1 \b \i Standard Error\b0 \i0 . The file associated with error messages for a process. This file is usually the terminal.\par
+\pard\nowidctlpar\qj \f1 \b \i Standard Input\b0 \i0 . The file associated with a processes input. This file is usually the terminal.\par
+\pard\nowidctlpar\qj \f1 \b \i Standard Output\b0 \i0 . The file associated with a processes output. This file is usually the terminal.\par
+\pard\nowidctlpar\qj \f1 \b \i Tilde Expansion\b0 \i0 . Words beginning with \f0 \fs36 \fs30 ~\f1 \fs18 \fs22  are treated specially by \b gsh\b0 . The word is expanded to the value of \f0 \fs36 \fs30 $HOME\f1 \fs18 \fs22 .\par
+\pard\nowidctlpar\qj \f1 \b \i Working directory\b0 \i0 . The current directory.\par
+}
+ 
