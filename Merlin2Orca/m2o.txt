@@ -1,0 +1,45 @@
+Merlin-2-Orca(*) Source Code Translator v1.1
+Written by Tim Meekins
+
+Copyright (c) 1993 by Tim Meekins
+
+This program is Shareware $10
+
+-------------------
+
+'m2o' can be run from any standard shell on the Apple IIgs including
+GNO/ME(*) and Orca.
+
+it is invoked by typing its filename, 'm2o' followed by the Merlin source
+code file to convert (make sure you include the '.s') and then followed by
+the name you wish to convert it to. The syntax is as follow:
+
+    m2o <infile> [<outfile>]
+
+where <infile> is the Merlin file to convert and <outfile> is the file to
+be created by 'm2o.' If <outfile> is not specified, the generated source code
+is sent to standard out. For example, to view Merlin source under GNO, try
+the following command 'm2o foo.s | more'
+
+In a nutshell, trying to use Merlin source files in the Orca/M assembler can
+be quite a pain. 'm2o' tries to ease the porting the process by converting
+as much of the file as possible to a format that Orca/M should like. The
+translations are usually never perfect, but once running a file through
+'m2o,' the work left to the programmer is minimal. About the only hassle left
+that 'm2o' leaves "as an exercise for the programmer" is converting macros.
+I was seriously designing support for macro conversion and loop expansion
+in 'm2o,' but this would require extensive programming on my behalf, in fact,
+I would need to write parse code almost as complex as that already used by
+Merlin. The idea of 'm2o' was to convert the code with the simplest code
+possible that could be quickly modified as needed. In fact, the source code
+is included. If you should enhance 'm2o' in a positive manner, or need some
+changes done (don't even ask for macros yet), be sure to send me a note.
+
+Until later.....and happy hacking!
+
+----
+(*)
+
+Orca & Orca/M are trademarks of the Byteworks, Inc.
+Merlin is a trademark of Roger Wagner Publishing
+GNO/ME is a trademark of Procyon Enterprises
