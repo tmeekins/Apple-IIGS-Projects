@@ -1,0 +1,115 @@
+                    Zavtra Software Catalog & Ordering Info
+                    =======================================
+
+                             March 30, 1991
+
+
+NOTE: Write any checks to "Tim Meekins"
+
+
+                              FREEWARE ITEMS
+                              ==============
+
+Freeware items are Free! All I ask is that you send me a blank disk and P&H
+or send enough money to cover a disk and postage. I'll trust you; $6 to $7
+should hopefully cover the costs, but I haven't asked the post office what
+its latest rates are.
+
+#01-001       THE SOFTWARE EXPERIENCE #1    Release 1.1
+              This is an incredible graphics demo for the Apple IIgs with a
+              state of the art 3-D rotating object, which was actually drawn on
+              a $125,000 computer!
+
+#01-001-S     THE SOFTWARE EXPERIENCE #1 SOURCE CODE Release 1.1
+              Source code for The Software Experience #1. All relevant code is
+              included, but some data files are missing, so don't expect to
+              be able to make a working copy of TSE #1. This code is released
+              mainly as a learning experience. (The Learning Experience #1 ???)
+
+#01-002       Z3D DEMONSTRATION #1
+              The first demonstration of the Z3D realtime 3D animation system.
+              Z3D sports pseudo-hidden line removal and high speed animation.
+
+#01-003       Z3D DEMONSTRATION #2
+              The second demonstration of the Z3D realtime 3D animation system.
+              Z3D now supports perspective objects and colored lines.
+
+#01-004       THE EXPERIENCE #2
+              The second in the software experience demos. This demo includes
+              an original soundtrack and a high-tech circular VU meter.
+
+#01-005       MAXUS DEMO I
+              The first demo I wrote to help develop a game for the IIgs.
+              This demo contains several types of fades and an interrupt-
+              driven starfield.
+
+#01-006       MAXUS DEMO II
+              This demo is a continuation of the first demo, but resembles a
+              game in many respects. A game screen was developed, a mouse-
+              operated turret gun and many other features. If you'd like to
+              see this eventually turned into a game, then let me know.
+
+
+                              SHAREWARE ITEMS
+                              ===============
+
+Shareware items are programs which may copied freely, but if you find yourself
+using the program, you are encouraged to mail a shareware fee of $10 to $20,
+otherwise destroy your copy. Shareware programs will be supported minimally.
+Shareware fees are listed under the order #.
+
+#02-001       ZAVTRA MACRO UTILITY DISK    Release 1.2
+  $15         This disk contains hundreds of APW/ORCA style macros for the
+              Apple IIgs. These macros allow for a Pascal-like interface to the
+              Apple IIgs tools, and there are numerous other powerful utility
+              macros. Also included are text files with file type information
+              and page $E1 vector locations!
+
+#02-002       Z-LAUNCH   Pre-Release 0.30
+  $20         Z-Launch is a powerful program launcher for the Apple IIgs which
+              uses a custom graphical user interface. Z-Launch incorporates
+              both a file selection utility and a list of commonly used 
+              applications. Computer defaults and parameters can even be
+              set up for different applicatins such as Transwarp/system speed,
+              etc...THIS IS STILL PRE-RELEASE SO MANY MAJOR FEATURES ARE NOT
+              IMPLEMENTED, but if you pay the $20 shareware fee now, I will 
+              send you release 1.0 to you free upon completion. I make NO
+              guarantees that it will ever be finished and I don't expect anyone
+              to send shareware fees for Pre-Release programs anyways.
+
+#02-003       ZPACK   Release 2.0
+  $10         ZPACK is toolset and utility program for packing and unpacking
+              various types of file formats, all based on the ZPACK algorithm.
+              Includes ZPack Master, a picture converter application. Toolset
+              functions are also included for other compression formates such
+              as Apple Preferred picture compression.
+
+                              SOUNDSMITH SONGS
+                              ================
+
+These are songs which I've arranged for SoundSmith, a shareware product by
+Huibert Aalbers. These songs are the same as Freeware items.
+
+#04-001       BACH BWV 573 "Fantasia in C Major"
+#04-002       BACH BWV 575 "Fugue in C Minor"
+#04-003       BACH BWV 578 "Fugue in G Minor"
+#04-004       BACH BWV 538 "Toccata and Fugue in D Minor (Dorian)"
+
+
+                            ORDERING INFORMATION
+                            ====================
+
+Send Disk/Check/Money Order to:
+    Tim Meekins
+    8372 Morris Rd.
+    Hilliard, OH 43026
+
+ It's that simple.
+
+----------------------
+
+I can also be contacted at:
+
+   meekins@cis.ohio-state.edu
+   timm@pro-tcc.cts.com
+   meekins@bluemoon.uucp

@@ -1,0 +1,168 @@
+ MACRO
+&lab asl4 &a
+&lab asl &a
+ asl &a
+ asl &a
+ asl &a
+ mend
+ MACRO
+&lab asl2 &a
+&lab asl &a
+ asl &a
+ mend
+ MACRO
+&lab sub2 &arg1,&arg2,&dest
+ lclc &char
+&lab sec
+&char amid &arg1,1,1
+ aif "&char"="@",.at1
+ lda &arg1
+ ago .sub
+.at1
+&char amid &arg1,2,1
+ aif "&char"="x",.x1
+ aif "&char"="X",.x1
+ aif "&char"="y",.y1
+ aif "&char"="Y",.y1
+ ago .sub
+.x1
+ txa
+ ago .sub
+.y1
+ tya
+.sub
+ sbc &arg2
+&char amid &dest,1,1
+ aif "&char"="@",.at2
+ sta &dest
+ ago .b
+.at2
+&char amid &dest,2,1
+ aif "&char"="x",.x2
+ aif "&char"="X",.x2
+ aif "&char"="y",.y2
+ aif "&char"="Y",.y2
+ ago .b
+.x2
+ tax
+ ago .b
+.y2
+ tay
+.b
+ mend
+ MACRO
+&lab if2 &var,&rel,&val,&label
+&lab ago .skip
+ ble
+ bgt
+.skip
+ lclc &char1
+ lclc &char2
+&char1 amid &var,1,1
+&char2 amid &var,2,1
+ aif "&char1"="@",.index
+ lda &var
+.cmp
+ cmp &val
+ ago .branch
+.index
+ aif "&char2"="x",.x1
+ aif "&char2"="X",.x1
+ aif "&char2"="y",.y1
+ aif "&char2"="Y",.y1
+ ago ^cmp
+.x1
+ cpx &val
+ ago .branch
+.y1
+ cpy &val
+.branch
+&char1 amid &rel,1,1
+ aif "&char1"="@",.done
+ b&rel &label
+.done
+ mend
+ MACRO
+&lab bgt &loc
+&lab beq *+4
+ bcs &loc
+ mend
+ MACRO
+&lab ble &loc
+&lab bcc &loc
+ beq &loc
+ mend
+ MACRO
+&lab ph2 &parm
+ lclc &char
+&lab anop
+ aif c:&parm=0,.done
+&char amid &parm,1,1
+ aif "&char"="#",.immediate
+ aif "&char"="@",.at
+ aif s:longa=1,.chk
+ rep #%00100000
+.chk
+ aif "&char"<>"{",.absolute
+&char amid &parm,l:&parm,1
+ aif "&char"<>"}",.error
+&parm amid &parm,2,l:&parm-2
+ lda (&parm)
+ pha
+ ago .shorten
+.absolute
+ lda &parm
+ pha
+ ago .shorten
+.immediate
+&parm amid &parm,2,l:&parm-1
+ pea &parm
+ ago .done
+.at
+&char amid &parm,2,1
+ ph&char
+.shorten
+ aif s:longa=1,.done
+ sep #%00100000
+.done
+ mexit
+.error
+ mnote "Missing closing '}'",16
+ mend
+ MACRO
+&lab LD2 &val,&adr
+&lab lcla &count
+ lda #&val
+&count seta 1
+.loop
+ sta &adr(&count)
+&count seta &count+1
+ aif &count>c:&adr,.done
+ ago ^loop
+.done
+ mend
+ MACRO
+&lab LD4 &val,&adr
+&lab lcla &count
+ lda #<&val
+&count seta 1
+.loop1
+ sta &adr(&count)
+&count seta &count+1
+ aif &count>c:&adr,.part2
+ ago ^loop1
+.part2
+ lda #+(&val)|-16
+&count seta 1
+.loop2
+ sta &adr(&count)+2
+&count seta &count+1
+ aif &count>c:&adr,.done
+ ago ^loop2
+.done
+ mend
+ MACRO
+&lab inc2 &a
+&lab inc &a
+ inc &a
+ mend

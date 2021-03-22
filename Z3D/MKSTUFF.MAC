@@ -1,0 +1,176 @@
+ MACRO
+&lab add2 &arg1,&arg2,&dest
+ lclc &char
+&lab clc
+&char amid &arg1,1,1
+ aif "&char"="@",.at1
+ lda &arg1
+ ago .add
+.at1
+&char amid &arg1,2,1
+ aif "&char"="x",.x1
+ aif "&char"="X",.x1
+ aif "&char"="y",.y1
+ aif "&char"="Y",.y1
+ ago .add
+.x1
+ txa
+ ago .add
+.y1
+ tya
+.add
+ adc &arg2
+&char amid &dest,1,1
+ aif "&char"="@",.at2
+ sta &dest
+ ago .b
+.at2
+&char amid &dest,2,1
+ aif "&char"="x",.x2
+ aif "&char"="X",.x2
+ aif "&char"="y",.y2
+ aif "&char"="Y",.y2
+ ago .b
+.x2
+ tax
+ ago .b
+.y2
+ tay
+.b
+ mend
+ MACRO
+&lab MV2 &src,&adr
+&lab lcla &count
+ lda &src
+&count seta 1
+.loop
+ sta &adr(&count)
+&count seta &count+1
+ aif &count>c:&adr,.done
+ ago ^loop
+.done
+ mend
+ MACRO
+&lab LD2 &val,&adr
+&lab lcla &count
+ lda #&val
+&count seta 1
+.loop
+ sta &adr(&count)
+&count seta &count+1
+ aif &count>c:&adr,.done
+ ago ^loop
+.done
+ mend
+ MACRO
+&lab inc2 &a
+&lab inc &a
+ inc &a
+ mend
+ MACRO
+&lab if2 &var,&rel,&val,&label
+&lab ago .skip
+ ble
+ bgt
+.skip
+ lclc &char1
+ lclc &char2
+&char1 amid &var,1,1
+&char2 amid &var,2,1
+ aif "&char1"="@",.index
+ lda &var
+.cmp
+ cmp &val
+ ago .branch
+.index
+ aif "&char2"="x",.x1
+ aif "&char2"="X",.x1
+ aif "&char2"="y",.y1
+ aif "&char2"="Y",.y1
+ ago ^cmp
+.x1
+ cpx &val
+ ago .branch
+.y1
+ cpy &val
+.branch
+&char1 amid &rel,1,1
+ aif "&char1"="@",.done
+ b&rel &label
+.done
+ mend
+ MACRO
+&lab bgt &loc
+&lab beq *+4
+ bcs &loc
+ mend
+ MACRO
+&lab ble &loc
+&lab bcc &loc
+ beq &loc
+ mend
+ MACRO
+&lab LD4 &val,&adr
+&lab lcla &count
+ lda #<&val
+&count seta 1
+.loop1
+ sta &adr(&count)
+&count seta &count+1
+ aif &count>c:&adr,.part2
+ ago ^loop1
+.part2
+ lda #+(&val)|-16
+&count seta 1
+.loop2
+ sta &adr(&count)+2
+&count seta &count+1
+ aif &count>c:&adr,.done
+ ago ^loop2
+.done
+ mend
+ MACRO
+&lab dey2
+&lab dey
+ dey
+ mend
+ MACRO
+&lab and2 &arg1,&arg2,&dest
+&lab anop
+ lclc &char
+&char amid &arg1,1,1
+ aif "&char"="@",.at1
+ lda &arg1
+ ago .add
+.at1
+&char amid &arg1,2,1
+ aif "&char"="x",.x1
+ aif "&char"="X",.x1
+ aif "&char"="y",.y1
+ aif "&char"="Y",.y1
+ ago .add
+.x1
+ txa
+ ago .add
+.y1
+ tya
+.add
+ and &arg2
+&char amid &dest,1,1
+ aif "&char"="@",.at2
+ sta &dest
+ ago .b
+.at2
+&char amid &dest,2,1
+ aif "&char"="x",.x2
+ aif "&char"="X",.x2
+ aif "&char"="y",.y2
+ aif "&char"="Y",.y2
+ ago .b
+.x2
+ tax
+ ago .b
+.y2
+ tay
+.b
+ mend
