@@ -1,0 +1,23 @@
+               macro
+&lab           Active &Col,&flag
+&lab           aif   &flag=0,.done
+               lda   $E1C034
+               and   #$F0
+               ora   #&Col
+               sta   $E1C034
+.done
+               mend
+
+               macro
+&lab           ShadowOff
+&lab           lda   $E1C035
+               ora   #%1000
+               sta   $E1C035
+               mend
+
+               macro
+&lab           ShadowOn
+&lab           lda   $E1C035
+               and   #%1111111111110111
+               sta   $E1C035
+               mend

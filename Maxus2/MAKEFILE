@@ -1,0 +1,12 @@
+>maxus.asm:maxus.mac
+-maxus.mac
+!maxus.asm
+!maxch.asm
+!maxtbl.asm
+!maxstat.asm
+!maxlogo.asm
+!maxship.asm
+#link maxus maxtbl maxch maxstat maxlogo maxship keep=maxus
+#delete maxus.sys16
+#rename maxus maxus.sys16
+#filetype maxus.sys16 s16
