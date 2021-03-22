@@ -17,9 +17,6 @@
 ; for example, 'match .d1/*doc' would list all files on device 1 which
 ; end with 'doc'.
 ;
-; meekins@cis.ohio-state.edu
-; timm@pro-tcc.cts.com
-;
          mcopy match.mac
          keep  match
 
