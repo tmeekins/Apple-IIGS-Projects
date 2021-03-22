@@ -1,0 +1,3 @@
+cmpl fastmath.asm keep=fastmath
+chtyp -t cda fastmath
+cp fastmath */system/desk.accs

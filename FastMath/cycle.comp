@@ -1,0 +1,9 @@
+Cycle comparisons of Tim's Fast Math
+
+Statistics based on ROM based Integer Tool Set v2.0.
+
+
+Function	FastMath  Integer Math   Speedup        Avg Speedup
+
+Multiply	285/387   444/548        1.56/1.42      1.49
+UDivide        435/451   731/795        1.68/1.76      1.72
