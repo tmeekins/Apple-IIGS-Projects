@@ -1,0 +1,12 @@
+o/main
+o/bufpool
+o/edit
+o/error
+o/lex
+o/parse
+o/shell
+o/shellutil
+o/stdio
+o/term
+direct
+keep=gsh2
