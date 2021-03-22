@@ -1,0 +1,182 @@
+ MACRO
+&lab Str &string
+&lab dc i1'L:&string'
+ dc c"&string"
+ mend
+ MACRO
+&lab GSStr &string
+&lab dc i2'L:&string'
+ dc c"&string"
+ mend
+ MACRO
+&lab MV2 &src,&adr
+&lab lda &src
+ sta &adr
+ mend
+ MACRO
+&lab proc &rg
+&lab anop
+ aif c:&rg,.cc
+ lclc &rg
+.cc
+ aif c:&reg,.dd
+ gblc &reg
+.dd
+&reg setc ""
+ phb
+ aif l:&rg=0,.bb
+&reg setc &rg
+ lcla &plen
+ lclc &ch
+ lcla &i
+&plen seta l:&reg
+&i seta 0
+.aa
+ aif &i=&plen,.bb
+&i seta &i+1
+&ch amid &reg,&i,1
+ ph&ch
+ ago ^aa
+.bb
+ phk
+ plb
+ mend
+ MACRO
+&lab procendL
+&lab anop
+ lclc &ch
+ lcla &plen
+&plen seta l:&reg
+.aa
+ aif &plen=0,.bb
+&ch amid &reg,&plen,1
+ pl&ch
+&plen seta &plen-1
+ ago ^aa
+.bb
+ plb
+ rtl
+ mend
+ MACRO
+&lab Int2Hex &a1
+&lab ph2 &a1(1)
+ ph4 &a1(2)
+ ph2 &a1(3)
+ Tool $220b
+ mend
+ MACRO
+&lab WriteLine &a1
+&lab ph4 &a1
+ Tool $1a0c
+ mend
+ MACRO
+&lab WriteString &a1
+&lab ph4 &a1
+ Tool $1c0c
+ mend
+ MACRO
+&lab Open &a1
+&lab gsos $2010,&a1
+ mend
+ MACRO
+&lab Read &a1
+&lab gsos $2012,&a1
+ mend
+ MACRO
+&lab Close &a1
+&lab gsos $2014,&a1
+ mend
+ MACRO
+&lab tool &a1
+&lab ldx #&a1
+ jsl $e10000
+ mend
+ MACRO
+&lab gsos &a1,&a2
+&lab jsl $E100A8
+ dc i2'&a1'
+ dc i4'&a2'
+ mend
+ MACRO
+&lab ph2 &parm
+ lclc &char
+&lab anop
+ aif c:&parm=0,.done
+&char amid &parm,1,1
+ aif "&char"="#",.immediate
+ aif "&char"="@",.at
+ aif s:longa=1,.chk
+ rep #%00100000
+.chk
+ aif "&char"<>"{",.absolute
+&char amid &parm,l:&parm,1
+ aif "&char"<>"}",.error
+&parm amid &parm,2,l:&parm-2
+ lda (&parm)
+ pha
+ ago .shorten
+.absolute
+ lda &parm
+ pha
+ ago .shorten
+.immediate
+&parm amid &parm,2,l:&parm-1
+ pea &parm
+ ago .done
+.at
+&char amid &parm,2,1
+ ph&char
+.shorten
+ aif s:longa=1,.done
+ sep #%00100000
+.done
+ mexit
+.error
+ mnote "Missing closing '}'",16
+ mend
+ MACRO
+&lab ph4 &parm
+ lclc &char
+&lab anop
+&char amid &parm,1,1
+ aif "&char"="#",.immediate
+ aif s:longa=1,.chk1
+ rep #%00100000
+.chk1
+ aif "&char"<>"{",.chk2
+&char amid &parm,l:&parm,1
+ aif "&char"<>"}",.error
+&parm amid &parm,2,l:&parm-2
+ ldy #2
+ lda (&parm),y
+ pha
+ lda (&parm)
+ pha
+ ago .shorten
+.chk2
+ aif "&char"<>"[",.absolute
+ ldy #2
+ lda &parm,y
+ pha
+ lda &parm
+ pha
+ ago .shorten
+.absolute
+ lda &parm+2
+ pha
+ lda &parm
+ pha
+ ago .shorten
+.immediate
+&parm amid &parm,2,l:&parm-1
+ pea +(&parm)|-16
+ pea &parm
+ ago .done
+.shorten
+ aif s:longa=1,.done
+ sep #%00100000
+.done
+ mexit
+.error
+ mnote "Missing closing '}'",16
+ mend

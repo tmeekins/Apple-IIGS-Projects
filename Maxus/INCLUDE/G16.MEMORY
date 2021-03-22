@@ -1,0 +1,37 @@
+****************************************************************
+* Memory Manager global contants, data structures, and error codes
+* Written by Tim Meekins
+* November 11, 1988
+*
+* v1.0  11/11/88 TLM Original version. Uses Memory Manager v2.2
+*
+****************************************************************
+
+*
+* Attribute bits
+*
+attrNoPurge    gequ  $0000
+attrBank       gequ  $0001
+attrAddr       gequ  $0002
+attrPage       gequ  $0004
+attrNoSpec     gequ  $0008
+attrNoCross    gequ  $0010
+attrPurge1     gequ  $0100
+attrPurge2     gequ  $0200
+attrPurge3     gequ  $0300
+attrPurge      gequ  $0300
+attrHandle     gequ  $1000
+attrSystem     gequ  $2000
+attrFixed      gequ  $4000
+attrLocked     gequ  $8000
+*
+* Memory Manager error codes
+*
+memErr         gequ  $0201
+emptyErr       gequ  $0202
+notEmptyErr    gequ  $0203
+lockErr        gequ  $0204
+purgeErr       gequ  $0205
+handleErr      gequ  $0206
+idErr          gequ  $0207
+attrErr        gequ  $0208

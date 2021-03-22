@@ -1,0 +1,102 @@
+****************************************************************************
+*
+* MaXUS
+*
+* Reads TOP.SHR and creates an ORCA/M assembly language file
+* for assembling STAT graphics data. Redirect output to MaxStat.asm
+*
+****************************************************************************
+
+               mcopy mkstat.mac
+
+mkstat         start
+
+               proc
+
+               Open  OpenParm
+               mv2   OpenRef,ReadRef
+               sta   CloseRef
+               Read  ReadParm
+               Close CloseParm
+
+               WriteLine #StatStr1
+               WriteLine #StatStr2
+               jsr   WriteLine
+
+               ldy   #0
+Loop           lda   Data,y
+               and   #$FF
+               phy
+               jsr   WriteByte
+               ply
+               iny
+               cpy   #160*13
+               bcc   Loop
+
+               WriteLine #EndStr
+               WriteLine #PalStr
+               jsr   WriteLine
+
+               ldy   #0                 ;This could OBVIOUSLY be written better
+               ldx   #$7E00             ;but what do you expect for a quick
+Loop2          lda   Data,x             ;HACK??
+               and   #$FF
+               phy
+               phx
+               jsr   WriteByte
+               plx
+               ply
+               inx
+               iny
+               cpy   #16*2
+               bcc   Loop2
+
+               WriteLine #EndStr
+               WriteLine #DoneStr
+
+               procendL
+
+WriteByte      pha
+               lda   NumByteOut
+               cmp   #36
+               bne   DoWrite
+               WriteLine #EndStr
+               jsr   WriteLine
+DoWrite        pla
+               Int2Hex (@a,#HexStr+1,#2)
+               WriteString #HexStr
+               inc   NumByteOut
+               rts
+
+WriteLine      WriteString #LineStr
+               stz   NumByteOut
+               rts
+
+NumByteOut     ds    2
+
+StatStr1       str   'StatDat start'
+StatStr2       str   'StatPic anop'
+LineStr        str   ' dc h'''
+EndStr         str   ''''
+HexStr         str   '00'
+PalStr         str   'StatPal anop'
+DoneStr        str   ' end'
+
+OpenParm       dc    i'2'
+OpenRef        ds    2
+               dc    i4'FileName'
+
+ReadParm       dc    i'4'
+ReadRef        ds    2
+               dc    i4'Data'
+               dc    i4'$8000'
+               ds    4
+
+CloseParm      dc    i'1'
+CloseRef       ds    2
+
+FileName       GSStr 'STAT.SHR'
+
+Data           ds    $8000
+
+               end
