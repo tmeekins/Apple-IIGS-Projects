@@ -30,7 +30,3 @@ where....
 
 Have fun!
 
-
-Tim Meekins
-351 Olema Rd. #12
-Fairfax, CA 94930
